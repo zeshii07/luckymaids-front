@@ -97,8 +97,8 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li>123 Sparkle Street</li>
               <li>New York, NY 10001</li>
-              <li>(555) 123-4567</li>
-              <li>hello@luckycrystalmaids.com</li>
+              <li>0552488588</li>
+              <li>Luckycrystaldubai@gmail.com</li>
             </ul>
           </div>
         </div>

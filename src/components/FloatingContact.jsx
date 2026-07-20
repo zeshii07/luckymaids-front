@@ -6,12 +6,12 @@ export default function FloatingContact() {
   const [isOpen, setIsOpen] = useState(false);
 
   // Replace with your actual contact info
-  const phoneNumber = "15551234567"; 
-  const whatsappNumber = "15551234567"; 
-  const email = "hello@luckycrystalmaids.com";
+  const phoneNumber = "0552488588"; 
+  const whatsappNumber = "0552488588"; 
+  const email = "Luckycrystaldubai@gmail.com";
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-4">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-1">
       <AnimatePresence>
         {isOpen && (
           <>

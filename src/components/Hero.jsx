@@ -21,7 +21,7 @@ export default function Hero() {
       {/* 2. Smiling Cleaner PNG (Spanning FULL section height behind text) */}
       <motion.div 
         initial={{ opacity: 0 }} 
-        animate={{ opacity: 0.45 }} // Sets target opacity directly on mobile
+        animate={{ opacity: 1 }} // Sets target opacity directly on mobile
         transition={{ duration: 1 }}
         /* 
           Mobile: absolute filling inset-0 completely. z-10 puts her behind text.
@@ -64,7 +64,7 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-            <Link to="/booking" className="flex items-center justify-center bg-crystal-500 text-white px-8 py-4 rounded-full hover:bg-crystal-600 transition shadow-lg hover:shadow-xl hover:scale-105 duration-300 font-medium">
+            <Link to="/quote" className="flex items-center justify-center bg-crystal-500 text-white px-8 py-4 rounded-full hover:bg-crystal-600 transition shadow-lg hover:shadow-xl hover:scale-105 duration-300 font-medium">
               Get a Free Quote <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
             <a href="/#services" className="flex items-center justify-center bg-white/10 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full hover:bg-white/20 transition shadow-sm font-medium">

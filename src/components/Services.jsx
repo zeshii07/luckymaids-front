@@ -99,14 +99,14 @@ const services = [
     icon: Home,
     title: 'Residential Cleaning',
     desc: 'Regular weekly or bi-weekly cleaning to keep your home spotless and comfortable.',
-    image: 'https://images.unsplash.com/photo-1521798643720-73c7b1d78294?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'deep',
     icon: Sparkles,
     title: 'Deep Cleaning',
     desc: 'A comprehensive top-to-bottom clean for those areas that need extra attention.',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    image: 'https://plus.unsplash.com/premium_photo-1677234147127-36046f5fbe78?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGNsZWFuaW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'move',
@@ -137,7 +137,6 @@ const services = [
     image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   }
 ];
-
 export default function Services() {
   return (
     <section id="services" className="py-24 bg-white">
