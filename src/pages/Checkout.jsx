@@ -15,6 +15,7 @@ import {
   CreditCard,
   Banknote,
   CreditCard as CardIcon,
+  X,
 } from "lucide-react";
 import { useCart } from "../context/CartContext";
 
@@ -22,7 +23,8 @@ export default function Checkout() {
   const navigate = useNavigate();
   const { cartItems, cartTotal, clearCart, removeFromCart } = useCart();
   const [isProcessing, setIsProcessing] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState("cash"); // 'cash' or 'card'
+  const [paymentMethod, setPaymentMethod] = useState("cash");
+  const [error, setError] = useState(null); // 'cash' or 'card'
 
   const [bookingDetails, setBookingDetails] = useState({
     name: "",
@@ -33,28 +35,50 @@ export default function Checkout() {
     date: "",
     time: "",
   });
-
-  const handleChange = (e) =>
+  const handleChange = (e) => {
     setBookingDetails({ ...bookingDetails, [e.target.name]: e.target.value });
+  };
 
-  const handlePayment = (e) => {
+  const handlePayment = async (e) => {
     e.preventDefault();
     setIsProcessing(true);
+    setError(null);
 
-    setTimeout(() => {
+    try {
+      const response = await fetch("http://localhost:5000/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: cartItems,
+          totalAmount: cartTotal,
+          customer: bookingDetails,
+          paymentMethod: paymentMethod,
+        }),
+      });
+
+      if (response.ok) {
+        const finalTotal = cartTotal;
+        const finalItems = [...cartItems];
+        const finalCustomer = { ...bookingDetails };
+
+        clearCart();
+
+        navigate("/confirmation", {
+          state: {
+            totalAmount: finalTotal,
+            items: finalItems,
+            customer: finalCustomer,
+            paymentMethod,
+          },
+        });
+      } else {
+        setIsProcessing(false);
+        setError("Payment failed. Please try again.");
+      }
+    } catch (error) {
       setIsProcessing(false);
-      const finalTotal = cartTotal;
-      const finalBookingData = {
-        items: cartItems,
-        totalAmount: finalTotal,
-        customer: bookingDetails,
-        paymentMethod,
-      };
-      console.log("Data to send to backend:", finalBookingData);
-
-      clearCart();
-      navigate("/confirmation", { state: finalBookingData });
-    }, 2000);
+      setError("Error connecting to server. Is the backend running?");
+    }
   };
 
   if (cartItems.length === 0) {
@@ -408,6 +432,15 @@ export default function Checkout() {
                     ? "Submit Request"
                     : `Confirm Booking (${cartTotal} AED)`}
               </button>
+
+              {error && (
+                <div className="bg-red-50 text-red-700 p-4 rounded-xl text-sm flex items-center justify-between mt-4">
+                  <span>{error}</span>
+                  <button type="button" onClick={() => setError(null)}>
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+              )}
 
               <div className="mt-6 bg-crystal-50 p-4 rounded-xl text-xs text-crystal-700 flex items-start">
                 <CreditCard className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" /> By

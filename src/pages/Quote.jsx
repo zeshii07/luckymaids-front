@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { Calculator, Home, Building, Baby, Sparkles, Truck, Sofa, Minus, Plus, CheckCircle, Construction, ArrowRight, ClipboardList } from 'lucide-react';
+import { Calculator, Home, Building, Baby, Sparkles, Truck, Sofa, Minus, Plus, CheckCircle, Construction, ArrowRight, ClipboardList, X } from 'lucide-react';
 
 // --- Data Definitions ---
 const hourlyServices = [
@@ -39,6 +39,7 @@ export default function Quote() {
   const [step, setStep] = useState(1); // 1: Select Service, 2: Enter Details, 3: Success
   const [category, setCategory] = useState(null); // 'hourly', 'package', or 'custom'
   const [selectedService, setSelectedService] = useState(null);
+    const [error, setError] = useState(null);
   
   // Hourly State
   const [hours, setHours] = useState(2);
@@ -81,11 +82,39 @@ export default function Quote() {
     setStep(2);
   };
 
-  const handleSubmit = (e) => {
+     const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate backend submission
-    console.log("Quote Data:", { service: selectedService, hours, crew, materials, propertyType, selectedPackage, customDetails, estimate, contact });
-    setStep(3);
+    setError(null); // Clear previous errors
+    
+    let details = {};
+    if (category === 'hourly') {
+      details = { hours, crew, materials };
+    } else if (category === 'package') {
+      details = { propertyType, selectedPackage };
+    } else if (category === 'custom') {
+      details = { customDetails };
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/api/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service: selectedService.name,
+          details: details,
+          estimate: estimate,
+          contact: contact
+        })
+      });
+
+      if (response.ok) {
+        setStep(3);
+      } else {
+        setError('Failed to submit quote. Please check your details and try again.');
+      }
+    } catch (error) {
+      setError('Error connecting to server. Is the backend running?');
+    }
   };
 
   return (
@@ -218,35 +247,43 @@ export default function Quote() {
                     )}
 
                     {/* Contact Info */}
+                                        {/* Contact Info */}
                     <div className="pt-6 border-t border-gray-100">
                       <h3 className="text-lg font-bold text-gray-800 mb-4">Your Contact Details</h3>
                       <div className="grid md:grid-cols-2 gap-6">
-                        <input type="text" required placeholder="Full Name" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-crystal-500" />
-                        <input type="tel" required placeholder="Phone Number" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-crystal-500" />
+                        <input type="text" required placeholder="Full Name" value={contact.name} onChange={(e) => setContact({...contact, name: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-crystal-500" />
+                        <input type="tel" required placeholder="Phone Number" value={contact.phone} onChange={(e) => setContact({...contact, phone: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-crystal-500" />
                       </div>
                       <div className="grid md:grid-cols-2 gap-6 mt-4">
-                        <input type="email" required placeholder="Email Address" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-crystal-500" />
-                        <input type="text" required placeholder="Area in Dubai (e.g., Marina)" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-crystal-500" />
+                        <input type="email" required placeholder="Email Address" value={contact.email} onChange={(e) => setContact({...contact, email: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-crystal-500" />
+                        <input type="text" required placeholder="Area in Dubai (e.g., Marina)" value={contact.address} onChange={(e) => setContact({...contact, address: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-crystal-500" />
                       </div>
                     </div>
 
-                    <button type="submit" className="w-full bg-crystal-500 text-white py-4 rounded-xl hover:bg-crystal-600 transition font-bold text-lg flex items-center justify-center">
+                                        <button type="submit" className="w-full bg-crystal-500 text-white py-4 rounded-xl hover:bg-crystal-600 transition font-bold text-lg flex items-center justify-center">
                       Submit Quote Request <ArrowRight className="w-5 h-5 ml-2" />
                     </button>
+
+                    {error && (
+                      <div className="bg-red-50 text-red-700 p-4 rounded-xl text-sm flex items-center justify-between mt-4">
+                        <span>{error}</span>
+                        <button type="button" onClick={() => setError(null)}><X className="w-4 h-4" /></button>
+                      </div>
+                    )}
                   </form>
                 </motion.div>
               )}
 
-              {step === 3 && (
+                            {step === 3 && (
                 <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-12 flex flex-col items-center">
-                  <div className="bg-yellow-100 p-4 rounded-full mb-6">
-                    <Construction className="w-12 h-12 text-yellow-600" />
+                  <div className="bg-green-100 p-4 rounded-full mb-6">
+                    <CheckCircle className="w-12 h-12 text-green-600" />
                   </div>
-                  <h2 className="text-3xl font-bold text-gray-800 mb-4">Backend Integration Pending</h2>
+                  <h2 className="text-3xl font-bold text-gray-800 mb-4">Quote Request Sent!</h2>
                   <p className="text-gray-600 max-w-md mb-8">
-                    This is a frontend placeholder. In the next phase, this will securely send your quote request to our email and WhatsApp. {estimate ? `Your estimated total was ${estimate} AED.` : 'Our team will assess your custom request and reply with a quote.'}
+                    Thank you! Our team has received your request. {estimate ? `Your estimated total is ${estimate} AED.` : 'We will assess your custom request.'} We will contact you shortly to confirm the details.
                   </p>
-                  <button onClick={() => { setStep(1); setEstimate(0); }} className="text-crystal-500 font-semibold hover:underline">
+                  <button onClick={() => { setStep(1); setEstimate(0); setContact({ name: '', phone: '', email: '', address: '' }); }} className="text-crystal-500 font-semibold hover:underline">
                     Start a new quote
                   </button>
                 </motion.div>

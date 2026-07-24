@@ -5,9 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FloatingContact from './components/FloatingContact';
 import ScrollToTop from './components/ScrollToTop';
-import StickyCartBar from './components/StickyCartBar'; // <-- Import Sticky Bar
-
-// Pages
+import StickyCartBar from './components/StickyCartBar'; // <-- Import Sticky
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -22,6 +20,9 @@ import Furniture from './pages/services/Furniture';
 import BabysittingMaid from './pages/services/BabysittingMaid';
 import Checkout from './pages/Checkout';
 import Confirmation from './pages/Confirmation';
+import ServiceMarquee from './components/ServiceMarquee';
+import Babysitting from './pages/services/Babysitting';
+import MaidServices from './pages/services/MaidServices';
 
 export default function App() {
   return (
@@ -46,14 +47,17 @@ export default function App() {
                 <Route path="/services/commercial" element={<Commercial />} />
                 <Route path="/services/furniture" element={<Furniture />} />
                 <Route path="/services/babysitting-maid" element={<BabysittingMaid />} />
+                <Route path="/services/babysitting" element={<Babysitting />} />
+                <Route path="/services/maid-services" element={<MaidServices />} />
                 
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/confirmation" element={<Confirmation />} />
               </Routes>
             </main>
+            <ServiceMarquee />
             <Footer />
             <FloatingContact />
-            <StickyCartBar /> {/* <-- Render globally here */}
+            <StickyCartBar />  
           </div>
         </BrowserRouter>
       </CartProvider>

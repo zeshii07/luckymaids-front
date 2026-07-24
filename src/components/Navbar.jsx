@@ -16,13 +16,14 @@ export default function Navbar() {
   }, []);
 
   const services = [
-    { name: 'Residential Cleaning', path: '/services/residential' },
-    { name: 'Deep Cleaning', path: '/services/deep-cleaning' },
-    { name: 'Move-in/Out Cleaning', path: '/services/move-in-out' },
-    { name: 'Commercial Cleaning', path: '/services/commercial' },
-    { name: 'Furniture Cleaning', path: '/services/furniture' },
-    { name: 'Babysitting & Maid', path: '/services/babysitting-maid' },
-  ];
+  { name: 'Residential Cleaning', path: '/services/residential' },
+  { name: 'Deep Cleaning', path: '/services/deep-cleaning' },
+  { name: 'Move-in/Out Cleaning', path: '/services/move-in-out' },
+  { name: 'Commercial Cleaning', path: '/services/commercial' },
+  { name: 'Furniture Cleaning', path: '/services/furniture' },
+  { name: 'Maid Services', path: '/services/maid-services' }, // New Link
+  { name: 'Babysitting Services', path: '/services/babysitting' }, // New Link
+];
 
   return (
     <motion.nav 
