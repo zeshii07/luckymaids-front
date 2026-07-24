@@ -186,7 +186,7 @@
 //           className="w-full h-full object-cover"
 //         />
 //         <div className="absolute inset-0 bg-gradient-to-t from-purple-900/90 via-purple-900/50 to-transparent"></div>
-//         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
+//         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 pt-28">
 //           <motion.div
 //             initial={{ opacity: 0, y: 30 }}
 //             animate={{ opacity: 1, y: 0 }}
@@ -660,7 +660,7 @@ export default function MoveInOut() {
       <div className="relative h-[500px] w-full overflow-hidden">
         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Professional move out cleaning services in Dubai" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-purple-900/95 via-purple-900/70 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
+        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 pt-28">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Link to="/services" className="inline-flex items-center text-purple-300 mb-4 hover:text-white transition"><ArrowLeft className="w-4 h-4 mr-2" /> Back to Services</Link>
             <h1 className="text-3xl md:text-5xl font-display font-bold text-white mb-4 max-w-4xl">Professional Move-In and Move-Out Cleaning Services in Dubai</h1>

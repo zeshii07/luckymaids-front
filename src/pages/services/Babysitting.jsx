@@ -109,7 +109,7 @@ export default function Babysitting() {
       <div className="relative h-[500px] w-full overflow-hidden">
         <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Professional babysitting services in Dubai" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/95 via-indigo-900/70 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
+        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 pt-28">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Link to="/services" className="inline-flex items-center text-indigo-300 mb-4 hover:text-white transition"><ArrowLeft className="w-4 h-4 mr-2" /> Back to Services</Link>
             <h1 className="text-3xl md:text-5xl font-display font-bold text-white mb-4 max-w-4xl">Professional Babysitting Services in Dubai</h1>
