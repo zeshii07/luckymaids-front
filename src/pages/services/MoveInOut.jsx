@@ -1,520 +1,24 @@
-// import { useState } from "react";
-// import { motion } from "framer-motion";
-// import { Link } from "react-router-dom";
-// import { Helmet } from "react-helmet-async";
-// import {
-//   CheckCircle,
-//   ArrowLeft,
-//   ShoppingCart,
-//   Home,
-//   Building,
-//   Tag,
-//   ShieldCheck,
-//   Leaf,
-//   Clock,
-//   Search,
-//   SprayCan,
-//   Eye,
-//   ChevronDown,
-//   KeyRound,
-// } from "lucide-react";
-// import { useCart } from "../../context/CartContext";
-// import ServiceIntro from "../../components/ServiceIntro";
-// import { FileCheck, Truck } from "lucide-react";
-
-// // Pricing Data (Mirroring Deep Cleaning)
-// const villaFurnished = [
-//   { id: "mvf1", name: "1 Bedroom Villa", price: 400, original: 450 },
-//   { id: "mvf2", name: "2 Bedroom Villa", price: 500, original: 550 },
-//   { id: "mvf3", name: "3 Bedroom Villa", price: 600, original: 700 },
-//   { id: "mvf4", name: "4 Bedroom Villa", price: 700, original: 800 },
-//   { id: "mvf5", name: "5 Bedroom Villa", price: 800, original: 950 },
-// ];
-
-// const villaUnfurnished = [
-//   { id: "mvu1", name: "1 Bedroom Villa", price: 350, original: 400 },
-//   { id: "mvu2", name: "2 Bedroom Villa", price: 450, original: 500 },
-//   { id: "mvu3", name: "3 Bedroom Villa", price: 550, original: 650 },
-//   { id: "mvu4", name: "4 Bedroom Villa", price: 650, original: 750 },
-//   { id: "mvu5", name: "5 Bedroom Villa", price: 750, original: 900 },
-// ];
-
-// const apartments = [
-//   { id: "map0", name: "Studio Apartment", price: 250, original: 300 },
-//   { id: "map1", name: "1 Bedroom Apartment", price: 300, original: 350 },
-//   { id: "map2", name: "2 Bedroom Apartment", price: 350, original: 400 },
-//   { id: "map3", name: "3 Bedroom Apartment", price: 400, original: 450 },
-// ];
-
-// const detailedChecklist = [
-//   "Deep cleaning of all empty cabinets, wardrobes, and drawers",
-//   "Heavy duty kitchen degreasing (oven, stovetop, extractor)",
-//   "Inside and outside of all appliances (if requested)",
-//   "Descaling bathrooms (tiles, showerheads, faucets, toilets)",
-//   "Scrubbing grout lines and sanitizing all floors",
-//   "Dusting ceiling fans, light fixtures, and skirting boards",
-//   "Cleaning window tracks, frames, and internal glass",
-//   "Wall spot cleaning and cobweb removal",
-//   "Balcony and patio sweeping and washing",
-// ];
-
-// const processSteps = [
-//   {
-//     icon: Search,
-//     title: "1. Property Assessment",
-//     desc: "We assess the empty property to identify areas that require special attention to meet landlord or Real Estate Agent (Ejari) standards.",
-//   },
-//   {
-//     icon: SprayCan,
-//     title: "2. Equipment Prep",
-//     desc: "Our team arrives fully equipped with industrial-grade degreasers, descalers, and eco-friendly cleaning agents.",
-//   },
-//   {
-//     icon: KeyRound,
-//     title: "3. Comprehensive Deep Clean",
-//     desc: "We execute a top-to-bottom scrub down of every room, focusing on deposit-critical areas like kitchens and bathrooms.",
-//   },
-//   {
-//     icon: Eye,
-//     title: "4. Final Walkthrough",
-//     desc: "A strict quality inspection ensures the property is spotless and ready for handover, helping secure your full deposit.",
-//   },
-// ];
-
-// const faqs = [
-//   {
-//     q: "Will this cleaning help me get my full deposit back?",
-//     a: "Yes. Landlords and property managers in Dubai require a professional end-of-tenancy deep clean. Our checklist is specifically designed to meet Real Estate Regulatory Agency (RERA) standards.",
-//   },
-//   {
-//     q: "Do I need to be present during the move-out clean?",
-//     a: "No, you do not. In fact, it is easier for our team to clean an empty property. You can hand over the keys to our team leader and relax.",
-//   },
-//   {
-//     q: "What if the property is still furnished?",
-//     a: "We can clean around furniture, but please note that move-in/move-out cleans are most effective on empty properties. We offer specific pricing for furnished vs. unfurnished villas.",
-//   },
-//   {
-//     q: "Do you clean the outside windows and balconies?",
-//     a: "Internal windows, tracks, and frames are always included. Balcony sweeping and washing are included. External high-rise window cleaning requires specialized equipment and can be quoted separately.",
-//   },
-// ];
-
-// export default function MoveInOut() {
-//   const { addToCart } = useCart();
-//   const [addedId, setAddedId] = useState(null);
-//   const [openFaq, setOpenFaq] = useState(null);
-
-//   const handleAddPackage = (pkg, type) => {
-//     addToCart({
-//       service: `Move In/Out: ${pkg.name} (${type})`,
-//       totalAmount: pkg.price,
-//       isPackage: true,
-//     });
-//     setAddedId(pkg.id);
-//     setTimeout(() => setAddedId(null), 2000);
-//   };
-
-//   const scrollToSection = (id) => {
-//     document
-//       .getElementById(id)
-//       .scrollIntoView({ behavior: "smooth", block: "start" });
-//   };
-
-//   const PackageCard = ({ pkg, type, accentColor }) => (
-//     <motion.div
-//       initial={{ opacity: 0, y: 30 }}
-//       whileInView={{ opacity: 1, y: 0 }}
-//       viewport={{ once: true }}
-//       transition={{ duration: 0.4 }}
-//       className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden flex flex-col group hover:shadow-xl transition-all"
-//     >
-//       <div
-//         className={`p-6 flex-grow ${accentColor === "purple" ? "bg-purple-50" : "bg-blue-50"}`}
-//       >
-//         <h4 className="text-lg font-bold text-gray-800 mb-2">{pkg.name}</h4>
-//         <div className="flex items-end gap-2 mb-3">
-//           <span
-//             className={`text-3xl font-bold ${accentColor === "purple" ? "text-purple-600" : "text-blue-600"}`}
-//           >
-//             {pkg.price} AED
-//           </span>
-//           <span className="text-lg text-gray-400 line-through mb-1">
-//             {pkg.original} AED
-//           </span>
-//         </div>
-//         <span
-//           className={`inline-flex items-center text-xs font-bold px-2 py-1 rounded-full bg-green-100 text-green-700`}
-//         >
-//           <Tag className="w-3 h-3 mr-1" /> Save {pkg.original - pkg.price} AED
-//         </span>
-//       </div>
-//       <div className="p-4 bg-white">
-//         <button
-//           onClick={() => handleAddPackage(pkg, type)}
-//           className={`w-full flex items-center justify-center py-3 rounded-xl transition font-bold text-sm shadow-sm ${addedId === pkg.id ? "bg-green-500 text-white" : `${accentColor === "purple" ? "bg-purple-500 hover:bg-purple-600" : "bg-blue-500 hover:bg-blue-600"} text-white`}`}
-//         >
-//           {addedId === pkg.id ? (
-//             "Added!"
-//           ) : (
-//             <>
-//               <ShoppingCart className="w-4 h-4 mr-2" /> Add to Cart
-//             </>
-//           )}
-//         </button>
-//       </div>
-//     </motion.div>
-//   );
-
-//   return (
-//     <div className="pt-20 pb-32 bg-white min-h-screen">
-//       <Helmet>
-//         <title>
-//           Move-In & Move-Out Cleaning in Dubai | End of Tenancy | Lucky Crystal
-//         </title>
-//         <meta
-//           name="description"
-//           content="Secure your deposit with professional move-in and move-out cleaning in Dubai. Transparent package pricing for empty villas and apartments. Book online!"
-//         />
-//       </Helmet>
-
-//       {/* Hero */}
-//       <div className="relative h-[400px] w-full overflow-hidden">
-//         <img
-//           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-//           alt="Dubai Move Out Cleaning"
-//           className="w-full h-full object-cover"
-//         />
-//         <div className="absolute inset-0 bg-gradient-to-t from-purple-900/90 via-purple-900/50 to-transparent"></div>
-//         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 pt-28">
-//           <motion.div
-//             initial={{ opacity: 0, y: 30 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.6 }}
-//           >
-//             <Link
-//               to="/services"
-//               className="inline-flex items-center text-purple-300 mb-4 hover:text-white transition"
-//             >
-//               <ArrowLeft className="w-4 h-4 mr-2" /> Back to Services
-//             </Link>
-//             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-2">
-//               Move-In / Move-Out Cleaning in Dubai
-//             </h1>
-//             <p className="text-xl text-gray-200 mb-6">
-//               Secure your deposit with our end-of-tenancy deep cleaning
-//               packages.
-//             </p>
-//             <div className="flex flex-col sm:flex-row gap-4">
-//               <button
-//                 onClick={() => scrollToSection("villa-section")}
-//                 className="flex items-center justify-center bg-white text-gray-800 px-6 py-3 rounded-full hover:bg-gray-100 transition shadow-lg font-bold"
-//               >
-//                 <Home className="w-5 h-5 mr-2 text-purple-500" /> Villa Move Out
-//               </button>
-//               <button
-//                 onClick={() => scrollToSection("apartment-section")}
-//                 className="flex items-center justify-center bg-purple-500 text-white px-6 py-3 rounded-full hover:bg-purple-600 transition shadow-lg font-bold"
-//               >
-//                 <Building className="w-5 h-5 mr-2" /> Apartment Move Out
-//               </button>
-//             </div>
-//           </motion.div>
-//         </div>
-//       </div>
-
-//       <ServiceIntro
-//         title="Move-In / Move-Out Cleaning in Dubai"
-//         description="Move-in/move-out cleaning in Dubai is a specialized end-of-tenancy deep clean designed to meet the strict handover standards of Dubai landlords and real estate agents. Whether you are vacating a property in JLT and need your full deposit back, or moving into a new home in Dubai Hills and want it pristine before unpacking, our comprehensive checklist ensures every cabinet, appliance, and bathroom is spotless and ready for handover."
-//         cards={[
-//           {
-//             icon: KeyRound,
-//             title: "Secure Your Deposit",
-//             desc: "We meet RERA standards to ensure landlords have no reason to deduct your security deposit.",
-//           },
-//           {
-//             icon: FileCheck,
-//             title: "Real Estate Approved",
-//             desc: "Our checklist is recognized by major Dubai property managers for smooth key handovers.",
-//           },
-//           {
-//             icon: Truck,
-//             title: "Stress-Free Relocation",
-//             desc: "Focus on moving your boxes; let us handle the heavy scrubbing and sanitization.",
-//           },
-//         ]}
-//       />
-
-//       {/* Villa Section */}
-//       <div id="villa-section" className="py-16 scroll-mt-20 bg-gray-50">
-//         <div className="container mx-auto px-6 max-w-6xl">
-//           <div className="text-center mb-12">
-//             <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-3">
-//               Villa Move-Out Packages
-//             </h2>
-//             <p className="text-gray-600 max-w-2xl mx-auto">
-//               Comprehensive top-to-bottom cleaning for your Dubai villa. Perfect
-//               for handovers and ensuring full deposit returns.
-//             </p>
-//           </div>
-//           <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-//             <Home className="w-6 h-6 mr-3 text-purple-500" /> Furnished Villas
-//           </h3>
-//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-//             {villaFurnished.map((pkg) => (
-//               <PackageCard
-//                 key={pkg.id}
-//                 pkg={pkg}
-//                 type="Furnished"
-//                 accentColor="purple"
-//               />
-//             ))}
-//           </div>
-//           <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-//             <Home className="w-6 h-6 mr-3 text-gray-400" /> Unfurnished Villas
-//           </h3>
-//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-//             {villaUnfurnished.map((pkg) => (
-//               <PackageCard
-//                 key={pkg.id}
-//                 pkg={pkg}
-//                 type="Unfurnished"
-//                 accentColor="purple"
-//               />
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Apartment Section */}
-//       <div id="apartment-section" className="py-16 scroll-mt-20 bg-white">
-//         <div className="container mx-auto px-6 max-w-6xl">
-//           <div className="text-center mb-12">
-//             <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-3">
-//               Apartment Move-Out Packages
-//             </h2>
-//             <p className="text-gray-600 max-w-2xl mx-auto">
-//               Detailed end-of-tenancy cleaning for apartments and studios. Meets
-//               all Dubai property manager requirements.
-//             </p>
-//           </div>
-//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-//             {apartments.map((pkg) => (
-//               <PackageCard
-//                 key={pkg.id}
-//                 pkg={pkg}
-//                 type="Apartment"
-//                 accentColor="blue"
-//               />
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* SEO Content 1: What's Included */}
-//       <section className="py-20 bg-gray-50">
-//         <div className="container mx-auto px-6 max-w-5xl">
-//           <motion.div
-//             initial={{ opacity: 0, y: 30 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             viewport={{ once: true }}
-//             className="text-center mb-12"
-//           >
-//             <p className="text-purple-500 font-semibold mb-2">OUR CHECKLIST</p>
-//             <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800">
-//               What’s Included in Our Move-Out Clean?
-//             </h2>
-//             <p className="text-gray-600 mt-4">
-//               We focus on the critical areas that landlords and property
-//               managers inspect during the handover process.
-//             </p>
-//           </motion.div>
-//           <div className="grid md:grid-cols-2 gap-x-12 gap-y-4">
-//             {detailedChecklist.map((item, i) => (
-//               <motion.div
-//                 key={i}
-//                 initial={{ opacity: 0, x: -20 }}
-//                 whileInView={{ opacity: 1, x: 0 }}
-//                 viewport={{ once: true }}
-//                 transition={{ delay: i * 0.05 }}
-//                 className="flex items-start mb-4"
-//               >
-//                 <CheckCircle className="w-6 h-6 text-purple-500 mr-4 flex-shrink-0 mt-1" />
-//                 <span className="text-gray-700">{item}</span>
-//               </motion.div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* SEO Content 2: The Process */}
-//       <section className="py-20 bg-white">
-//         <div className="container mx-auto px-6 max-w-6xl">
-//           <motion.div
-//             initial={{ opacity: 0, y: 30 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             viewport={{ once: true }}
-//             className="text-center mb-16"
-//           >
-//             <p className="text-purple-500 font-semibold mb-2">HOW IT WORKS</p>
-//             <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800">
-//               Our Move-Out Cleaning Process
-//             </h2>
-//           </motion.div>
-//           <div className="grid md:grid-cols-4 gap-8">
-//             {processSteps.map((step, i) => (
-//               <motion.div
-//                 key={i}
-//                 initial={{ opacity: 0, y: 30 }}
-//                 whileInView={{ opacity: 1, y: 0 }}
-//                 viewport={{ once: true }}
-//                 transition={{ delay: i * 0.1 }}
-//                 className="text-center p-6 bg-gray-50 rounded-3xl"
-//               >
-//                 <div className="bg-white w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm border border-gray-100">
-//                   <step.icon className="w-8 h-8 text-purple-500" />
-//                 </div>
-//                 <h3 className="text-lg font-bold text-gray-800 mb-2">
-//                   {step.title}
-//                 </h3>
-//                 <p className="text-sm text-gray-600">{step.desc}</p>
-//               </motion.div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* SEO Content 3: Why Choose Us & Trust Badges */}
-//       <section className="py-20 bg-purple-50">
-//         <div className="container mx-auto px-6 max-w-5xl grid md:grid-cols-2 gap-12 items-center">
-//           <motion.div
-//             initial={{ opacity: 0, x: -50 }}
-//             whileInView={{ opacity: 1, x: 0 }}
-//             viewport={{ once: true }}
-//           >
-//             <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-6">
-//               Why Choose Lucky Crystal for Your Move?
-//             </h2>
-//             <p className="text-gray-600 mb-8 leading-relaxed">
-//               Moving is stressful enough. Let us handle the cleaning so you can
-//               focus on settling into your new home. Our Dubai-based team
-//               understands exactly what landlords and real estate agents expect
-//               during a property handover, ensuring a smooth transition and
-//               helping you secure your full deposit back.
-//             </p>
-//             <div className="space-y-4">
-//               <div className="flex items-center">
-//                 <ShieldCheck className="w-6 h-6 text-purple-500 mr-4" />
-//                 <p className="font-medium text-gray-700">
-//                   Trained & Background-Checked Professionals
-//                 </p>
-//               </div>
-//               <div className="flex items-center">
-//                 <KeyRound className="w-6 h-6 text-purple-500 mr-4" />
-//                 <p className="font-medium text-gray-700">
-//                   Meets RERA & Landlord Handover Standards
-//                 </p>
-//               </div>
-//               <div className="flex items-center">
-//                 <Clock className="w-6 h-6 text-purple-500 mr-4" />
-//                 <p className="font-medium text-gray-700">
-//                   Flexible Scheduling Around Your Move Date
-//                 </p>
-//               </div>
-//             </div>
-//           </motion.div>
-//           <motion.div
-//             initial={{ opacity: 0, scale: 0.8 }}
-//             whileInView={{ opacity: 1, scale: 1 }}
-//             viewport={{ once: true }}
-//             className="rounded-3xl overflow-hidden shadow-xl"
-//           >
-//             <img
-//               src="https://images.unsplash.com/photo-1582132818112-14f028e9a8ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-//               alt="Professional Move Out Cleaning"
-//               className="w-full h-[400px] object-cover"
-//             />
-//           </motion.div>
-//         </div>
-//       </section>
-
-//       {/* SEO Content 4: FAQ Section */}
-//       <section className="py-20 bg-white">
-//         <div className="container mx-auto px-6 max-w-3xl">
-//           <motion.div
-//             initial={{ opacity: 0, y: 30 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             viewport={{ once: true }}
-//             className="text-center mb-12"
-//           >
-//             <p className="text-purple-500 font-semibold mb-2">FAQS</p>
-//             <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800">
-//               Move-In / Move-Out Cleaning FAQs
-//             </h2>
-//           </motion.div>
-//           <div className="space-y-4">
-//             {faqs.map((faq, i) => (
-//               <div
-//                 key={i}
-//                 className="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden"
-//               >
-//                 <button
-//                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-//                   className="w-full flex justify-between items-center p-6 text-left"
-//                 >
-//                   <span className="font-semibold text-gray-800">{faq.q}</span>
-//                   <ChevronDown
-//                     className={`w-5 h-5 text-purple-500 transition-transform ${openFaq === i ? "rotate-180" : ""}`}
-//                   />
-//                 </button>
-//                 <motion.div
-//                   initial={{ height: 0, opacity: 0 }}
-//                   animate={
-//                     openFaq === i
-//                       ? { height: "auto", opacity: 1 }
-//                       : { height: 0, opacity: 0 }
-//                   }
-//                   className="overflow-hidden"
-//                 >
-//                   <p className="p-6 pt-0 text-gray-600">{faq.a}</p>
-//                 </motion.div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Final CTA Banner */}
-//       <section className="py-16 bg-white">
-//         <div className="container mx-auto px-6">
-//           <div className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-[3rem] p-12 md:p-16 text-center shadow-2xl">
-//             <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-//               Ready for a Stress-Free Move?
-//             </h2>
-//             <p className="text-purple-100 text-lg mb-8 max-w-2xl mx-auto">
-//               Book your move-in/move-out cleaning today and leave the heavy
-//               lifting to us.
-//             </p>
-//             <button
-//               onClick={() => scrollToSection("villa-section")}
-//               className="bg-white text-purple-600 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg"
-//             >
-//               View Packages & Book Now
-//             </button>
-//           </div>
-//         </div>
-//       </section>
-//     </div>
-//   );
-// }
-
-
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
-import { CheckCircle, ArrowLeft, ShoppingCart, Home, Building, Tag, ChevronDown, ClipboardList, FileCheck, Truck, UserCheck, Settings, Clock, MapPin } from 'lucide-react';
-import { useCart } from '../../context/CartContext';
+import { useEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import {
+  ArrowLeft,
+  Building,
+  CheckCircle,
+  ChevronDown,
+  ClipboardList,
+  Clock,
+  FileCheck,
+  Home,
+  MapPin,
+  Settings,
+  ShoppingCart,
+  Tag,
+  Truck,
+  UserCheck,
+} from "lucide-react";
+import { useCart } from "../../context/CartContext";
 
 // --- Pricing Data ---
 const villaFurnished = [
@@ -615,281 +119,578 @@ const faqs = [
   { q: "When should I contact you for a quotation?", a: "Contact us as soon as your moving date is confirmed. Early booking gives you more scheduling options, especially at weekends and near the end or beginning of the month." }
 ];
 
+
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=82";
+
+const reveal = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export default function MoveInOut() {
   const { addToCart } = useCart();
+  const prefersReducedMotion = useReducedMotion();
+  const timeoutRef = useRef(null);
+
   const [addedId, setAddedId] = useState(null);
   const [openFaq, setOpenFaq] = useState(null);
 
-  const handleAddPackage = (pkg, type) => {
-    addToCart({ service: `Move In/Out: ${pkg.name} (${type})`, totalAmount: pkg.price, isPackage: true });
-    setAddedId(pkg.id);
-    setTimeout(() => setAddedId(null), 2000);
-  };
-
-  const scrollToSection = (id) => document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-  const PackageCard = ({ pkg, type, accentColor }) => (
-    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden flex flex-col group hover:shadow-xl transition-all">
-      <div className={`p-6 flex-grow ${accentColor === 'purple' ? 'bg-purple-50' : 'bg-blue-50'}`}>
-        <h4 className="text-lg font-bold text-gray-800 mb-2">{pkg.name}</h4>
-        <div className="flex items-end gap-2 mb-3">
-          <span className={`text-3xl font-bold ${accentColor === 'purple' ? 'text-purple-600' : 'text-blue-600'}`}>{pkg.price} AED</span>
-          <span className="text-lg text-gray-400 line-through mb-1">{pkg.original} AED</span>
-        </div>
-        <span className="inline-flex items-center text-xs font-bold px-2 py-1 rounded-full bg-green-100 text-green-700">
-          <Tag className="w-3 h-3 mr-1" /> Save {pkg.original - pkg.price} AED
-        </span>
-      </div>
-      <div className="p-4 bg-white">
-        <button onClick={() => handleAddPackage(pkg, type)} className={`w-full flex items-center justify-center py-3 rounded-xl transition font-bold text-sm shadow-sm ${addedId === pkg.id ? 'bg-green-500 text-white' : `${accentColor === 'purple' ? 'bg-purple-500 hover:bg-purple-600' : 'bg-blue-500 hover:bg-blue-600'} text-white`}`}>
-          {addedId === pkg.id ? 'Added!' : (<><ShoppingCart className="w-4 h-4 mr-2" /> Add to Cart</>)}
-        </button>
-      </div>
-    </motion.div>
+  useEffect(
+    () => () => {
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    },
+    [],
   );
 
+  const animation = useMemo(
+    () => ({
+      initial: prefersReducedMotion ? false : "hidden",
+      whileInView: "visible",
+      viewport: { once: true, amount: 0.15 },
+      variants: reveal,
+      transition: { duration: prefersReducedMotion ? 0 : 0.45 },
+    }),
+    [prefersReducedMotion],
+  );
+
+  const handleAddPackage = (pkg, type) => {
+    addToCart({
+      id: pkg.id,
+      service: `Move In/Out: ${pkg.name} (${type})`,
+      totalAmount: pkg.price,
+      isPackage: true,
+      quantity: 1,
+    });
+
+    setAddedId(pkg.id);
+    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    timeoutRef.current = window.setTimeout(() => setAddedId(null), 1800);
+  };
+
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "start",
+    });
+  };
+
   return (
-    <div className="pt-20 pb-32 bg-white min-h-screen">
+    <div className="min-h-screen overflow-hidden bg-white pb-28 pt-20">
       <Helmet>
         <title>Move-In & Move-Out Cleaning Dubai | Professional Cleaners</title>
-        <meta name="description" content="Book professional move-in and move-out cleaning services in Dubai for apartments, villas, and rental properties. Detailed kitchen, bathroom, cabinet, window, and floor cleaning for a fresh move or property handover." />
-        <meta name="keywords" content="Move in cleaning services Dubai, Move out cleaning services Dubai, Move in move out cleaning Dubai, End of tenancy cleaning Dubai, Moving cleaning services Dubai, Move out cleaners Dubai, Move in cleaners Dubai, Book move out cleaning Dubai, Move out cleaning company Dubai, Professional move in cleaning Dubai, Professional move out cleaning Dubai, Best move out cleaning services Dubai, Affordable move out cleaning Dubai, Move out deep cleaning Dubai, Move in deep cleaning Dubai, End of lease cleaning Dubai, Rental property cleaning Dubai, Property handover cleaning Dubai, Vacant property cleaning Dubai, Apartment move out cleaning Dubai, Apartment move in cleaning Dubai, Studio move out cleaning Dubai, One-bedroom apartment cleaning Dubai, Two-bedroom apartment move out cleaning, Three-bedroom apartment cleaning Dubai, Empty apartment cleaning Dubai, Rental apartment cleaning Dubai, Villa move out cleaning Dubai, Villa move in cleaning Dubai, End of tenancy villa cleaning Dubai, Empty villa cleaning Dubai, Townhouse move out cleaning Dubai, Large villa cleaning services Dubai, Villa handover cleaning Dubai, Landlord cleaning services Dubai, Property management cleaning Dubai, Tenant move out cleaning Dubai, Rental unit cleaning Dubai, Property turnover cleaning Dubai, Cleaning before new tenant Dubai, Real estate cleaning company Dubai, Holiday home turnover cleaning Dubai, Kitchen deep cleaning Dubai, Bathroom sanitization Dubai, Cabinet cleaning Dubai, Wardrobe cleaning Dubai, Window cleaning Dubai, Floor scrubbing Dubai, Balcony cleaning Dubai, Appliance cleaning Dubai, Empty property cleaning, Pre-move cleaning Dubai, Post-move cleaning Dubai" />
+        <meta
+          name="description"
+          content="Book professional move-in and move-out cleaning services in Dubai for apartments, villas, and rental properties. Detailed kitchen, bathroom, cabinet, window, and floor cleaning for a fresh move or property handover."
+        />
       </Helmet>
 
-      {/* Hero Section */}
-      <div className="relative h-[500px] w-full overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Professional move out cleaning services in Dubai" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-purple-900/95 via-purple-900/70 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 pt-28">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Link to="/services" className="inline-flex items-center text-purple-300 mb-4 hover:text-white transition"><ArrowLeft className="w-4 h-4 mr-2" /> Back to Services</Link>
-            <h1 className="text-3xl md:text-5xl font-display font-bold text-white mb-4 max-w-4xl">Professional Move-In and Move-Out Cleaning Services in Dubai</h1>
-            <p className="text-lg text-gray-200 mb-8 max-w-3xl">Moving to a new home should feel exciting, not exhausting. However, packing, coordinating movers, managing tenancy requirements, transferring utilities, and organizing your belongings can leave little time for detailed property cleaning. Our professional move-in and move-out cleaning services in Dubai are designed to handle the cleaning process from top to bottom, allowing you to focus on the move itself.</p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => scrollToSection('villa-section')} className="flex items-center justify-center bg-white text-gray-800 px-6 py-3 rounded-full hover:bg-gray-100 transition shadow-lg font-bold">
-                <Home className="w-5 h-5 mr-2 text-purple-500" /> Villa Move Out
-              </button>
-              <button onClick={() => scrollToSection('apartment-section')} className="flex items-center justify-center bg-purple-500 text-white px-6 py-3 rounded-full hover:bg-purple-600 transition shadow-lg font-bold">
-                <Building className="w-5 h-5 mr-2" /> Apartment Move Out
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+      <section className="relative isolate min-h-[650px] overflow-hidden bg-gray-950">
+        <img
+          src={HERO_IMAGE}
+          alt="Professional move-in and move-out cleaning services in Dubai"
+          className="absolute inset-0 h-full w-full object-cover"
+          fetchPriority="high"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/85 to-purple-950/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-gray-950/20" />
 
-      {/* Complete Solutions Intro */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-6 text-center">Complete Move-In and Move-Out Cleaning Solutions in Dubai</h2>
-            <p className="text-lg text-gray-600 leading-relaxed text-center max-w-4xl mx-auto mb-6">
-              Move-in and move-out cleaning is more detailed than routine home cleaning. A regular cleaning appointment normally focuses on accessible surfaces and everyday household maintenance. Moving cleaning usually takes place when a property is empty or nearly empty, allowing our cleaners to reach spaces that may have been covered by furniture, appliances, carpets, boxes, or personal belongings.
+        <div className="container relative mx-auto flex min-h-[650px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">
+          <motion.div
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.55 }}
+            className="max-w-4xl"
+          >
+            <Link
+              to="/services"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-purple-100 backdrop-blur transition hover:bg-white/15"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to Services
+            </Link>
+
+            <span className="mb-4 block text-sm font-bold uppercase tracking-[0.24em] text-purple-300">
+              Detailed relocation cleaning
+            </span>
+
+            <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
+              Professional Move-In and Move-Out Cleaning Services in Dubai
+            </h1>
+
+            <p className="mt-6 max-w-3xl text-base leading-7 text-gray-200 sm:text-lg">
+              Moving to a new home should feel exciting, not exhausting.
+              However, packing, coordinating movers, managing tenancy
+              requirements, transferring utilities, and organizing your
+              belongings can leave little time for detailed property cleaning.
+              Our professional move-in and move-out cleaning services in Dubai
+              are designed to handle the cleaning process from top to bottom,
+              allowing you to focus on the move itself.
             </p>
-            <p className="text-lg text-gray-600 leading-relaxed text-center max-w-4xl mx-auto mb-12">Our service may include detailed cleaning of:</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-              {solutionsIncluded.map((item, i) => (
-                <div key={i} className="flex items-center bg-gray-50 p-4 rounded-xl shadow-sm border border-gray-100">
-                  <CheckCircle className="w-5 h-5 text-purple-500 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm font-medium">{item}</span>
-                </div>
-              ))}
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <HeroButton icon={Home} onClick={() => scrollToSection("villa-section")}>
+                Villa Packages
+              </HeroButton>
+              <HeroButton icon={Building} onClick={() => scrollToSection("apartment-section")}>
+                Apartment Packages
+              </HeroButton>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Move-In & Move-Out Split Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-12">
-          <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <Home className="w-12 h-12 text-purple-500 mb-4" />
-            <h2 className="text-3xl font-display font-bold text-gray-800 mb-4">Move-In Cleaning Services Dubai</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">Moving into a new apartment or villa is an important moment. Even when a property appears tidy during a viewing, it may still contain dust inside cabinets, residue in bathrooms, grease around the kitchen, marks on floors, or dirt in areas that were previously hidden.</p>
-            <p className="text-gray-600 leading-relaxed mb-6">Our move-in cleaning service in Dubai gives you a cleaner starting point before furniture, boxes, clothes, kitchen items, and personal belongings are unpacked.</p>
-            
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Move-In Cleaning for Previously Occupied Properties</h3>
-            <p className="text-gray-600 mb-4">Previously occupied homes may require special attention in:</p>
-            <ul className="space-y-2">
-              {moveInPrevOccupied.map((item, i) => (
-                <li key={i} className="flex items-center text-gray-700"><CheckCircle className="w-5 h-5 text-purple-500 mr-3 flex-shrink-0" /> {item}</li>
-              ))}
-            </ul>
+      <section className="relative z-10 -mt-7 px-5 sm:px-6">
+        <div className="container mx-auto grid max-w-6xl gap-4 rounded-3xl border border-gray-100 bg-white p-4 shadow-xl sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            [ClipboardList, "Detailed checklist", "Room-by-room cleaning based on the selected package."],
+            [Settings, "Equipment available", "Tools and materials can be included according to your booking."],
+            [Clock, "Flexible scheduling", "Morning, afternoon, weekday, and weekend slots may be available."],
+            [FileCheck, "Clear expectations", "Scope and exclusions are explained before your appointment."],
+          ].map(([Icon, title, text]) => (
+            <article key={title} className="rounded-2xl bg-gray-50 p-5">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-100 text-purple-600">
+                <Icon className="h-5 w-5" />
+              </div>
+              <h2 className="mt-4 font-bold text-gray-900">{title}</h2>
+              <p className="mt-2 text-sm leading-6 text-gray-600">{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+          <motion.div {...animation} className="mx-auto max-w-4xl text-center">
+            <SectionEyebrow>Complete property reset</SectionEyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Complete Move-In and Move-Out Cleaning Solutions in Dubai
+            </h2>
+            <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg">
+              Move-in and move-out cleaning is more detailed than routine home
+              cleaning. Moving cleaning usually takes place when a property is
+              empty or nearly empty, allowing our cleaners to reach spaces that
+              may have been covered by furniture, appliances, carpets, boxes,
+              or personal belongings.
+            </p>
           </motion.div>
-          
-          <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <Truck className="w-12 h-12 text-purple-500 mb-4" />
-            <h2 className="text-3xl font-display font-bold text-gray-800 mb-4">Move-Out Cleaning Services Dubai</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">Moving out involves more than packing your belongings and booking transportation. Tenants, homeowners, landlords, property managers, and real estate agents may also need the property cleaned before inspection, handover, resale, or the arrival of new occupants.</p>
-            <p className="text-gray-600 leading-relaxed mb-6">Our move-out cleaning services in Dubai help prepare apartments and villas after furniture and personal belongings have been removed.</p>
-            
-            <h3 className="text-xl font-bold text-gray-800 mb-4">A Cleaner Property for Final Handover</h3>
-            <p className="text-gray-600 mb-4">A professionally cleaned property creates a better overall presentation during an inspection. Our team can clean:</p>
-            <ul className="grid grid-cols-2 gap-2">
-              {moveOutAreas.map((item, i) => (
-                <li key={i} className="flex items-center text-gray-700 text-sm"><CheckCircle className="w-4 h-4 text-purple-500 mr-2 flex-shrink-0" /> {item}</li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* End of Tenancy */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-5xl text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-6">End-of-Tenancy Cleaning Services in Dubai</h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-3xl mx-auto">End-of-tenancy cleaning refers to the detailed cleaning of a rented property before the tenant completes the handover process. The service is suitable for:</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-              {endOfTenancySuitable.map((item, i) => (
-                <div key={i} className="bg-purple-50 p-4 rounded-xl border border-purple-100">
-                  <p className="text-gray-700 text-sm font-medium">{item}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Detailed Checklist Grid */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">What Is Included in Move-In and Move-Out Cleaning?</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">The following checklist represents the typical scope of our moving cleaning service. Final inclusions may differ according to the selected package, property condition, accessibility, and customer requirements.</motion.p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {checklistRooms.map((room, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-800 mb-6">{room.title}</h3>
-                <ul className="space-y-3">
-                  {room.items.map((item, idx) => (
-                    <li key={idx} className="flex items-start text-gray-700 text-sm"><CheckCircle className="w-4 h-4 text-purple-500 mr-3 flex-shrink-0 mt-1" /> {item}</li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Packages */}
-      <div id="villa-section" className="py-16 scroll-mt-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-3">Villa Move-Out Packages</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Comprehensive top-to-bottom cleaning for your Dubai villa. Perfect for handovers and ensuring full deposit returns.</p>
-          </div>
-          <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center"><Home className="w-6 h-6 mr-3 text-purple-500" /> Furnished Villas</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {villaFurnished.map(pkg => <PackageCard key={pkg.id} pkg={pkg} type="Furnished" accentColor="purple" />)}
-          </div>
-          <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center"><Home className="w-6 h-6 mr-3 text-gray-400" /> Unfurnished Villas</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {villaUnfurnished.map(pkg => <PackageCard key={pkg.id} pkg={pkg} type="Unfurnished" accentColor="purple" />)}
-          </div>
-        </div>
-      </div>
-
-      <div id="apartment-section" className="py-16 scroll-mt-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-3">Apartment Move-Out Packages</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Detailed end-of-tenancy cleaning for apartments and studios. Meets all Dubai property manager requirements.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {apartments.map(pkg => <PackageCard key={pkg.id} pkg={pkg} type="Apartment" accentColor="blue" />)}
-          </div>
-        </div>
-      </div>
-
-      {/* Process Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Our Move-In and Move-Out Cleaning Process</motion.h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {processSteps.map((step, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                <div className="flex items-center mb-4">
-                  <span className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4">{i+1}</span>
-                  <h3 className="text-lg font-bold text-gray-800">{step.title}</h3>
-                </div>
-                <p className="text-gray-600 text-sm">{step.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Why Choose Our Moving Cleaning Company in Dubai?</motion.h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {whyChooseUs.map((point, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-                <div className="bg-purple-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
-                  <point.icon className="w-7 h-7 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">{point.title}</h3>
-                <p className="text-gray-600 text-sm">{point.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Areas Served */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-5xl text-center">
-          <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Areas We Serve Across Dubai</motion.h2>
-          <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">Our moving cleaning teams serve customers in many Dubai communities, including:</motion.p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {areasServed.map((area, i) => (
-              <span key={i} className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium flex items-center"><MapPin className="w-3 h-3 mr-2 text-purple-500" />{area}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQs */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-3xl">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800">Frequently Asked Questions About Move-In and Move-Out Cleaning</h2>
-          </motion.div>
-          <div className="space-y-4">
-            {faqs.map((faq, i) => (
-              <div key={i} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex justify-between items-center p-6 text-left">
-                  <h3 className="text-base font-semibold text-gray-800">{faq.q}</h3>
-                  <ChevronDown className={`w-5 h-5 text-purple-500 transition-transform flex-shrink-0 ml-4 ${openFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                <motion.div initial={{ height: 0, opacity: 0 }} animate={openFaq === i ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }} className="overflow-hidden">
-                  <p className="p-6 pt-0 text-gray-600 text-sm">{faq.a}</p>
-                </motion.div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {solutionsIncluded.map((item) => (
+              <div key={item} className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4">
+                <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-purple-500" />
+                <span className="text-sm font-medium leading-6 text-gray-700">{item}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-[3rem] p-12 md:p-16 text-center shadow-2xl">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Prepare for a Cleaner and Easier Move</h2>
-            <p className="text-purple-100 text-lg mb-8 max-w-2xl mx-auto">Relocation already involves dozens of important tasks. Professional cleaning removes one of the largest and most tiring jobs from your moving checklist. Contact us today to request a customized cleaning quotation.</p>
-            <button onClick={() => scrollToSection('villa-section')} className="bg-white text-purple-600 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg">
-              Book Move-In/Move-Out Cleaning
-            </button>
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-2">
+          <ContentPanel
+            icon={Home}
+            title="Move-In Cleaning Services Dubai"
+            paragraphs={[
+              "Moving into a new apartment or villa is an important moment. Even when a property appears tidy during a viewing, it may still contain dust inside cabinets, residue in bathrooms, grease around the kitchen, marks on floors, or dirt in areas that were previously hidden.",
+              "Our move-in cleaning service in Dubai gives you a cleaner starting point before furniture, boxes, clothes, kitchen items, and personal belongings are unpacked.",
+            ]}
+            subtitle="Previously Occupied Properties"
+            items={moveInPrevOccupied}
+          />
+
+          <ContentPanel
+            icon={Truck}
+            title="Move-Out Cleaning Services Dubai"
+            paragraphs={[
+              "Moving out involves more than packing your belongings and booking transportation. Tenants, homeowners, landlords, property managers, and real estate agents may also need the property cleaned before inspection, handover, resale, or the arrival of new occupants.",
+              "Our move-out cleaning services in Dubai help prepare apartments and villas after furniture and personal belongings have been removed.",
+            ]}
+            subtitle="A Cleaner Property for Final Handover"
+            items={moveOutAreas}
+          />
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="container mx-auto max-w-6xl px-5 text-center sm:px-6">
+          <motion.div {...animation}>
+            <SectionEyebrow>Property turnover support</SectionEyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              End-of-Tenancy Cleaning Services in Dubai
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-gray-600 sm:text-lg">
+              End-of-tenancy cleaning refers to the detailed cleaning of a
+              rented property before the tenant completes the handover process.
+              The service is suitable for:
+            </p>
+          </motion.div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {endOfTenancySuitable.map((item) => (
+              <div key={item} className="rounded-2xl border border-purple-100 bg-purple-50 p-5 text-sm font-semibold text-gray-700">
+                {item}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+          <motion.div {...animation} className="text-center">
+            <SectionEyebrow>Room-by-room scope</SectionEyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              What Is Included in Move-In and Move-Out Cleaning?
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl leading-7 text-gray-600">
+              Final inclusions may differ according to the selected package,
+              property condition, accessibility, and customer requirements.
+            </p>
+          </motion.div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {checklistRooms.map((room) => (
+              <article key={room.title} className="rounded-3xl border border-gray-100 bg-white p-7 shadow-sm">
+                <h3 className="text-xl font-bold text-gray-900">{room.title}</h3>
+                <ul className="mt-6 space-y-3">
+                  {room.items.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm leading-6 text-gray-700">
+                      <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-purple-500" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <PricingSection
+        id="villa-section"
+        title="Villa Move-Out Packages"
+        description="Comprehensive top-to-bottom cleaning for Dubai villas, suitable for property handovers and relocations."
+        background="bg-white"
+      >
+        <PackageGroup
+          title="Furnished Villas"
+          icon={Home}
+          packages={villaFurnished}
+          type="Furnished"
+          addedId={addedId}
+          onAdd={handleAddPackage}
+        />
+        <PackageGroup
+          title="Unfurnished Villas"
+          icon={Home}
+          packages={villaUnfurnished}
+          type="Unfurnished"
+          addedId={addedId}
+          onAdd={handleAddPackage}
+        />
+      </PricingSection>
+
+      <PricingSection
+        id="apartment-section"
+        title="Apartment Move-Out Packages"
+        description="Detailed moving cleaning for studios and apartments before occupancy or property handover."
+        background="bg-gray-50"
+      >
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {apartments.map((pkg, index) => (
+            <PackageCard
+              key={pkg.id}
+              pkg={pkg}
+              type="Apartment"
+              added={addedId === pkg.id}
+              onAdd={handleAddPackage}
+              popular={index === 1}
+            />
+          ))}
+        </div>
+      </PricingSection>
+
+      <section className="bg-white py-20">
+        <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+          <motion.div {...animation} className="text-center">
+            <SectionEyebrow>Five practical stages</SectionEyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Our Move-In and Move-Out Cleaning Process
+            </h2>
+          </motion.div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {processSteps.map((step, index) => (
+              <article key={step.title} className="rounded-3xl border border-gray-100 bg-gray-50 p-6">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-500 font-bold text-white">
+                  {index + 1}
+                </span>
+                <h3 className="mt-5 text-lg font-bold text-gray-900">{step.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-gray-600">{step.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+          <motion.div {...animation} className="text-center">
+            <SectionEyebrow>Why choose us</SectionEyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Why Choose Our Moving Cleaning Company in Dubai?
+            </h2>
+          </motion.div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {whyChooseUs.map((point) => {
+              const Icon = point.icon;
+              return (
+                <article key={point.title} className="rounded-3xl border border-gray-100 bg-white p-7 shadow-sm">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-100 text-purple-600">
+                    <Icon className="h-7 w-7" />
+                  </div>
+                  <h3 className="mt-6 text-xl font-bold text-gray-900">{point.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-gray-600">{point.desc}</p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="container mx-auto max-w-5xl px-5 text-center sm:px-6">
+          <motion.div {...animation}>
+            <SectionEyebrow>Dubai-wide coverage</SectionEyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Areas We Serve Across Dubai
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl leading-7 text-gray-600">
+              Our moving-cleaning teams serve customers in many Dubai communities, including:
+            </p>
+          </motion.div>
+
+          <div className="mt-9 flex flex-wrap justify-center gap-2.5">
+            {areasServed.map((area) => (
+              <span key={area} className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700">
+                <MapPin className="h-3.5 w-3.5 text-purple-500" />
+                {area}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto max-w-3xl px-5 sm:px-6">
+          <motion.div {...animation} className="text-center">
+            <SectionEyebrow>Helpful answers</SectionEyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Move-In and Move-Out Cleaning FAQs
+            </h2>
+          </motion.div>
+
+          <div className="mt-10 space-y-3">
+            {faqs.map((faq, index) => {
+              const open = openFaq === index;
+              const panelId = `move-faq-panel-${index}`;
+              const buttonId = `move-faq-button-${index}`;
+
+              return (
+                <article key={faq.q} className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+                  <button
+                    id={buttonId}
+                    type="button"
+                    onClick={() => setOpenFaq(open ? null : index)}
+                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-purple-500"
+                    aria-expanded={open}
+                    aria-controls={panelId}
+                  >
+                    <span>{faq.q}</span>
+                    <ChevronDown className={`h-5 w-5 shrink-0 text-purple-500 transition-transform ${open ? "rotate-180" : ""}`} />
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {open && (
+                      <motion.div
+                        id={panelId}
+                        role="region"
+                        aria-labelledby={buttonId}
+                        initial={prefersReducedMotion ? { opacity: 1 } : { height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={prefersReducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+                        transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="px-5 pb-5 text-sm leading-6 text-gray-600">{faq.a}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-10 sm:px-6">
+        <div className="container mx-auto max-w-6xl">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-purple-600 via-purple-700 to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+            <Truck className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
+            <div className="relative mx-auto max-w-3xl">
+              <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
+                Prepare for a Cleaner and Easier Move
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-purple-100 sm:text-lg">
+                Moving already involves dozens of important tasks. Professional
+                cleaning removes one of the largest and most tiring jobs from
+                your moving checklist.
+              </p>
+              <button
+                type="button"
+                onClick={() => scrollToSection("villa-section")}
+                className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 font-bold text-purple-700 shadow-lg transition hover:-translate-y-0.5 hover:bg-purple-50"
+              >
+                Book Move-In/Move-Out Cleaning
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
+  );
+}
+
+function SectionEyebrow({ children }) {
+  return (
+    <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-purple-600">
+      {children}
+    </span>
+  );
+}
+
+function HeroButton({ icon: Icon, children, onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 font-bold text-gray-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-purple-50"
+    >
+      <Icon className="h-5 w-5 text-purple-500" />
+      {children}
+    </button>
+  );
+}
+
+function ContentPanel({ icon: Icon, title, paragraphs, subtitle, items }) {
+  return (
+    <article className="rounded-[2rem] border border-gray-100 bg-white p-7 shadow-sm">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-100 text-purple-600">
+        <Icon className="h-7 w-7" />
+      </div>
+      <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">{title}</h2>
+      {paragraphs.map((paragraph) => (
+        <p key={paragraph} className="mt-4 leading-7 text-gray-600">{paragraph}</p>
+      ))}
+      <h3 className="mt-7 text-lg font-bold text-gray-900">{subtitle}</h3>
+      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        {items.map((item) => (
+          <div key={item} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
+            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-purple-500" />
+            {item}
+          </div>
+        ))}
+      </div>
+    </article>
+  );
+}
+
+function PricingSection({ id, title, description, background, children }) {
+  return (
+    <section id={id} className={`${background} scroll-mt-24 py-20`}>
+      <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+        <div className="mx-auto max-w-3xl text-center">
+          <SectionEyebrow>Transparent package pricing</SectionEyebrow>
+          <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">{title}</h2>
+          <p className="mt-4 leading-7 text-gray-600">{description}</p>
+        </div>
+        <div className="mt-12">{children}</div>
+      </div>
+    </section>
+  );
+}
+
+function PackageGroup({ title, icon: Icon, packages, type, addedId, onAdd }) {
+  return (
+    <div className="mb-14 last:mb-0">
+      <h3 className="mb-6 flex items-center gap-3 text-2xl font-bold text-gray-900">
+        <Icon className="h-6 w-6 text-purple-500" />
+        {title}
+      </h3>
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {packages.map((pkg, index) => (
+          <PackageCard
+            key={pkg.id}
+            pkg={pkg}
+            type={type}
+            added={addedId === pkg.id}
+            onAdd={onAdd}
+            popular={index === 1}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PackageCard({ pkg, type, added, onAdd, popular }) {
+  const saving = pkg.original - pkg.price;
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.35 }}
+      className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-purple-200 hover:shadow-xl"
+    >
+      {popular && (
+        <span className="absolute right-4 top-4 rounded-full bg-gray-900 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+          Popular
+        </span>
+      )}
+      <div className="flex-1 bg-gradient-to-br from-purple-50 to-white p-6">
+        <p className="text-xs font-bold uppercase tracking-wider text-purple-600">{type}</p>
+        <h3 className="mt-2 pr-16 text-lg font-bold text-gray-900">{pkg.name}</h3>
+        <div className="mt-5 flex items-end gap-2">
+          <span className="text-3xl font-bold text-gray-900">{pkg.price}</span>
+          <span className="pb-1 font-semibold text-gray-500">AED</span>
+          <span className="pb-1 text-sm text-gray-400 line-through">{pkg.original} AED</span>
+        </div>
+        <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-700">
+          <Tag className="h-3.5 w-3.5" />
+          Save {saving} AED
+        </span>
+        <div className="mt-6 space-y-2 text-sm text-gray-600">
+          <p className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-purple-500" /> Room-by-room checklist</p>
+          <p className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-purple-500" /> Suitable for moving and handover</p>
+        </div>
+      </div>
+      <div className="border-t border-gray-100 p-4">
+        <button
+          type="button"
+          onClick={() => onAdd(pkg, type)}
+          disabled={added}
+          className={`flex w-full items-center justify-center gap-2 rounded-xl py-3 font-bold text-white transition ${
+            added ? "cursor-default bg-emerald-500" : "bg-purple-500 hover:bg-purple-600"
+          }`}
+        >
+          {added ? <><CheckCircle className="h-4 w-4" /> Added to Cart</> : <><ShoppingCart className="h-4 w-4" /> Add to Cart</>}
+        </button>
+      </div>
+    </motion.article>
   );
 }

@@ -1,9 +1,33 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, CheckCircle, CalendarCheck, Building, Store, Utensils, Dumbbell, Scissors, Stethoscope, GraduationCap, Warehouse, ClipboardList, Tag, Settings, UserCheck, Clock, ShieldCheck, MapPin, ArrowRight, ChevronDown, Briefcase, Home, Sparkles, Truck, Sofa, Baby, Users, Coffee, Wind, Droplets, SprayCan, Scan, XCircle, ListChecks, Minus, Plus, ShoppingCart} from 'lucide-react';
-import { useCart } from '../../context/CartContext';
+import { useEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Building,
+  CalendarCheck,
+  CheckCircle,
+  ChevronDown,
+  Clock,
+  Coffee,
+  Dumbbell,
+  GraduationCap,
+  MapPin,
+  Minus,
+  Plus,
+  Scissors,
+  ShoppingCart,
+  Sparkles,
+  Store,
+  Stethoscope,
+  Utensils,
+  Users,
+  Warehouse,
+  Briefcase,
+  ClipboardList,
+} from "lucide-react";
+import { useCart } from "../../context/CartContext";
 
 // --- Data Arrays ---
 const businessTypes = ["Corporate Offices", "Small Offices", "Large Office Buildings", "Co-working Spaces", "Retail Shops", "Shopping Centres", "Restaurants", "Cafés", "Hotels", "Clinics", "Medical Centres", "Schools", "Nurseries", "Gyms", "Fitness Centres", "Salons", "Spas", "Warehouses", "Showrooms", "Commercial Buildings", "Property Management Companies", "Shared Building Areas"];
@@ -85,363 +109,645 @@ const faqs = [
   { q: "How do I request a quotation?", a: "Share your property type, location, approximate size, preferred schedule, and required cleaning frequency so an appropriate quotation can be prepared." }
 ];
 
+
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=82";
+
+const reveal = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export default function Commercial() {
   const { addToCart } = useCart();
+  const prefersReducedMotion = useReducedMotion();
+  const timeoutRef = useRef(null);
+
   const [hours, setHours] = useState(2);
   const [crew, setCrew] = useState(1);
   const [materials, setMaterials] = useState(false);
   const [added, setAdded] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
 
-  const getRate = (h) => {
-    if (h === 2) return 40;
-    if (h > 2 && h < 4) return 35;
-    return 30; // 4 or more hours
-  };
-  
-  const ratePerHour = getRate(hours);
+  useEffect(
+    () => () => {
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    },
+    [],
+  );
+
+  const ratePerHour = useMemo(() => {
+    if (hours === 2) return 40;
+    if (hours > 2 && hours < 4) return 35;
+    return 30;
+  }, [hours]);
+
   const materialsFee = materials ? 20 : 0;
-  const totalAmount = (hours * crew * ratePerHour) + materialsFee;
+  const serviceSubtotal = hours * crew * ratePerHour;
+  const totalAmount = serviceSubtotal + materialsFee;
+
+  const animation = {
+    initial: prefersReducedMotion ? false : "hidden",
+    whileInView: "visible",
+    viewport: { once: true, amount: 0.15 },
+    variants: reveal,
+    transition: { duration: prefersReducedMotion ? 0 : 0.45 },
+  };
 
   const handleAddToCart = () => {
-    addToCart({ service: 'Commercial Cleaning', hours, crew, ratePerHour, materials, totalAmount });
+    addToCart({
+      id: `commercial-${hours}-${crew}-${materials ? "materials" : "no-materials"}`,
+      service: "Commercial Cleaning",
+      hours,
+      crew,
+      ratePerHour,
+      materials,
+      totalAmount,
+      quantity: 1,
+    });
+
     setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
+    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    timeoutRef.current = window.setTimeout(() => setAdded(false), 1800);
   };
 
-  const scrollToPicker = () => document.getElementById('booking-picker').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const scrollToPicker = () => {
+    document.getElementById("booking-picker")?.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "center",
+    });
+  };
 
   return (
-    <div className="pt-20 pb-32 bg-white min-h-screen">
+    <main className="min-h-screen overflow-hidden bg-white pb-28 pt-20">
       <Helmet>
         <title>Commercial Cleaning Services Dubai | Office & Business Cleaning</title>
-        <meta name="description" content="Professional commercial cleaning services in Dubai for offices, retail stores, clinics, schools, warehouses, restaurants, hotels, gyms, and business premises. Flexible daily, weekly, and scheduled cleaning solutions." />
-        <meta name="keywords" content="Commercial Cleaning Services Dubai, Office Cleaning Dubai, Office Cleaners Dubai, Commercial Cleaners Dubai, Business Cleaning Services Dubai, Corporate Cleaning Dubai, Commercial Cleaning Company Dubai, Daily Office Cleaning Dubai, Retail Cleaning Dubai, Restaurant Cleaning Dubai, Hotel Cleaning Dubai, Clinic Cleaning Dubai, School Cleaning Dubai, Warehouse Cleaning Dubai, Commercial Property Cleaning Dubai" />
+        <meta
+          name="description"
+          content="Professional commercial cleaning services in Dubai for offices, retail stores, clinics, schools, warehouses, restaurants, hotels, gyms, and business premises."
+        />
       </Helmet>
 
-      {/* Hero Section */}
-      <div className="relative h-[500px] w-full overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Commercial cleaning services Dubai office" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-orange-900/95 via-orange-900/70 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 pt-28">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Link to="/services" className="inline-flex items-center text-orange-300 mb-4 hover:text-white transition"><ArrowLeft className="w-4 h-4 mr-2" /> Back to Services</Link>
-            <h1 className="text-3xl md:text-5xl font-display font-bold text-white mb-4 max-w-4xl">Professional Cleaning Solutions for Offices, Retail & Businesses in Dubai</h1>
-            <p className="text-lg text-gray-200 mb-8 max-w-3xl">A clean commercial environment creates a positive first impression, supports daily business operations, and helps maintain a comfortable workplace for employees, customers, visitors, and tenants. Our Commercial Cleaning Services in Dubai are designed to support businesses of different sizes and industries with flexible cleaning solutions tailored to their premises, operating hours, and business requirements.</p>
-            <button onClick={scrollToPicker} className="flex items-center bg-orange-500 text-white px-6 py-3 rounded-full hover:bg-orange-600 transition shadow-lg font-bold">
-              <CalendarCheck className="w-5 h-5 mr-2" /> Build Your Cleaning Plan
-            </button>
-          </motion.div>
-        </div>
-      </div>
+      <section className="relative isolate min-h-[650px] overflow-hidden bg-gray-950">
+        <img
+          src={HERO_IMAGE}
+          alt="Commercial cleaning services for offices and businesses in Dubai"
+          className="absolute inset-0 h-full w-full object-cover"
+          fetchPriority="high"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/85 to-orange-950/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-gray-950/20" />
 
-      {/* Intro & Properties Served */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto text-center mb-16">
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              Dubai's fast-paced business environment means commercial spaces experience continuous foot traffic, daily operations, meetings, customer visits, deliveries, and shared workspace usage. Without a structured cleaning routine, dust, dirt, fingerprints, spills, and general wear can quickly affect the appearance and functionality of a workplace.
+        <div className="container relative mx-auto flex min-h-[650px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">
+          <motion.div
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.55 }}
+            className="max-w-4xl"
+          >
+            <Link
+              to="/services"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-orange-100 backdrop-blur transition hover:bg-white/15"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to Services
+            </Link>
+
+            <span className="mb-4 block text-sm font-bold uppercase tracking-[0.24em] text-orange-300">
+              Flexible workplace cleaning
+            </span>
+
+            <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
+              Professional Cleaning Solutions for Offices, Retail & Businesses in Dubai
+            </h1>
+
+            <p className="mt-6 max-w-3xl text-base leading-7 text-gray-200 sm:text-lg">
+              A clean commercial environment creates a positive first
+              impression, supports daily business operations, and helps maintain
+              a comfortable workplace for employees, customers, visitors, and
+              tenants. Our commercial cleaning services are tailored to your
+              premises, operating hours, and business requirements.
             </p>
-            <h2 className="text-2xl font-display font-bold text-gray-800 mb-6">We provide commercial cleaning for:</h2>
-            <div className="flex flex-wrap justify-center gap-3">
-              {businessTypes.map((type, i) => (
-                <span key={i} className="bg-orange-50 text-orange-700 px-4 py-2 rounded-full text-sm font-medium border border-orange-100">{type}</span>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Complete Solutions & Why It Matters */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Complete Commercial Cleaning Solutions</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">Commercial cleaning extends beyond routine dusting and floor care. Different industries require different cleaning schedules, procedures, and priorities. We customize commercial cleaning plans instead of relying on a one-size-fits-all approach.</motion.p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
-            {solutions.map((solution, i) => (
-              <div key={i} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center">
-                <CheckCircle className="w-4 h-4 text-orange-500 mr-3 flex-shrink-0" />
-                <span className="text-gray-700 text-sm font-medium">{solution}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-3xl border border-gray-100">
-            <div>
-              <h3 className="text-2xl font-display font-bold text-gray-800 mb-4">Why Professional Commercial Cleaning Matters</h3>
-              <p className="text-gray-600 mb-4">A commercial property is often the first physical interaction customers have with a business. Clean surroundings contribute to a more professional appearance and support a pleasant experience for employees and visitors alike.</p>
-              <p className="text-gray-600">The exact cleaning schedule should be based on occupancy levels, business activity, and the property's operational requirements.</p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {["Present a professional image", "Maintain organized workspaces", "Improve customer experience", "Support employee comfort", "Keep shared facilities tidy", "Reduce everyday dust", "Maintain flooring/furnishings", "Support facility management"].map((b, i) => (
-                <div key={i} className="flex items-center bg-orange-50 p-3 rounded-xl border border-orange-100">
-                  <CheckCircle className="w-4 h-4 text-orange-500 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700 text-xs font-medium">{b}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Office Cleaning Breakdown */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Office Cleaning Services Dubai</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">Office environments experience continuous use throughout the working day. Routine office cleaning helps maintain an organized and welcoming workplace while supporting day-to-day business operations.</motion.p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {officeAreas.map((area, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                <div className="bg-orange-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                  <area.icon className="w-6 h-6 text-orange-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-2">{area.title}</h3>
-                <p className="text-gray-600 text-sm">{area.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Customer-Facing & Hospitality */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Customer-Facing & Hospitality Cleaning</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">Businesses that regularly welcome customers benefit from consistent cleaning because visitors immediately notice the condition of the premises.</motion.p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {customerFacing.map((c, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <div className="bg-orange-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                  <c.icon className="w-6 h-6 text-orange-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-2">{c.title}</h3>
-                <p className="text-gray-600 text-sm">{c.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Specialized Facilities */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Healthcare, Education & Warehouse Cleaning</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">Different industries require different cleaning schedules, procedures, and priorities. We adapt our approach to fit your facility.</motion.p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {specializedFacilities.map((s, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                <div className="bg-orange-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                  <s.icon className="w-6 h-6 text-orange-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-2">{s.title}</h3>
-                <p className="text-gray-600 text-sm">{s.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process & Quality */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Our Commercial Cleaning Process</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">Consistency is important for commercial cleaning because businesses rely on predictable service. We follow a structured approach.</motion.p>
-          </div>
-          <div className="relative border-l-2 border-orange-100 ml-4 sm:ml-0 sm:border-0">
-            {processSteps.map((step, i) => (
-              <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="mb-8 sm:grid sm:grid-cols-[auto_1fr] sm:gap-8 sm:items-center sm:text-left flex flex-col ml-6 sm:ml-0">
-                <div className="flex items-center mb-2 sm:mb-0 sm:justify-center">
-                  <div className="bg-orange-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold z-10 absolute sm:relative -ml-12 sm:-ml-0">{i+1}</div>
-                </div>
-                <div className="bg-white p-6 rounded-2xl border border-gray-100 mt-3 sm:mt-0">
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">{step.title}</h3>
-                  <p className="text-gray-600 text-sm">{step.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Booking Picker */}
-      <div className="container mx-auto px-6 max-w-6xl mt-4 grid md:grid-cols-3 gap-12">
-        <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="md:col-span-2">
-          <h2 className="text-3xl font-display font-bold text-gray-800 mb-6">Build Your Commercial Cleaning Plan</h2>
-          <p className="text-gray-600 mb-8">Select the number of hours and cleaners required. Minimum booking is 2 hours. Choose whether you need us to bring cleaning materials.</p>
-          
-          <div className="bg-gray-50 p-8 rounded-3xl border border-gray-100">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Hours (Min 2, Max 8)</label>
-                <div className="flex items-center justify-between bg-white p-3 rounded-xl border border-gray-200">
-                  <button onClick={() => setHours(Math.max(2, hours - 1))} className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"><Minus className="w-4 h-4" /></button>
-                  <span className="text-lg font-bold text-gray-800">{hours} Hours</span>
-                  <button onClick={() => setHours(Math.min(8, hours + 1))} className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"><Plus className="w-4 h-4" /></button>
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Cleaners (Max 10)</label>
-                <div className="flex items-center justify-between bg-white p-3 rounded-xl border border-gray-200">
-                  <button onClick={() => setCrew(Math.max(1, crew - 1))} className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"><Minus className="w-4 h-4" /></button>
-                  <span className="text-lg font-bold text-gray-800">{crew} Cleaner{crew > 1 ? 's' : ''}</span>
-                  <button onClick={() => setCrew(Math.min(10, crew + 1))} className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"><Plus className="w-4 h-4" /></button>
-                </div>
-              </div>
-            </div>
-            
-            <div className="mt-6">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Bring Cleaning Materials? (+20 AED)</label>
-              <div className="grid grid-cols-2 gap-2">
-                <button type="button" onClick={() => setMaterials(true)} className={`p-3 rounded-xl border-2 font-medium text-sm transition ${materials ? 'border-orange-500 bg-white text-orange-600' : 'border-gray-200 bg-white text-gray-500'}`}>Yes, Bring Materials</button>
-                <button type="button" onClick={() => setMaterials(false)} className={`p-3 rounded-xl border-2 font-medium text-sm transition ${!materials ? 'border-orange-500 bg-white text-orange-600' : 'border-gray-200 bg-white text-gray-500'}`}>No, I Have Them</button>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div id="booking-picker" initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-8 scroll-mt-24">
-          <div className="bg-orange-50 p-8 rounded-3xl border border-orange-100 sticky top-24">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Booking Summary</h3>
-            <div className="bg-white p-4 rounded-xl mb-6 text-sm text-gray-600 space-y-1">
-              <p>Rate: <span className="font-bold text-orange-600">{ratePerHour} AED/hour</span></p>
-              <p>Service: {hours}h × {crew} cleaner = {hours * crew * ratePerHour} AED</p>
-              {materials && <p>Materials: +20 AED</p>}
-              <p className="text-lg font-bold text-gray-800 mt-2 pt-2 border-t border-gray-100">Total: {totalAmount} AED</p>
-            </div>
-            <button onClick={handleAddToCart} className={`w-full flex items-center justify-center py-4 rounded-xl transition font-bold text-lg shadow-lg ${added ? 'bg-green-500 text-white' : 'bg-orange-500 text-white hover:bg-orange-600'}`}>
-              {added ? 'Added to Cart!' : (<><ShoppingCart className="w-5 h-5 mr-2" /> Add to Cart</>)}
+            <button
+              type="button"
+              onClick={scrollToPicker}
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-6 py-3.5 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-orange-600"
+            >
+              <CalendarCheck className="h-5 w-5" />
+              Build Your Cleaning Plan
             </button>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Areas Served */}
-      <section className="py-20 bg-white mt-16">
-        <div className="container mx-auto px-6 max-w-5xl text-center">
-          <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Commercial Cleaning Across Dubai</motion.h2>
-          <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">We provide commercial cleaning services across many of Dubai's major business districts, commercial developments, retail centres, industrial zones, and mixed-use communities.</motion.p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {dubaiAreas.map((area, i) => (
-              <span key={i} className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium flex items-center"><MapPin className="w-3 h-3 mr-2 text-orange-500" />{area}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing & Preparation */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl grid lg:grid-cols-2 gap-12">
-          
-          <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl font-display font-bold text-gray-800 mb-6">Commercial Cleaning Pricing Guide</h2>
-            <h3 className="text-xl font-bold text-gray-800 mb-4">What Influences the Cost?</h3>
-            <p className="text-gray-600 mb-4">Commercial cleaning costs depend on several factors rather than a single fixed rate. Pricing may be influenced by:</p>
-            <div className="grid grid-cols-2 gap-3 mb-8">
-              {pricingFactors.map((item, i) => (
-                <div key={i} className="flex items-center bg-white p-3 rounded-xl border border-gray-100">
-                  <CheckCircle className="w-4 h-4 text-orange-500 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700 text-xs font-medium">{item}</span>
-                </div>
-              ))}
-            </div>
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Transparent Pricing</h3>
-            <p className="text-gray-600 mb-4">Before confirming a quotation, customers should understand:</p>
-            <ul className="space-y-2">
-              {pricingTransparency.map((item, i) => (
-                <li key={i} className="flex items-center text-gray-700"><CheckCircle className="w-5 h-5 text-orange-500 mr-3 flex-shrink-0" /> {item}</li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-white p-8 rounded-3xl border border-gray-100">
-            <h2 className="text-3xl font-display font-bold text-gray-800 mb-6">Preparing Your Business Before Cleaning</h2>
-            <p className="text-gray-600 mb-6">To help the cleaning team work efficiently, businesses can prepare by:</p>
-            <ul className="space-y-4">
-              {preparationChecklist.map((item, i) => (
-                <li key={i} className="flex items-start text-gray-700">
-                  <div className="bg-gray-50 p-1 rounded-full shadow-sm mr-4 flex-shrink-0">
-                    <CheckCircle className="w-5 h-5 text-green-500" />
-                  </div>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="text-sm text-gray-500 mt-6 italic">Advance preparation reduces delays and allows more time for cleaning.</p>
           </motion.div>
         </div>
       </section>
 
-      {/* Why Businesses Invest */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-5xl text-center">
-          <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-6">Why Businesses Choose Professional Commercial Cleaning</motion.h2>
-          <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">Businesses invest in commercial cleaning because it helps them maintain professional premises while supporting day-to-day operations. Professional cleaning should be viewed as part of a broader facility management strategy.</motion.p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {businessBenefits.map((benefit, i) => (
-              <span key={i} className="bg-gray-50 text-gray-700 px-5 py-3 rounded-full text-sm font-medium shadow-sm border border-gray-100 flex items-center">
-                <Sparkles className="w-4 h-4 text-orange-500 mr-2" /> {benefit}
+      <section className="relative z-10 -mt-7 px-5 sm:px-6">
+        <div className="container mx-auto grid max-w-6xl gap-4 rounded-3xl border border-gray-100 bg-white p-4 shadow-xl sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            [Building, "Office and business cleaning", "Plans for workplaces, retail, hospitality, and commercial facilities."],
+            [Clock, "Flexible schedules", "Daily, weekly, evening, and weekend appointments may be available."],
+            [Users, "Scalable team sizes", "Cleaner numbers can be adjusted to suit the site and time available."],
+            [Sparkles, "Custom checklists", "Cleaning priorities can be adapted as your business changes."],
+          ].map(([Icon, title, text]) => (
+            <article key={title} className="rounded-2xl bg-gray-50 p-5">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-100 text-orange-600">
+                <Icon className="h-5 w-5" />
+              </div>
+              <h2 className="mt-4 font-bold text-gray-900">{title}</h2>
+              <p className="mt-2 text-sm leading-6 text-gray-600">{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+          <motion.div {...animation} className="mx-auto max-w-4xl text-center">
+            <Eyebrow>Business types supported</Eyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Commercial Cleaning for Different Industries
+            </h2>
+            <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg">
+              Dubai&apos;s fast-paced business environment creates constant
+              foot traffic, meetings, deliveries, and shared workspace use.
+              Structured cleaning helps maintain a professional and organized
+              workplace.
+            </p>
+          </motion.div>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            {businessTypes.map((type) => (
+              <span
+                key={type}
+                className="rounded-full border border-orange-100 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-800"
+              >
+                {type}
               </span>
             ))}
           </div>
-          
-          <div className="mt-12 bg-blue-50 text-blue-800 p-4 rounded-xl text-sm max-w-2xl mx-auto">
-            <p className="font-bold mb-2">Related Services:</p>
-            <p>For residential properties, visit our <Link to="/services/residential" className="underline font-semibold">Residential Cleaning</Link>. For intensive detail, book our <Link to="/services/deep-cleaning" className="underline font-semibold">Deep Cleaning</Link>. For carpets and sofas, book <Link to="/services/furniture" className="underline font-semibold">Furniture Cleaning</Link>. For recurring home help, book our <Link to="/services/maid-services" className="underline font-semibold">Maid Services</Link>.</p>
-          </div>
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-3xl">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800">Frequently Asked Questions</h2>
-            <p className="text-lg text-gray-600 mt-4">Commercial Cleaning FAQs</p>
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+          <motion.div {...animation} className="text-center">
+            <Eyebrow>Flexible service plans</Eyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Complete Commercial Cleaning Solutions
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">
+              Different industries require different schedules, procedures, and
+              priorities. We customize plans instead of relying on one standard
+              checklist.
+            </p>
           </motion.div>
-          <div className="space-y-4">
-            {faqs.map((faq, i) => (
-              <div key={i} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex justify-between items-center p-6 text-left">
-                  <h3 className="text-base font-semibold text-gray-800">{faq.q}</h3>
-                  <ChevronDown className={`w-5 h-5 text-orange-500 transition-transform flex-shrink-0 ml-4 ${openFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                <motion.div initial={{ height: 0, opacity: 0 }} animate={openFaq === i ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }} className="overflow-hidden">
-                  <p className="p-6 pt-0 text-gray-600 text-sm">{faq.a}</p>
-                </motion.div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {solutions.map((solution) => (
+              <div key={solution} className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-white p-4">
+                <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-orange-500" />
+                <span className="text-sm font-medium leading-6 text-gray-700">{solution}</span>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Final CTA */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="bg-gradient-to-br from-orange-600 to-orange-800 rounded-[3rem] p-12 md:p-16 text-center shadow-2xl">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Professional Commercial Cleaning Solutions for Businesses Across Dubai</h2>
-            <p className="text-orange-100 text-lg mb-8 max-w-2xl mx-auto">Whether you manage a corporate office, retail store, restaurant, clinic, warehouse, educational facility, or commercial building, our cleaning services can be tailored to your business operations, property type, and preferred schedule. Share your business location, property details, cleaning frequency, and service priorities, and we'll recommend a commercial cleaning plan that supports your workplace.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/quote" className="bg-white text-orange-600 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg">
-                Request a Commercial Cleaning Quote
-              </Link>
-              <Link to="/booking" className="border-2 border-white/50 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition">
-                Schedule a Site Visit
-              </Link>
+          <div className="mt-12 grid gap-8 rounded-[2rem] border border-gray-100 bg-white p-7 lg:grid-cols-2 lg:p-9">
+            <div>
+              <h3 className="font-display text-3xl font-bold text-gray-900">
+                Why Professional Commercial Cleaning Matters
+              </h3>
+              <p className="mt-5 leading-7 text-gray-600">
+                A commercial property is often the first physical interaction
+                customers have with a business. Clean surroundings contribute
+                to a more professional appearance and support a pleasant
+                experience for employees and visitors.
+              </p>
+              <p className="mt-4 leading-7 text-gray-600">
+                The cleaning schedule should reflect occupancy levels, business
+                activity, and operational requirements.
+              </p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {businessBenefits.map((benefit) => (
+                <div key={benefit} className="flex items-start gap-3 rounded-xl bg-orange-50 p-4">
+                  <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-orange-500" />
+                  <span className="text-sm font-semibold leading-6 text-gray-700">{benefit}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
+      <FacilitySection
+        eyebrow="Office environments"
+        title="Office Cleaning Services Dubai"
+        description="Routine office cleaning helps maintain an organized and welcoming workplace while supporting day-to-day operations."
+        items={officeAreas}
+        background="bg-white"
+      />
+
+      <FacilitySection
+        eyebrow="Customer-facing spaces"
+        title="Customer-Facing & Hospitality Cleaning"
+        description="Businesses that welcome customers benefit from consistent cleaning because visitors immediately notice the condition of the premises."
+        items={customerFacing}
+        background="bg-gray-50"
+      />
+
+      <FacilitySection
+        eyebrow="Specialist commercial facilities"
+        title="Healthcare, Education & Warehouse Cleaning"
+        description="Different industries require different priorities. We adapt our approach to fit your facility."
+        items={specializedFacilities}
+        background="bg-white"
+      />
+
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto max-w-5xl px-5 sm:px-6">
+          <motion.div {...animation} className="text-center">
+            <Eyebrow>Structured service delivery</Eyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Our Commercial Cleaning Process
+            </h2>
+          </motion.div>
+
+          <div className="mt-12 space-y-4">
+            {processSteps.map((step, index) => (
+              <article key={step.title} className="grid gap-4 rounded-3xl border border-gray-100 bg-white p-6 sm:grid-cols-[auto_1fr]">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 font-bold text-white">
+                  {index + 1}
+                </span>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-gray-600">{step.desc}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="booking-picker" className="scroll-mt-24 bg-gray-950 py-20">
+        <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-[1.35fr_0.65fr]">
+          <motion.div {...animation} className="rounded-[2rem] bg-white p-6 sm:p-8">
+            <Eyebrow>Build your estimate</Eyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900">
+              Build Your Commercial Cleaning Plan
+            </h2>
+            <p className="mt-4 leading-7 text-gray-600">
+              Select the number of hours and cleaners required. Minimum booking
+              is 2 hours. Choose whether cleaning materials should be included.
+            </p>
+
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              <CounterControl
+                label="Hours"
+                help="Minimum 2, maximum 8"
+                value={`${hours} Hours`}
+                onDecrease={() => setHours((value) => Math.max(2, value - 1))}
+                onIncrease={() => setHours((value) => Math.min(8, value + 1))}
+                decreaseDisabled={hours === 2}
+                increaseDisabled={hours === 8}
+              />
+              <CounterControl
+                label="Cleaners"
+                help="Maximum 10"
+                value={`${crew} Cleaner${crew > 1 ? "s" : ""}`}
+                onDecrease={() => setCrew((value) => Math.max(1, value - 1))}
+                onIncrease={() => setCrew((value) => Math.min(10, value + 1))}
+                decreaseDisabled={crew === 1}
+                increaseDisabled={crew === 10}
+              />
+            </div>
+
+            <fieldset className="mt-7">
+              <legend className="text-sm font-bold text-gray-800">
+                Bring Cleaning Materials? (+20 AED)
+              </legend>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                <ChoiceButton selected={materials} onClick={() => setMaterials(true)}>
+                  Yes, Bring Materials
+                </ChoiceButton>
+                <ChoiceButton selected={!materials} onClick={() => setMaterials(false)}>
+                  No, I Have Them
+                </ChoiceButton>
+              </div>
+            </fieldset>
+          </motion.div>
+
+          <motion.aside {...animation}>
+            <div className="sticky top-24 rounded-[2rem] border border-white/10 bg-white/10 p-6 text-white backdrop-blur-xl">
+              <Building className="h-7 w-7 text-orange-300" />
+              <h3 className="mt-5 text-2xl font-bold">Booking Summary</h3>
+
+              <dl className="mt-6 space-y-3 text-sm">
+                <SummaryRow label="Rate" value={`${ratePerHour} AED/hour`} />
+                <SummaryRow label="Hours" value={`${hours}`} />
+                <SummaryRow label="Cleaners" value={`${crew}`} />
+                <SummaryRow label="Service" value={`${serviceSubtotal} AED`} />
+                <SummaryRow label="Materials" value={materials ? "+20 AED" : "Not included"} />
+              </dl>
+
+              <div className="mt-6 border-t border-white/10 pt-6">
+                <div className="flex items-end justify-between gap-4">
+                  <span className="text-sm text-gray-300">Estimated total</span>
+                  <span className="text-3xl font-bold text-orange-300">{totalAmount} AED</span>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={handleAddToCart}
+                disabled={added}
+                className={`mt-7 flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold transition ${
+                  added
+                    ? "cursor-default bg-emerald-500 text-white"
+                    : "bg-orange-500 text-white hover:bg-orange-600"
+                }`}
+              >
+                {added ? (
+                  <>
+                    <CheckCircle className="h-5 w-5" />
+                    Added to Cart
+                  </>
+                ) : (
+                  <>
+                    <ShoppingCart className="h-5 w-5" />
+                    Add to Cart
+                  </>
+                )}
+              </button>
+            </div>
+          </motion.aside>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="container mx-auto max-w-5xl px-5 text-center sm:px-6">
+          <motion.div {...animation}>
+            <Eyebrow>Commercial coverage</Eyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Commercial Cleaning Across Dubai
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">
+              We serve major business districts, retail centres, industrial
+              zones, and mixed-use communities across Dubai.
+            </p>
+          </motion.div>
+
+          <div className="mt-9 flex flex-wrap justify-center gap-2.5">
+            {dubaiAreas.map((area) => (
+              <span key={area} className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700">
+                <MapPin className="h-3.5 w-3.5 text-orange-500" />
+                {area}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-2">
+          <InfoList
+            title="Commercial Cleaning Pricing Guide"
+            intro="Commercial cleaning costs depend on several factors rather than a single fixed rate."
+            subtitle="What influences the cost?"
+            items={pricingFactors}
+            secondSubtitle="Transparent pricing"
+            secondItems={pricingTransparency}
+          />
+          <InfoList
+            title="Preparing Your Business Before Cleaning"
+            intro="Advance preparation reduces delays and allows more time for cleaning."
+            subtitle="Businesses can prepare by:"
+            items={preparationChecklist}
+          />
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="container mx-auto max-w-3xl px-5 sm:px-6">
+          <div className="text-center">
+            <Eyebrow>Helpful answers</Eyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Commercial Cleaning FAQs
+            </h2>
+          </div>
+
+          <div className="mt-10 space-y-3">
+            {faqs.map((faq, index) => {
+              const open = openFaq === index;
+              const panelId = `commercial-faq-panel-${index}`;
+              const buttonId = `commercial-faq-button-${index}`;
+
+              return (
+                <article key={faq.q} className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+                  <button
+                    id={buttonId}
+                    type="button"
+                    onClick={() => setOpenFaq(open ? null : index)}
+                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange-500"
+                    aria-expanded={open}
+                    aria-controls={panelId}
+                  >
+                    <span>{faq.q}</span>
+                    <ChevronDown className={`h-5 w-5 shrink-0 text-orange-500 transition-transform ${open ? "rotate-180" : ""}`} />
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {open && (
+                      <motion.div
+                        id={panelId}
+                        role="region"
+                        aria-labelledby={buttonId}
+                        initial={prefersReducedMotion ? { opacity: 1 } : { height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={prefersReducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+                        transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="px-5 pb-5 text-sm leading-6 text-gray-600">{faq.a}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-10 sm:px-6">
+        <div className="container mx-auto max-w-6xl">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-orange-600 via-orange-700 to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+            <Building className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
+            <div className="relative mx-auto max-w-3xl">
+              <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
+                Professional Commercial Cleaning Solutions Across Dubai
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-orange-100 sm:text-lg">
+                Share your business location, property details, cleaning
+                frequency, and service priorities, and we&apos;ll recommend a
+                plan that supports your workplace.
+              </p>
+              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+                <Link to="/quote" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-orange-700 transition hover:-translate-y-0.5 hover:bg-orange-50">
+                  Request a Commercial Quote
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link to="/contact" className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/10 px-7 py-3.5 font-bold text-white transition hover:bg-white/15">
+                  Schedule a Site Visit
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function Eyebrow({ children }) {
+  return (
+    <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-orange-600">
+      {children}
+    </span>
+  );
+}
+
+function FacilitySection({ eyebrow, title, description, items, background }) {
+  return (
+    <section className={`${background} py-20`}>
+      <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+        <div className="text-center">
+          <Eyebrow>{eyebrow}</Eyebrow>
+          <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">{title}</h2>
+          <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">{description}</p>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((item) => {
+            const Icon = item.icon;
+            return (
+              <article key={item.title} className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-600">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 text-lg font-bold text-gray-900">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-gray-600">{item.desc}</p>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CounterControl({
+  label,
+  help,
+  value,
+  onDecrease,
+  onIncrease,
+  decreaseDisabled,
+  increaseDisabled,
+}) {
+  return (
+    <div>
+      <div className="mb-2">
+        <p className="text-sm font-bold text-gray-800">{label}</p>
+        <p className="text-xs text-gray-500">{help}</p>
+      </div>
+      <div className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 p-3">
+        <button
+          type="button"
+          onClick={onDecrease}
+          disabled={decreaseDisabled}
+          className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40"
+          aria-label={`Decrease ${label.toLowerCase()}`}
+        >
+          <Minus className="h-4 w-4" />
+        </button>
+        <span className="font-bold text-gray-900">{value}</span>
+        <button
+          type="button"
+          onClick={onIncrease}
+          disabled={increaseDisabled}
+          className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40"
+          aria-label={`Increase ${label.toLowerCase()}`}
+        >
+          <Plus className="h-4 w-4" />
+        </button>
+      </div>
     </div>
+  );
+}
+
+function ChoiceButton({ selected, onClick, children }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={selected}
+      className={`rounded-xl border-2 p-3 text-sm font-bold transition ${
+        selected
+          ? "border-orange-500 bg-orange-50 text-orange-700"
+          : "border-gray-200 bg-white text-gray-500 hover:border-gray-300"
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
+
+function SummaryRow({ label, value }) {
+  return (
+    <div className="flex items-center justify-between gap-4">
+      <dt className="text-gray-300">{label}</dt>
+      <dd className="text-right font-semibold text-white">{value}</dd>
+    </div>
+  );
+}
+
+function InfoList({
+  title,
+  intro,
+  subtitle,
+  items,
+  secondSubtitle,
+  secondItems = [],
+}) {
+  return (
+    <article className="rounded-[2rem] border border-gray-100 bg-white p-7 shadow-sm">
+      <h2 className="font-display text-3xl font-bold text-gray-900">{title}</h2>
+      <p className="mt-4 leading-7 text-gray-600">{intro}</p>
+      <h3 className="mt-7 text-lg font-bold text-gray-900">{subtitle}</h3>
+      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        {items.map((item) => (
+          <div key={item} className="flex items-start gap-3 text-sm leading-6 text-gray-700">
+            <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-orange-500" />
+            {item}
+          </div>
+        ))}
+      </div>
+
+      {secondSubtitle && (
+        <>
+          <h3 className="mt-8 text-lg font-bold text-gray-900">{secondSubtitle}</h3>
+          <div className="mt-4 space-y-3">
+            {secondItems.map((item) => (
+              <div key={item} className="flex items-start gap-3 text-sm leading-6 text-gray-700">
+                <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-orange-500" />
+                {item}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+    </article>
   );
 }

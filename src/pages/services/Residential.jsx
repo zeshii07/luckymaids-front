@@ -1,9 +1,52 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, CheckCircle, CalendarCheck, Home, Building, Sparkles,  Truck, Briefcase, UserCheck, Clock, ShieldCheck, MapPin, ArrowRight, ChevronDown, ClipboardList, Tag, Settings, ChefHat, Bath, BedDouble, Sofa, Utensils, Wind, WashingMachine, Shirt, SprayCan, Scan, Droplets, PanelTop, DoorOpen, Layers, CalendarDays, CalendarRange, Calendar, Sun, HardHat, PartyPopper, Users, PawPrint, Baby, Leaf, Wind as WindIcon, ListChecks, MessageCircle } from 'lucide-react';
-import { useCart } from '../../context/CartContext';
+import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Bath,
+  Building,
+  CheckCircle,
+  ChefHat,
+  ChevronDown,
+  Home,
+  ListChecks,
+  MapPin,
+  MessageCircle,
+  Sparkles,
+  Wind,
+  Clock,
+  UserCheck,
+  ClipboardList,
+  Tag,
+  Settings,
+  ShieldCheck,
+  CalendarCheck,
+  BedDouble,
+  Sofa,
+  Utensils,
+  WashingMachine,
+  Shirt,
+  SprayCan,
+  Scan,
+  Droplets,
+  PanelTop,
+  DoorOpen,
+  Layers,
+  CalendarDays,
+  CalendarRange ,
+  Calendar,
+  Sun,
+  Truck,
+  HardHat,
+  PartyPopper,
+  Users,
+  Briefcase,
+  PawPrint,
+  Baby,
+  Leaf,
+} from "lucide-react";
 
 // --- Data Arrays for Part 1 ---
 const propertyTypes = ["Studio Apartments", "Apartments", "Villas", "Townhouses", "Duplex Homes", "Penthouses", "Holiday Homes", "Staff Accommodation", "Residential Compounds", "Family Homes"];
@@ -208,615 +251,739 @@ const faqs = [
   { q: "Do you provide childcare?", a: "No. Child supervision should be booked through a dedicated babysitting service where available." }
 ];
 
+
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=82";
+
+const reveal = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export default function Residential() {
-  const { addToCart } = useCart();
-  const [hours, setHours] = useState(2);
-  const [crew, setCrew] = useState(1);
   const [openFaq, setOpenFaq] = useState(null);
+  const reducedMotion = useReducedMotion();
+
+  const revealProps = {
+    initial: reducedMotion ? false : "hidden",
+    whileInView: "visible",
+    viewport: { once: true, amount: 0.15 },
+    variants: reveal,
+    transition: { duration: reducedMotion ? 0 : 0.45 },
+  };
 
   return (
-    <div className="pt-20 pb-32 bg-white min-h-screen">
+    <main className="min-h-screen overflow-hidden bg-white pb-24 pt-20">
       <Helmet>
         <title>Residential Cleaning Services Dubai | Apartment & Villa Cleaning</title>
-        <meta name="description" content="Professional residential cleaning services in Dubai for apartments, villas, townhouses, and family homes. Book routine cleaning, deep cleaning, move-in/move-out cleaning, and housekeeping tailored to your schedule." />
-        <meta name="keywords" content="Residential Cleaning Services Dubai, Home Cleaning Services Dubai, House Cleaning Dubai, Residential Cleaners Dubai, Home Cleaning Company Dubai, Apartment Cleaning Dubai, Villa Cleaning Dubai, Weekly Home Cleaning Dubai, Monthly Home Cleaning Dubai, Family Home Cleaning Dubai, Holiday Home Cleaning Dubai" />
+        <meta
+          name="description"
+          content="Professional residential cleaning services in Dubai for apartments, villas, townhouses, and family homes. Book routine cleaning, deep cleaning, move-in/move-out cleaning, and housekeeping tailored to your schedule."
+        />
       </Helmet>
 
-      {/* Hero Section */}
-      <div className="relative h-[500px] w-full overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Residential cleaning services in Dubai apartment" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/70 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 pt-28">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Link to="/services" className="inline-flex items-center text-crystal-300 mb-4 hover:text-white transition"><ArrowLeft className="w-4 h-4 mr-2" /> Back to Services</Link>
-            <h1 className="text-3xl md:text-5xl font-display font-bold text-white mb-4 max-w-4xl">Professional Residential Cleaning Services in Dubai</h1>
-            <p className="text-lg text-gray-200 mb-8 max-w-3xl">A clean, comfortable, and well-maintained home contributes to a healthier and more enjoyable living environment. Yet with demanding work schedules, family commitments, travel, and daily responsibilities, keeping every room consistently clean can be difficult. Our Residential Cleaning Services in Dubai are designed to help homeowners, tenants, landlords, and property managers maintain clean and welcoming living spaces through flexible, high-quality cleaning solutions tailored to each property's needs.</p>
-          </motion.div>
-        </div>
-      </div>
+      <section className="relative isolate min-h-[650px] overflow-hidden bg-gray-950">
+        <img
+          src={HERO_IMAGE}
+          alt="Professional residential cleaning services in a Dubai home"
+          className="absolute inset-0 h-full w-full object-cover"
+          fetchPriority="high"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/85 to-crystal-950/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-gray-950/20" />
 
-      {/* Introduction & Property Types */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto text-center mb-16">
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              Whether you live in a compact studio apartment in Dubai Marina, a spacious penthouse in Downtown Dubai, or a luxury villa in Arabian Ranches, our residential cleaning services can be customized according to your schedule, lifestyle, property size, and cleaning priorities. Dust, sand, humidity, cooking residue, and everyday use gradually affect every part of a home—from kitchens and bathrooms to bedrooms, living areas, furniture, and flooring.
+        <div className="container relative mx-auto flex min-h-[650px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">
+          <motion.div
+            initial={reducedMotion ? false : { opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: reducedMotion ? 0 : 0.55 }}
+            className="max-w-4xl"
+          >
+            <Link
+              to="/services"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-crystal-100 backdrop-blur transition hover:bg-white/15"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to Services
+            </Link>
+
+            <span className="mb-4 block text-sm font-bold uppercase tracking-[0.24em] text-crystal-300">
+              Flexible home cleaning across Dubai
+            </span>
+
+            <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
+              Professional Residential Cleaning Services in Dubai
+            </h1>
+
+            <p className="mt-6 max-w-3xl text-base leading-7 text-gray-200 sm:text-lg">
+              A clean, comfortable, and well-maintained home contributes to a
+              more enjoyable living environment. Our residential cleaning
+              services help homeowners, tenants, landlords, and property
+              managers maintain welcoming living spaces through flexible
+              cleaning plans tailored to each property.
             </p>
-            <h2 className="text-2xl font-display font-bold text-gray-800 mb-6">We provide cleaning services for:</h2>
-            <div className="flex flex-wrap justify-center gap-3">
-              {propertyTypes.map((type, i) => (
-                <span key={i} className="bg-crystal-50 text-crystal-700 px-4 py-2 rounded-full text-sm font-medium border border-crystal-100">{type}</span>
-              ))}
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                to="/booking"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-crystal-500 px-7 py-3.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-crystal-600"
+              >
+                Book Residential Cleaning
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/quote"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-7 py-3.5 font-bold text-white backdrop-blur transition hover:bg-white/15"
+              >
+                Request a Free Quote
+              </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Complete Residential Cleaning Solutions (With Internal Links) */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Complete Residential Cleaning Solutions</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">Residential cleaning is more than simply dusting furniture or mopping floors. Every home has unique cleaning requirements depending on its size, layout, occupancy, pets, children, flooring materials, furniture, and daily use. Instead of offering a one-size-fits-all solution, we customize each service around your property and priorities.</p>
-          </motion.div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {cleaningSolutions.map((solution, i) => (
-              solution.link ? (
-                <Link key={i} to={solution.link} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-crystal-300 hover:shadow-md transition flex items-center justify-between group">
-                  <span className="text-gray-700 text-sm font-medium">{solution.name}</span>
-                  <ArrowRight className="w-4 h-4 text-crystal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              ) : (
-                <div key={i} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center">
-                  <CheckCircle className="w-4 h-4 text-crystal-500 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm font-medium">{solution.name}</span>
+      <section className="relative z-10 -mt-7 px-5 sm:px-6">
+        <div className="container mx-auto grid max-w-6xl gap-4 rounded-3xl border border-gray-100 bg-white p-4 shadow-xl sm:grid-cols-2 lg:grid-cols-4">
+          {whyChooseUs.slice(0, 4).map((item) => {
+            const Icon = item.icon;
+            return (
+              <article key={item.title} className="rounded-2xl bg-gray-50 p-5">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-crystal-100 text-crystal-600">
+                  <Icon className="h-5 w-5" />
                 </div>
-              )
-            ))}
-          </div>
+                <h2 className="mt-4 font-bold text-gray-900">{item.title}</h2>
+              </article>
+            );
+          })}
         </div>
       </section>
 
-      {/* Why Choose Us (E-E-A-T Focus) */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Why Choose Our Residential Cleaning Services?</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">Choosing a professional residential cleaning company is about more than convenience. It is about trusting experienced professionals to care for your home while delivering consistent results. Every property is different, which is why we begin by understanding your home, priorities, and expectations before recommending the most suitable cleaning solution.</motion.p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {whyChooseUs.map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="bg-gray-50 p-4 rounded-xl border border-gray-100 text-center flex flex-col items-center justify-center">
-                <item.icon className="w-8 h-8 text-crystal-500 mb-3" />
-                <span className="text-gray-700 text-xs font-medium">{item.title}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Apartment & Villa Cleaning Split */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-12">
-          <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <Building className="w-12 h-12 text-crystal-500 mb-4" />
-            <h2 className="text-3xl font-display font-bold text-gray-800 mb-4">Apartment Cleaning Services Dubai</h2>
-            <p className="text-gray-600 mb-6">Apartments are among the most common residential properties in Dubai, and each building has its own layout, access rules, parking arrangements, and service-elevator requirements.</p>
-            <div className="flex flex-wrap gap-2 mb-6">
-              {apartmentTypes.map((type, i) => (
-                <span key={i} className="bg-white text-gray-700 px-3 py-1 rounded-full text-xs font-medium border border-gray-200">{type}</span>
-              ))}
-            </div>
-            <h3 className="text-lg font-bold text-gray-800 mb-3">Apartment cleaning may include:</h3>
-            <ul className="grid grid-cols-2 gap-2">
-              {apartmentTasks.map((task, i) => (
-                <li key={i} className="flex items-center text-gray-700 text-sm"><CheckCircle className="w-4 h-4 text-crystal-500 mr-2 flex-shrink-0" /> {task}</li>
-              ))}
-            </ul>
+      <section className="bg-white py-20">
+        <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+          <motion.div {...revealProps} className="mx-auto max-w-4xl text-center">
+            <Eyebrow>Homes of every size</Eyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Residential Cleaning Designed Around Your Property
+            </h2>
+            <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg">
+              Whether you live in a compact studio apartment, spacious
+              penthouse, townhouse, holiday home, or family villa, the service
+              can be adjusted according to your schedule, lifestyle, property
+              size, and cleaning priorities.
+            </p>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <Home className="w-12 h-12 text-crystal-500 mb-4" />
-            <h2 className="text-3xl font-display font-bold text-gray-800 mb-4">Villa Cleaning Services Dubai</h2>
-            <p className="text-gray-600 mb-6">Villa cleaning generally requires a larger scope because villas often include multiple bedrooms, several bathrooms, staircases, balconies, outdoor entrances, maid's rooms, utility rooms, and multiple living spaces. Our villa cleaning services are tailored to each property's size and layout.</p>
-            <h3 className="text-lg font-bold text-gray-800 mb-3">Depending on your requirements, we can provide:</h3>
-            <ul className="grid grid-cols-2 gap-2">
-              {villaTasks.map((task, i) => (
-                <li key={i} className="flex items-center text-gray-700 text-sm"><CheckCircle className="w-4 h-4 text-crystal-500 mr-2 flex-shrink-0" /> {task}</li>
-              ))}
-            </ul>
-            <p className="text-sm text-gray-500 mt-4">For larger villas, we may recommend multiple cleaners or extended appointment times to ensure every room receives the attention it needs.</p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* House Cleaning & Studio */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-12">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-gray-50 p-8 rounded-3xl border border-gray-100">
-            <h2 className="text-2xl font-display font-bold text-gray-800 mb-4">House Cleaning Services</h2>
-            <p className="text-gray-600 mb-4">Whether you own your home or rent your property, regular house cleaning helps maintain cleanliness, comfort, and the overall appearance of your living space.</p>
-            <h3 className="text-lg font-bold text-gray-800 mb-3">Routine house cleaning may include:</h3>
-            <ul className="grid grid-cols-2 gap-2">
-              {houseTasks.map((task, i) => (
-                <li key={i} className="flex items-center text-gray-700 text-sm"><CheckCircle className="w-4 h-4 text-crystal-500 mr-2 flex-shrink-0" /> {task}</li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="bg-gray-50 p-8 rounded-3xl border border-gray-100">
-            <h2 className="text-2xl font-display font-bold text-gray-800 mb-4">Studio Apartment Cleaning</h2>
-            <p className="text-gray-600 mb-4">Studio apartments require efficient cleaning that makes the best use of limited space. Compact properties benefit from regular maintenance, helping prevent dust and clutter from accumulating.</p>
-            <h3 className="text-lg font-bold text-gray-800 mb-3">Typical studio cleaning includes:</h3>
-            <ul className="grid grid-cols-2 gap-2">
-              {["Dusting all accessible surfaces", "Cleaning the kitchenette", "Bathroom cleaning", "Vacuuming", "Floor mopping", "Mirror cleaning", "Bed making", "Bin emptying", "Light organization"].map((task, i) => (
-                <li key={i} className="flex items-center text-gray-700 text-sm"><CheckCircle className="w-4 h-4 text-crystal-500 mr-2 flex-shrink-0" /> {task}</li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Tailored to Lifestyle */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-5xl text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-6">Home Cleaning Tailored to Your Lifestyle</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">Every family uses their home differently. Some households need weekly maintenance, while others prefer monthly visits combined with occasional deep cleaning. We create flexible residential cleaning plans for:</p>
-            <div className="flex flex-wrap justify-center gap-3">
-              {lifestyles.map((life, i) => (
-                <span key={i} className="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-sm border border-gray-100">{life}</span>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ========================================= */}
-      {/* PART 2 CONTENT */}
-      {/* ========================================= */}
-
-      {/* Room-by-Room Deep Dive */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-16">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Detailed Room-by-Room Cleaning</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">Every room in your home has unique cleaning requirements. We tailor our approach to ensure each space receives the specific care it needs.</motion.p>
-          </div>
-
-          <div className="space-y-12">
-            {roomCleaningDetails.map((room, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className={`grid md:grid-cols-2 gap-8 items-center bg-gray-50 p-8 rounded-3xl border border-gray-100 ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-                <div className={i % 2 !== 0 ? 'md:order-2' : ''}>
-                  <div className="flex items-center mb-4">
-                    <div className="bg-crystal-100 w-14 h-14 rounded-2xl flex items-center justify-center mr-4">
-                      <room.icon className="w-7 h-7 text-crystal-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-800">{room.title}</h3>
-                      <p className="text-sm text-crystal-600 font-medium">{room.subtitle}</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 mb-6">{room.desc}</p>
-                  
-                  <div className="bg-blue-50 text-blue-800 p-4 rounded-xl text-sm">
-                    {room.note} 
-                    {room.linkText && room.linkPath && (
-                      <Link to={room.linkPath} className="font-bold underline hover:text-blue-900">{room.linkText}</Link>
-                    )}
-                    {room.noteEnd && ` ${room.noteEnd}`}
-                  </div>
-                </div>
-
-                <div className={`${i % 2 !== 0 ? 'md:order-1' : ''} bg-white p-6 rounded-2xl shadow-sm`}>
-                  <h4 className="font-bold text-gray-800 mb-4 text-sm uppercase tracking-wider">Tasks May Include:</h4>
-                  <ul className="grid grid-cols-2 gap-3">
-                    {room.tasks.map((task, idx) => (
-                      <li key={idx} className="flex items-start text-gray-700 text-sm">
-                        <CheckCircle className="w-4 h-4 text-crystal-500 mr-2 flex-shrink-0 mt-0.5" /> {task}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Household Tasks Grid */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Household Tasks & Floor Care</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">Beyond standard room cleaning, we offer assistance with everyday household chores, comprehensive floor care, and detailed dusting services.</motion.p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {householdTasks.map((task, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <div className="flex items-center mb-4">
-                  <task.icon className="w-8 h-8 text-crystal-500 mr-3" />
-                  <h3 className="text-lg font-bold text-gray-800">{task.title}</h3>
-                </div>
-                <p className="text-gray-600 text-sm mb-4">{task.desc}</p>
-                <ul className="space-y-2 border-t border-gray-100 pt-4">
-                  {task.tasks.map((t, idx) => (
-                    <li key={idx} className="flex items-center text-gray-700 text-xs">
-                      <CheckCircle className="w-3 h-3 text-crystal-400 mr-2 flex-shrink-0" /> {t}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Cleaning Frequencies & Schedules */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Flexible Cleaning Schedules</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">Whether you need weekly maintenance or a seasonal refresh, we offer scheduling options that fit your lifestyle and household routine.</motion.p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {scheduleOptions.map((opt, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-gray-50 p-6 rounded-3xl border border-gray-100 flex flex-col">
-                <div className="bg-crystal-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                  <opt.icon className="w-6 h-6 text-crystal-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3">{opt.title}</h3>
-                <p className="text-gray-600 text-sm mb-4 flex-grow">{opt.desc}</p>
-                <div className="border-t border-gray-200 pt-4 mt-auto">
-                  <ul className="space-y-2">
-                    {opt.tasks.map((t, idx) => (
-                      <li key={idx} className="flex items-center text-gray-700 text-xs">
-                        <CheckCircle className="w-3 h-3 text-crystal-500 mr-2 flex-shrink-0" /> {t}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Standard Checklist Visual */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Residential Cleaning Checklist</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">Although every booking is customized, a standard residential cleaning checklist may include the following tasks. Customers can adjust the checklist according to their own priorities.</motion.p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {Object.entries(finalChecklist).map(([room, tasks], i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <h3 className="text-md font-bold text-gray-800 mb-4 pb-2 border-b border-gray-100">{room}</h3>
-                <ul className="space-y-2">
-                  {tasks.map((t, idx) => (
-                    <li key={idx} className="flex items-center text-gray-600 text-xs">
-                      <CheckCircle className="w-3 h-3 text-green-500 mr-2 flex-shrink-0" /> {t}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================= */}
-      {/* PART 3 CONTENT */}
-      {/* ========================================= */}
-
-      {/* Specialized Residential Services (Deep, Move, Furniture) */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Specialized Residential Cleaning Services</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">While routine cleaning maintains everyday cleanliness, some situations require a more intensive or specialized approach.</motion.p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {specializedServices.map((s, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 flex flex-col">
-                <div className="bg-crystal-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
-                  <s.icon className="w-7 h-7 text-crystal-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">{s.title}</h3>
-                <p className="text-gray-600 text-sm mb-6 flex-grow">{s.desc}</p>
-                <Link to={s.link} className="text-crystal-600 font-semibold text-sm flex items-center hover:underline mt-auto">
-                  {s.linkText} <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Kitchen & Bathroom Deep Clean */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-12">
-          <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-            <ChefHat className="w-12 h-12 text-crystal-500 mb-4" />
-            <h3 className="text-2xl font-display font-bold text-gray-800 mb-3">Kitchen Deep Cleaning</h3>
-            <p className="text-gray-600 mb-6">Routine kitchen cleaning maintains everyday cleanliness, while kitchen deep cleaning focuses on areas requiring more detailed attention.</p>
-            <ul className="grid grid-cols-2 gap-3">
-              {kitchenDeepTasks.map((task, i) => (
-                <li key={i} className="flex items-start text-gray-700 text-sm"><CheckCircle className="w-4 h-4 text-crystal-500 mr-2 flex-shrink-0 mt-0.5" /> {task}</li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-            <Bath className="w-12 h-12 text-crystal-500 mb-4" />
-            <h3 className="text-2xl font-display font-bold text-gray-800 mb-3">Bathroom Deep Cleaning</h3>
-            <p className="text-gray-600 mb-6">Refresh bathrooms beyond routine maintenance. Bathrooms experience constant exposure to moisture, soap residue, and everyday use.</p>
-            <ul className="grid grid-cols-2 gap-3">
-              {bathroomDeepTasks.map((task, i) => (
-                <li key={i} className="flex items-start text-gray-700 text-sm"><CheckCircle className="w-4 h-4 text-crystal-500 mr-2 flex-shrink-0 mt-0.5" /> {task}</li>
-              ))}
-            </ul>
-            <p className="text-xs text-gray-500 mt-4">* Permanent discoloration, damaged grout, or worn sealant may remain after cleaning.</p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Situational Cleaning Use Cases */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Cleaning for Every Situation</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">From holiday homes to post-renovation dust removal, we tailor our services to fit your specific life events.</motion.p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {situationalCleaning.map((s, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                <div className="bg-crystal-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                  <s.icon className="w-6 h-6 text-crystal-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-2">{s.title}</h3>
-                <p className="text-gray-600 text-sm">{s.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Demographic Specific Cleaning */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Tailored to Your Household</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">We adapt our cleaning approach to fit the unique needs of your family, lifestyle, and preferences.</motion.p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {demographicCleaning.map((d, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col sm:flex-row items-start">
-                <div className="bg-crystal-50 p-3 rounded-xl mr-4 mb-4 sm:mb-0 flex-shrink-0">
-                  <d.icon className="w-6 h-6 text-crystal-600" />
-                </div>
-                <div>
-                  <h3 className="text-md font-bold text-gray-800 mb-1">{d.title}</h3>
-                  <p className="text-gray-600 text-sm">{d.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Process Timeline */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Our Residential Cleaning Process</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">We follow a structured, room-by-room approach to ensure consistency and high-quality results every time.</motion.p>
-          </div>
-          <div className="relative border-l-2 border-crystal-100 ml-4 sm:ml-0 sm:border-0">
-            {processSteps.map((step, i) => (
-              <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="mb-8 sm:grid sm:grid-cols-[auto_1fr] sm:gap-8 sm:items-center sm:text-left flex flex-col ml-6 sm:ml-0">
-                <div className="flex items-center mb-2 sm:mb-0 sm:justify-center">
-                  <div className="bg-crystal-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold z-10 absolute sm:relative -ml-12 sm:-ml-0">{i+1}</div>
-                </div>
-                <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 mt-3 sm:mt-0">
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">{step.title}</h3>
-                  <p className="text-gray-600 text-sm">{step.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits & Dubai Climate */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-12 items-center">
-          <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <ListChecks className="w-12 h-12 text-crystal-500 mb-4" />
-            <h2 className="text-3xl font-display font-bold text-gray-800 mb-6">Benefits of Professional Residential Cleaning</h2>
-            <p className="text-gray-600 mb-8">Regular residential cleaning offers many practical advantages. While cleanliness contributes to comfort, we focus on tangible household improvements.</p>
-            <div className="grid grid-cols-2 gap-4">
-              {residentialBenefits.map((b, i) => (
-                <div key={i} className="flex items-center bg-white p-3 rounded-xl shadow-sm border border-gray-100">
-                  <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700 text-xs font-medium">{b}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-crystal-50 p-8 rounded-3xl border border-crystal-100">
-            <WindIcon className="w-12 h-12 text-crystal-500 mb-4" />
-            <h2 className="text-3xl font-display font-bold text-gray-800 mb-6">Why Dubai Residents Choose Us</h2>
-            <p className="text-gray-600 mb-6">Dubai's unique climate presents ongoing cleaning challenges. Homes frequently experience specific environmental factors that require professional attention:</p>
-            <ul className="space-y-3">
-              {dubaiClimateFactors.map((f, i) => (
-                <li key={i} className="flex items-center text-gray-700"><CheckCircle className="w-5 h-5 text-crystal-500 mr-3 flex-shrink-0" /> {f}</li>
-              ))}
-            </ul>
-            <p className="text-sm text-gray-600 mt-6">Professional residential cleaning helps homeowners manage these conditions through structured and recurring cleaning routines tailored to Dubai living.</p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ========================================= */}
-      {/* PART 4 CONTENT STARTS HERE */}
-      {/* ========================================= */}
-
-      {/* Residential Cleaning Across Dubai */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Residential Cleaning Across Dubai</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">Professional Home Cleaning Near You. Our residential cleaning services are available across many of Dubai's residential communities. Whether you live in a modern apartment, a townhouse, or a spacious villa, we aim to provide flexible scheduling based on service availability.</motion.p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {communityCategories.map((cat, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center"><MapPin className="w-5 h-5 text-crystal-500 mr-2" /> {cat.title}</h3>
-                <ul className="space-y-2">
-                  {cat.areas.map((area, idx) => (
-                    <li key={idx} className="text-gray-600 text-sm flex items-center"><CheckCircle className="w-4 h-4 text-crystal-400 mr-2 flex-shrink-0" /> {area}</li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-          <p className="text-center text-sm text-gray-500 mt-8">Service availability may vary depending on appointment schedules, travel time, staffing, and building access requirements.</p>
-        </div>
-      </section>
-
-      {/* Choosing the Right Residential Cleaning Service */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-4">Choosing the Right Residential Cleaning Service</motion.h2>
-            <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto">Every home is different, so the right cleaning service depends on your property, lifestyle, and cleaning goals. Selecting the appropriate service ensures your booking is matched to the work required.</motion.p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {rightServiceTypes.map((s, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">{s.title}</h3>
-                <p className="text-gray-600 text-sm mb-6 flex-grow">{s.desc}</p>
-                {s.link && (
-                  <Link to={s.link} className="text-crystal-600 font-semibold text-sm flex items-center hover:underline">
-                    Learn More <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing & Preparation */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl grid lg:grid-cols-2 gap-12">
-          
-          {/* Pricing Guide */}
-          <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl font-display font-bold text-gray-800 mb-6">Residential Cleaning Pricing Guide</h2>
-            <h3 className="text-xl font-bold text-gray-800 mb-4">What Can Affect the Cost?</h3>
-            <p className="text-gray-600 mb-4">Cleaning prices vary depending on several factors, including:</p>
-            <div className="grid grid-cols-2 gap-3 mb-8">
-              {costFactors.map((item, i) => (
-                <div key={i} className="flex items-center bg-gray-50 p-3 rounded-xl border border-gray-100">
-                  <CheckCircle className="w-4 h-4 text-crystal-500 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700 text-xs font-medium">{item}</span>
-                </div>
-              ))}
-            </div>
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Transparent Pricing</h3>
-            <p className="text-gray-600 mb-4">Before confirming a booking, customers should understand:</p>
-            <ul className="space-y-2">
-              {pricingTransparency.map((item, i) => (
-                <li key={i} className="flex items-center text-gray-700"><CheckCircle className="w-5 h-5 text-crystal-500 mr-3 flex-shrink-0" /> {item}</li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Preparation Checklist */}
-          <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-gray-50 p-8 rounded-3xl border border-gray-100">
-            <h2 className="text-3xl font-display font-bold text-gray-800 mb-6">Preparing for Your Cleaning Appointment</h2>
-            <p className="text-gray-600 mb-6">To help the cleaning team work efficiently, consider:</p>
-            <ul className="space-y-4">
-              {preparationChecklist.map((item, i) => (
-                <li key={i} className="flex items-start text-gray-700">
-                  <div className="bg-white p-1 rounded-full shadow-sm mr-4 flex-shrink-0">
-                    <CheckCircle className="w-5 h-5 text-green-500" />
-                  </div>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="text-sm text-gray-500 mt-6 italic">A little preparation allows more of the booked time to be spent on cleaning.</p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Why Homeowners Choose Professional Residential Cleaning */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-5xl text-center">
-          <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-display font-bold text-gray-800 mb-6">Why Homeowners Choose Professional Residential Cleaning</motion.h2>
-          <motion.p initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">Professional residential cleaning offers practical benefits beyond appearance alone. A customized cleaning plan allows each household to focus on the rooms and tasks that matter most.</motion.p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {homeownerBenefits.map((benefit, i) => (
-              <span key={i} className="bg-white text-gray-700 px-5 py-3 rounded-full text-sm font-medium shadow-sm border border-gray-100 flex items-center">
-                <Sparkles className="w-4 h-4 text-crystal-500 mr-2" /> {benefit}
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            {propertyTypes.map((type) => (
+              <span
+                key={type}
+                className="rounded-full border border-crystal-100 bg-crystal-50 px-4 py-2 text-sm font-semibold text-crystal-800"
+              >
+                {type}
               </span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-3xl">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800">Frequently Asked Questions</h2>
-            <p className="text-lg text-gray-600 mt-4">Residential Cleaning FAQs</p>
-          </motion.div>
-          <div className="space-y-4">
-            {faqs.map((faq, i) => (
-              <div key={i} className="bg-gray-50 rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex justify-between items-center p-6 text-left">
-                  <h3 className="text-base font-semibold text-gray-800">{faq.q}</h3>
-                  <ChevronDown className={`w-5 h-5 text-crystal-500 transition-transform flex-shrink-0 ml-4 ${openFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                <motion.div initial={{ height: 0, opacity: 0 }} animate={openFaq === i ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }} className="overflow-hidden">
-                  <p className="p-6 pt-0 text-gray-600 text-sm">{faq.a}</p>
-                </motion.div>
-              </div>
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+          <div className="text-center">
+            <Eyebrow>Flexible service options</Eyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Complete Residential Cleaning Solutions
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">
+              Every home has different needs depending on layout, occupancy,
+              pets, flooring, furniture, and everyday use.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {cleaningSolutions.map((solution) =>
+              solution.link ? (
+                <Link
+                  key={solution.name}
+                  to={solution.link}
+                  className="group flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-5 text-sm font-semibold text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-crystal-200 hover:shadow-md"
+                >
+                  {solution.name}
+                  <ArrowRight className="h-4 w-4 text-crystal-500 transition-transform group-hover:translate-x-1" />
+                </Link>
+              ) : (
+                <div
+                  key={solution.name}
+                  className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-white p-5"
+                >
+                  <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-crystal-500" />
+                  <span className="text-sm font-semibold leading-6 text-gray-700">
+                    {solution.name}
+                  </span>
+                </div>
+              ),
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-2">
+          <PropertyPanel
+            icon={Building}
+            title="Apartment Cleaning Services Dubai"
+            description="Apartments have their own layouts, access rules, parking arrangements, and service-elevator requirements."
+            tags={apartmentTypes}
+            tasks={apartmentTasks}
+          />
+          <PropertyPanel
+            icon={Home}
+            title="Villa Cleaning Services Dubai"
+            description="Villas often include several bedrooms, bathrooms, staircases, balconies, entrances, utility rooms, and multiple living areas."
+            tasks={villaTasks}
+          />
+        </div>
+      </section>
+
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto grid max-w-6xl gap-6 px-5 sm:px-6 lg:grid-cols-2">
+          <SimpleChecklistCard
+            title="House Cleaning Services"
+            description="Regular house cleaning helps maintain comfort and the overall appearance of your living space."
+            items={houseTasks}
+          />
+          <SimpleChecklistCard
+            title="Studio Apartment Cleaning"
+            description="Compact properties benefit from efficient, regular maintenance that prevents dust and clutter from accumulating."
+            items={[
+              "Dusting all accessible surfaces",
+              "Cleaning the kitchenette",
+              "Bathroom cleaning",
+              "Vacuuming",
+              "Floor mopping",
+              "Mirror cleaning",
+              "Bed making",
+              "Bin emptying",
+              "Light organization",
+            ]}
+          />
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+          <div className="text-center">
+            <Eyebrow>Detailed room care</Eyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Detailed Room-by-Room Cleaning
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">
+              Every room has unique cleaning requirements. We tailor the
+              checklist so each area receives appropriate attention.
+            </p>
+          </div>
+
+          <div className="mt-12 space-y-6">
+            {roomCleaningDetails.map((room) => {
+              const Icon = room.icon;
+              return (
+                <article
+                  key={room.title}
+                  className="grid gap-8 rounded-[2rem] border border-gray-100 bg-gray-50 p-7 lg:grid-cols-[1.05fr_0.95fr]"
+                >
+                  <div>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+                        <Icon className="h-7 w-7" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-gray-900">{room.title}</h3>
+                        <p className="mt-1 text-sm font-semibold text-crystal-700">
+                          {room.subtitle}
+                        </p>
+                      </div>
+                    </div>
+                    <p className="mt-6 leading-7 text-gray-600">{room.desc}</p>
+                    <div className="mt-6 rounded-2xl bg-blue-50 p-4 text-sm leading-6 text-blue-800">
+                      {room.note}{" "}
+                      {room.linkText && room.linkPath && (
+                        <Link to={room.linkPath} className="font-bold underline">
+                          {room.linkText}
+                        </Link>
+                      )}
+                      {room.noteEnd ? ` ${room.noteEnd}` : ""}
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl bg-white p-6 shadow-sm">
+                    <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">
+                      Tasks may include
+                    </h4>
+                    <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                      {room.tasks.map((task) => (
+                        <div key={task} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
+                          <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-crystal-500" />
+                          {task}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <CardGridSection
+        eyebrow="Everyday household support"
+        title="Household Tasks & Floor Care"
+        description="Beyond room cleaning, appointments may include selected household chores, floor care, and detailed dusting."
+        items={householdTasks}
+        background="bg-gray-50"
+      />
+
+      <CardGridSection
+        eyebrow="Choose a suitable routine"
+        title="Flexible Cleaning Schedules"
+        description="Select a weekly, fortnightly, monthly, or seasonal schedule that fits your household."
+        items={scheduleOptions}
+        background="bg-white"
+        columns="lg:grid-cols-4"
+      />
+
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto max-w-5xl px-5 sm:px-6">
+          <div className="text-center">
+            <Eyebrow>Typical coverage</Eyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Residential Cleaning Checklist
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">
+              Every booking is customized, but a standard checklist may include
+              these common household tasks.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {Object.entries(finalChecklist).map(([room, tasks]) => (
+              <article key={room} className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
+                <h3 className="font-bold text-gray-900">{room}</h3>
+                <div className="mt-5 space-y-3">
+                  {tasks.map((task) => (
+                    <div key={task} className="flex items-start gap-2 text-sm text-gray-600">
+                      <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
+                      {task}
+                    </div>
+                  ))}
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="bg-gradient-to-br from-crystal-600 to-crystal-800 rounded-[3rem] p-12 md:p-16 text-center shadow-2xl">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Professional Residential Cleaning for Every Home in Dubai</h2>
-            <p className="text-crystal-100 text-lg mb-8 max-w-2xl mx-auto">Whether you need regular housekeeping, detailed deep cleaning, move-in or move-out cleaning, or complete care for your apartment or villa, our residential cleaning services are designed to fit your schedule and your home's unique requirements. Tell us about your property, preferred cleaning schedule, and priority tasks, and we'll help you choose the residential cleaning solution that best matches your needs.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/booking" className="bg-white text-crystal-600 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg">
-                Book Residential Cleaning
-              </Link>
-              <Link to="/quote" className="border-2 border-white/50 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition">
-                Request a Free Quote
-              </Link>
-              <a href="https://wa.me/971501234567" target="_blank" rel="noreferrer" className="bg-green-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-600 transition shadow-lg flex items-center justify-center">
-                <MessageCircle className="w-5 h-5 mr-2" /> WhatsApp Us
-              </a>
-            </div>
+      <CardGridSection
+        eyebrow="For more detailed needs"
+        title="Specialized Residential Cleaning Services"
+        description="Some properties and situations require a more intensive or specialist approach."
+        items={specializedServices}
+        background="bg-white"
+        columns="lg:grid-cols-4"
+        linked
+      />
+
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto grid max-w-6xl gap-6 px-5 sm:px-6 lg:grid-cols-2">
+          <DeepCleanPanel
+            icon={ChefHat}
+            title="Kitchen Deep Cleaning"
+            description="Routine cleaning maintains everyday cleanliness, while deep cleaning focuses on areas requiring more detailed attention."
+            items={kitchenDeepTasks}
+          />
+          <DeepCleanPanel
+            icon={Bath}
+            title="Bathroom Deep Cleaning"
+            description="Bathrooms experience constant moisture, soap residue, and daily use, so occasional detailed cleaning can be useful."
+            items={bathroomDeepTasks}
+            note="Permanent discoloration, damaged grout, or worn sealant may remain after cleaning."
+          />
+        </div>
+      </section>
+
+      <CardGridSection
+        eyebrow="Support for different occasions"
+        title="Cleaning for Every Situation"
+        description="From holiday-home turnover to post-renovation dust removal, services can be adapted to the occasion."
+        items={situationalCleaning}
+        background="bg-white"
+      />
+
+      <CardGridSection
+        eyebrow="Built around your household"
+        title="Tailored to Your Lifestyle"
+        description="Cleaning plans can reflect your family, schedule, pets, and preferences."
+        items={demographicCleaning}
+        background="bg-gray-50"
+      />
+
+      <section className="bg-white py-20">
+        <div className="container mx-auto max-w-5xl px-5 sm:px-6">
+          <div className="text-center">
+            <Eyebrow>Five organized stages</Eyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Our Residential Cleaning Process
+            </h2>
+          </div>
+
+          <div className="mt-12 space-y-4">
+            {processSteps.map((step, index) => (
+              <article
+                key={step.title}
+                className="grid gap-4 rounded-3xl border border-gray-100 bg-gray-50 p-6 sm:grid-cols-[auto_1fr]"
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-crystal-500 font-bold text-white">
+                  {index + 1}
+                </span>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-gray-600">{step.desc}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-    </div>
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-2">
+          <InfoGrid
+            icon={ListChecks}
+            title="Benefits of Professional Residential Cleaning"
+            intro="Regular residential cleaning can provide practical household benefits."
+            items={residentialBenefits}
+          />
+          <InfoGrid
+            icon={Wind}
+            title="Cleaning for Dubai Living"
+            intro="Dubai homes face environmental and lifestyle factors that can increase cleaning needs."
+            items={dubaiClimateFactors}
+          />
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+          <div className="text-center">
+            <Eyebrow>Residential coverage</Eyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Residential Cleaning Across Dubai
+            </h2>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {communityCategories.map((category) => (
+              <article key={category.title} className="rounded-3xl border border-gray-100 bg-gray-50 p-6">
+                <h3 className="text-xl font-bold text-gray-900">{category.title}</h3>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {category.areas.map((area) => (
+                    <span key={area} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-gray-600">
+                      <MapPin className="h-3 w-3 text-crystal-500" />
+                      {area}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-2">
+          <InfoGrid
+            icon={Sparkles}
+            title="Choosing the Right Residential Service"
+            intro="Different situations are best served by different cleaning options."
+            items={rightServiceTypes.map((item) => item.title)}
+          />
+          <InfoGrid
+            icon={Home}
+            title="What Influences Residential Cleaning Cost?"
+            intro="Pricing can vary according to property and service requirements."
+            items={costFactors}
+          />
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-2">
+          <InfoGrid
+            icon={CheckCircle}
+            title="Preparing Your Home"
+            intro="A little preparation can help cleaners use the booked time efficiently."
+            items={preparationChecklist}
+          />
+          <InfoGrid
+            icon={Home}
+            title="Why Homeowners Book Regular Cleaning"
+            intro="Recurring cleaning helps households maintain a manageable routine."
+            items={homeownerBenefits}
+          />
+        </div>
+      </section>
+
+      <section className="bg-gray-50 py-20">
+        <div className="container mx-auto max-w-3xl px-5 sm:px-6">
+          <div className="text-center">
+            <Eyebrow>Helpful answers</Eyebrow>
+            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              Residential Cleaning FAQs
+            </h2>
+          </div>
+
+          <div className="mt-10 space-y-3">
+            {faqs.map((faq, index) => {
+              const open = openFaq === index;
+              const panelId = `residential-faq-panel-${index}`;
+              const buttonId = `residential-faq-button-${index}`;
+
+              return (
+                <article
+                  key={faq.q}
+                  className="overflow-hidden rounded-2xl border border-gray-200 bg-white"
+                >
+                  <button
+                    id={buttonId}
+                    type="button"
+                    onClick={() => setOpenFaq(open ? null : index)}
+                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-crystal-500"
+                    aria-expanded={open}
+                    aria-controls={panelId}
+                  >
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                      className={`h-5 w-5 shrink-0 text-crystal-500 transition-transform ${
+                        open ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {open && (
+                      <motion.div
+                        id={panelId}
+                        role="region"
+                        aria-labelledby={buttonId}
+                        initial={reducedMotion ? { opacity: 1 } : { height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={reducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+                        transition={{ duration: reducedMotion ? 0 : 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="px-5 pb-5 text-sm leading-6 text-gray-600">{faq.a}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-10 sm:px-6">
+        <div className="container mx-auto max-w-6xl">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-crystal-600 via-crystal-700 to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+            <Home className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
+            <div className="relative mx-auto max-w-3xl">
+              <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
+                Book Professional Residential Cleaning in Dubai
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-crystal-100 sm:text-lg">
+                Share your location, property type, preferred schedule, and
+                priority tasks, and we&apos;ll help you choose the residential
+                cleaning option that best matches your needs.
+              </p>
+              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
+                <Link
+                  to="/booking"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-crystal-700 transition hover:-translate-y-0.5 hover:bg-crystal-50"
+                >
+                  Book Residential Cleaning
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  to="/quote"
+                  className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/10 px-7 py-3.5 font-bold text-white transition hover:bg-white/15"
+                >
+                  Request a Free Quote
+                </Link>
+                <a
+                  href="https://wa.me/971552488588"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-3.5 font-bold text-white transition hover:bg-white/15"
+                >
+                  <MessageCircle className="h-5 w-5" />
+                  WhatsApp Us
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function Eyebrow({ children }) {
+  return (
+    <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-crystal-600">
+      {children}
+    </span>
+  );
+}
+
+function PropertyPanel({ icon: Icon, title, description, tags = [], tasks }) {
+  return (
+    <article className="rounded-[2rem] border border-gray-100 bg-gray-50 p-7">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+        <Icon className="h-7 w-7" />
+      </div>
+      <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">{title}</h2>
+      <p className="mt-4 leading-7 text-gray-600">{description}</p>
+      {tags.length > 0 && (
+        <div className="mt-5 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <span key={tag} className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-gray-600">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+      <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        {tasks.map((task) => (
+          <div key={task} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
+            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-crystal-500" />
+            {task}
+          </div>
+        ))}
+      </div>
+    </article>
+  );
+}
+
+function SimpleChecklistCard({ title, description, items }) {
+  return (
+    <article className="rounded-[2rem] border border-gray-100 bg-white p-7 shadow-sm">
+      <h2 className="font-display text-3xl font-bold text-gray-900">{title}</h2>
+      <p className="mt-4 leading-7 text-gray-600">{description}</p>
+      <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        {items.map((item) => (
+          <div key={item} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
+            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-crystal-500" />
+            {item}
+          </div>
+        ))}
+      </div>
+    </article>
+  );
+}
+
+function CardGridSection({
+  eyebrow,
+  title,
+  description,
+  items,
+  background,
+  columns = "lg:grid-cols-3",
+  linked = false,
+}) {
+  return (
+    <section className={`${background} py-20`}>
+      <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+        <div className="text-center">
+          <Eyebrow>{eyebrow}</Eyebrow>
+          <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">{title}</h2>
+          <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">{description}</p>
+        </div>
+
+        <div className={`mt-12 grid gap-6 sm:grid-cols-2 ${columns}`}>
+          {items.map((item) => {
+            const Icon = item.icon;
+            return (
+              <article key={item.title} className="flex flex-col rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 text-xl font-bold text-gray-900">{item.title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-6 text-gray-600">{item.desc}</p>
+                {item.tasks && (
+                  <div className="mt-5 space-y-2 border-t border-gray-100 pt-5">
+                    {item.tasks.map((task) => (
+                      <div key={task} className="flex items-start gap-2 text-xs leading-5 text-gray-600">
+                        <CheckCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-crystal-500" />
+                        {task}
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {linked && item.link && (
+                  <Link
+                    to={item.link}
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-crystal-600"
+                  >
+                    {item.linkText}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                )}
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DeepCleanPanel({ icon: Icon, title, description, items, note }) {
+  return (
+    <article className="rounded-[2rem] border border-gray-100 bg-white p-7 shadow-sm">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+        <Icon className="h-7 w-7" />
+      </div>
+      <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">{title}</h2>
+      <p className="mt-4 leading-7 text-gray-600">{description}</p>
+      <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        {items.map((item) => (
+          <div key={item} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
+            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-crystal-500" />
+            {item}
+          </div>
+        ))}
+      </div>
+      {note && <p className="mt-5 text-xs leading-5 text-gray-500">{note}</p>}
+    </article>
+  );
+}
+
+function InfoGrid({ icon: Icon, title, intro, items }) {
+  return (
+    <article className="rounded-[2rem] border border-gray-100 bg-white p-7 shadow-sm">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+        <Icon className="h-7 w-7" />
+      </div>
+      <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">{title}</h2>
+      <p className="mt-4 leading-7 text-gray-600">{intro}</p>
+      <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        {items.map((item) => (
+          <div key={item} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
+            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-crystal-500" />
+            {item}
+          </div>
+        ))}
+      </div>
+    </article>
   );
 }
