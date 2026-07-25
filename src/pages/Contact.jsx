@@ -201,21 +201,21 @@ export default function Contact() {
                 {
                   icon: Phone,
                   label: "Phone",
-                  value: "+971 50 123 4567",
-                  href: "tel:+971501234567",
+                  value: "+971 55 248 8588",
+                  href: "tel:+971552488588",
                 },
                 {
                   icon: MessageCircle,
                   label: "WhatsApp",
-                  value: "+971 50 123 4567",
-                  href: "https://wa.me/971501234567",
+                  value: "+971 55 248 8588",
+                  href: "https://wa.me/971552488588",
                   external: true,
                 },
                 {
                   icon: Mail,
                   label: "Email",
-                  value: "info@luckycrystalmaids.com",
-                  href: "mailto:info@luckycrystalmaids.com",
+                  value: "Luckycrystaldubai@gmail.com",
+                  href: "mailto:Luckycrystaldubai@gmail.com",
                 },
                 {
                   icon: Clock,
@@ -273,7 +273,7 @@ export default function Contact() {
                           href="tel:+971501234567"
                           className="text-gray-300 transition hover:text-white"
                         >
-                          +971 50 123 4567
+                          +971 55 248 8588
                         </a>
                       ),
                     },
@@ -282,12 +282,12 @@ export default function Contact() {
                       title: "WhatsApp",
                       content: (
                         <a
-                          href="https://wa.me/971501234567"
+                          href="https://wa.me/971552488588"
                           target="_blank"
                           rel="noreferrer"
                           className="text-gray-300 transition hover:text-white"
                         >
-                          +971 50 123 4567
+                          +971 55 248 8588
                         </a>
                       ),
                     },
@@ -296,10 +296,10 @@ export default function Contact() {
                       title: "Email",
                       content: (
                         <a
-                          href="mailto:info@luckycrystalmaids.com"
+                          href="mailto:Luckycrystaldubai@gmail.com"
                           className="break-all text-gray-300 transition hover:text-white"
                         >
-                          info@luckycrystalmaids.com
+                          Luckycrystaldubai@gmail.com
                         </a>
                       ),
                     },
