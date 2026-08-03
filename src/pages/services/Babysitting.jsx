@@ -27,7 +27,7 @@ import { useCart } from "../../context/CartContext";
 import RelatedServices from "../../components/RelatedServices";
 
 const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1800&q=82";
+  "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1800&q=85";
 
 const useCases = [
   "Childcare during working hours",
@@ -187,18 +187,17 @@ export default function Babysitting() {
         <meta name="description" content="Book babysitting services in Dubai for hourly, daytime, evening, weekend, hotel, and event childcare. Request support matched to your family’s schedule and needs." />
       </Helmet>
 
-      <section className="relative isolate min-h-[650px] overflow-hidden bg-gray-950">
+      <section className="relative isolate min-h-[650px] overflow-hidden bg-indigo-50">
         <img src={HERO_IMAGE} alt="Professional babysitting services in Dubai" className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" decoding="async" />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/85 to-indigo-950/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-gray-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-900/20 to-transparent" />
         <div className="container relative mx-auto flex min-h-[650px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">
           <motion.div initial={prefersReducedMotion ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: prefersReducedMotion ? 0 : 0.55 }} className="max-w-4xl">
-            <Link to="/services" className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-indigo-100 backdrop-blur transition hover:bg-white/15">
+            <Link to="/services" className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/40 bg-black/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur transition hover:bg-black/20">
               <ArrowLeft className="h-4 w-4" /> Back to Services
             </Link>
-            <span className="mb-4 block text-sm font-bold uppercase tracking-[0.24em] text-indigo-300">Flexible family support</span>
-            <h1 className="max-w-3xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">Professional Babysitting Services in Dubai</h1>
-            <p className="mt-6 max-w-3xl text-base leading-7 text-gray-200 sm:text-lg">Finding dependable childcare is one of the most important decisions a parent can make. Whether you need a few hours of support during a busy day, regular assistance while working, childcare during an appointment, or an extra pair of hands at home, our professional babysitting services in Dubai are designed around your family’s routine, preferences, and childcare requirements.</p>
+            <span className="mb-4 block text-sm font-bold uppercase tracking-[0.24em] text-indigo-200">Flexible family support</span>
+            <h1 className="max-w-3xl font-display text-4xl font-bold leading-tight text-white drop-shadow-sm sm:text-5xl md:text-6xl">Professional Babysitting Services in Dubai</h1>
+            <p className="mt-6 max-w-3xl text-base leading-7 text-white drop-shadow-sm sm:text-lg">Finding dependable childcare is one of the most important decisions a parent can make. Whether you need a few hours of support during a busy day, regular assistance while working, childcare during an appointment, or an extra pair of hands at home, our professional babysitting services in Dubai are designed around your family’s routine, preferences, and childcare requirements.</p>
             <button type="button" onClick={scrollToPicker} className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-indigo-500 px-6 py-3.5 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-indigo-600">
               <CalendarCheck className="h-5 w-5" /> Book a Babysitter
             </button>

@@ -376,7 +376,7 @@ export default function ServiceDetail() {
           fetchPriority="high"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/85 to-gray-950/25" />
+        <div className="absolute inset-0 bg-slate-950/45" />
         <div className={`absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t ${service.accent} opacity-30`} />
 
         <div className="container relative mx-auto flex min-h-[610px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">

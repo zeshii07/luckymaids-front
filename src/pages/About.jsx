@@ -124,8 +124,8 @@ export default function About() {
       </Helmet>
 
       <section className="relative isolate overflow-hidden bg-gray-950 pt-28 text-white sm:pt-32">
-        <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.22),transparent_32%),radial-gradient(circle_at_80%_30%,rgba(16,185,129,0.18),transparent_28%)]" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-gray-950/20 to-gray-950" />
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=85" alt="Lucky Crystal Maids professional cleaning team" className="absolute inset-0 -z-20 h-full w-full object-cover" />
+        <div className="absolute inset-0 -z-10 bg-slate-950/45" />
 
         <div className="container mx-auto max-w-7xl px-5 pb-20 sm:px-6 lg:px-8 lg:pb-28">
           <motion.div

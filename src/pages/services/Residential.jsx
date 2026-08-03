@@ -254,7 +254,7 @@ const faqs = [
 
 
 const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=82";
+  "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1800&q=85";
 
 const reveal = {
   hidden: { opacity: 0, y: 24 },
@@ -283,7 +283,7 @@ export default function Residential() {
         />
       </Helmet>
 
-      <section className="relative isolate min-h-[650px] overflow-hidden bg-gray-950">
+      <section className="relative isolate min-h-[650px] overflow-hidden bg-sky-50">
         <img
           src={HERO_IMAGE}
           alt="Professional residential cleaning services in a Dubai home"
@@ -291,8 +291,7 @@ export default function Residential() {
           fetchPriority="high"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/85 to-crystal-950/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-gray-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-900/20 to-transparent" />
 
         <div className="container relative mx-auto flex min-h-[650px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">
           <motion.div
@@ -303,21 +302,21 @@ export default function Residential() {
           >
             <Link
               to="/services"
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-crystal-100 backdrop-blur transition hover:bg-white/15"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/40 bg-black/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur transition hover:bg-black/20"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to Services
             </Link>
 
-            <span className="mb-4 block text-sm font-bold uppercase tracking-[0.24em] text-crystal-300">
+            <span className="mb-4 block text-sm font-bold uppercase tracking-[0.24em] text-crystal-200">
               Flexible home cleaning across Dubai
             </span>
 
-            <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
+            <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight text-white drop-shadow-sm sm:text-5xl md:text-6xl">
               Professional Residential Cleaning Services in Dubai
             </h1>
 
-            <p className="mt-6 max-w-3xl text-base leading-7 text-gray-200 sm:text-lg">
+            <p className="mt-6 max-w-3xl text-base leading-7 text-white drop-shadow-sm sm:text-lg">
               A clean, comfortable, and well-maintained home contributes to a
               more enjoyable living environment. Our residential cleaning
               services help homeowners, tenants, landlords, and property
@@ -335,7 +334,7 @@ export default function Residential() {
               </Link>
               <Link
                 to="/quote"
-                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-7 py-3.5 font-bold text-white backdrop-blur transition hover:bg-white/15"
+                className="inline-flex items-center justify-center rounded-full border border-white/50 bg-white/15 px-7 py-3.5 font-bold text-white backdrop-blur transition hover:bg-white/25"
               >
                 Request a Free Quote
               </Link>

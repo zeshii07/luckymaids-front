@@ -25,7 +25,7 @@ import { useCart } from "../../context/CartContext";
 import RelatedServices from "../../components/RelatedServices";
 
 const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=85";
+  "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=1800&q=85";
 const RESIDENTIAL_IMAGE =
   "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80";
 const COMMERCIAL_IMAGE =
@@ -303,15 +303,14 @@ export default function DeepCleaning() {
         <link rel="preconnect" href="https://images.unsplash.com" />
       </Helmet>
 
-      <section className="relative isolate min-h-[680px] overflow-hidden bg-slate-950 sm:min-h-[720px] lg:min-h-[760px]">
+      <section className="relative isolate min-h-[680px] overflow-hidden bg-cyan-50 sm:min-h-[720px] lg:min-h-[760px]">
         <img
           src={HERO_IMAGE}
           alt="Professional cleaner preparing a bright modern room"
           className="absolute inset-0 h-full w-full object-cover object-center"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-900/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-900/20 to-transparent" />
 
         <div className="relative mx-auto flex min-h-[680px] max-w-7xl items-center px-5 py-20 sm:min-h-[720px] sm:px-8 lg:min-h-[760px] lg:px-10">
           <motion.div
@@ -322,7 +321,7 @@ export default function DeepCleaning() {
           >
             <Link
               to="/services"
-              className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md transition hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/40 bg-black/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md transition hover:bg-black/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <ArrowLeft className="h-4 w-4" /> Back to services
             </Link>
@@ -331,15 +330,15 @@ export default function DeepCleaning() {
               <span className="rounded-full bg-crystal-500/90 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-white">
                 Deep cleaning in Dubai
               </span>
-              <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md">
+              <span className="rounded-full border border-white/40 bg-black/10 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md">
                 Homes · Villas · Offices
               </span>
             </div>
 
-            <h1 className="max-w-4xl text-4xl font-display font-black leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-7xl">
+            <h1 className="max-w-4xl text-4xl font-display font-black leading-[1.05] tracking-tight text-white drop-shadow-sm sm:text-5xl lg:text-7xl">
               A deeper clean for spaces that deserve extra attention.
             </h1>
-            <p className="mt-6 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg lg:text-xl lg:leading-8">
+            <p className="mt-6 max-w-3xl text-base leading-7 text-white drop-shadow-sm sm:text-lg lg:text-xl lg:leading-8">
               Detailed cleaning for apartments, villas, and workplaces, with flexible packages and a systematic top-to-bottom approach.
             </p>
 
@@ -362,8 +361,8 @@ export default function DeepCleaning() {
 
             <div className="mt-10 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4">
               {trustItems.map(({ icon: Icon, label }) => (
-                <div key={label} className="rounded-2xl border border-white/15 bg-white/10 p-3 text-sm font-semibold text-white backdrop-blur-md">
-                  <Icon className="mb-2 h-5 w-5 text-crystal-300" />
+                <div key={label} className="rounded-2xl border border-white/40 bg-black/10 p-3 text-sm font-semibold text-white shadow-sm backdrop-blur-md">
+                  <Icon className="mb-2 h-5 w-5 text-crystal-200" />
                   {label}
                 </div>
               ))}

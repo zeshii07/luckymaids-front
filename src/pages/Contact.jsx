@@ -168,7 +168,8 @@ export default function Contact() {
       </Helmet>
 
       <section className="relative isolate overflow-hidden bg-gray-950 pt-28 text-white sm:pt-32">
-        <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_20%_20%,rgba(14,165,233,0.22),transparent_30%),radial-gradient(circle_at_80%_20%,rgba(16,185,129,0.16),transparent_26%)]" />
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1800&q=85" alt="Friendly customer support team ready to help" className="absolute inset-0 -z-20 h-full w-full object-cover" />
+        <div className="absolute inset-0 -z-10 bg-slate-950/45" />
         <div className="container mx-auto max-w-7xl px-5 pb-20 sm:px-6 lg:px-8 lg:pb-28">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}

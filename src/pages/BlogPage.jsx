@@ -105,7 +105,8 @@ export default function BlogPage() {
 
       <main className="min-h-screen overflow-hidden bg-white pb-24 pt-20">
         <section className="relative isolate overflow-hidden bg-gray-950">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.18),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.10),transparent_35%)]" />
+          <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1800&q=85" alt="Cleaning guides and home-care planning" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-slate-950/45" />
           <BookOpen className="absolute -bottom-20 -right-10 h-72 w-72 rotate-12 text-white/[0.035]" />
 
           <div className="container relative mx-auto px-5 py-24 sm:px-6 md:py-32">

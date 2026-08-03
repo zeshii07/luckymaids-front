@@ -188,7 +188,8 @@ export default function Pricing() {
       </Helmet>
 
       <section className="relative isolate overflow-hidden bg-gray-950">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.20),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.12),transparent_35%)]" />
+        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1800&q=85" alt="Clear cleaning service pricing and quotation planning" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-slate-950/45" />
         <Calculator className="absolute -bottom-20 -right-16 h-80 w-80 rotate-12 text-white/[0.035]" />
 
         <div className="container relative mx-auto px-5 py-24 sm:px-6 md:py-32">

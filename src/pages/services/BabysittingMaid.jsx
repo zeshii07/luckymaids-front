@@ -62,11 +62,11 @@ export default function BabysittingMaid() {
 
       <div className="relative h-[400px] w-full overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-          alt="Dubai Maid and Babysitting"
+          src="https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?auto=format&fit=crop&w=1600&q=85"
+          alt="Bright family childcare and household support"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/90 via-indigo-900/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/50 via-slate-900/15 to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 pt-28">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -75,14 +75,14 @@ export default function BabysittingMaid() {
           >
             <Link
               to="/services"
-              className="inline-flex items-center text-indigo-300 mb-4 hover:text-white transition"
+              className="mb-4 inline-flex items-center rounded-full border border-white/40 bg-black/10 px-4 py-2 font-semibold text-white backdrop-blur transition hover:bg-black/20"
             >
               <ArrowLeft className="w-4 h-4 mr-2" /> Back to Services
             </Link>
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-2">
+            <h1 className="mb-2 font-display text-4xl font-bold text-white drop-shadow-sm md:text-6xl">
               Babysitting & Maid in Dubai
             </h1>
-            <p className="text-xl text-gray-200 mb-6">
+            <p className="mb-6 text-xl text-white drop-shadow-sm">
               Trusted care for your home and little ones.
             </p>
             <button

@@ -205,7 +205,8 @@ export default function AreasWeServe() {
       </Helmet>
 
       <section className="relative isolate overflow-hidden bg-gray-950">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.18),transparent_38%),radial-gradient(circle_at_bottom_left,rgba(16,185,129,0.10),transparent_34%)]" />
+        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1800&q=85" alt="Dubai skyline representing cleaning service coverage" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-slate-950/45" />
         <MapPin className="absolute -bottom-24 -right-12 h-80 w-80 rotate-12 text-white/[0.035]" />
 
         <div className="container relative mx-auto px-5 py-24 sm:px-6 md:py-32">

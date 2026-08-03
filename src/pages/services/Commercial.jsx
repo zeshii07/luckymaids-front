@@ -112,7 +112,7 @@ const faqs = [
 
 
 const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=82";
+  "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85";
 
 const reveal = {
   hidden: { opacity: 0, y: 24 },
@@ -189,7 +189,7 @@ export default function Commercial() {
         />
       </Helmet>
 
-      <section className="relative isolate min-h-[650px] overflow-hidden bg-gray-950">
+      <section className="relative isolate min-h-[650px] overflow-hidden bg-orange-50">
         <img
           src={HERO_IMAGE}
           alt="Commercial cleaning services for offices and businesses in Dubai"
@@ -197,8 +197,7 @@ export default function Commercial() {
           fetchPriority="high"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/85 to-orange-950/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-gray-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-900/20 to-transparent" />
 
         <div className="container relative mx-auto flex min-h-[650px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">
           <motion.div
@@ -209,21 +208,21 @@ export default function Commercial() {
           >
             <Link
               to="/services"
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-orange-100 backdrop-blur transition hover:bg-white/15"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/40 bg-black/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur transition hover:bg-black/20"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to Services
             </Link>
 
-            <span className="mb-4 block text-sm font-bold uppercase tracking-[0.24em] text-orange-300">
+            <span className="mb-4 block text-sm font-bold uppercase tracking-[0.24em] text-orange-200">
               Flexible workplace cleaning
             </span>
 
-            <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
+            <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight text-white drop-shadow-sm sm:text-5xl md:text-6xl">
               Professional Cleaning Solutions for Offices, Retail & Businesses in Dubai
             </h1>
 
-            <p className="mt-6 max-w-3xl text-base leading-7 text-gray-200 sm:text-lg">
+            <p className="mt-6 max-w-3xl text-base leading-7 text-white drop-shadow-sm sm:text-lg">
               A clean commercial environment creates a positive first
               impression, supports daily business operations, and helps maintain
               a comfortable workplace for employees, customers, visitors, and

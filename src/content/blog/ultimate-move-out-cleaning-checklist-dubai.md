@@ -6,7 +6,7 @@ category: Move In & Move Out Cleaning
 author: Lucky Crystal Maids
 date: 2026-07-25
 updatedDate: 2026-07-25
-featuredImage: /images/blog/ultimate-move-out-cleaning-checklist-dubai.webp
+featuredImage: https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85
 featuredImageAlt: Empty apartment being professionally cleaned before move-out in Dubai
 metaTitle: Ultimate Move-Out Cleaning Checklist Dubai
 metaDescription: Follow this step-by-step move-out cleaning checklist for apartments and villas in Dubai before returning your property to the landlord.

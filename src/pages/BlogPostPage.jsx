@@ -241,7 +241,8 @@ export default function BlogPostPage() {
       <main className="min-h-screen overflow-hidden bg-white pb-24 pt-20">
         <article>
           <header className="relative isolate overflow-hidden bg-gray-950">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.18),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.10),transparent_34%)]" />
+            <img src={post.featuredImage} alt="" className="absolute inset-0 h-full w-full object-cover" aria-hidden="true" />
+            <div className="absolute inset-0 bg-slate-950/50" />
             <BookOpen className="absolute -bottom-20 -right-12 h-72 w-72 rotate-12 text-white/[0.035]" />
 
             <div className="container relative mx-auto px-5 py-20 sm:px-6 md:py-28">

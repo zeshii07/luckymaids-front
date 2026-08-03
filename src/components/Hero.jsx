@@ -7,16 +7,8 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-0">
       
-      {/* 1. Full Background Image */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1604147495798-57beb5d6af73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
-          alt="Clean modern home background" 
-          className="w-full h-full object-cover"
-        />
-        {/* Dark global gradient for text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/80 to-black/60 md:bg-gradient-to-r md:from-black/95 md:via-black/80 md:to-black/40"></div>
-      </div>
+      {/* 1. Bright brand gradient background */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-sky-700 via-cyan-400 to-white md:bg-gradient-to-r" />
 
       {/* 2. Smiling Cleaner PNG (Spanning FULL section height behind text) */}
       <motion.div 

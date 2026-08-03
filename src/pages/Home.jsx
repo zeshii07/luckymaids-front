@@ -1,9 +1,5 @@
 import { useState } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useReducedMotion,
-} from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
@@ -28,22 +24,13 @@ import {
 } from "lucide-react";
 import Hero from "../components/Hero";
 
-const coreServices = [
-  { name: "Deep Cleaning", link: "/services/deep-cleaning" },
-  { name: "Maid Services", link: "/services/maid-services" },
-  { name: "Residential Cleaning", link: "/services/residential" },
-  { name: "Commercial Cleaning", link: "/services/commercial" },
-  { name: "Move-In / Move-Out", link: "/services/move-in-out" },
-  { name: "Furniture Cleaning", link: "/services/furniture" },
-  { name: "Babysitting", link: "/services/babysitting" },
-];
-
 const services = [
   {
     icon: Sparkles,
     eyebrow: "Most requested",
     title: "Deep Cleaning",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=85",
+    image:
+      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=85",
     imageAlt: "Professional cleaner working in a bright modern home",
     imageCredit: "Unsplash",
     description:
@@ -60,7 +47,8 @@ const services = [
     icon: UserCheck,
     eyebrow: "Flexible schedules",
     title: "Maid Services",
-    image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1400&q=85",
+    image:
+      "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1400&q=85",
     imageAlt: "Cleaning tools prepared for professional housekeeping",
     imageCredit: "Unsplash",
     description:
@@ -77,7 +65,8 @@ const services = [
     icon: HomeIcon,
     eyebrow: "Made for your home",
     title: "Residential Cleaning",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85",
+    image:
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85",
     imageAlt: "Clean contemporary residential interior",
     imageCredit: "Unsplash",
     description:
@@ -94,7 +83,8 @@ const services = [
     icon: Building2,
     eyebrow: "Business-ready spaces",
     title: "Commercial Cleaning",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85",
+    image:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85",
     imageAlt: "Bright modern commercial office interior",
     imageCredit: "Unsplash",
     description:
@@ -111,7 +101,8 @@ const services = [
     icon: Sofa,
     eyebrow: "Refresh your interiors",
     title: "Furniture Cleaning",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
+    image:
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
     imageAlt: "Modern sofa in a clean living room",
     imageCredit: "Unsplash",
     description:
@@ -128,7 +119,8 @@ const services = [
     icon: Truck,
     eyebrow: "Smooth transitions",
     title: "Move-In & Move-Out",
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=85",
+    image:
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=85",
     imageAlt: "Freshly prepared empty apartment interior",
     imageCredit: "Unsplash",
     description:
@@ -145,7 +137,8 @@ const services = [
     icon: Baby,
     eyebrow: "Dependable family support",
     title: "Babysitting Services",
-    image: "https://images.pexels.com/photos/6986435/pexels-photo-6986435.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    image:
+      "https://images.pexels.com/photos/6986435/pexels-photo-6986435.jpeg?auto=compress&cs=tinysrgb&w=1400",
     imageAlt: "Caregiver helping a child with a learning activity",
     imageCredit: "Pexels / cottonbro studio",
     description:
@@ -161,10 +154,26 @@ const services = [
 ];
 
 const trustPoints = [
-  { icon: ShieldCheck, title: "Reliable service", text: "Clear communication from enquiry to completion." },
-  { icon: ClipboardCheck, title: "Tailored plans", text: "Cleaning scopes shaped around your property and priorities." },
-  { icon: CalendarCheck, title: "Flexible booking", text: "Convenient appointments based on location and availability." },
-  { icon: UserCheck, title: "Experienced team", text: "Professional support for homes and commercial spaces." },
+  {
+    icon: ShieldCheck,
+    title: "Reliable service",
+    text: "Clear communication from enquiry to completion.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Tailored plans",
+    text: "Cleaning scopes shaped around your property and priorities.",
+  },
+  {
+    icon: CalendarCheck,
+    title: "Flexible booking",
+    text: "Convenient appointments based on location and availability.",
+  },
+  {
+    icon: UserCheck,
+    title: "Experienced team",
+    text: "Professional support for homes and commercial spaces.",
+  },
 ];
 
 const processSteps = [
@@ -314,7 +323,10 @@ function ServiceCard({ service, index, reduceMotion }) {
           <div className="mt-6 rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-md">
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               {service.features.map((feature) => (
-                <li key={feature} className="flex items-start gap-2.5 text-xs leading-5 text-white/90">
+                <li
+                  key={feature}
+                  className="flex items-start gap-2.5 text-xs leading-5 text-white/90"
+                >
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cyan-300/15 text-cyan-200">
                     <Check className="h-3.5 w-3.5" />
                   </span>
@@ -368,29 +380,6 @@ export default function Home() {
       <main className="overflow-hidden bg-slate-50 text-slate-900">
         <Hero />
 
-        <section className="relative border-y border-slate-200/70 bg-white py-8">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.08),transparent_60%)]" />
-          <div className="container relative mx-auto max-w-7xl px-6">
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              {coreServices.map((service, index) => (
-                <motion.div
-                  key={service.name}
-                  initial={reduceMotion ? false : { opacity: 0, scale: 0.92 }}
-                  animate={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.35, delay: index * 0.04 }}
-                >
-                  <Link
-                    to={service.link}
-                    className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-crystal-300 hover:text-crystal-700 hover:shadow-md"
-                  >
-                    {service.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section className="relative py-24 sm:py-28">
           <div className="pointer-events-none absolute left-0 top-20 h-72 w-72 rounded-full bg-crystal-200/30 blur-3xl" />
           <div className="pointer-events-none absolute right-0 top-1/2 h-80 w-80 rounded-full bg-cyan-200/30 blur-3xl" />
@@ -429,10 +418,13 @@ export default function Home() {
                   Why Lucky Crystal Maids
                 </span>
                 <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                  A smoother cleaning experience from first message to final result
+                  A smoother cleaning experience from first message to final
+                  result
                 </h2>
                 <p className="mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
-                  We focus on clear communication, practical recommendations and a service plan that fits your property, schedule and priorities.
+                  We focus on clear communication, practical recommendations and
+                  a service plan that fits your property, schedule and
+                  priorities.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-4">
@@ -462,7 +454,9 @@ export default function Home() {
                     <motion.div
                       key={item.title}
                       initial={reduceMotion ? false : { opacity: 0, y: 24 }}
-                      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                      whileInView={
+                        reduceMotion ? undefined : { opacity: 1, y: 0 }
+                      }
                       viewport={{ once: true, amount: 0.3 }}
                       transition={{ duration: 0.5, delay: index * 0.08, ease }}
                       whileHover={reduceMotion ? undefined : { y: -6 }}
@@ -536,7 +530,8 @@ export default function Home() {
                       Serving homes and businesses across Dubai
                     </h2>
                     <p className="mt-5 text-base leading-8 text-cyan-50">
-                      Coverage and appointment availability can vary, so contact us to confirm service in your community.
+                      Coverage and appointment availability can vary, so contact
+                      us to confirm service in your community.
                     </p>
                     <Link
                       to="/quote"
@@ -553,10 +548,17 @@ export default function Home() {
                     {areasServed.map((area, index) => (
                       <motion.span
                         key={area}
-                        initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
-                        whileInView={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
+                        initial={
+                          reduceMotion ? false : { opacity: 0, scale: 0.9 }
+                        }
+                        whileInView={
+                          reduceMotion ? undefined : { opacity: 1, scale: 1 }
+                        }
                         viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: Math.min(index * 0.025, 0.3) }}
+                        transition={{
+                          duration: 0.3,
+                          delay: Math.min(index * 0.025, 0.3),
+                        }}
                         className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700"
                       >
                         <MapPin className="h-3.5 w-3.5 text-crystal-600" />
@@ -587,7 +589,9 @@ export default function Home() {
                   <motion.div
                     key={faq.question}
                     initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-                    whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                    whileInView={
+                      reduceMotion ? undefined : { opacity: 1, y: 0 }
+                    }
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
                     className={`overflow-hidden rounded-2xl border transition-colors ${
@@ -623,9 +627,13 @@ export default function Home() {
                     <AnimatePresence initial={false}>
                       {isOpen && (
                         <motion.div
-                          initial={reduceMotion ? false : { height: 0, opacity: 0 }}
+                          initial={
+                            reduceMotion ? false : { height: 0, opacity: 0 }
+                          }
                           animate={{ height: "auto", opacity: 1 }}
-                          exit={reduceMotion ? undefined : { height: 0, opacity: 0 }}
+                          exit={
+                            reduceMotion ? undefined : { height: 0, opacity: 0 }
+                          }
                           transition={{ duration: 0.28, ease }}
                         >
                           <p className="px-6 pb-7 pr-16 text-sm leading-7 text-slate-600 sm:px-7 sm:pb-8 sm:pr-20 sm:text-base">
@@ -644,8 +652,12 @@ export default function Home() {
         <section className="relative px-6 pb-24 pt-4 sm:pb-28">
           <div className="container mx-auto max-w-7xl">
             <motion.div
-              initial={reduceMotion ? false : { opacity: 0, y: 28, scale: 0.98 }}
-              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+              initial={
+                reduceMotion ? false : { opacity: 0, y: 28, scale: 0.98 }
+              }
+              whileInView={
+                reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }
+              }
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.65, ease }}
               className="relative overflow-hidden rounded-[2.5rem] bg-slate-950 px-7 py-14 text-center text-white shadow-2xl sm:px-12 sm:py-16"
@@ -661,7 +673,8 @@ export default function Home() {
                   Ready for a cleaner, more comfortable space?
                 </h2>
                 <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg">
-                  Tell us what you need and we will help you choose a practical service for your home or business.
+                  Tell us what you need and we will help you choose a practical
+                  service for your home or business.
                 </p>
 
                 <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
@@ -688,4 +701,3 @@ export default function Home() {
     </>
   );
 }
- 
