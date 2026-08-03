@@ -18,22 +18,40 @@ import {
 import { Link, useLocation } from "react-router-dom";
 
 const services = [
-  { name: "Residential Cleaning", description: "Reliable home cleaning for apartments and villas.", path: "/services/residential", icon: Home },
-  { name: "Deep Cleaning", description: "Detailed top-to-bottom cleaning for every room.", path: "/services/deep-cleaning", icon: Sparkles, featured: true },
-  { name: "Move-in/Out Cleaning", description: "Prepare your property before or after moving.", path: "/services/move-in-out", icon: Truck },
-  { name: "Commercial Cleaning", description: "Professional cleaning for offices and businesses.", path: "/services/commercial", icon: Building2 },
-  { name: "Furniture Cleaning", description: "Specialized care for sofas, carpets, and mattresses.", path: "/services/furniture", icon: Sofa },
-  { name: "Maid Services", description: "Flexible maid support for everyday household needs.", path: "/services/maid-services", icon: SprayCan },
-  { name: "Babysitting Services", description: "Dependable assistance for families and children.", path: "/services/babysitting", icon: Baby },
+  { name: "Residential Cleaning", description: "Reliable home cleaning for apartments and villas.", path: "/residential-cleaning-services-dubai", icon: Home },
+  { name: "Deep Cleaning", description: "Detailed top-to-bottom cleaning for every room.", path: "/deep-cleaning-services-dubai", icon: Sparkles, featured: true },
+  { name: "Move-in/Out Cleaning", description: "Prepare your property before or after moving.", path: "/move-in-move-out-cleaning-dubai", icon: Truck },
+  { name: "Commercial Cleaning", description: "Professional cleaning for offices and businesses.", path: "/commercial-cleaning-services-dubai", icon: Building2 },
+  { name: "Furniture Cleaning", description: "Specialized care for sofas, carpets, and mattresses.", path: "/furniture-cleaning-dubai", icon: Sofa },
+  { name: "Maid Services", description: "Flexible maid support for everyday household needs.", path: "/maid-services-dubai", icon: SprayCan },
+  { name: "Babysitting Services", description: "Dependable assistance for families and children.", path: "/babysitting-services-dubai", icon: Baby },
 ];
 
 const primaryLinks = [
-  { name: "Home", path: "/" },
-  { name: "Pricing", path: "/pricing" },
-  { name: "Areas We Serve", path: "/areas-we-serve" },
-   { name: "Blog", path: "/blog" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
+  {
+    name: "Home",
+    path: "/",
+  },
+  {
+    name: "Pricing",
+    path: "/pricing",
+  },
+  {
+    name: "Areas We Serve",
+    path: "/areas-we-serve",
+  },
+  {
+    name: "Blog",
+    path: "/blog",
+  },
+  {
+    name: "About",
+    path: "/about-us",
+  },
+  {
+    name: "Contact",
+    path: "/contact-us",
+  },
 ];
 
 function isPathActive(currentPath, targetPath) {
@@ -51,7 +69,7 @@ export default function Navbar() {
   const [servicesDropdown, setServicesDropdown] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
-  const servicesActive = location.pathname === "/services" || location.pathname.startsWith("/services/");
+  const servicesActive = services.some(({ path }) => location.pathname === path);
 
   useEffect(() => {
     let frameId = null;
@@ -178,7 +196,7 @@ export default function Navbar() {
                   >
                     <div className="overflow-hidden rounded-[1.75rem] border border-gray-200/80 bg-white p-3 shadow-[0_24px_70px_-30px_rgba(15,23,42,0.45)]">
                       <div className="grid grid-cols-[1.1fr_1.9fr] gap-3">
-                        <Link to="/services" className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-crystal-900 p-6 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-400">
+                        <Link to="/cleaning-services-dubai" className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-crystal-900 p-6 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-400">
                           <span className="relative z-10">
                             <span className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 backdrop-blur"><Sparkles className="h-6 w-6 text-crystal-300" /></span>
                             <span className="block text-sm font-semibold text-crystal-200">Complete care</span>
@@ -228,8 +246,8 @@ export default function Navbar() {
           </div>
 
           <div className="hidden items-center gap-2 xl:flex">
-            <Link to="/quote" className="rounded-full border border-crystal-200 bg-white/70 px-5 py-2.5 text-sm font-bold text-crystal-700 transition hover:border-crystal-300 hover:bg-crystal-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500 focus-visible:ring-offset-2">Get Quote</Link>
-            <Link to="/booking" className="group inline-flex items-center gap-2 rounded-full bg-crystal-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-crystal-500/20 transition hover:-translate-y-0.5 hover:bg-crystal-600 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500 focus-visible:ring-offset-2">Book Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" /></Link>
+            <Link to="/request-a-quote" className="rounded-full border border-crystal-200 bg-white/70 px-5 py-2.5 text-sm font-bold text-crystal-700 transition hover:border-crystal-300 hover:bg-crystal-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500 focus-visible:ring-offset-2">Get Quote</Link>
+            <Link to="/book-cleaning-service" className="group inline-flex items-center gap-2 rounded-full bg-crystal-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-crystal-500/20 transition hover:-translate-y-0.5 hover:bg-crystal-600 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500 focus-visible:ring-offset-2">Book Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" /></Link>
           </div>
 
           <button type="button" onClick={() => setIsOpen((open) => !open)} className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:border-crystal-200 hover:text-crystal-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500 focus-visible:ring-offset-2 xl:hidden" aria-expanded={isOpen} aria-controls="mobile-navigation" aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}>
@@ -276,7 +294,7 @@ export default function Navbar() {
                       {mobileServicesOpen && (
                         <motion.div id="mobile-services-list" initial={prefersReducedMotion ? { opacity: 1 } : { height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={prefersReducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }} transition={{ duration: prefersReducedMotion ? 0 : 0.2 }} className="overflow-hidden border-t border-gray-100 bg-gray-50/70">
                           <div className="space-y-1 p-2">
-                            <Link to="/services" onClick={closeMobileMenu} className="flex items-center justify-between rounded-xl px-3 py-3 text-sm font-bold text-crystal-700 hover:bg-white">All Services <ArrowRight className="h-4 w-4" /></Link>
+                            <Link to="/cleaning-services-dubai" onClick={closeMobileMenu} className="flex items-center justify-between rounded-xl px-3 py-3 text-sm font-bold text-crystal-700 hover:bg-white">All Services <ArrowRight className="h-4 w-4" /></Link>
                             {services.map((service) => {
                               const Icon = service.icon;
                               const active = isPathActive(location.pathname, service.path);
@@ -309,12 +327,12 @@ export default function Navbar() {
                     <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10"><UserRoundCheck className="h-5 w-5 text-crystal-300" /></span>
                     <div><p className="font-bold">Need help choosing?</p><p className="mt-0.5 text-xs text-gray-400">Request a personalized cleaning quote.</p></div>
                   </div>
-                  <Link to="/quote" onClick={closeMobileMenu} className="mt-5 flex w-full items-center justify-center rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm font-bold transition hover:bg-white/15">Get a Free Quote</Link>
+                  <Link to="/request-a-quote" onClick={closeMobileMenu} className="mt-5 flex w-full items-center justify-center rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm font-bold transition hover:bg-white/15">Get a Free Quote</Link>
                 </div>
               </div>
 
               <div className="border-t border-gray-100 bg-white p-5">
-                <Link to="/booking" onClick={closeMobileMenu} className="flex w-full items-center justify-center gap-2 rounded-2xl bg-crystal-500 px-5 py-4 font-bold text-white shadow-lg shadow-crystal-500/20 transition hover:bg-crystal-600">Book Now <ArrowRight className="h-4 w-4" /></Link>
+                <Link to="/book-cleaning-service" onClick={closeMobileMenu} className="flex w-full items-center justify-center gap-2 rounded-2xl bg-crystal-500 px-5 py-4 font-bold text-white shadow-lg shadow-crystal-500/20 transition hover:bg-crystal-600">Book Now <ArrowRight className="h-4 w-4" /></Link>
               </div>
             </motion.div>
           </>

@@ -22,6 +22,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
+import RelatedServices from "../../components/RelatedServices";
 
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=85";
@@ -651,6 +652,11 @@ export default function DeepCleaning() {
           </div>
         </div>
       </section>
+
+      <RelatedServices intro="Complete your detailed clean with specialist fabric care or an empty-property service." services={[
+        { title: "Furniture Cleaning", description: "Refresh sofas, mattresses, carpets, and other upholstered surfaces after your deep clean.", to: "/furniture-cleaning-dubai", linkText: "Visit furniture cleaning" },
+        { title: "Move-In & Move-Out Cleaning", description: "Prepare an empty home for handover, a new tenant, or your arrival.", to: "/move-in-move-out-cleaning-dubai", linkText: "Visit move-in and move-out cleaning" },
+      ]} />
 
       <section className="px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-slate-950 px-6 py-14 text-center shadow-2xl sm:px-10 sm:py-20">

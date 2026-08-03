@@ -22,6 +22,7 @@ import {
   XCircle,
 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
+import RelatedServices from "../../components/RelatedServices";
 
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=82";
@@ -643,15 +644,15 @@ export default function MaidServices() {
 
             <div className="mt-6 rounded-2xl border border-blue-100 bg-blue-50 p-5 text-sm leading-6 text-blue-800">
               For intensive detail, book our{" "}
-              <Link to="/services/deep-cleaning" className="font-bold underline">
+              <Link to="/deep-cleaning-services-dubai" className="font-bold underline">
                 Deep Cleaning
               </Link>
               . For upholstery, book{" "}
-              <Link to="/services/furniture" className="font-bold underline">
+              <Link to="/furniture-cleaning-dubai" className="font-bold underline">
                 Furniture Cleaning
               </Link>
               . For childcare, book our{" "}
-              <Link to="/services/babysitting" className="font-bold underline">
+              <Link to="/babysitting-services-dubai" className="font-bold underline">
                 Babysitting Services
               </Link>
               .
@@ -752,6 +753,11 @@ export default function MaidServices() {
           </div>
         </div>
       </section>
+
+      <RelatedServices intro="Choose a broader home-cleaning plan, or combine household help with childcare when your family needs both." services={[
+        { title: "Residential Cleaning", description: "Explore structured cleaning for apartments, villas, and recurring household schedules.", to: "/residential-cleaning-services-dubai", linkText: "Visit residential cleaning" },
+        { title: "Babysitting Maid Services", description: "Arrange combined childcare and light household support through one suitable service.", to: "/babysitting-maid-services-dubai", linkText: "Visit babysitting maid services" },
+      ]} />
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">

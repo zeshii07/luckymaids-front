@@ -28,6 +28,7 @@ import {
   ClipboardList,
 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
+import RelatedServices from "../../components/RelatedServices";
 
 // --- Data Arrays ---
 const businessTypes = ["Corporate Offices", "Small Offices", "Large Office Buildings", "Co-working Spaces", "Retail Shops", "Shopping Centres", "Restaurants", "Cafés", "Hotels", "Clinics", "Medical Centres", "Schools", "Nurseries", "Gyms", "Fitness Centres", "Salons", "Spas", "Warehouses", "Showrooms", "Commercial Buildings", "Property Management Companies", "Shared Building Areas"];
@@ -579,6 +580,11 @@ export default function Commercial() {
           </div>
         </div>
       </section>
+
+      <RelatedServices intro="Support a cleaner workplace with periodic detail cleaning and care for high-use upholstered furniture." services={[
+        { title: "Deep Cleaning", description: "Schedule intensive cleaning for neglected areas, seasonal refreshes, or detailed hygiene needs.", to: "/deep-cleaning-services-dubai", linkText: "Visit deep cleaning" },
+        { title: "Furniture Cleaning", description: "Refresh office sofas, chairs, carpets, and fabric surfaces used by staff and visitors.", to: "/furniture-cleaning-dubai", linkText: "Visit furniture cleaning" },
+      ]} />
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">

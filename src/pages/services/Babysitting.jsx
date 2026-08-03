@@ -24,6 +24,7 @@ import {
   XCircle,
 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
+import RelatedServices from "../../components/RelatedServices";
 
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1800&q=82";
@@ -310,6 +311,11 @@ export default function Babysitting() {
           </div>
         </div>
       </section>
+
+      <RelatedServices intro="If your household needs more than childcare alone, explore combined family support or flexible cleaning help." services={[
+        { title: "Babysitting Maid Services", description: "Combine attentive childcare with agreed light housekeeping tasks for practical family support.", to: "/babysitting-maid-services-dubai", linkText: "Visit babysitting maid services" },
+        { title: "Maid Services", description: "Arrange flexible cleaning help while keeping childcare as a separate, dedicated service.", to: "/maid-services-dubai", linkText: "Visit maid services" },
+      ]} />
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">

@@ -25,6 +25,7 @@ import {
   XCircle,
 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
+import RelatedServices from "../../components/RelatedServices";
 
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1800&q=82";
@@ -717,6 +718,11 @@ export default function Furniture() {
           </div>
         </div>
       </section>
+
+      <RelatedServices intro="Pair upholstery care with a thorough property clean so the rooms around your furniture feel equally renewed." services={[
+        { title: "Deep Cleaning", description: "Give kitchens, bathrooms, floors, fixtures, and hard-to-reach areas detailed attention.", to: "/deep-cleaning-services-dubai", linkText: "Visit deep cleaning" },
+        { title: "Residential Cleaning", description: "Maintain your apartment or villa with a practical recurring cleaning routine.", to: "/residential-cleaning-services-dubai", linkText: "Visit residential cleaning" },
+      ]} />
 
       <section className="bg-white px-5 py-8 sm:px-6">
         <div className="container mx-auto max-w-6xl">

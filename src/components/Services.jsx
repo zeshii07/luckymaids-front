@@ -96,6 +96,7 @@ import { Link } from 'react-router-dom';
 const services = [
   {
     id: 'residential',
+    path: '/residential-cleaning-services-dubai',
     icon: Home,
     title: 'Residential Cleaning',
     desc: 'Regular weekly or bi-weekly cleaning to keep your home spotless and comfortable.',
@@ -103,6 +104,7 @@ const services = [
   },
   {
     id: 'deep',
+    path: '/deep-cleaning-services-dubai',
     icon: Sparkles,
     title: 'Deep Cleaning',
     desc: 'A comprehensive top-to-bottom clean for those areas that need extra attention.',
@@ -110,6 +112,7 @@ const services = [
   },
   {
     id: 'move',
+    path: '/move-in-move-out-cleaning-dubai',
     icon: Truck,
     title: 'Move-in/Out Cleaning',
     desc: 'Make your transition smooth with our specialized move-in or move-out cleaning.',
@@ -117,6 +120,7 @@ const services = [
   },
   {
     id: 'commercial',
+    path: '/commercial-cleaning-services-dubai',
     icon: Building,
     title: 'Commercial Cleaning',
     desc: 'Professional cleaning for offices, retail spaces, and commercial buildings.',
@@ -124,6 +128,7 @@ const services = [
   },
   {
     id: 'furniture',
+    path: '/furniture-cleaning-dubai',
     icon: Sofa,
     title: 'Furniture Cleaning',
     desc: 'Deep cleaning and stain removal for sofas, couches, and upholstery.',
@@ -131,6 +136,7 @@ const services = [
   },
   {
     id: 'babysitting',
+    path: '/babysitting-maid-services-dubai',
     icon: Baby,
     title: 'Babysitting & Maid',
     desc: 'Reliable childcare and household management while you are away.',
@@ -179,7 +185,7 @@ export default function Services() {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
                 <p className="text-gray-200 mb-4 opacity-90">{service.desc}</p>
-                <Link to={`/services/${service.id}`} className="text-white font-semibold flex items-center group-hover:translate-x-2 transition-transform">
+                <Link to={service.path} className="text-white font-semibold flex items-center group-hover:translate-x-2 transition-transform">
                   Learn More <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </div>

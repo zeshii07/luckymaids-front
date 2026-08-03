@@ -19,6 +19,7 @@ import {
   UserCheck,
 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
+import RelatedServices from "../../components/RelatedServices";
 
 // --- Pricing Data ---
 const villaFurnished = [
@@ -535,6 +536,11 @@ export default function MoveInOut() {
           </div>
         </div>
       </section>
+
+      <RelatedServices intro="Finish preparing the property with intensive detail work and specialist cleaning for furniture moving with you." services={[
+        { title: "Deep Cleaning", description: "Add focused attention for stubborn buildup, fixtures, and hard-to-reach areas before handover.", to: "/deep-cleaning-services-dubai", linkText: "Visit deep cleaning" },
+        { title: "Furniture Cleaning", description: "Refresh sofas, mattresses, carpets, and upholstery before settling into your new home.", to: "/furniture-cleaning-dubai", linkText: "Visit furniture cleaning" },
+      ]} />
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">

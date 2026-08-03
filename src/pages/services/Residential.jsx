@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import RelatedServices from "../../components/RelatedServices";
 import {
   ArrowLeft,
   ArrowRight,
@@ -791,6 +792,11 @@ export default function Residential() {
           </div>
         </div>
       </section>
+
+      <RelatedServices intro="Add occasional intensive cleaning to your home routine, or arrange flexible ongoing household help." services={[
+        { title: "Deep Cleaning", description: "Target built-up dirt and hard-to-reach areas with a detailed top-to-bottom service.", to: "/deep-cleaning-services-dubai", linkText: "Visit deep cleaning" },
+        { title: "Maid Services", description: "Book flexible hourly or recurring household cleaning for your apartment or villa.", to: "/maid-services-dubai", linkText: "Visit maid services" },
+      ]} />
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">

@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 const services = [
-  { id: 'residential', name: 'Residential Cleaning', image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
-  { id: 'deep-cleaning', name: 'Deep Cleaning', image: 'https://images.unsplash.com/photo-1521798643720-73c7b1d78294?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
-  { id: 'move-in-out', name: 'Move In/Out Cleaning', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
-  { id: 'commercial', name: 'Commercial Cleaning', image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
-  { id: 'furniture', name: 'Furniture Cleaning', image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
-  { id: 'babysitting-maid', name: 'Babysitting & Maid', image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+  { path: '/residential-cleaning-services-dubai', name: 'Residential Cleaning', image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+  { path: '/deep-cleaning-services-dubai', name: 'Deep Cleaning', image: 'https://images.unsplash.com/photo-1521798643720-73c7b1d78294?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+  { path: '/move-in-move-out-cleaning-dubai', name: 'Move In/Out Cleaning', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+  { path: '/commercial-cleaning-services-dubai', name: 'Commercial Cleaning', image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+  { path: '/furniture-cleaning-dubai', name: 'Furniture Cleaning', image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+  { path: '/babysitting-maid-services-dubai', name: 'Babysitting & Maid', image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
 ];
 
 export default function ServiceMarquee() {
@@ -30,7 +30,7 @@ export default function ServiceMarquee() {
           {[...services, ...services].map((service, index) => (
             <Link 
               key={index} 
-              to={`/services/${service.id}`} 
+              to={service.path}
               className="w-72 h-40 rounded-2xl relative overflow-hidden group flex-shrink-0 shadow-md"
             >
               {/* Background Image */}

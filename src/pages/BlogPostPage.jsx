@@ -24,6 +24,74 @@ const SITE_URL = "https://luckycrystalmaids.com";
 const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1758272421751-963195322eaa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNsZWFuaW5nJTIwbGFkeXxlbnwwfHwwfHx8MA%3D%3D";
 
+const CATEGORY_SERVICE_LINKS = {
+  "Deep Cleaning": {
+    name: "Deep Cleaning Services",
+    path: "/deep-cleaning-services-dubai",
+  },
+  "Deep Cleaning Guides": {
+    name: "Deep Cleaning Services",
+    path: "/deep-cleaning-services-dubai",
+  },
+  "Maid Services": {
+    name: "Maid Services",
+    path: "/maid-services-dubai",
+  },
+  "Furniture Cleaning": {
+    name: "Furniture Cleaning Services",
+    path: "/furniture-cleaning-dubai",
+  },
+  "Move In & Move Out Cleaning": {
+    name: "Move-In & Move-Out Cleaning",
+    path: "/move-in-move-out-cleaning-dubai",
+  },
+  "Move-In & Move-Out Cleaning": {
+    name: "Move-In & Move-Out Cleaning",
+    path: "/move-in-move-out-cleaning-dubai",
+  },
+  "Moving Guides": {
+    name: "Move-In & Move-Out Cleaning",
+    path: "/move-in-move-out-cleaning-dubai",
+  },
+  "Residential Cleaning": {
+    name: "Residential Cleaning Services",
+    path: "/residential-cleaning-services-dubai",
+  },
+  "Home Cleaning Tips": {
+    name: "Residential Cleaning Services",
+    path: "/residential-cleaning-services-dubai",
+  },
+  "Cleaning Checklists": {
+    name: "Residential Cleaning Services",
+    path: "/residential-cleaning-services-dubai",
+  },
+  "Commercial Cleaning": {
+    name: "Commercial Cleaning Services",
+    path: "/commercial-cleaning-services-dubai",
+  },
+  Babysitting: {
+    name: "Babysitting Services",
+    path: "/babysitting-services-dubai",
+  },
+  "Dubai Cleaning Guides": {
+    name: "Cleaning Services in Dubai",
+    path: "/cleaning-services-dubai",
+  },
+  "Cleaning Guides": {
+    name: "Cleaning Services in Dubai",
+    path: "/cleaning-services-dubai",
+  },
+};
+
+const DEFAULT_SERVICE_LINK = {
+  name: "Explore Our Cleaning Services",
+  path: "/cleaning-services-dubai",
+};
+
+function getCategoryServiceLink(category) {
+  return CATEGORY_SERVICE_LINKS[category] || DEFAULT_SERVICE_LINK;
+}
+
 function calculateReadingTime(content) {
   const normalizedContent =
     typeof content === "string"
@@ -110,6 +178,7 @@ export default function BlogPostPage() {
   const readingTime = calculateReadingTime(post.content);
   const metaTitle = post.metaTitle || `${post.title} | Lucky Crystal Maids`;
   const metaDescription = post.metaDescription || post.excerpt;
+  const relatedService = getCategoryServiceLink(post.category);
 
   const schema = {
     "@context": "https://schema.org",
@@ -355,20 +424,42 @@ export default function BlogPostPage() {
 
                 <div className="rounded-3xl bg-gray-950 p-6 text-white shadow-xl">
                   <Sparkles className="h-7 w-7 text-crystal-300" />
+
                   <h2 className="mt-5 text-xl font-bold">
                     Need Professional Cleaning?
                   </h2>
+
                   <p className="mt-3 text-sm leading-6 text-gray-400">
-                    Explore flexible maid services, residential cleaning, and
-                    detailed deep-cleaning solutions across Dubai.
+                    Explore the service related to this guide, request a
+                    personalized quotation, or return to the Lucky Crystal
+                    Maids homepage.
                   </p>
-                  <Link
-                    to="/quote"
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-crystal-300 transition hover:text-white"
-                  >
-                    Request a Free Quote
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
+
+                  <div className="mt-6 flex flex-col gap-3">
+                    <Link
+                      to={relatedService.path}
+                      className="inline-flex items-center justify-between gap-2 rounded-xl bg-crystal-500 px-4 py-3 text-sm font-bold text-white transition hover:bg-crystal-600"
+                    >
+                      {relatedService.name}
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+
+                    <Link
+                      to="/request-a-quote"
+                      className="inline-flex items-center justify-between gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-bold text-crystal-200 transition hover:bg-white/10 hover:text-white"
+                    >
+                      Request a Free Quote
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+
+                    <Link
+                      to="/"
+                      className="inline-flex items-center gap-2 px-1 py-2 text-sm font-semibold text-gray-400 transition hover:text-white"
+                    >
+                      <Home className="h-4 w-4" />
+                      Return to Home
+                    </Link>
+                  </div>
                 </div>
               </aside>
             </div>
@@ -421,7 +512,7 @@ export default function BlogPostPage() {
                   about a service for your home or business.
                 </p>
 
-                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+                <div className="mt-8 flex flex-col flex-wrap justify-center gap-3 sm:flex-row">
                   <Link
                     to="/blog"
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-crystal-700 transition hover:-translate-y-0.5 hover:bg-crystal-50"
@@ -429,11 +520,28 @@ export default function BlogPostPage() {
                     <ArrowLeft className="h-4 w-4" />
                     Back to Blog
                   </Link>
+
                   <Link
-                    to="/quote"
-                    className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/10 px-7 py-3.5 font-bold text-white transition hover:bg-white/15"
+                    to={relatedService.path}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-3.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-white/15"
+                  >
+                    {relatedService.name}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+
+                  <Link
+                    to="/request-a-quote"
+                    className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/10 px-7 py-3.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-white/15"
                   >
                     Request a Free Quote
+                  </Link>
+
+                  <Link
+                    to="/"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-transparent px-7 py-3.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-white/10"
+                  >
+                    <Home className="h-4 w-4" />
+                    Home
                   </Link>
                 </div>
               </div>
@@ -554,11 +662,20 @@ function ArticleNotFound() {
                 <ArrowLeft className="h-4 w-4" />
                 Return to Blog
               </Link>
+
               <Link
-                to="/services"
+                to="/cleaning-services-dubai"
                 className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-6 py-3 font-bold text-gray-700 transition hover:border-crystal-200 hover:text-crystal-600"
               >
                 Explore Services
+              </Link>
+
+              <Link
+                to="/"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-6 py-3 font-bold text-gray-700 transition hover:border-crystal-200 hover:text-crystal-600"
+              >
+                <Home className="h-4 w-4" />
+                Home
               </Link>
             </div>
           </div>

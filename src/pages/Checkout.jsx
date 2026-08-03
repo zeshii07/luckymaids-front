@@ -29,7 +29,7 @@ export default function Checkout() {
       if (!response.ok) throw new Error('Unable to complete booking');
       const state = { totalAmount: cartTotal, items: [...cartItems], customer: { ...bookingDetails }, paymentMethod: 'cash' };
       clearCart();
-      navigate('/confirmation', { state });
+      navigate('/booking-confirmation', { state });
     } catch {
       setError('We could not submit your booking. Please check your connection and try again.');
       setIsProcessing(false);

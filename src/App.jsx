@@ -1,5 +1,10 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 
 import { CartProvider } from "./context/CartContext";
@@ -13,8 +18,9 @@ import ServiceMarquee from "./components/ServiceMarquee";
 import PageLoader from "./components/PageLoader";
 import RouteLoader from "./components/RouteLoader";
 import ChatBot from "./components/chatbot/ChatBot";
+import RouteSeo from "./components/RouteSeo";
 
-// Lazy-loaded main pages
+// Lazy-loaded primary pages
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -22,28 +28,39 @@ const Booking = lazy(() => import("./pages/Booking"));
 const Quote = lazy(() => import("./pages/Quote"));
 const Checkout = lazy(() => import("./pages/Checkout"));
 const Confirmation = lazy(() => import("./pages/Confirmation"));
-const ServicesOverview = lazy(() => import("./pages/ServicesOverview"));
+const ServicesOverview = lazy(
+  () => import("./pages/ServicesOverview"),
+);
 const AreasWeServe = lazy(() => import("./pages/AreasWeServe"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
 const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
 
 // Lazy-loaded service pages
-const Residential = lazy(() => import("./pages/services/Residential"));
-
-const DeepCleaning = lazy(() => import("./pages/services/DeepCleaning"));
-
-const MoveInOut = lazy(() => import("./pages/services/MoveInOut"));
-
-const Commercial = lazy(() => import("./pages/services/Commercial"));
-
-const Furniture = lazy(() => import("./pages/services/Furniture"));
-
-const BabysittingMaid = lazy(() => import("./pages/services/BabysittingMaid"));
-
-const Babysitting = lazy(() => import("./pages/services/Babysitting"));
-
-const MaidServices = lazy(() => import("./pages/services/MaidServices"));
+const Residential = lazy(
+  () => import("./pages/services/Residential"),
+);
+const DeepCleaning = lazy(
+  () => import("./pages/services/DeepCleaning"),
+);
+const MoveInOut = lazy(
+  () => import("./pages/services/MoveInOut"),
+);
+const Commercial = lazy(
+  () => import("./pages/services/Commercial"),
+);
+const Furniture = lazy(
+  () => import("./pages/services/Furniture"),
+);
+const BabysittingMaid = lazy(
+  () => import("./pages/services/BabysittingMaid"),
+);
+const Babysitting = lazy(
+  () => import("./pages/services/Babysitting"),
+);
+const MaidServices = lazy(
+  () => import("./pages/services/MaidServices"),
+);
 
 export default function App() {
   return (
@@ -51,69 +68,297 @@ export default function App() {
       <CartProvider>
         <BrowserRouter>
           <ScrollToTop />
+          <RouteSeo />
 
-          {/* Brief branded loader during route changes */}
           <RouteLoader minimumDuration={350} />
 
           <div className="flex min-h-screen flex-col font-sans antialiased">
             <Navbar />
 
             <main className="flex-grow pb-24">
-              {/* Loader shown while lazy page files are downloading */}
               <Suspense
-                fallback={<PageLoader message="Loading page content" />}
+                fallback={
+                  <PageLoader message="Loading page content" />
+                }
               >
                 <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/booking" element={<Booking />} />
-                  <Route path="/quote" element={<Quote />} />
+                  {/* ======================================================
+                      PRIMARY PUBLIC PAGES
+                  ====================================================== */}
 
-                  <Route path="/services" element={<ServicesOverview />} />
+                  <Route path="/" element={<Home />} />
 
                   <Route
-                    path="/services/residential"
+                    path="/about-us"
+                    element={<About />}
+                  />
+
+                  <Route
+                    path="/contact-us"
+                    element={<Contact />}
+                  />
+
+                  <Route
+                    path="/cleaning-services-dubai"
+                    element={<ServicesOverview />}
+                  />
+
+                  <Route
+                    path="/areas-we-serve"
+                    element={<AreasWeServe />}
+                  />
+
+                  <Route
+                    path="/pricing"
+                    element={<Pricing />}
+                  />
+
+                  {/* ======================================================
+                      CONVERSION AND BOOKING PAGES
+                  ====================================================== */}
+
+                  <Route
+                    path="/book-cleaning-service"
+                    element={<Booking />}
+                  />
+
+                  <Route
+                    path="/request-a-quote"
+                    element={<Quote />}
+                  />
+
+                  <Route
+                    path="/checkout"
+                    element={<Checkout />}
+                  />
+
+                  <Route
+                    path="/booking-confirmation"
+                    element={<Confirmation />}
+                  />
+
+                  {/* ======================================================
+                      SEO SERVICE PAGES
+                  ====================================================== */}
+
+                  <Route
+                    path="/residential-cleaning-services-dubai"
                     element={<Residential />}
                   />
 
                   <Route
-                    path="/services/deep-cleaning"
+                    path="/deep-cleaning-services-dubai"
                     element={<DeepCleaning />}
                   />
 
-                  <Route path="/services/move-in-out" element={<MoveInOut />} />
-
-                  <Route path="/services/commercial" element={<Commercial />} />
-
-                  <Route path="/services/furniture" element={<Furniture />} />
-
                   <Route
-                    path="/services/babysitting-maid"
-                    element={<BabysittingMaid />}
+                    path="/move-in-move-out-cleaning-dubai"
+                    element={<MoveInOut />}
                   />
 
                   <Route
-                    path="/services/babysitting"
+                    path="/commercial-cleaning-services-dubai"
+                    element={<Commercial />}
+                  />
+
+                  <Route
+                    path="/furniture-cleaning-dubai"
+                    element={<Furniture />}
+                  />
+
+                  <Route
+                    path="/maid-services-dubai"
+                    element={<MaidServices />}
+                  />
+
+                  <Route
+                    path="/babysitting-services-dubai"
                     element={<Babysitting />}
                   />
 
                   <Route
-                    path="/services/maid-services"
-                    element={<MaidServices />}
+                    path="/babysitting-maid-services-dubai"
+                    element={<BabysittingMaid />}
                   />
 
-                  <Route path="/checkout" element={<Checkout />} />
+                  {/* ======================================================
+                      BLOG
+                  ====================================================== */}
 
-                  <Route path="/confirmation" element={<Confirmation />} />
+                  <Route
+                    path="/blog"
+                    element={<BlogPage />}
+                  />
 
-                  <Route path="/areas-we-serve" element={<AreasWeServe />} />
+                  <Route
+                    path="/blog/:slug"
+                    element={<BlogPostPage />}
+                  />
 
-                  <Route path="/pricing" element={<Pricing />} />
+                  {/* ======================================================
+                      REDIRECT OLD URLS
 
-                  <Route path="/blog" element={<BlogPage />} />
+                      These prevent existing links from breaking.
+                      Remove them only after permanent server redirects
+                      are configured.
+                  ====================================================== */}
 
-                  <Route path="/blog/:slug" element={<BlogPostPage />} />
+                  <Route
+                    path="/about"
+                    element={
+                      <Navigate
+                        to="/about-us"
+                        replace
+                      />
+                    }
+                  />
+
+                  <Route
+                    path="/contact"
+                    element={
+                      <Navigate
+                        to="/contact-us"
+                        replace
+                      />
+                    }
+                  />
+
+                  <Route
+                    path="/booking"
+                    element={
+                      <Navigate
+                        to="/book-cleaning-service"
+                        replace
+                      />
+                    }
+                  />
+
+                  <Route
+                    path="/quote"
+                    element={
+                      <Navigate
+                        to="/request-a-quote"
+                        replace
+                      />
+                    }
+                  />
+
+                  <Route
+                    path="/confirmation"
+                    element={
+                      <Navigate
+                        to="/booking-confirmation"
+                        replace
+                      />
+                    }
+                  />
+
+                  <Route
+                    path="/services"
+                    element={
+                      <Navigate
+                        to="/cleaning-services-dubai"
+                        replace
+                      />
+                    }
+                  />
+
+                  <Route
+                    path="/services/residential"
+                    element={
+                      <Navigate
+                        to="/residential-cleaning-services-dubai"
+                        replace
+                      />
+                    }
+                  />
+
+                  <Route
+                    path="/services/deep-cleaning"
+                    element={
+                      <Navigate
+                        to="/deep-cleaning-services-dubai"
+                        replace
+                      />
+                    }
+                  />
+
+                  <Route
+                    path="/services/move-in-out"
+                    element={
+                      <Navigate
+                        to="/move-in-move-out-cleaning-dubai"
+                        replace
+                      />
+                    }
+                  />
+
+                  <Route
+                    path="/services/commercial"
+                    element={
+                      <Navigate
+                        to="/commercial-cleaning-services-dubai"
+                        replace
+                      />
+                    }
+                  />
+
+                  <Route
+                    path="/services/furniture"
+                    element={
+                      <Navigate
+                        to="/furniture-cleaning-dubai"
+                        replace
+                      />
+                    }
+                  />
+
+                  <Route
+                    path="/services/maid-services"
+                    element={
+                      <Navigate
+                        to="/maid-services-dubai"
+                        replace
+                      />
+                    }
+                  />
+
+                  <Route
+                    path="/services/babysitting"
+                    element={
+                      <Navigate
+                        to="/babysitting-services-dubai"
+                        replace
+                      />
+                    }
+                  />
+
+                  <Route
+                    path="/services/babysitting-maid"
+                    element={
+                      <Navigate
+                        to="/babysitting-maid-services-dubai"
+                        replace
+                      />
+                    }
+                  />
+
+                  <Route path="/privacy" element={<Navigate to="/contact-us" replace />} />
+                  <Route path="/terms" element={<Navigate to="/contact-us" replace />} />
+
+                  {/* ======================================================
+                      FALLBACK
+                  ====================================================== */}
+
+                  <Route
+                    path="*"
+                    element={
+                      <Navigate
+                        to="/"
+                        replace
+                      />
+                    }
+                  />
                 </Routes>
               </Suspense>
             </main>

@@ -24,6 +24,17 @@ import {
   UserRoundCheck,
 } from "lucide-react";
 
+const canonicalServicePaths = {
+  residential: "/residential-cleaning-services-dubai",
+  "deep-cleaning": "/deep-cleaning-services-dubai",
+  "move-in-out": "/move-in-move-out-cleaning-dubai",
+  commercial: "/commercial-cleaning-services-dubai",
+  furniture: "/furniture-cleaning-dubai",
+  "maid-services": "/maid-services-dubai",
+  babysitting: "/babysitting-services-dubai",
+  "babysitting-maid": "/babysitting-maid-services-dubai",
+};
+
 const serviceData = {
   residential: {
     slug: "residential",
@@ -708,7 +719,8 @@ function UnknownService({ services }) {
   return (
     <div className="min-h-screen bg-gray-50 px-5 pb-20 pt-36 sm:px-6">
       <Helmet>
-        <title>Service Not Found | Lucky Crystal Maids</title>
+        <title>Cleaning Services Dubai | Lucky Crystal Maids</title>
+        <meta name="description" content="Explore residential, deep, commercial, furniture, maid, move-in and move-out, and babysitting services across Dubai." />
       </Helmet>
 
       <div className="container mx-auto max-w-5xl text-center">
@@ -716,19 +728,19 @@ function UnknownService({ services }) {
           <Gem className="h-8 w-8" />
         </div>
         <h1 className="mt-6 font-display text-4xl font-bold text-gray-900">
-          Service Not Found
+          Professional Cleaning Services in Dubai
         </h1>
         <p className="mx-auto mt-4 max-w-2xl leading-7 text-gray-600">
-          The requested service page is unavailable. Choose one of the services
-          below or return to the main services page.
+          Choose the cleaning or household support service that fits your home,
+          business, property, or family.
         </p>
 
         <Link
-          to="/services"
+          to="/request-a-quote"
           className="mt-7 inline-flex items-center gap-2 rounded-full bg-crystal-500 px-6 py-3 font-bold text-white transition hover:bg-crystal-600"
         >
           <ArrowLeft className="h-4 w-4" />
-          Back to All Services
+          Request a Free Quote
         </Link>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -737,7 +749,7 @@ function UnknownService({ services }) {
             return (
               <Link
                 key={service.slug}
-                to={`/services/${service.slug}`}
+                to={canonicalServicePaths[service.slug]}
                 className="flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-5 text-left shadow-sm transition hover:border-crystal-200 hover:shadow-md"
               >
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-crystal-100 text-crystal-600">

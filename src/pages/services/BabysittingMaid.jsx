@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
 import ServiceIntro from "../../components/ServiceIntro";
+import RelatedServices from "../../components/RelatedServices";
 import { Heart, ShieldCheck, Smile } from "lucide-react";
 
 export default function BabysittingMaid() {
@@ -242,6 +243,11 @@ export default function BabysittingMaid() {
           </div>
         </motion.div>
       </div>
+
+      <RelatedServices intro="Choose dedicated childcare when supervision is the priority, or book household cleaning without childcare duties." services={[
+        { title: "Babysitting Services", description: "Arrange child-focused hourly, daytime, evening, weekend, hotel, or event care.", to: "/babysitting-services-dubai", linkText: "Visit babysitting services" },
+        { title: "Maid Services", description: "Book flexible household cleaning support for apartments and villas across Dubai.", to: "/maid-services-dubai", linkText: "Visit maid services" },
+      ]} />
     </div>
   );
 }

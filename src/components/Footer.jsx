@@ -11,53 +11,27 @@ import {
   Sparkles,
 } from "lucide-react";
 
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaXTwitter,
-  FaLinkedinIn,
-} from "react-icons/fa6";
 const quickLinks = [
   { name: "Home", path: "/" },
-  { name: "About Us", path: "/about" },
-  { name: "All Services", path: "/services" },
-  { name: "Contact Us", path: "/contact" },
-  { name: "Get a Quote", path: "/quote" },
-  { name: "Book Now", path: "/booking" },
+  { name: "About Us", path: "/about-us" },
+  { name: "All Services", path: "/cleaning-services-dubai" },
+  { name: "Contact Us", path: "/contact-us" },
+  { name: "Get a Quote", path: "/request-a-quote" },
+  { name: "Book Now", path: "/book-cleaning-service" },
 ];
 
 const serviceLinks = [
-  { name: "Residential Cleaning", path: "/services/residential" },
-  { name: "Deep Cleaning", path: "/services/deep-cleaning" },
-  { name: "Maid Services", path: "/services/maid-services" },
-  { name: "Furniture Cleaning", path: "/services/furniture" },
-  { name: "Commercial Cleaning", path: "/services/commercial" },
-  { name: "Move-In / Move-Out", path: "/services/move-in-out" },
-  { name: "Babysitting Services", path: "/services/babysitting" },
+  { name: "Residential Cleaning", path: "/residential-cleaning-services-dubai" },
+  { name: "Deep Cleaning", path: "/deep-cleaning-services-dubai" },
+  { name: "Maid Services", path: "/maid-services-dubai" },
+  { name: "Furniture Cleaning", path: "/furniture-cleaning-dubai" },
+  { name: "Commercial Cleaning", path: "/commercial-cleaning-services-dubai" },
+  { name: "Move-In / Move-Out", path: "/move-in-move-out-cleaning-dubai" },
+  { name: "Babysitting Services", path: "/babysitting-services-dubai" },
 ];
 
-const socialLinks = [
-  {
-    name: "Facebook",
-    href: "https://facebook.com/yourpage",
-    icon: FaFacebookF,
-  },
-  {
-    name: "Instagram",
-    href: "https://instagram.com/yourpage",
-    icon: FaInstagram,
-  },
-  {
-    name: "X",
-    href: "https://x.com/yourpage",
-    icon: FaXTwitter,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://linkedin.com/company/yourcompany",
-    icon: FaLinkedinIn,
-  },
-];
+// Add verified business profile URLs here when they are available.
+const socialLinks = [];
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -87,13 +61,13 @@ export default function Footer() {
 
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
-                  to="/quote"
+                  to="/request-a-quote"
                   className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-6 py-3 font-bold text-white transition hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-400"
                 >
                   Get a Free Quote
                 </Link>
                 <Link
-                  to="/booking"
+                  to="/book-cleaning-service"
                   className="group inline-flex items-center justify-center gap-2 rounded-full bg-crystal-500 px-6 py-3 font-bold text-white shadow-lg shadow-crystal-950/30 transition hover:-translate-y-0.5 hover:bg-crystal-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-400"
                 >
                   Book Now
@@ -247,7 +221,7 @@ export default function Footer() {
                 Terms of Service
               </Link>
               <Link
-                to="/contact"
+                to="/contact-us"
                 className="transition hover:text-crystal-300"
               >
                 Support
