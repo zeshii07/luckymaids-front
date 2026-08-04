@@ -10,8 +10,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
-        display: ["Playfair Display", "serif"],
+        sans: ["Manrope", "sans-serif"],
+        display: ["Fraunces", "Georgia", "serif"],
+        editorial: ["DM Sans", "sans-serif"],
+        modern: ["Space Grotesk", "sans-serif"],
+        hero: ["Bodoni Moda", "Georgia", "serif"],
+        statement: ["Syne", "sans-serif"],
       },
 
       colors: {

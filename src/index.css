@@ -3,9 +3,110 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Poppins', sans-serif;
+  --theme-primary: 13 148 136;
+  --theme-secondary: 8 145 178;
+  --theme-wash: 240 253 250;
+  --theme-ink: 15 23 42;
+  font-family: 'Manrope', sans-serif;
   background-color: #f8fafc;
+  color: rgb(var(--theme-ink));
 }
+
+body.theme-editorial { --theme-primary: 124 58 237; --theme-secondary: 217 70 239; --theme-wash: 250 245 255; }
+body.theme-booking { --theme-primary: 2 132 199; --theme-secondary: 79 70 229; --theme-wash: 239 246 255; }
+body.theme-care { --theme-primary: 219 39 119; --theme-secondary: 139 92 246; --theme-wash: 253 242 248; }
+body.theme-commercial { --theme-primary: 234 88 12; --theme-secondary: 245 158 11; --theme-wash: 255 247 237; }
+body.theme-furniture { --theme-primary: 190 24 93; --theme-secondary: 225 29 72; --theme-wash: 255 241 242; }
+body.theme-move { --theme-primary: 109 40 217; --theme-secondary: 37 99 235; --theme-wash: 245 243 255; }
+
+.site-shell h1, .site-shell h2, .site-shell h3.font-display, .site-shell .font-display {
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: "SOFT" 50, "WONK" 1;
+  letter-spacing: -0.025em;
+}
+
+/* Hero typography: oversized editorial type with a clearly different voice. */
+.site-shell main > section:first-of-type h1,
+.site-shell main > header:first-child h1,
+.site-shell main > div:first-child h1 {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-weight: 800;
+  font-optical-sizing: auto;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.site-shell main > section:first-of-type h1 strong,
+.site-shell main > section:first-of-type h1 em {
+  font-family: inherit;
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* Modern routes use a geometric display face instead of the editorial serif. */
+.theme-booking .site-shell main h1,
+.theme-commercial .site-shell main > section:first-of-type h1,
+.theme-move .site-shell main > section:first-of-type h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.96;
+}
+
+/* Service and care pages retain warmth but gain a fashion-editorial hero. */
+.theme-service .site-shell main > section:first-of-type h1,
+.theme-care .site-shell main > section:first-of-type h1,
+.theme-furniture .site-shell main > section:first-of-type h1,
+.theme-editorial .site-shell main > section:first-of-type h1,
+.theme-home .site-shell #home h1 {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-weight: 800;
+  letter-spacing: -0.055em;
+}
+
+/* Small hero labels act as a crisp third typographic layer. */
+.site-shell main > section:first-of-type [class*="uppercase"],
+.site-shell main > section:first-of-type [class*="tracking-"] {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+@media (max-width: 640px) {
+  .site-shell main > section:first-of-type h1,
+  .site-shell main > header:first-child h1,
+  .site-shell main > div:first-child h1 {
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+}
+.site-shell p, .site-shell li { text-wrap: pretty; }
+.site-shell h1, .site-shell h2, .site-shell h3 { text-wrap: balance; }
+.site-shell button, .site-shell input, .site-shell select, .site-shell textarea,
+.site-shell a[class*="uppercase"], .site-shell span[class*="uppercase"] { font-family: 'DM Sans', sans-serif; }
+
+.site-shell main > section { position: relative; isolation: isolate; }
+.site-shell main > section:nth-of-type(3n + 2):not([class*="slate-950"]):not([class*="gray-950"]) { background-color: rgb(var(--theme-wash)); }
+.site-shell main > section:nth-of-type(3n + 2) h2,
+.site-shell main > section:nth-of-type(3n + 2) h3 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.035em; }
+.site-shell main > section:nth-of-type(3n) h2 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.04em; }
+.site-shell main > section:nth-of-type(3n + 2)::before {
+  content: ""; position: absolute; z-index: -1; top: 2.5rem; right: clamp(1rem, 7vw, 7rem);
+  width: clamp(7rem, 16vw, 13rem); aspect-ratio: 1; border: 1px solid rgb(var(--theme-primary) / 0.16);
+  border-radius: 42% 58% 63% 37% / 44% 36% 64% 56%; transform: rotate(18deg); pointer-events: none;
+}
+.site-shell article[class*="border"], .site-shell div[class*="rounded-2xl"][class*="border"],
+.site-shell div[class*="rounded-3xl"][class*="border"] { box-shadow: 0 18px 50px -36px rgb(var(--theme-ink) / 0.42); }
+.site-shell article[class*="border"] { transition-property: transform, box-shadow, border-color; transition-duration: 300ms; }
+@media (hover: hover) {
+  .site-shell article[class*="border"]:hover { border-color: rgb(var(--theme-primary) / 0.28); box-shadow: 0 28px 65px -38px rgb(var(--theme-primary) / 0.38); }
+}
+.theme-editorial .site-shell main { font-family: 'DM Sans', sans-serif; }
+.theme-editorial .site-shell main h1, .theme-editorial .site-shell main h2 { font-family: 'Fraunces', Georgia, serif; }
+.theme-booking .site-shell main h2,
+.theme-commercial .site-shell main h2 { font-family: 'Space Grotesk', sans-serif; }
+.theme-care .site-shell main h1, .theme-care .site-shell main h2 { font-family: 'Fraunces', Georgia, serif; }
+::selection { background: rgb(var(--theme-primary) / 0.22); color: rgb(var(--theme-ink)); }
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -14,6 +115,6 @@ body {
   background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #99f6e4;
+  background: rgb(var(--theme-primary) / 0.42);
   border-radius: 10px;
 }

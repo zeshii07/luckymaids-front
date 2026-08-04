@@ -1,9 +1,10 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import {
   BrowserRouter,
   Navigate,
   Route,
   Routes,
+  useLocation,
 } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 
@@ -62,17 +63,38 @@ const MaidServices = lazy(
   () => import("./pages/services/MaidServices"),
 );
 
+function RouteVisualTheme() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const routeTheme = pathname === "/" ? "theme-home"
+      : pathname.startsWith("/blog") ? "theme-editorial"
+      : ["/book-cleaning-service", "/request-a-quote", "/checkout", "/booking-confirmation"].includes(pathname) ? "theme-booking"
+      : pathname.includes("babysitting") ? "theme-care"
+      : pathname.includes("commercial") ? "theme-commercial"
+      : pathname.includes("furniture") ? "theme-furniture"
+      : pathname.includes("move-in-move-out") ? "theme-move"
+      : pathname.includes("cleaning") || pathname.includes("maid-services") ? "theme-service"
+      : "theme-editorial";
+    const themes = ["theme-home", "theme-editorial", "theme-booking", "theme-care", "theme-commercial", "theme-furniture", "theme-move", "theme-service"];
+    document.body.classList.remove(...themes);
+    document.body.classList.add(routeTheme);
+    return () => document.body.classList.remove(routeTheme);
+  }, [pathname]);
+  return null;
+}
+
 export default function App() {
   return (
     <HelmetProvider>
       <CartProvider>
         <BrowserRouter>
+          <RouteVisualTheme />
           <ScrollToTop />
           <RouteSeo />
 
           <RouteLoader minimumDuration={350} />
 
-          <div className="flex min-h-screen flex-col font-sans antialiased">
+          <div className="site-shell flex min-h-screen flex-col font-sans antialiased">
             <Navbar />
 
             <main className="flex-grow pb-24">
