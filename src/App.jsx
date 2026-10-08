@@ -96,6 +96,7 @@ export default function App() {
 
           <div className="site-shell flex min-h-screen flex-col font-sans antialiased">
             <Navbar />
+            
 
             <main className="flex-grow pb-24">
               <Suspense

@@ -80,6 +80,52 @@ body.theme-move { --theme-primary: 109 40 217; --theme-secondary: 37 99 235; --t
     letter-spacing: -0.04em;
   }
 }
+
+/* Keep mobile heroes concise and tied to the visible browser viewport. */
+@media (max-width: 767px) {
+  .site-shell main > section:first-of-type,
+  .site-shell main > header:first-child,
+  .site-shell #home {
+    height: 70svh;
+    min-height: 0 !important;
+    max-height: 70svh;
+  }
+
+  .site-shell main > section:first-of-type > [class*="container"],
+  .site-shell main > header:first-child > [class*="container"],
+  .site-shell #home > [class*="container"] {
+    height: 100%;
+    min-height: 0 !important;
+    padding-top: clamp(4.75rem, 13svh, 6.5rem);
+    padding-bottom: clamp(1.5rem, 5svh, 2.75rem);
+  }
+
+  .site-shell main > section:first-of-type h1,
+  .site-shell main > header:first-child h1,
+  .site-shell #home h1 {
+    font-size: clamp(2rem, 9vw, 3rem) !important;
+    line-height: 0.98;
+  }
+
+  .site-shell main > section:first-of-type p,
+  .site-shell main > header:first-child p,
+  .site-shell #home p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+}
+
+/* Preserve the headline and actions on short phones by dropping supporting copy. */
+@media (max-width: 767px) and (max-height: 700px) {
+  .site-shell main > section:first-of-type p,
+  .site-shell main > header:first-child p,
+  .site-shell #home p {
+    display: none;
+  }
+}
 .site-shell p, .site-shell li { text-wrap: pretty; }
 .site-shell h1, .site-shell h2, .site-shell h3 { text-wrap: balance; }
 .site-shell button, .site-shell input, .site-shell select, .site-shell textarea,
