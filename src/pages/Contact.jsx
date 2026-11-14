@@ -202,13 +202,13 @@ export default function Contact() {
                 {
                   icon: Phone,
                   label: "Phone",
-                  value: "+971 55 248 8588",
+                  value: "+971553730702",
                   href: "tel:+971553730702",
                 },
                 {
                   icon: MessageCircle,
                   label: "WhatsApp",
-                  value: "+971 55 248 8588",
+                  value: "+971553730702",
                   href: "https://wa.me/971553730702",
                   external: true,
                 },
@@ -274,7 +274,7 @@ export default function Contact() {
                           href="tel:+971501234567"
                           className="text-gray-300 transition hover:text-white"
                         >
-                          +971 55 248 8588
+                          +971553730702
                         </a>
                       ),
                     },
@@ -288,7 +288,7 @@ export default function Contact() {
                           rel="noreferrer"
                           className="text-gray-300 transition hover:text-white"
                         >
-                          +971 55 248 8588
+                          +971553730702
                         </a>
                       ),
                     },

@@ -158,7 +158,7 @@ export default function Footer() {
                       href="tel:0553730702"
                       className="transition hover:text-crystal-300"
                     >
-                      055 248 8588
+                      055 373 0702
                     </a>
                   }
                 />
