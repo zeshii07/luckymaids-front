@@ -6,9 +6,9 @@ export default function FloatingContact() {
   const [isOpen, setIsOpen] = useState(false);
 
   // Replace with your actual contact info
-  const phoneNumber = "0552488588"; 
-  const whatsappNumber = "0552488588"; 
-  const email = "Luckycrystaldubai@gmail.com";
+  const phoneNumber = "0553730702"; 
+  const whatsappNumber = "0553730702"; 
+  const email = "bytalhryacleaning@gmail.com";
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-1">
@@ -27,7 +27,7 @@ export default function FloatingContact() {
             </motion.a>
             
             <motion.a 
-              href={`https://wa.me/${whatsappNumber}?text=Hi%20Lucky%20Crystal%20Maids,%20I%20would%20like%20a%20quote.`} 
+              href={`https://wa.me/${whatsappNumber}?text=Hi%20Byte%20Cleaning%20Services,%20I%20would%20like%20a%20quote.`}
               target="_blank" rel="noreferrer"
               initial={{ opacity: 0, scale: 0, y: 20 }} 
               animate={{ opacity: 1, scale: 1, y: 0 }} 

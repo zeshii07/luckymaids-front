@@ -150,13 +150,13 @@ export default function Navbar() {
         aria-label="Primary navigation"
       >
         <div className="container mx-auto flex items-center justify-between px-4 sm:px-6">
-          <Link to="/" className="group flex min-w-0 items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500 focus-visible:ring-offset-2" aria-label="Lucky Crystal Maids home">
+          <Link to="/" className="group flex min-w-0 items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500 focus-visible:ring-offset-2" aria-label="Byte Cleaning Services home">
             <span className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-crystal-400 to-crystal-600 text-white shadow-lg shadow-crystal-500/20 transition-transform duration-300 group-hover:-translate-y-0.5">
               <Gem className="h-6 w-6" aria-hidden="true" />
             </span>
             <span className="min-w-0 leading-tight">
-              <span className="block whitespace-nowrap font-display text-lg font-bold text-gray-900 sm:text-xl">Lucky Crystal</span>
-              <span className="block text-xs font-bold uppercase tracking-[0.22em] text-crystal-600">Maids</span>
+              <span className="block whitespace-nowrap font-display text-lg font-bold text-gray-900 sm:text-xl">Byte Cleaning</span>
+              <span className="block text-xs font-bold uppercase tracking-[0.22em] text-crystal-600">Services</span>
             </span>
           </Link>
 
@@ -274,7 +274,7 @@ export default function Navbar() {
               <div className="flex items-center justify-between border-b border-gray-100 px-5 py-4">
                 <Link to="/" onClick={closeMobileMenu} className="flex items-center gap-3">
                   <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-crystal-500 text-white"><Gem className="h-5 w-5" /></span>
-                  <span><span className="block font-display font-bold text-gray-900">Lucky Crystal</span><span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-crystal-600">Maids</span></span>
+                  <span><span className="block font-display font-bold text-gray-900">Byte Cleaning</span><span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-crystal-600">Services</span></span>
                 </Link>
                 <button type="button" onClick={closeMobileMenu} className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 text-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500" aria-label="Close navigation menu"><X className="h-5 w-5" /></button>
               </div>

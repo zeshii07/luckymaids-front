@@ -70,7 +70,7 @@ export default function PageLoader({
         </div>
 
         <p className="mt-6 font-display text-xl font-bold text-gray-900">
-          Lucky Crystal Maids
+          Byte Cleaning Services
         </p>
         <p className="mt-2 text-sm font-medium text-gray-500">{message}</p>
 

@@ -120,7 +120,7 @@ export default function Quote() {
   return (
     <div className="pt-32 pb-20 bg-gradient-to-b from-blue-50 to-white min-h-screen">
       <Helmet>
-        <title>Get a Free Cleaning Quote in Dubai | Lucky Crystal Maids</title>
+        <title>Get a Free Cleaning Quote in Dubai | Byte Cleaning Services</title>
         <meta name="description" content="Get an instant, free quote for residential, deep, commercial, or custom cleaning in Dubai. Transparent pricing, no hidden fees." />
       </Helmet>
       

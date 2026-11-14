@@ -95,7 +95,7 @@ export default function Booking() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-crystal-50 via-white to-gray-50 pb-24 pt-28">
-      <Helmet><title>Book Cleaning Services in Dubai | Lucky Crystal Maids</title><meta name="description" content="Book your professional cleaning service in Dubai instantly. Residential, deep, commercial, and custom cleaning available. Schedule online today!" /></Helmet>
+      <Helmet><title>Book Cleaning Services in Dubai | Byte Cleaning Services</title><meta name="description" content="Book your professional cleaning service in Dubai instantly. Residential, deep, commercial, and custom cleaning available. Schedule online today!" /></Helmet>
       <div className="container mx-auto max-w-6xl px-4 sm:px-6">
         <motion.header {...reveal} className="mx-auto mb-10 max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-crystal-200 bg-white px-4 py-2 text-sm font-semibold text-crystal-700"><Sparkles className="h-4 w-4" /> Easy online booking</span>

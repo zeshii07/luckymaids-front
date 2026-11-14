@@ -17,7 +17,7 @@ export default function Confirmation() {
 
   return (
     <div className="pt-32 pb-20 bg-gradient-to-b from-crystal-50 to-white min-h-screen flex items-center">
-      <Helmet><title>Booking Confirmed | Lucky Crystal Maids</title></Helmet>
+      <Helmet><title>Booking Confirmed | Byte Cleaning Services</title></Helmet>
       
       <div className="container mx-auto px-6 max-w-2xl text-center">
         <motion.div

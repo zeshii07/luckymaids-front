@@ -160,10 +160,10 @@ export default function Contact() {
   return (
     <main className="min-h-screen overflow-hidden bg-white text-gray-900">
       <Helmet>
-        <title>Contact Lucky Crystal Maids | Cleaning Services Dubai</title>
+        <title>Contact Byte Cleaning Services | Cleaning Services Dubai</title>
         <meta
           name="description"
-          content="Contact Lucky Crystal Maids to book professional cleaning services in Dubai. Request a free quote for deep cleaning, maid services, commercial cleaning, and more."
+          content="Contact Byte Cleaning Services to book professional cleaning services in Dubai. Request a free quote for deep cleaning, maid services, commercial cleaning, and more."
         />
       </Helmet>
 
@@ -183,7 +183,7 @@ export default function Contact() {
                 Fast, friendly booking support
               </span>
               <h1 className="mt-6 text-4xl font-display font-bold tracking-tight sm:text-5xl lg:text-7xl">
-                Contact Lucky Crystal Maids
+                Contact Byte Cleaning Services
               </h1>
               <h2 className="mt-5 text-xl font-semibold text-crystal-200 sm:text-2xl">
                 We're Here to Help
@@ -203,20 +203,20 @@ export default function Contact() {
                   icon: Phone,
                   label: "Phone",
                   value: "+971 55 248 8588",
-                  href: "tel:+971552488588",
+                  href: "tel:+971553730702",
                 },
                 {
                   icon: MessageCircle,
                   label: "WhatsApp",
                   value: "+971 55 248 8588",
-                  href: "https://wa.me/971552488588",
+                  href: "https://wa.me/971553730702",
                   external: true,
                 },
                 {
                   icon: Mail,
                   label: "Email",
-                  value: "Luckycrystaldubai@gmail.com",
-                  href: "mailto:Luckycrystaldubai@gmail.com",
+                  value: "bytalhryacleaning@gmail.com",
+                  href: "mailto:bytalhryacleaning@gmail.com",
                 },
                 {
                   icon: Clock,
@@ -283,7 +283,7 @@ export default function Contact() {
                       title: "WhatsApp",
                       content: (
                         <a
-                          href="https://wa.me/971552488588"
+                          href="https://wa.me/971553730702"
                           target="_blank"
                           rel="noreferrer"
                           className="text-gray-300 transition hover:text-white"
@@ -297,10 +297,10 @@ export default function Contact() {
                       title: "Email",
                       content: (
                         <a
-                          href="mailto:Luckycrystaldubai@gmail.com"
+                          href="mailto:bytalhryacleaning@gmail.com"
                           className="break-all text-gray-300 transition hover:text-white"
                         >
-                          Luckycrystaldubai@gmail.com
+                          bytalhryacleaning@gmail.com
                         </a>
                       ),
                     },
@@ -715,7 +715,7 @@ export default function Contact() {
               </h2>
               <p className="mt-5 text-lg leading-8 text-crystal-100">
                 Whether you need a one-time deep clean, recurring maid services,
-                or commercial cleaning for your workplace, Lucky Crystal Maids
+                or commercial cleaning for your workplace, Byte Cleaning Services
                 is ready to help. Contact us today to request your personalized
                 quotation or schedule your next cleaning service.
               </p>

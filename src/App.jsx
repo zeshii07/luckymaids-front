@@ -18,7 +18,6 @@ import StickyCartBar from "./components/StickyCartBar";
 import ServiceMarquee from "./components/ServiceMarquee";
 import PageLoader from "./components/PageLoader";
 import RouteLoader from "./components/RouteLoader";
-import ChatBot from "./components/chatbot/ChatBot";
 import RouteSeo from "./components/RouteSeo";
 
 // Lazy-loaded primary pages
@@ -98,7 +97,13 @@ export default function App() {
             <Navbar />
             
 
-            <main className="flex-grow pb-24">
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-crystal-600 focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white"
+            >
+              Skip to content
+            </a>
+            <main id="main-content" className="flex-grow pb-24">
               <Suspense
                 fallback={
                   <PageLoader message="Loading page content" />
@@ -390,7 +395,6 @@ export default function App() {
             <Footer />
             <FloatingContact />
             <StickyCartBar />
-            <ChatBot />
           </div>
         </BrowserRouter>
       </CartProvider>

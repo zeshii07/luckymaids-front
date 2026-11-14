@@ -825,7 +825,7 @@ export default function Residential() {
                   Request a Free Quote
                 </Link>
                 <a
-                  href="https://wa.me/971552488588"
+                  href="https://wa.me/971553730702"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-3.5 font-bold text-white transition hover:bg-white/15"

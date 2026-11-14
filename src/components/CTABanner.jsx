@@ -33,7 +33,7 @@ export default function CTABanner() {
             Ready for a Sparkling Clean Home?
           </h2>
           <p className="text-crystal-100 text-lg mb-8 max-w-2xl mx-auto relative z-10">
-            Book our premium cleaning services today and experience the crystal standard. Your dream home is just a click away.
+            Book our premium cleaning services today and experience the Byte standard. Your dream home is just a click away.
           </p>
           
           <div className="flex flex-col md:flex-row gap-4 justify-center relative z-10">

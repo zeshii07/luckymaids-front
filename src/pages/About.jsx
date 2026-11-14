@@ -116,15 +116,15 @@ export default function About() {
   return (
     <main className="min-h-screen overflow-hidden bg-white text-gray-900">
       <Helmet>
-        <title>About Lucky Crystal Maids | Trusted Cleaning Services Dubai</title>
+        <title>About Byte Cleaning Services | Trusted Cleaning Services Dubai</title>
         <meta
           name="description"
-          content="Lucky Crystal Maids provides reliable, flexible, and customer-focused residential and commercial cleaning services in Dubai. Learn more about our mission and values."
+          content="Byte Cleaning Services provides reliable, flexible, and customer-focused residential and commercial cleaning services in Dubai. Learn more about our mission and values."
         />
       </Helmet>
 
       <section className="relative isolate overflow-hidden bg-gray-950 pt-28 text-white sm:pt-32">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=85" alt="Lucky Crystal Maids professional cleaning team" className="absolute inset-0 -z-20 h-full w-full object-cover" />
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=85" alt="Byte Cleaning Services professional cleaning team" className="absolute inset-0 -z-20 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-slate-950/45" />
 
         <div className="container mx-auto max-w-7xl px-5 pb-20 sm:px-6 lg:px-8 lg:pb-28">
@@ -140,13 +140,13 @@ export default function About() {
                 Professional cleaning across Dubai
               </span>
               <h1 className="text-4xl font-display font-bold tracking-tight sm:text-5xl lg:text-7xl">
-                About Lucky Crystal Maids
+                About Byte Cleaning Services
               </h1>
               <h2 className="mt-5 max-w-3xl text-xl font-semibold text-crystal-200 sm:text-2xl">
                 Professional Cleaning & Maid Services You Can Trust in Dubai
               </h2>
               <p className="mt-7 max-w-3xl text-base leading-8 text-gray-300 sm:text-lg">
-                At <strong className="text-white">Lucky Crystal Maids</strong>, we believe a clean and well-maintained space contributes to greater comfort, productivity, and peace of mind. Our goal is to provide dependable residential and commercial cleaning services that help homeowners, tenants, landlords, and businesses maintain clean, organized, and welcoming environments.
+                At <strong className="text-white">Byte Cleaning Services</strong>, we believe a clean and well-maintained space contributes to greater comfort, productivity, and peace of mind. Our goal is to provide dependable residential and commercial cleaning services that help homeowners, tenants, landlords, and businesses maintain clean, organized, and welcoming environments.
               </p>
               <p className="mt-4 max-w-3xl text-base leading-8 text-gray-300 sm:text-lg">
                 From regular maid services to detailed deep cleaning, furniture cleaning, move-in and move-out cleaning, and commercial cleaning, we tailor our services to meet the unique requirements of every customer.
@@ -174,7 +174,7 @@ export default function About() {
                 <h2 className="mt-4 text-3xl font-display font-bold tracking-tight text-gray-900 sm:text-4xl">Built around different spaces and different needs.</h2>
               </div>
               <div className="space-y-4 text-base leading-8 text-gray-600 sm:text-lg">
-                <p>Every property is different, and every customer has different expectations. Lucky Crystal Maids was established with the vision of delivering reliable, flexible, and customer-focused cleaning services throughout Dubai.</p>
+                <p>Every property is different, and every customer has different expectations. Byte Cleaning Services was established with the vision of delivering reliable, flexible, and customer-focused cleaning services throughout Dubai.</p>
                 <p>By understanding each client's needs, we aim to recommend practical cleaning solutions that fit their property, schedule, and lifestyle.</p>
                 <p>Whether cleaning a studio apartment, a family villa, a corporate office, or a retail store, we approach every project with professionalism and attention to detail.</p>
               </div>
@@ -226,7 +226,7 @@ export default function About() {
           <motion.div {...reveal} className="mx-auto mb-12 max-w-3xl text-center">
             <span className="text-sm font-bold uppercase tracking-[0.2em] text-crystal-300">What we do</span>
             <h2 className="mt-4 text-3xl font-display font-bold tracking-tight sm:text-5xl">Cleaning support for homes, businesses, and busy lives.</h2>
-            <p className="mt-5 text-lg text-gray-300">Lucky Crystal Maids provides a wide range of services, including:</p>
+            <p className="mt-5 text-lg text-gray-300">Byte Cleaning Services provides a wide range of services, including:</p>
           </motion.div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -301,7 +301,7 @@ export default function About() {
               <div>
                 <span className="text-sm font-bold uppercase tracking-[0.2em] text-crystal-600">Areas we serve</span>
                 <h2 className="mt-4 text-3xl font-display font-bold text-gray-900 sm:text-4xl">Serving homes and businesses across Dubai.</h2>
-                <p className="mt-5 text-lg leading-8 text-gray-600">Lucky Crystal Maids proudly serves homes and businesses across many communities in Dubai, including:</p>
+                <p className="mt-5 text-lg leading-8 text-gray-600">Byte Cleaning Services proudly serves homes and businesses across many communities in Dubai, including:</p>
               </div>
               <div className="flex flex-wrap gap-2.5">
                 {areasServed.map((area) => (
@@ -369,7 +369,7 @@ export default function About() {
             <div className="absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-crystal-300/20 blur-3xl" />
             <div className="relative mx-auto max-w-3xl">
               <h2 className="text-3xl font-display font-bold sm:text-5xl">Let's Keep Your Property Looking Its Best</h2>
-              <p className="mt-5 text-lg leading-8 text-crystal-100">Whether you need regular housekeeping, a detailed deep clean, or commercial cleaning for your business, Lucky Crystal Maids is ready to help. Contact us today to discuss your requirements and request a personalized quotation.</p>
+              <p className="mt-5 text-lg leading-8 text-crystal-100">Whether you need regular housekeeping, a detailed deep clean, or commercial cleaning for your business, Byte Cleaning Services is ready to help. Contact us today to discuss your requirements and request a personalized quotation.</p>
               <Link to="/contact" className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-crystal-700 shadow-lg transition hover:-translate-y-0.5 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-crystal-700">
                 Contact Us Today
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />

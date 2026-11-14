@@ -42,7 +42,7 @@ export default function Checkout() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-crystal-50 pb-24 pt-28">
-      <Helmet><title>Checkout | Lucky Crystal Maids</title><meta name="description" content="Complete your Lucky Crystal Maids booking securely online." /></Helmet>
+      <Helmet><title>Checkout | Byte Cleaning Services</title><meta name="description" content="Complete your Byte Cleaning Services booking securely online." /></Helmet>
       <div className="container mx-auto max-w-6xl px-4 sm:px-6">
         <Link to="/services" className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-crystal-600"><ArrowLeft className="h-4 w-4" /> Continue shopping</Link>
         <motion.header {...reveal} className="my-8"><div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><span className="inline-flex items-center gap-2 rounded-full border border-crystal-200 bg-white px-4 py-2 text-sm font-semibold text-crystal-700"><Lock className="h-4 w-4" /> Secure booking</span><h1 className="mt-4 text-4xl font-display font-bold text-gray-900">Complete your booking</h1><p className="mt-3 text-gray-600">Add your contact details and preferred service time.</p></div><div className="rounded-2xl bg-white px-5 py-3 text-sm shadow-sm ring-1 ring-gray-200"><span className="text-gray-500">{cartItems.length} item{cartItems.length > 1 ? 's' : ''}</span><strong className="ml-3 text-crystal-700">{cartTotal} AED</strong></div></div></motion.header>

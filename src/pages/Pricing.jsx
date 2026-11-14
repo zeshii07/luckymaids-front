@@ -179,12 +179,12 @@ export default function Pricing() {
   return (
     <main className="min-h-screen overflow-hidden bg-white pb-24 pt-20">
       <Helmet>
-        <title>Cleaning Service Prices Dubai | Lucky Crystal Maids</title>
+        <title>Cleaning Service Prices Dubai | Byte Cleaning Services</title>
         <meta
           name="description"
-          content="Learn how cleaning service prices are calculated at Lucky Crystal Maids. Request a personalized quotation for residential, commercial, deep cleaning, maid services, and more."
+          content="Learn how cleaning service prices are calculated at Byte Cleaning Services. Request a personalized quotation for residential, commercial, deep cleaning, maid services, and more."
         />
-        <link rel="canonical" href="https://www.luckycrystalmaids.com/pricing/" />
+        <link rel="canonical" href="https://lucky-crystal.infinityfree.me/pricing/" />
       </Helmet>
 
       <section className="relative isolate overflow-hidden bg-gray-950">
@@ -212,7 +212,7 @@ export default function Pricing() {
             </p>
             <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-gray-300 sm:text-lg">
               Every home and business is different. Rather than offering one
-              fixed price for every customer, Lucky Crystal Maids provides
+              fixed price for every customer, Byte Cleaning Services provides
               quotations based on the property&apos;s size, cleaning
               requirements, service type, and preferred schedule.
             </p>
@@ -440,7 +440,7 @@ export default function Pricing() {
                   Contact Our Team
                 </Link>
                 <a
-                  href="https://wa.me/971552488588"
+                  href="https://wa.me/971553730702"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-3.5 font-bold text-white transition hover:bg-white/15"

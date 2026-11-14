@@ -21,11 +21,15 @@ export default function Hero() {
         */
         className="absolute inset-0 z-10 w-full h-full md:left-auto md:right-0 md:w-auto flex justify-center items-end pointer-events-none md:opacity-100"
       >
-        <img 
-          src={cleanerImg} 
-          alt="Confident professional cleaner" 
+        <img
+          src={cleanerImg}
+          alt="Confident professional cleaner"
+          width={800}
+          height={1000}
+          fetchpriority="high"
+          decoding="async"
           /*
-            Mobile: h-full and w-full makes her expand to the absolute edges of the hero section. 
+            Mobile: h-full and w-full makes her expand to the absolute edges of the hero section.
                     object-cover forces her to fill the entire vertical and horizontal space.
                     object-bottom ensures she starts grounded from the very bottom edge.
             Desktop: md:w-auto and md:object-contain resets her to standard proportions on the right side.
@@ -52,7 +56,7 @@ export default function Hero() {
           </h1>
           
           <p className="text-lg text-gray-200 mb-8 max-w-md mx-auto md:mx-0 drop-shadow-md">
-            Experience the magic of Lucky Crystal Maids. We transform your living spaces into pristine sanctuaries so you can focus on what matters most.
+            Experience the magic of Byte Cleaning Services. We transform your living spaces into pristine sanctuaries so you can focus on what matters most.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">

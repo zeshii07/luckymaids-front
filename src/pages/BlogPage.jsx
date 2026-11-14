@@ -65,7 +65,7 @@ function normalizePosts(posts) {
       category: post.category || "Cleaning Guides",
       excerpt:
         post.excerpt ||
-        "Practical cleaning advice, checklists, and helpful guidance from Lucky Crystal Maids.",
+        "Practical cleaning advice, checklists, and helpful guidance from Byte Cleaning Services.",
       featuredImage: post.featuredImage || FALLBACK_IMAGE,
       featuredImageAlt:
         post.featuredImageAlt || `${post.title} cleaning guide`,
@@ -92,14 +92,14 @@ export default function BlogPage() {
   return (
     <>
       <Helmet>
-        <title>Cleaning Tips and Guides Dubai | Lucky Crystal Maids</title>
+        <title>Cleaning Tips and Guides Dubai | Byte Cleaning Services</title>
         <meta
           name="description"
           content="Read practical cleaning tips, deep-cleaning guides, maid-service advice, checklists, and Dubai home-care articles."
         />
         <link
           rel="canonical"
-          href="https://luckycrystalmaids.com/blog/"
+          href="https://lucky-crystal.infinityfree.me/blog/"
         />
       </Helmet>
 
@@ -118,7 +118,7 @@ export default function BlogPage() {
             >
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-bold text-crystal-300 backdrop-blur">
                 <Sparkles className="h-4 w-4" />
-                Lucky Crystal Maids Blog
+                Byte Cleaning Services Blog
               </span>
 
               <h1 className="mt-6 font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">

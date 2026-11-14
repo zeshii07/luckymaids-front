@@ -196,12 +196,12 @@ export default function AreasWeServe() {
   return (
     <main className="min-h-screen overflow-hidden bg-white pb-24 pt-20">
       <Helmet>
-        <title>Cleaning Services Across Dubai | Areas We Serve | Lucky Crystal Maids</title>
+        <title>Cleaning Services Across Dubai | Areas We Serve | Byte Cleaning Services</title>
         <meta
           name="description"
-          content="Lucky Crystal Maids provides professional cleaning services across Dubai, including apartments, villas, offices, retail stores, and commercial properties. Check service availability in your area today."
+          content="Byte Cleaning Services provides professional cleaning services across Dubai, including apartments, villas, offices, retail stores, and commercial properties. Check service availability in your area today."
         />
-        <link rel="canonical" href="https://www.luckycrystalmaids.com/areas-we-serve/" />
+        <link rel="canonical" href="https://lucky-crystal.infinityfree.me/areas-we-serve/" />
       </Helmet>
 
       <section className="relative isolate overflow-hidden bg-gray-950">
@@ -228,7 +228,7 @@ export default function AreasWeServe() {
               Professional Cleaning Services Near You
             </p>
             <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-gray-300 sm:text-lg">
-              Lucky Crystal Maids provides professional residential and
+              Byte Cleaning Services provides professional residential and
               commercial cleaning services across many of Dubai&apos;s popular
               residential communities, business districts, and commercial
               developments.
@@ -468,7 +468,7 @@ export default function AreasWeServe() {
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-crystal-100 sm:text-lg">
                 Whether you need professional cleaning for your home or
-                business, Lucky Crystal Maids is ready to help.
+                business, Byte Cleaning Services is ready to help.
               </p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
                 <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-crystal-700 transition hover:-translate-y-0.5 hover:bg-crystal-50">
@@ -479,7 +479,7 @@ export default function AreasWeServe() {
                   Request a Free Quote
                 </Link>
                 <a
-                  href="https://wa.me/971552488588"
+                  href="https://wa.me/971553730702"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-3.5 font-bold text-white transition hover:bg-white/15"

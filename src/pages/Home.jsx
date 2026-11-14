@@ -369,7 +369,7 @@ export default function Home() {
     <>
       <Helmet>
         <title>
-          Professional Cleaning & Maid Services in Dubai | Lucky Crystal Maids
+          Professional Cleaning & Maid Services in Dubai | Byte Cleaning Services
         </title>
         <meta
           name="description"
@@ -415,7 +415,7 @@ export default function Home() {
               <motion.div {...reveal}>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-cyan-200 backdrop-blur">
                   <Star className="h-3.5 w-3.5" />
-                  Why Lucky Crystal Maids
+                  Why Byte Cleaning Services
                 </span>
                 <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
                   A smoother cleaning experience from first message to final

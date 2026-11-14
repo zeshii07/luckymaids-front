@@ -20,7 +20,7 @@ import {
   findRelatedPosts,
 } from "../utils/blogLoader";
 
-const SITE_URL = "https://luckycrystalmaids.com";
+const SITE_URL = "https://lucky-crystal.infinityfree.me";
 const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1758272421751-963195322eaa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNsZWFuaW5nJTIwbGFkeXxlbnwwfHwwfHx8MA%3D%3D";
 
@@ -138,9 +138,9 @@ function normalizePost(post) {
     title: post.title || "Untitled Article",
     excerpt:
       post.excerpt ||
-      "Practical cleaning advice and guidance from Lucky Crystal Maids.",
+      "Practical cleaning advice and guidance from Byte Cleaning Services.",
     category: post.category || "Cleaning Guides",
-    author: post.author || "Lucky Crystal Maids",
+    author: post.author || "Byte Cleaning Services",
     content: typeof post.content === "string" ? post.content : "",
     featuredImage: post.featuredImage || FALLBACK_IMAGE,
     featuredImageAlt:
@@ -176,7 +176,7 @@ export default function BlogPostPage() {
   const canonicalUrl = `${SITE_URL}/blog/${post.slug}/`;
   const imageUrl = toAbsoluteUrl(post.featuredImage);
   const readingTime = calculateReadingTime(post.content);
-  const metaTitle = post.metaTitle || `${post.title} | Lucky Crystal Maids`;
+  const metaTitle = post.metaTitle || `${post.title} | Byte Cleaning Services`;
   const metaDescription = post.metaDescription || post.excerpt;
   const relatedService = getCategoryServiceLink(post.category);
 
@@ -194,7 +194,7 @@ export default function BlogPostPage() {
     },
     publisher: {
       "@type": "Organization",
-      name: "Lucky Crystal Maids",
+      name: "Byte Cleaning Services",
       url: SITE_URL,
     },
     mainEntityOfPage: {
@@ -211,7 +211,7 @@ export default function BlogPostPage() {
         <link rel="canonical" href={canonicalUrl} />
 
         <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="Lucky Crystal Maids" />
+        <meta property="og:site_name" content="Byte Cleaning Services" />
         <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={metaDescription} />
         <meta property="og:image" content={imageUrl} />
@@ -432,8 +432,7 @@ export default function BlogPostPage() {
 
                   <p className="mt-3 text-sm leading-6 text-gray-400">
                     Explore the service related to this guide, request a
-                    personalized quotation, or return to the Lucky Crystal
-                    Maids homepage.
+                    personalized quotation, or return to the Byte Cleaning Services homepage.
                   </p>
 
                   <div className="mt-6 flex flex-col gap-3">
@@ -614,7 +613,7 @@ function RelatedPostCard({ post, index, reducedMotion }) {
 
         <p className="mt-4 text-sm leading-6 text-gray-600">
           {post.excerpt ||
-            "Read more practical cleaning advice from Lucky Crystal Maids."}
+            "Read more practical cleaning advice from Byte Cleaning Services."}
         </p>
 
         <Link
@@ -633,7 +632,7 @@ function ArticleNotFound() {
   return (
     <>
       <Helmet>
-        <title>Article Not Found | Lucky Crystal Maids</title>
+        <title>Article Not Found | Byte Cleaning Services</title>
         <meta
           name="robots"
           content="noindex, nofollow"

@@ -84,17 +84,17 @@ export default function Footer() {
               <Link
                 to="/"
                 className="inline-flex items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-400"
-                aria-label="Lucky Crystal Maids home"
+                aria-label="Byte Cleaning Services home"
               >
                 <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-crystal-400 to-crystal-600 text-white shadow-lg shadow-crystal-950/30">
                   <Gem className="h-6 w-6" />
                 </span>
                 <span>
                   <span className="block font-display text-xl font-bold text-white">
-                    Lucky Crystal
+                    Byte Cleaning
                   </span>
                   <span className="block text-xs font-bold uppercase tracking-[0.22em] text-crystal-400">
-                    Maids
+                    Services
                   </span>
                 </span>
               </Link>
@@ -155,7 +155,7 @@ export default function Footer() {
                   label="Phone"
                   content={
                     <a
-                      href="tel:0552488588"
+                      href="tel:0553730702"
                       className="transition hover:text-crystal-300"
                     >
                       055 248 8588
@@ -168,7 +168,7 @@ export default function Footer() {
                   label="WhatsApp"
                   content={
                     <a
-                      href="https://wa.me/971552488588"
+                      href="https://wa.me/971553730702"
                       target="_blank"
                       rel="noreferrer"
                       className="transition hover:text-crystal-300"
@@ -183,10 +183,10 @@ export default function Footer() {
                   label="Email"
                   content={
                     <a
-                      href="mailto:Luckycrystaldubai@gmail.com"
+                      href="mailto:bytalhryacleaning@gmail.com"
                       className="break-all transition hover:text-crystal-300"
                     >
-                      Luckycrystaldubai@gmail.com
+                      bytalhryacleaning@gmail.com
                     </a>
                   }
                 />
@@ -204,7 +204,7 @@ export default function Footer() {
         <div className="border-t border-white/10">
           <div className="container mx-auto flex flex-col gap-4 px-5 py-6 text-sm text-gray-500 sm:px-6 md:flex-row md:items-center md:justify-between">
             <p>
-              © {year} Lucky Crystal Maids. All rights reserved.
+              © {year} Byte Cleaning Services. All rights reserved.
             </p>
 
             <div className="flex flex-wrap gap-x-5 gap-y-2">

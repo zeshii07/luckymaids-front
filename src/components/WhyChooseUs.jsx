@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
         >
           <p className="text-crystal-500 font-semibold mb-2">WHY CHOOSE US</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-800 mb-8">
-            The Crystal Standard of Clean
+            The Byte Standard of Clean
           </h2>
           
           <div className="space-y-8">

@@ -3,7 +3,7 @@ title: The Ultimate Move-Out Cleaning Checklist for Dubai Tenants
 slug: ultimate-move-out-cleaning-checklist-dubai
 excerpt: Use this comprehensive move-out cleaning checklist to prepare your Dubai apartment or villa before handing it over to your landlord or property manager.
 category: Move In & Move Out Cleaning
-author: Lucky Crystal Maids
+author: Byte Cleaning Services
 date: 2026-07-25
 updatedDate: 2026-07-25
 featuredImage: https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85
@@ -220,4 +220,4 @@ Yes. Many customers combine move-out cleaning with sofa, mattress, carpet, or cu
 
 Moving is already a busy process. Planning your cleaning in advance and following a structured checklist can help make the final handover more straightforward.
 
-If you need professional assistance preparing your apartment or villa before moving, Lucky Crystal Maids offers flexible move-in and move-out cleaning services across Dubai, tailored to your property's size and requirements.
+If you need professional assistance preparing your apartment or villa before moving, Byte Cleaning Services offers flexible move-in and move-out cleaning services across Dubai, tailored to your property's size and requirements.

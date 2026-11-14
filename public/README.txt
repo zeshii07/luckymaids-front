@@ -16,4 +16,4 @@ Optional:
 
 Paste index-head-snippet.html inside the <head> of the root index.html.
 
-Replace https://www.luckycrystalmaids.com if your final domain is different.
+Replace https://lucky-crystal.infinityfree.me if your final domain is different.

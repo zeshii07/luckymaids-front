@@ -361,10 +361,10 @@ export default function ServiceDetail() {
   return (
     <div className="min-h-screen overflow-hidden bg-white pb-24 pt-20">
       <Helmet>
-        <title>{service.title} Dubai | Lucky Crystal Maids</title>
+        <title>{service.title} Dubai | Byte Cleaning Services</title>
         <meta
           name="description"
-          content={`${service.shortIntro} Explore what is included and request a booking or personalized quotation from Lucky Crystal Maids.`}
+          content={`${service.shortIntro} Explore what is included and request a booking or personalized quotation from Byte Cleaning Services.`}
         />
       </Helmet>
 
@@ -399,7 +399,7 @@ export default function ServiceDetail() {
             </div>
 
             <span className="block text-sm font-bold uppercase tracking-[0.24em] text-crystal-300">
-              Lucky Crystal Maids
+              Byte Cleaning Services
             </span>
             <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
               {service.title}
@@ -719,7 +719,7 @@ function UnknownService({ services }) {
   return (
     <div className="min-h-screen bg-gray-50 px-5 pb-20 pt-36 sm:px-6">
       <Helmet>
-        <title>Cleaning Services Dubai | Lucky Crystal Maids</title>
+        <title>Cleaning Services Dubai | Byte Cleaning Services</title>
         <meta name="description" content="Explore residential, deep, commercial, furniture, maid, move-in and move-out, and babysitting services across Dubai." />
       </Helmet>
 
