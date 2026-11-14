@@ -2,9 +2,9 @@ import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 
 const SITE_URL = "https://lucky-crystal.infinityfree.me";
-const SITE_NAME = "Byte Cleaning Services";
+const SITE_NAME = "Byt Cleaning Services";
 const DEFAULT_DESCRIPTION =
-  "Byte Cleaning Services offers professional residential, deep, commercial, furniture, move-in/move-out, and maid cleaning services across Dubai. Book online or request a free quote today.";
+  "Byt Cleaning Services offers professional residential, deep, commercial, furniture, move-in/move-out, and maid cleaning services across Dubai. Book online or request a free quote today.";
 
 // Pages that should never be indexed (transactional / private flows).
 const noIndexPaths = new Set(["/checkout", "/booking-confirmation"]);

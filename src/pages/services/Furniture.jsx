@@ -878,7 +878,7 @@ function PackageCard({ pkg, category, added, onAdd, popular }) {
           </span>
         </div>
 
-        <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-700">
+        <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-mint-soft px-3 py-1 text-xs font-bold text-mint-deep">
           <Tag className="h-3.5 w-3.5" />
           Save {saving} AED
         </span>
@@ -902,7 +902,7 @@ function PackageCard({ pkg, category, added, onAdd, popular }) {
           disabled={added}
           className={`flex w-full items-center justify-center gap-2 rounded-xl py-3 font-bold text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2 ${
             added
-              ? "cursor-default bg-emerald-500"
+              ? "cursor-default bg-mint"
               : "bg-pink-500 hover:-translate-y-0.5 hover:bg-pink-600"
           }`}
         >

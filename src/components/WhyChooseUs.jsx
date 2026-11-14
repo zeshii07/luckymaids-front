@@ -21,7 +21,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why" className="py-24 bg-gradient-to-b from-crystal-50 to-white">
+    <section id="why" className="py-24 bg-gradient-to-b from-indigo-soft to-white">
       <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         
         {/* Left Side - Image */}
@@ -37,7 +37,7 @@ export default function WhyChooseUs() {
             alt="Professional Maid Cleaning" 
             className="rounded-3xl shadow-2xl w-full h-[500px] object-cover"
           />
-          <div className="absolute -bottom-8 -right-8 bg-crystal-500 text-white p-8 rounded-3xl shadow-xl hidden md:block">
+          <div className="absolute -bottom-8 -right-8 bg-indigo text-white p-8 rounded-3xl shadow-xl hidden md:block">
             <p className="text-4xl font-bold">10+</p>
             <p>Years of Experience</p>
           </div>
@@ -50,9 +50,9 @@ export default function WhyChooseUs() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-crystal-500 font-semibold mb-2">WHY CHOOSE US</p>
+          <p className="text-indigo font-semibold mb-2">WHY CHOOSE US</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-800 mb-8">
-            The Byte Standard of Clean
+            The Byt Standard of Clean
           </h2>
           
           <div className="space-y-8">
@@ -65,7 +65,7 @@ export default function WhyChooseUs() {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 className="flex items-start space-x-4"
               >
-                <div className="bg-white p-3 rounded-xl shadow-md text-crystal-500 mt-1">
+                <div className="bg-white p-3 rounded-xl shadow-md text-indigo mt-1">
                   <feature.icon className="w-6 h-6" />
                 </div>
                 <div>

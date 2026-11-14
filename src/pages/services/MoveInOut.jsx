@@ -675,7 +675,7 @@ function PackageCard({ pkg, type, added, onAdd, popular }) {
           <span className="pb-1 font-semibold text-gray-500">AED</span>
           <span className="pb-1 text-sm text-gray-400 line-through">{pkg.original} AED</span>
         </div>
-        <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-700">
+        <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-mint-soft px-3 py-1 text-xs font-bold text-mint-deep">
           <Tag className="h-3.5 w-3.5" />
           Save {saving} AED
         </span>
@@ -690,7 +690,7 @@ function PackageCard({ pkg, type, added, onAdd, popular }) {
           onClick={() => onAdd(pkg, type)}
           disabled={added}
           className={`flex w-full items-center justify-center gap-2 rounded-xl py-3 font-bold text-white transition ${
-            added ? "cursor-default bg-emerald-500" : "bg-purple-500 hover:bg-purple-600"
+            added ? "cursor-default bg-mint" : "bg-purple-500 hover:bg-purple-600"
           }`}
         >
           {added ? <><CheckCircle className="h-4 w-4" /> Added to Cart</> : <><ShoppingCart className="h-4 w-4" /> Add to Cart</>}

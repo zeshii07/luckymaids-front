@@ -196,10 +196,10 @@ export default function AreasWeServe() {
   return (
     <main className="min-h-screen overflow-hidden bg-white pb-24 pt-20">
       <Helmet>
-        <title>Cleaning Services Across Dubai | Areas We Serve | Byte Cleaning Services</title>
+        <title>Cleaning Services Across Dubai | Areas We Serve | Byt Cleaning Services</title>
         <meta
           name="description"
-          content="Byte Cleaning Services provides professional cleaning services across Dubai, including apartments, villas, offices, retail stores, and commercial properties. Check service availability in your area today."
+          content="Byt Cleaning Services provides professional cleaning services across Dubai, including apartments, villas, offices, retail stores, and commercial properties. Check service availability in your area today."
         />
         <link rel="canonical" href="https://lucky-crystal.infinityfree.me/areas-we-serve/" />
       </Helmet>
@@ -216,7 +216,7 @@ export default function AreasWeServe() {
             transition={{ duration: reducedMotion ? 0 : 0.55 }}
             className="mx-auto max-w-4xl text-center"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-bold text-crystal-300 backdrop-blur">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-bold text-mint backdrop-blur">
               <MapPin className="h-4 w-4" />
               Mobile cleaning teams across Dubai
             </span>
@@ -224,11 +224,11 @@ export default function AreasWeServe() {
             <h1 className="mt-6 font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
               Cleaning Services Across Dubai
             </h1>
-            <p className="mt-5 text-xl font-semibold text-crystal-200">
+            <p className="mt-5 text-xl font-semibold text-indigo/30">
               Professional Cleaning Services Near You
             </p>
             <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-gray-300 sm:text-lg">
-              Byte Cleaning Services provides professional residential and
+              Byt Cleaning Services provides professional residential and
               commercial cleaning services across many of Dubai&apos;s popular
               residential communities, business districts, and commercial
               developments.
@@ -243,7 +243,7 @@ export default function AreasWeServe() {
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-crystal-500 px-7 py-3.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-crystal-600"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-indigo px-7 py-3.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-indigo-deep"
               >
                 Check Availability
                 <ArrowRight className="h-4 w-4" />
@@ -267,7 +267,7 @@ export default function AreasWeServe() {
             [Clock3, "Flexible appointments", "One-time and recurring schedules may be arranged."],
           ].map(([Icon, title, text]) => (
             <article key={title} className="rounded-2xl bg-gray-50 p-5">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-crystal-100 text-crystal-600">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-soft text-indigo-deep">
                 <Icon className="h-5 w-5" />
               </div>
               <h2 className="mt-4 font-bold text-gray-900">{title}</h2>
@@ -324,9 +324,9 @@ export default function AreasWeServe() {
                   duration: reducedMotion ? 0 : 0.4,
                   delay: reducedMotion ? 0 : Math.min(index * 0.035, 0.2),
                 }}
-                className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-crystal-200 hover:shadow-xl"
+                className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-xl"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
                   <MapPin className="h-6 w-6" />
                 </div>
                 <h3 className="mt-5 text-xl font-bold text-gray-900">{community.name}</h3>
@@ -349,7 +349,7 @@ export default function AreasWeServe() {
       <section className="bg-white py-20">
         <div className="container mx-auto grid max-w-6xl gap-6 px-5 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
           <motion.div {...revealProps} className="rounded-[2rem] bg-gray-950 p-8 text-white">
-            <Search className="h-8 w-8 text-crystal-300" />
+            <Search className="h-8 w-8 text-mint" />
             <h2 className="mt-5 font-display text-3xl font-bold">
               Don&apos;t See Your Area?
             </h2>
@@ -360,7 +360,7 @@ export default function AreasWeServe() {
             </p>
             <Link
               to="/contact"
-              className="mt-7 inline-flex items-center gap-2 font-bold text-crystal-300 transition hover:text-white"
+              className="mt-7 inline-flex items-center gap-2 font-bold text-mint transition hover:text-white"
             >
               Confirm your location
               <ArrowRight className="h-4 w-4" />
@@ -375,7 +375,7 @@ export default function AreasWeServe() {
             <div className="mt-7 grid gap-4 sm:grid-cols-2">
               {customerReasons.map((reason) => (
                 <div key={reason} className="flex items-start gap-3 rounded-2xl bg-white p-4">
-                  <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-crystal-500" />
+                  <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-indigo" />
                   <span className="text-sm font-medium leading-6 text-gray-700">{reason}</span>
                 </div>
               ))}
@@ -398,7 +398,7 @@ export default function AreasWeServe() {
                 key={service}
                 className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 text-sm font-semibold text-gray-700 shadow-sm"
               >
-                <Sparkles className="h-4 w-4 text-crystal-500" />
+                <Sparkles className="h-4 w-4 text-indigo" />
                 {service}
               </span>
             ))}
@@ -427,12 +427,12 @@ export default function AreasWeServe() {
                     id={buttonId}
                     type="button"
                     onClick={() => setOpenFaq(open ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-crystal-500"
+                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo"
                     aria-expanded={open}
                     aria-controls={panelId}
                   >
                     <span>{faq.q}</span>
-                    <ChevronDown className={`h-5 w-5 shrink-0 text-crystal-500 transition-transform ${open ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`h-5 w-5 shrink-0 text-indigo transition-transform ${open ? "rotate-180" : ""}`} />
                   </button>
 
                   <AnimatePresence initial={false}>
@@ -460,18 +460,18 @@ export default function AreasWeServe() {
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-crystal-600 via-crystal-700 to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
             <MapPin className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
             <div className="relative mx-auto max-w-3xl">
               <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
                 Book Cleaning Services Near You
               </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-crystal-100 sm:text-lg">
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-indigo-soft sm:text-lg">
                 Whether you need professional cleaning for your home or
-                business, Byte Cleaning Services is ready to help.
+                business, Byt Cleaning Services is ready to help.
               </p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
-                <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-crystal-700 transition hover:-translate-y-0.5 hover:bg-crystal-50">
+                <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-indigo-deep transition hover:-translate-y-0.5 hover:bg-indigo-soft">
                   Check Availability
                   <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -498,7 +498,7 @@ export default function AreasWeServe() {
 
 function Eyebrow({ children }) {
   return (
-    <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-crystal-600">
+    <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-indigo-deep">
       {children}
     </span>
   );
@@ -514,7 +514,7 @@ function ServiceAudience({
 }) {
   return (
     <article className="rounded-[2rem] border border-gray-100 bg-gray-50 p-7 sm:p-8">
-      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
         <Icon className="h-7 w-7" />
       </div>
       <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">{title}</h2>
@@ -522,7 +522,7 @@ function ServiceAudience({
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {propertyTypes.map((item) => (
           <div key={item} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
-            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-crystal-500" />
+            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-indigo" />
             {item}
           </div>
         ))}

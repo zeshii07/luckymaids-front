@@ -257,7 +257,7 @@ export default function Babysitting() {
               <h3 className="mt-5 text-2xl font-bold">Booking Summary</h3>
               <dl className="mt-6 space-y-3 text-sm"><SummaryRow label="Rate" value={`${ratePerHour} AED/hour`} /><SummaryRow label="Hours" value={`${hours}`} /><SummaryRow label="Babysitters" value={`${crew}`} /><SummaryRow label="Calculation" value={`${hours} × ${crew} × ${ratePerHour}`} /></dl>
               <div className="mt-6 border-t border-white/10 pt-6"><div className="flex items-end justify-between gap-4"><span className="text-sm text-gray-300">Estimated total</span><span className="text-3xl font-bold text-indigo-300">{totalAmount} AED</span></div></div>
-              <button type="button" onClick={handleAddToCart} disabled={added} className={`mt-7 flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold transition ${added ? "cursor-default bg-emerald-500" : "bg-indigo-500 hover:bg-indigo-600"}`}>
+              <button type="button" onClick={handleAddToCart} disabled={added} className={`mt-7 flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold transition ${added ? "cursor-default bg-mint" : "bg-indigo-500 hover:bg-indigo-600"}`}>
                 {added ? <><CheckCircle className="h-5 w-5" /> Added to Cart</> : <><ShoppingCart className="h-5 w-5" /> Add to Cart</>}
               </button>
             </div>
@@ -341,5 +341,5 @@ function SummaryRow({ label, value }) {
 }
 
 function DutyPanel({ title, items, included = false }) {
-  return <article><SectionEyebrow>{included ? "Agreed child-related care" : "Separate or excluded work"}</SectionEyebrow><h2 className="font-display text-3xl font-bold text-gray-900">{title}</h2><div className="mt-7 grid gap-3 sm:grid-cols-2">{items.map((item) => <div key={item} className={`flex items-start gap-3 rounded-xl border p-3 ${included ? "border-emerald-100 bg-emerald-50" : "border-red-100 bg-red-50"}`}>{included ? <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" /> : <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}<span className="text-xs font-semibold leading-5 text-gray-700">{item}</span></div>)}</div></article>;
+  return <article><SectionEyebrow>{included ? "Agreed child-related care" : "Separate or excluded work"}</SectionEyebrow><h2 className="font-display text-3xl font-bold text-gray-900">{title}</h2><div className="mt-7 grid gap-3 sm:grid-cols-2">{items.map((item) => <div key={item} className={`flex items-start gap-3 rounded-xl border p-3 ${included ? "border-mint-soft bg-mint-soft" : "border-red-100 bg-red-50"}`}>{included ? <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-mint-deep" /> : <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}<span className="text-xs font-semibold leading-5 text-gray-700">{item}</span></div>)}</div></article>;
 }

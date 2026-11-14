@@ -118,9 +118,9 @@ export default function Quote() {
   };
 
   return (
-    <div className="pt-32 pb-20 bg-gradient-to-b from-blue-50 to-white min-h-screen">
+    <div className="pt-32 pb-20 bg-gradient-to-b from-indigo-soft to-white min-h-screen">
       <Helmet>
-        <title>Get a Free Cleaning Quote in Dubai | Byte Cleaning Services</title>
+        <title>Get a Free Cleaning Quote in Dubai | Byt Cleaning Services</title>
         <meta name="description" content="Get an instant, free quote for residential, deep, commercial, or custom cleaning in Dubai. Transparent pricing, no hidden fees." />
       </Helmet>
       
@@ -141,21 +141,21 @@ export default function Quote() {
                   <h2 className="text-2xl font-bold mb-8 text-gray-800 text-center">1. Select Your Service</h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {hourlyServices.map((s) => (
-                      <button key={s.id} onClick={() => handleSelectService(s, 'hourly')} className="p-6 border-2 border-gray-200 rounded-2xl hover:border-crystal-500 hover:bg-crystal-50 transition flex flex-col items-center text-center group">
-                        <s.icon className="w-10 h-10 text-gray-400 group-hover:text-crystal-500 mb-3 transition" />
+                      <button key={s.id} onClick={() => handleSelectService(s, 'hourly')} className="p-6 border-2 border-gray-200 rounded-2xl hover:border-indigo hover:bg-indigo-soft transition flex flex-col items-center text-center group">
+                        <s.icon className="w-10 h-10 text-gray-400 group-hover:text-indigo mb-3 transition" />
                         <span className="font-semibold text-gray-800 text-sm">{s.name}</span>
                       </button>
                     ))}
                     {packageServices.map((s) => (
-                      <button key={s.id} onClick={() => handleSelectService(s, 'package')} className="p-6 border-2 border-gray-200 rounded-2xl hover:border-crystal-500 hover:bg-crystal-50 transition flex flex-col items-center text-center group">
-                        <s.icon className="w-10 h-10 text-gray-400 group-hover:text-crystal-500 mb-3 transition" />
+                      <button key={s.id} onClick={() => handleSelectService(s, 'package')} className="p-6 border-2 border-gray-200 rounded-2xl hover:border-indigo hover:bg-indigo-soft transition flex flex-col items-center text-center group">
+                        <s.icon className="w-10 h-10 text-gray-400 group-hover:text-indigo mb-3 transition" />
                         <span className="font-semibold text-gray-800 text-sm">{s.name}</span>
                       </button>
                     ))}
                     
                     {/* Custom Request Button */}
-                    <button onClick={() => handleSelectService({ id: 'custom', name: 'Custom Request' }, 'custom')} className="col-span-2 md:col-span-3 p-6 border-2 border-dashed border-gray-300 rounded-2xl hover:border-crystal-500 hover:bg-crystal-50 transition flex flex-col items-center text-center group mt-2">
-                      <ClipboardList className="w-10 h-10 text-gray-400 group-hover:text-crystal-500 mb-3 transition" />
+                    <button onClick={() => handleSelectService({ id: 'custom', name: 'Custom Request' }, 'custom')} className="col-span-2 md:col-span-3 p-6 border-2 border-dashed border-gray-300 rounded-2xl hover:border-indigo hover:bg-indigo-soft transition flex flex-col items-center text-center group mt-2">
+                      <ClipboardList className="w-10 h-10 text-gray-400 group-hover:text-indigo mb-3 transition" />
                       <span className="font-semibold text-gray-800 text-sm">Custom / Other Request</span>
                       <span className="text-xs text-gray-500 mt-1">Have a unique requirement? Tell us what you need!</span>
                     </button>
@@ -165,7 +165,7 @@ export default function Quote() {
 
               {step === 2 && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  <button onClick={() => setStep(1)} className="text-sm text-gray-500 hover:text-crystal-500 mb-6 flex items-center">← Back to Services</button>
+                  <button onClick={() => setStep(1)} className="text-sm text-gray-500 hover:text-indigo mb-6 flex items-center">← Back to Services</button>
                   <h2 className="text-2xl font-bold mb-8 text-gray-800">2. {selectedService.name} Details</h2>
                   
                   <form onSubmit={handleSubmit} className="space-y-8">
@@ -193,8 +193,8 @@ export default function Quote() {
                           <div className="md:col-span-2">
                             <label className="block text-sm font-medium text-gray-700 mb-2">Bring Cleaning Materials? (+20 AED)</label>
                             <div className="grid grid-cols-2 gap-2">
-                              <button type="button" onClick={() => setMaterials(true)} className={`p-3 rounded-xl border-2 font-medium text-sm transition ${materials ? 'border-crystal-500 bg-crystal-50 text-crystal-600' : 'border-gray-200 bg-white text-gray-500'}`}>Yes, Bring Materials</button>
-                              <button type="button" onClick={() => setMaterials(false)} className={`p-3 rounded-xl border-2 font-medium text-sm transition ${!materials ? 'border-crystal-500 bg-crystal-50 text-crystal-600' : 'border-gray-200 bg-white text-gray-500'}`}>No, I Have Them</button>
+                              <button type="button" onClick={() => setMaterials(true)} className={`p-3 rounded-xl border-2 font-medium text-sm transition ${materials ? 'border-indigo bg-indigo-soft text-indigo-deep' : 'border-gray-200 bg-white text-gray-500'}`}>Yes, Bring Materials</button>
+                              <button type="button" onClick={() => setMaterials(false)} className={`p-3 rounded-xl border-2 font-medium text-sm transition ${!materials ? 'border-indigo bg-indigo-soft text-indigo-deep' : 'border-gray-200 bg-white text-gray-500'}`}>No, I Have Them</button>
                             </div>
                           </div>
                         )}
@@ -207,7 +207,7 @@ export default function Quote() {
                           <label className="block text-sm font-medium text-gray-700 mb-2">Select Type</label>
                           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                             {selectedService.types.map((type) => (
-                              <button key={type} type="button" onClick={() => { setPropertyType(type); setSelectedPackage(null); }} className={`p-3 rounded-xl border-2 font-medium text-sm transition ${propertyType === type ? 'border-crystal-500 bg-crystal-50 text-crystal-600' : 'border-gray-200 bg-white text-gray-500'}`}>
+                              <button key={type} type="button" onClick={() => { setPropertyType(type); setSelectedPackage(null); }} className={`p-3 rounded-xl border-2 font-medium text-sm transition ${propertyType === type ? 'border-indigo bg-indigo-soft text-indigo-deep' : 'border-gray-200 bg-white text-gray-500'}`}>
                                 {type}
                               </button>
                             ))}
@@ -219,9 +219,9 @@ export default function Quote() {
                             <label className="block text-sm font-medium text-gray-700 mb-2">Select Package</label>
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                               {packagePricing[selectedService.name][propertyType].map((pkg) => (
-                                <button key={pkg.id} type="button" onClick={() => setSelectedPackage(pkg)} className={`p-4 rounded-xl border-2 text-center transition ${selectedPackage?.id === pkg.id ? 'border-crystal-500 bg-crystal-50' : 'border-gray-200 bg-white hover:border-gray-300'}`}>
+                                <button key={pkg.id} type="button" onClick={() => setSelectedPackage(pkg)} className={`p-4 rounded-xl border-2 text-center transition ${selectedPackage?.id === pkg.id ? 'border-indigo bg-indigo-soft' : 'border-gray-200 bg-white hover:border-gray-300'}`}>
                                   <p className="font-bold text-gray-800 text-sm">{pkg.name}</p>
-                                  <p className="text-crystal-600 font-bold mt-1">{pkg.price} AED</p>
+                                  <p className="text-indigo-deep font-bold mt-1">{pkg.price} AED</p>
                                 </button>
                               ))}
                             </div>
@@ -240,7 +240,7 @@ export default function Quote() {
                           value={customDetails}
                           onChange={(e) => setCustomDetails(e.target.value)}
                           placeholder="e.g., I need a post-construction cleanup for a 2000 sqft office, or I need a full-time live-in maid for a month..." 
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-crystal-500"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo"
                         ></textarea>
                         <p className="text-xs text-gray-500 mt-2">The more detail you provide, the more accurate our custom quote will be!</p>
                       </div>
@@ -251,16 +251,16 @@ export default function Quote() {
                     <div className="pt-6 border-t border-gray-100">
                       <h3 className="text-lg font-bold text-gray-800 mb-4">Your Contact Details</h3>
                       <div className="grid md:grid-cols-2 gap-6">
-                        <input type="text" required placeholder="Full Name" value={contact.name} onChange={(e) => setContact({...contact, name: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-crystal-500" />
-                        <input type="tel" required placeholder="Phone Number" value={contact.phone} onChange={(e) => setContact({...contact, phone: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-crystal-500" />
+                        <input type="text" required placeholder="Full Name" value={contact.name} onChange={(e) => setContact({...contact, name: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo" />
+                        <input type="tel" required placeholder="+971 55 373 0702" value={contact.phone} onChange={(e) => setContact({...contact, phone: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo" />
                       </div>
                       <div className="grid md:grid-cols-2 gap-6 mt-4">
-                        <input type="email" required placeholder="Email Address" value={contact.email} onChange={(e) => setContact({...contact, email: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-crystal-500" />
-                        <input type="text" required placeholder="Area in Dubai (e.g., Marina)" value={contact.address} onChange={(e) => setContact({...contact, address: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-crystal-500" />
+                        <input type="email" required placeholder="Email Address" value={contact.email} onChange={(e) => setContact({...contact, email: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo" />
+                        <input type="text" required placeholder="Area in Dubai (e.g., Marina)" value={contact.address} onChange={(e) => setContact({...contact, address: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo" />
                       </div>
                     </div>
 
-                                        <button type="submit" className="w-full bg-crystal-500 text-white py-4 rounded-xl hover:bg-crystal-600 transition font-bold text-lg flex items-center justify-center">
+                                        <button type="submit" className="w-full bg-indigo text-white py-4 rounded-xl hover:bg-indigo-deep transition font-bold text-lg flex items-center justify-center">
                       Submit Quote Request <ArrowRight className="w-5 h-5 ml-2" />
                     </button>
 
@@ -283,7 +283,7 @@ export default function Quote() {
                   <p className="text-gray-600 max-w-md mb-8">
                     Thank you! Our team has received your request. {estimate ? `Your estimated total is ${estimate} AED.` : 'We will assess your custom request.'} We will contact you shortly to confirm the details.
                   </p>
-                  <button onClick={() => { setStep(1); setEstimate(0); setContact({ name: '', phone: '', email: '', address: '' }); }} className="text-crystal-500 font-semibold hover:underline">
+                  <button onClick={() => { setStep(1); setEstimate(0); setContact({ name: '', phone: '', email: '', address: '' }); }} className="text-indigo font-semibold hover:underline">
                     Start a new quote
                   </button>
                 </motion.div>
@@ -296,7 +296,7 @@ export default function Quote() {
           {step === 2 && (
             <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} className="lg:col-span-1">
               <div className="bg-gray-900 text-white p-8 rounded-3xl shadow-xl sticky top-24">
-                <h3 className="text-xl font-bold mb-6 flex items-center"><Calculator className="w-5 h-5 mr-2 text-crystal-400" /> Live Estimate</h3>
+                <h3 className="text-xl font-bold mb-6 flex items-center"><Calculator className="w-5 h-5 mr-2 text-indigo" /> Live Estimate</h3>
                 
                 <div className="space-y-3 pb-6 border-b border-gray-700 text-sm">
                   <p className="text-gray-400">Service: <span className="font-medium text-white float-right">{selectedService.name}</span></p>
@@ -320,9 +320,9 @@ export default function Quote() {
                 <div className="mt-6">
                   <p className="text-gray-400 text-sm mb-1">Estimated Total</p>
                   {estimate ? (
-                    <p className="text-4xl font-bold text-crystal-400">{estimate} AED</p>
+                    <p className="text-4xl font-bold text-indigo">{estimate} AED</p>
                   ) : (
-                    <p className="text-3xl font-bold text-crystal-400">Custom Quote</p>
+                    <p className="text-3xl font-bold text-indigo">Custom Quote</p>
                   )}
                   <p className="text-xs text-gray-500 mt-2">
                     {estimate ? '* Final price may vary slightly based on exact property condition.' : '* Our team will assess your needs and provide a tailored price.'}

@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 body {
-  --theme-primary: 13 148 136;
-  --theme-secondary: 8 145 178;
-  --theme-wash: 240 253 250;
-  --theme-ink: 15 23 42;
-  font-family: 'Manrope', sans-serif;
-  background-color: #f8fafc;
+  --theme-primary: 93 80 232;
+  --theme-secondary: 244 110 87;
+  --theme-wash: 189 232 212;
+  --theme-ink: 23 36 50;
+  font-family: 'Inter', 'Manrope', sans-serif;
+  background-color: #F8F7F3;
   color: rgb(var(--theme-ink));
 }
 

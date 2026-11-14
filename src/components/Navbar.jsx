@@ -133,8 +133,8 @@ export default function Navbar() {
 
   const navLinkClass = (active) => [
     "relative whitespace-nowrap rounded-lg px-2.5 py-2 text-[13px] font-semibold tracking-wide transition-colors",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500 focus-visible:ring-offset-2",
-    active ? "text-crystal-600" : "text-gray-600 hover:text-crystal-600",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo focus-visible:ring-offset-2",
+    active ? "text-indigo" : "text-ink-muted hover:text-indigo",
   ].join(" ");
 
   return (
@@ -150,20 +150,20 @@ export default function Navbar() {
         aria-label="Primary navigation"
       >
         <div className="container mx-auto flex items-center justify-between px-4 sm:px-6">
-          <Link to="/" className="group flex min-w-0 items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500 focus-visible:ring-offset-2" aria-label="Byte Cleaning Services home">
-            <span className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-crystal-400 to-crystal-600 text-white shadow-lg shadow-crystal-500/20 transition-transform duration-300 group-hover:-translate-y-0.5">
+          <Link to="/" className="group flex min-w-0 items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo focus-visible:ring-offset-2" aria-label="Byt Cleaning Services home">
+            <span className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-indigo to-indigo-deep text-white shadow-lg shadow-indigo/20 transition-transform duration-300 group-hover:-translate-y-0.5">
               <Gem className="h-6 w-6" aria-hidden="true" />
             </span>
             <span className="min-w-0 leading-tight">
-              <span className="block whitespace-nowrap font-display text-lg font-bold text-gray-900 sm:text-xl">Byte Cleaning</span>
-              <span className="block text-xs font-bold uppercase tracking-[0.22em] text-crystal-600">Services</span>
+              <span className="block whitespace-nowrap font-display text-lg font-bold text-ink sm:text-xl">Byt Cleaning</span>
+              <span className="block text-xs font-bold uppercase tracking-[0.22em] text-coral">Services</span>
             </span>
           </Link>
 
           <div className="hidden items-center gap-0.5 xl:flex">
             <Link to="/" className={navLinkClass(location.pathname === "/")} aria-current={location.pathname === "/" ? "page" : undefined}>
               Home
-              {location.pathname === "/" && <span className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-crystal-500" />}
+              {location.pathname === "/" && <span className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-indigo" />}
             </Link>
 
             <div
@@ -181,7 +181,7 @@ export default function Navbar() {
                   Services
                   <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${servicesDropdown ? "rotate-180" : ""}`} aria-hidden="true" />
                 </span>
-                {servicesActive && <span className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-crystal-500" />}
+                {servicesActive && <span className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-indigo" />}
               </button>
 
               <AnimatePresence>
@@ -196,10 +196,10 @@ export default function Navbar() {
                   >
                     <div className="overflow-hidden rounded-[1.75rem] border border-gray-200/80 bg-white p-3 shadow-[0_24px_70px_-30px_rgba(15,23,42,0.45)]">
                       <div className="grid grid-cols-[1.1fr_1.9fr] gap-3">
-                        <Link to="/cleaning-services-dubai" className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-crystal-900 p-6 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-400">
+                        <Link to="/cleaning-services-dubai" className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-ink via-ink-soft to-indigo-deep p-6 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo">
                           <span className="relative z-10">
-                            <span className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 backdrop-blur"><Sparkles className="h-6 w-6 text-crystal-300" /></span>
-                            <span className="block text-sm font-semibold text-crystal-200">Complete care</span>
+                            <span className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 backdrop-blur"><Sparkles className="h-6 w-6 text-coral-soft" /></span>
+                            <span className="block text-sm font-semibold text-mint">Complete care</span>
                             <span className="mt-1 block text-2xl font-bold">Explore all services</span>
                             <span className="mt-3 block text-sm leading-6 text-gray-300">Compare our cleaning, maid, furniture, moving, and family-support options.</span>
                             <span className="mt-7 inline-flex items-center gap-2 text-sm font-bold">View services <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
@@ -212,14 +212,14 @@ export default function Navbar() {
                             const Icon = service.icon;
                             const active = isPathActive(location.pathname, service.path);
                             return (
-                              <Link key={service.path} to={service.path} className={`group relative flex gap-3 rounded-2xl p-3.5 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500 ${active ? "bg-crystal-50" : "hover:bg-gray-50"}`} aria-current={active ? "page" : undefined}>
-                                <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition ${active ? "bg-crystal-500 text-white" : "bg-gray-100 text-gray-500 group-hover:bg-crystal-100 group-hover:text-crystal-600"}`}>
+                              <Link key={service.path} to={service.path} className={`group relative flex gap-3 rounded-2xl p-3.5 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo ${active ? "bg-indigo-soft" : "hover:bg-gray-50"}`} aria-current={active ? "page" : undefined}>
+                                <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition ${active ? "bg-indigo text-white" : "bg-gray-100 text-gray-500 group-hover:bg-indigo-soft group-hover:text-indigo"}`}>
                                   <Icon className="h-5 w-5" aria-hidden="true" />
                                 </span>
                                 <span className="min-w-0">
                                   <span className="flex items-center gap-2 text-sm font-bold text-gray-900">
                                     {service.name}
-                                    {service.featured && <span className="rounded-full bg-crystal-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-crystal-700">Popular</span>}
+                                    {service.featured && <span className="rounded-full bg-coral-soft px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-coral-deep">Popular</span>}
                                   </span>
                                   <span className="mt-1 block text-xs leading-5 text-gray-500">{service.description}</span>
                                 </span>
@@ -239,18 +239,18 @@ export default function Navbar() {
               return (
                 <Link key={item.path} to={item.path} className={navLinkClass(active)} aria-current={active ? "page" : undefined}>
                   {item.name}
-                  {active && <span className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-crystal-500" />}
+                  {active && <span className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-indigo" />}
                 </Link>
               );
             })}
           </div>
 
           <div className="hidden items-center gap-2 xl:flex">
-            <Link to="/request-a-quote" className="rounded-full border border-crystal-200 bg-white/70 px-5 py-2.5 text-sm font-bold text-crystal-700 transition hover:border-crystal-300 hover:bg-crystal-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500 focus-visible:ring-offset-2">Get Quote</Link>
-            <Link to="/book-cleaning-service" className="group inline-flex items-center gap-2 rounded-full bg-crystal-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-crystal-500/20 transition hover:-translate-y-0.5 hover:bg-crystal-600 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500 focus-visible:ring-offset-2">Book Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" /></Link>
+            <Link to="/request-a-quote" className="rounded-full border border-indigo/40 bg-white/70 px-5 py-2.5 text-sm font-bold text-indigo transition hover:border-indigo hover:bg-indigo-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo focus-visible:ring-offset-2">Get Quote</Link>
+            <Link to="/book-cleaning-service" className="group inline-flex items-center gap-2 rounded-full bg-coral px-5 py-2.5 text-sm font-bold text-ink shadow-lg shadow-coral/30 transition hover:-translate-y-0.5 hover:bg-coral-deep hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2">Book Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" /></Link>
           </div>
 
-          <button type="button" onClick={() => setIsOpen((open) => !open)} className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:border-crystal-200 hover:text-crystal-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500 focus-visible:ring-offset-2 xl:hidden" aria-expanded={isOpen} aria-controls="mobile-navigation" aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}>
+          <button type="button" onClick={() => setIsOpen((open) => !open)} className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:border-indigo/40 hover:text-indigo focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo focus-visible:ring-offset-2 xl:hidden" aria-expanded={isOpen} aria-controls="mobile-navigation" aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}>
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
@@ -273,20 +273,20 @@ export default function Navbar() {
             >
               <div className="flex items-center justify-between border-b border-gray-100 px-5 py-4">
                 <Link to="/" onClick={closeMobileMenu} className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-crystal-500 text-white"><Gem className="h-5 w-5" /></span>
-                  <span><span className="block font-display font-bold text-gray-900">Byte Cleaning</span><span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-crystal-600">Services</span></span>
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo text-white"><Gem className="h-5 w-5" /></span>
+                  <span><span className="block font-display font-bold text-gray-900">Byt Cleaning</span><span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-indigo">Services</span></span>
                 </Link>
-                <button type="button" onClick={closeMobileMenu} className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 text-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500" aria-label="Close navigation menu"><X className="h-5 w-5" /></button>
+                <button type="button" onClick={closeMobileMenu} className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 text-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo" aria-label="Close navigation menu"><X className="h-5 w-5" /></button>
               </div>
 
               <div className="flex-1 overflow-y-auto px-5 py-5">
                 <nav className="space-y-2" aria-label="Mobile navigation links">
-                  <Link to="/" onClick={closeMobileMenu} className={`flex items-center justify-between rounded-2xl px-4 py-3.5 font-semibold transition ${location.pathname === "/" ? "bg-crystal-50 text-crystal-700" : "text-gray-700 hover:bg-gray-50"}`}>
+                  <Link to="/" onClick={closeMobileMenu} className={`flex items-center justify-between rounded-2xl px-4 py-3.5 font-semibold transition ${location.pathname === "/" ? "bg-indigo-soft text-indigo" : "text-gray-700 hover:bg-gray-50"}`}>
                     Home {location.pathname === "/" && <CheckMark />}
                   </Link>
 
                   <div className="overflow-hidden rounded-2xl border border-gray-100">
-                    <button type="button" onClick={() => setMobileServicesOpen((open) => !open)} className={`flex w-full items-center justify-between px-4 py-3.5 text-left font-semibold transition ${servicesActive ? "bg-crystal-50 text-crystal-700" : "text-gray-700 hover:bg-gray-50"}`} aria-expanded={mobileServicesOpen} aria-controls="mobile-services-list">
+                    <button type="button" onClick={() => setMobileServicesOpen((open) => !open)} className={`flex w-full items-center justify-between px-4 py-3.5 text-left font-semibold transition ${servicesActive ? "bg-indigo-soft text-indigo" : "text-gray-700 hover:bg-gray-50"}`} aria-expanded={mobileServicesOpen} aria-controls="mobile-services-list">
                       Services <ChevronDown className={`h-4 w-4 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`} />
                     </button>
 
@@ -294,15 +294,15 @@ export default function Navbar() {
                       {mobileServicesOpen && (
                         <motion.div id="mobile-services-list" initial={prefersReducedMotion ? { opacity: 1 } : { height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={prefersReducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }} transition={{ duration: prefersReducedMotion ? 0 : 0.2 }} className="overflow-hidden border-t border-gray-100 bg-gray-50/70">
                           <div className="space-y-1 p-2">
-                            <Link to="/cleaning-services-dubai" onClick={closeMobileMenu} className="flex items-center justify-between rounded-xl px-3 py-3 text-sm font-bold text-crystal-700 hover:bg-white">All Services <ArrowRight className="h-4 w-4" /></Link>
+                            <Link to="/cleaning-services-dubai" onClick={closeMobileMenu} className="flex items-center justify-between rounded-xl px-3 py-3 text-sm font-bold text-indigo hover:bg-white">All Services <ArrowRight className="h-4 w-4" /></Link>
                             {services.map((service) => {
                               const Icon = service.icon;
                               const active = isPathActive(location.pathname, service.path);
                               return (
-                                <Link key={service.path} to={service.path} onClick={closeMobileMenu} className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition ${active ? "bg-white text-crystal-700 shadow-sm" : "text-gray-600 hover:bg-white hover:text-crystal-700"}`} aria-current={active ? "page" : undefined}>
+                                <Link key={service.path} to={service.path} onClick={closeMobileMenu} className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition ${active ? "bg-white text-indigo shadow-sm" : "text-gray-600 hover:bg-white hover:text-indigo"}`} aria-current={active ? "page" : undefined}>
                                   <Icon className="h-4 w-4 shrink-0" />
                                   <span className="flex-1">{service.name}</span>
-                                  {service.featured && <span className="rounded-full bg-crystal-100 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-crystal-700">Popular</span>}
+                                  {service.featured && <span className="rounded-full bg-coral-soft px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-coral-deep">Popular</span>}
                                 </Link>
                               );
                             })}
@@ -315,7 +315,7 @@ export default function Navbar() {
                   {primaryLinks.slice(1).map((item) => {
                     const active = isPathActive(location.pathname, item.path);
                     return (
-                      <Link key={item.path} to={item.path} onClick={closeMobileMenu} className={`flex items-center justify-between rounded-2xl px-4 py-3.5 font-semibold transition ${active ? "bg-crystal-50 text-crystal-700" : "text-gray-700 hover:bg-gray-50"}`} aria-current={active ? "page" : undefined}>
+                      <Link key={item.path} to={item.path} onClick={closeMobileMenu} className={`flex items-center justify-between rounded-2xl px-4 py-3.5 font-semibold transition ${active ? "bg-indigo-soft text-indigo" : "text-gray-700 hover:bg-gray-50"}`} aria-current={active ? "page" : undefined}>
                         {item.name} {active && <CheckMark />}
                       </Link>
                     );
@@ -324,7 +324,7 @@ export default function Navbar() {
 
                 <div className="mt-7 rounded-3xl bg-gray-900 p-5 text-white">
                   <div className="flex items-center gap-3">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10"><UserRoundCheck className="h-5 w-5 text-crystal-300" /></span>
+                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10"><UserRoundCheck className="h-5 w-5 text-coral-soft" /></span>
                     <div><p className="font-bold">Need help choosing?</p><p className="mt-0.5 text-xs text-gray-400">Request a personalized cleaning quote.</p></div>
                   </div>
                   <Link to="/request-a-quote" onClick={closeMobileMenu} className="mt-5 flex w-full items-center justify-center rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm font-bold transition hover:bg-white/15">Get a Free Quote</Link>
@@ -332,7 +332,7 @@ export default function Navbar() {
               </div>
 
               <div className="border-t border-gray-100 bg-white p-5">
-                <Link to="/book-cleaning-service" onClick={closeMobileMenu} className="flex w-full items-center justify-center gap-2 rounded-2xl bg-crystal-500 px-5 py-4 font-bold text-white shadow-lg shadow-crystal-500/20 transition hover:bg-crystal-600">Book Now <ArrowRight className="h-4 w-4" /></Link>
+                <Link to="/book-cleaning-service" onClick={closeMobileMenu} className="flex w-full items-center justify-center gap-2 rounded-2xl bg-coral px-5 py-4 font-bold text-ink shadow-lg shadow-coral/30 transition hover:bg-coral-deep">Book Now <ArrowRight className="h-4 w-4" /></Link>
               </div>
             </motion.div>
           </>
@@ -344,7 +344,7 @@ export default function Navbar() {
 
 function CheckMark() {
   return (
-    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-crystal-500 text-white">
+    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo text-white">
       <span className="h-1.5 w-1.5 rounded-full bg-white" />
     </span>
   );

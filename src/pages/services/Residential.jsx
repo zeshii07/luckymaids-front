@@ -283,7 +283,7 @@ export default function Residential() {
         />
       </Helmet>
 
-      <section className="relative isolate min-h-[650px] overflow-hidden bg-sky-50">
+      <section className="relative isolate min-h-[650px] overflow-hidden bg-indigo-soft">
         <img
           src={HERO_IMAGE}
           alt="Professional residential cleaning services in a Dubai home"
@@ -308,7 +308,7 @@ export default function Residential() {
               Back to Services
             </Link>
 
-            <span className="mb-4 block text-sm font-bold uppercase tracking-[0.24em] text-crystal-200">
+            <span className="mb-4 block text-sm font-bold uppercase tracking-[0.24em] text-indigo/30">
               Flexible home cleaning across Dubai
             </span>
 
@@ -327,7 +327,7 @@ export default function Residential() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 to="/booking"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-crystal-500 px-7 py-3.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-crystal-600"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-indigo px-7 py-3.5 font-bold text-white transition hover:-translate-y-0.5 hover:bg-indigo-deep"
               >
                 Book Residential Cleaning
                 <ArrowRight className="h-4 w-4" />
@@ -349,7 +349,7 @@ export default function Residential() {
             const Icon = item.icon;
             return (
               <article key={item.title} className="rounded-2xl bg-gray-50 p-5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-crystal-100 text-crystal-600">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-soft text-indigo-deep">
                   <Icon className="h-5 w-5" />
                 </div>
                 <h2 className="mt-4 font-bold text-gray-900">{item.title}</h2>
@@ -378,7 +378,7 @@ export default function Residential() {
             {propertyTypes.map((type) => (
               <span
                 key={type}
-                className="rounded-full border border-crystal-100 bg-crystal-50 px-4 py-2 text-sm font-semibold text-crystal-800"
+                className="rounded-full border border-indigo-soft bg-indigo-soft px-4 py-2 text-sm font-semibold text-ink-soft"
               >
                 {type}
               </span>
@@ -406,17 +406,17 @@ export default function Residential() {
                 <Link
                   key={solution.name}
                   to={solution.link}
-                  className="group flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-5 text-sm font-semibold text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-crystal-200 hover:shadow-md"
+                  className="group flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-5 text-sm font-semibold text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo/30 hover:shadow-md"
                 >
                   {solution.name}
-                  <ArrowRight className="h-4 w-4 text-crystal-500 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="h-4 w-4 text-indigo transition-transform group-hover:translate-x-1" />
                 </Link>
               ) : (
                 <div
                   key={solution.name}
                   className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-white p-5"
                 >
-                  <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-crystal-500" />
+                  <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-indigo" />
                   <span className="text-sm font-semibold leading-6 text-gray-700">
                     {solution.name}
                   </span>
@@ -493,18 +493,18 @@ export default function Residential() {
                 >
                   <div>
                     <div className="flex items-center gap-4">
-                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
                         <Icon className="h-7 w-7" />
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900">{room.title}</h3>
-                        <p className="mt-1 text-sm font-semibold text-crystal-700">
+                        <p className="mt-1 text-sm font-semibold text-indigo-deep">
                           {room.subtitle}
                         </p>
                       </div>
                     </div>
                     <p className="mt-6 leading-7 text-gray-600">{room.desc}</p>
-                    <div className="mt-6 rounded-2xl bg-blue-50 p-4 text-sm leading-6 text-blue-800">
+                    <div className="mt-6 rounded-2xl bg-indigo-soft p-4 text-sm leading-6 text-ink">
                       {room.note}{" "}
                       {room.linkText && room.linkPath && (
                         <Link to={room.linkPath} className="font-bold underline">
@@ -522,7 +522,7 @@ export default function Residential() {
                     <div className="mt-5 grid gap-3 sm:grid-cols-2">
                       {room.tasks.map((task) => (
                         <div key={task} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
-                          <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-crystal-500" />
+                          <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-indigo" />
                           {task}
                         </div>
                       ))}
@@ -572,7 +572,7 @@ export default function Residential() {
                 <div className="mt-5 space-y-3">
                   {tasks.map((task) => (
                     <div key={task} className="flex items-start gap-2 text-sm text-gray-600">
-                      <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
+                      <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-mint" />
                       {task}
                     </div>
                   ))}
@@ -642,7 +642,7 @@ export default function Residential() {
                 key={step.title}
                 className="grid gap-4 rounded-3xl border border-gray-100 bg-gray-50 p-6 sm:grid-cols-[auto_1fr]"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-crystal-500 font-bold text-white">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo font-bold text-white">
                   {index + 1}
                 </span>
                 <div>
@@ -688,7 +688,7 @@ export default function Residential() {
                 <div className="mt-5 flex flex-wrap gap-2">
                   {category.areas.map((area) => (
                     <span key={area} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-gray-600">
-                      <MapPin className="h-3 w-3 text-crystal-500" />
+                      <MapPin className="h-3 w-3 text-indigo" />
                       {area}
                     </span>
                   ))}
@@ -757,13 +757,13 @@ export default function Residential() {
                     id={buttonId}
                     type="button"
                     onClick={() => setOpenFaq(open ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-crystal-500"
+                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo"
                     aria-expanded={open}
                     aria-controls={panelId}
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
-                      className={`h-5 w-5 shrink-0 text-crystal-500 transition-transform ${
+                      className={`h-5 w-5 shrink-0 text-indigo transition-transform ${
                         open ? "rotate-180" : ""
                       }`}
                     />
@@ -799,13 +799,13 @@ export default function Residential() {
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-crystal-600 via-crystal-700 to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
             <Home className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
             <div className="relative mx-auto max-w-3xl">
               <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
                 Book Professional Residential Cleaning in Dubai
               </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-crystal-100 sm:text-lg">
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-indigo-soft sm:text-lg">
                 Share your location, property type, preferred schedule, and
                 priority tasks, and we&apos;ll help you choose the residential
                 cleaning option that best matches your needs.
@@ -813,7 +813,7 @@ export default function Residential() {
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
                 <Link
                   to="/booking"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-crystal-700 transition hover:-translate-y-0.5 hover:bg-crystal-50"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-indigo-deep transition hover:-translate-y-0.5 hover:bg-indigo-soft"
                 >
                   Book Residential Cleaning
                   <ArrowRight className="h-4 w-4" />
@@ -844,7 +844,7 @@ export default function Residential() {
 
 function Eyebrow({ children }) {
   return (
-    <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-crystal-600">
+    <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-indigo-deep">
       {children}
     </span>
   );
@@ -853,7 +853,7 @@ function Eyebrow({ children }) {
 function PropertyPanel({ icon: Icon, title, description, tags = [], tasks }) {
   return (
     <article className="rounded-[2rem] border border-gray-100 bg-gray-50 p-7">
-      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
         <Icon className="h-7 w-7" />
       </div>
       <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">{title}</h2>
@@ -870,7 +870,7 @@ function PropertyPanel({ icon: Icon, title, description, tags = [], tasks }) {
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {tasks.map((task) => (
           <div key={task} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
-            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-crystal-500" />
+            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-indigo" />
             {task}
           </div>
         ))}
@@ -887,7 +887,7 @@ function SimpleChecklistCard({ title, description, items }) {
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
           <div key={item} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
-            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-crystal-500" />
+            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-indigo" />
             {item}
           </div>
         ))}
@@ -919,7 +919,7 @@ function CardGridSection({
             const Icon = item.icon;
             return (
               <article key={item.title} className="flex flex-col rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
                   <Icon className="h-6 w-6" />
                 </div>
                 <h3 className="mt-5 text-xl font-bold text-gray-900">{item.title}</h3>
@@ -928,7 +928,7 @@ function CardGridSection({
                   <div className="mt-5 space-y-2 border-t border-gray-100 pt-5">
                     {item.tasks.map((task) => (
                       <div key={task} className="flex items-start gap-2 text-xs leading-5 text-gray-600">
-                        <CheckCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-crystal-500" />
+                        <CheckCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-indigo" />
                         {task}
                       </div>
                     ))}
@@ -937,7 +937,7 @@ function CardGridSection({
                 {linked && item.link && (
                   <Link
                     to={item.link}
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-crystal-600"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-indigo-deep"
                   >
                     {item.linkText}
                     <ArrowRight className="h-4 w-4" />
@@ -955,7 +955,7 @@ function CardGridSection({
 function DeepCleanPanel({ icon: Icon, title, description, items, note }) {
   return (
     <article className="rounded-[2rem] border border-gray-100 bg-white p-7 shadow-sm">
-      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
         <Icon className="h-7 w-7" />
       </div>
       <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">{title}</h2>
@@ -963,7 +963,7 @@ function DeepCleanPanel({ icon: Icon, title, description, items, note }) {
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
           <div key={item} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
-            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-crystal-500" />
+            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-indigo" />
             {item}
           </div>
         ))}
@@ -976,7 +976,7 @@ function DeepCleanPanel({ icon: Icon, title, description, items, note }) {
 function InfoGrid({ icon: Icon, title, intro, items }) {
   return (
     <article className="rounded-[2rem] border border-gray-100 bg-white p-7 shadow-sm">
-      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
         <Icon className="h-7 w-7" />
       </div>
       <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">{title}</h2>
@@ -984,7 +984,7 @@ function InfoGrid({ icon: Icon, title, intro, items }) {
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
           <div key={item} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
-            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-crystal-500" />
+            <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-indigo" />
             {item}
           </div>
         ))}

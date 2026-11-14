@@ -14,7 +14,7 @@ export default function ServiceMarquee() {
   return (
     <section className="py-16 bg-gray-50 overflow-hidden border-t border-gray-100">
       <div className="container mx-auto px-6 mb-8 text-center">
-        <p className="text-crystal-500 font-semibold mb-2">EXPLORE MORE</p>
+        <p className="text-indigo font-semibold mb-2">EXPLORE MORE</p>
         <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800">Our Premium Services</h2>
       </div>
 
@@ -45,7 +45,7 @@ export default function ServiceMarquee() {
               {/* Text Content */}
               <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
                 <h3 className="text-white font-bold text-lg leading-tight">{service.name}</h3>
-                <div className="bg-white/20 backdrop-blur-md p-2 rounded-full group-hover:bg-crystal-500 transition-colors">
+                <div className="bg-white/20 backdrop-blur-md p-2 rounded-full group-hover:bg-indigo transition-colors">
                   <ArrowRight className="w-4 h-4 text-white" />
                 </div>
               </div>

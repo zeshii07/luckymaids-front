@@ -16,8 +16,8 @@ export default function Confirmation() {
   const { totalAmount, items, customer } = bookingData;
 
   return (
-    <div className="pt-32 pb-20 bg-gradient-to-b from-crystal-50 to-white min-h-screen flex items-center">
-      <Helmet><title>Booking Confirmed | Byte Cleaning Services</title></Helmet>
+    <div className="pt-32 pb-20 bg-gradient-to-b from-indigo-soft to-white min-h-screen flex items-center">
+      <Helmet><title>Booking Confirmed | Byt Cleaning Services</title></Helmet>
       
       <div className="container mx-auto px-6 max-w-2xl text-center">
         <motion.div
@@ -43,15 +43,15 @@ export default function Confirmation() {
           {/* Schedule & Location Details */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 pb-8 border-b border-gray-100">
             <div className="flex items-center">
-              <div className="bg-crystal-50 p-3 rounded-xl mr-4"><Calendar className="w-6 h-6 text-crystal-500" /></div>
+              <div className="bg-indigo-soft p-3 rounded-xl mr-4"><Calendar className="w-6 h-6 text-indigo" /></div>
               <div><p className="text-sm text-gray-500">Date</p><p className="font-bold text-gray-800">{customer?.date || 'N/A'}</p></div>
             </div>
             <div className="flex items-center">
-              <div className="bg-crystal-50 p-3 rounded-xl mr-4"><Clock className="w-6 h-6 text-crystal-500" /></div>
+              <div className="bg-indigo-soft p-3 rounded-xl mr-4"><Clock className="w-6 h-6 text-indigo" /></div>
               <div><p className="text-sm text-gray-500">Time</p><p className="font-bold text-gray-800">{customer?.time || 'N/A'}</p></div>
             </div>
             <div className="flex items-center sm:col-span-2">
-              <div className="bg-crystal-50 p-3 rounded-xl mr-4"><MapPin className="w-6 h-6 text-crystal-500" /></div>
+              <div className="bg-indigo-soft p-3 rounded-xl mr-4"><MapPin className="w-6 h-6 text-indigo" /></div>
               <div><p className="text-sm text-gray-500">Location</p><p className="font-bold text-gray-800">{customer?.address || 'N/A'}</p></div>
             </div>
           </div>
@@ -61,13 +61,13 @@ export default function Confirmation() {
             {items?.map((item, index) => (
               <div key={index} className="flex justify-between items-center bg-gray-50 p-4 rounded-xl">
                 <div className="flex items-center">
-                  <div className="bg-white p-2 rounded-lg shadow-sm mr-4"><Home className="w-5 h-5 text-crystal-500" /></div>
+                  <div className="bg-white p-2 rounded-lg shadow-sm mr-4"><Home className="w-5 h-5 text-indigo" /></div>
                   <div>
                     <p className="font-bold text-gray-800">{item.service}</p>
                     <p className="text-sm text-gray-500">{item.hours}h × {item.crew} crew</p>
                   </div>
                 </div>
-                <p className="font-bold text-crystal-600">{item.totalAmount} AED</p>
+                <p className="font-bold text-indigo-deep">{item.totalAmount} AED</p>
               </div>
             ))}
           </div>
@@ -79,7 +79,7 @@ export default function Confirmation() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/" className="bg-crystal-500 text-white px-8 py-4 rounded-full hover:bg-crystal-600 transition font-semibold">Back to Home</Link>
+          <Link to="/" className="bg-indigo text-white px-8 py-4 rounded-full hover:bg-indigo-deep transition font-semibold">Back to Home</Link>
           <Link to="/services" className="bg-white text-gray-800 border border-gray-200 px-8 py-4 rounded-full hover:bg-gray-50 transition font-semibold">Book Another Service</Link>
         </motion.div>
       </div>

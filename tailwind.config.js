@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Manrope", "sans-serif"],
-        display: ["Fraunces", "Georgia", "serif"],
+        sans: ["Inter", "Manrope", "sans-serif"],
+        display: ["Manrope", "Fraunces", "Georgia", "serif"],
         editorial: ["DM Sans", "sans-serif"],
         modern: ["Space Grotesk", "sans-serif"],
         hero: ["Bodoni Moda", "Georgia", "serif"],
@@ -19,6 +19,7 @@ export default {
       },
 
       colors: {
+        // Legacy teal palette (still referenced across components)
         crystal: {
           50: "#f0fdfa",
           100: "#ccfbf1",
@@ -31,6 +32,28 @@ export default {
           800: "#115e59",
           900: "#134e4a",
         },
+        // Blueprint brand palette (LUCKY CRYSTAL / UI REDESIGN BLUEPRINT §03)
+        ink: {
+          DEFAULT: "#172432",
+          soft: "#2A3A4B",
+          muted: "#5A6573",
+        },
+        indigo: {
+          DEFAULT: "#5D50E8",
+          soft: "#ECEAFE",
+          deep: "#3F35C7",
+        },
+        coral: {
+          DEFAULT: "#F46E57",
+          soft: "#FDE4DD",
+          deep: "#D8523C",
+        },
+        mint: {
+          DEFAULT: "#BDE8D4",
+          soft: "#E7F6EF",
+          deep: "#8FD2B6",
+        },
+        paper: "#F8F7F3",
       },
 
       keyframes: {

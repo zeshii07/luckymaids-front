@@ -90,7 +90,7 @@ const initialFormData = {
 
 const ease = [0.22, 1, 0.36, 1];
 const inputClass =
-  "w-full rounded-xl border border-gray-200 bg-white px-4 py-3.5 text-gray-900 outline-none transition placeholder:text-gray-400 hover:border-gray-300 focus:border-crystal-500 focus:ring-4 focus:ring-crystal-100 disabled:cursor-not-allowed disabled:bg-gray-50";
+  "w-full rounded-xl border border-gray-200 bg-white px-4 py-3.5 text-gray-900 outline-none transition placeholder:text-gray-400 hover:border-gray-300 focus:border-indigo focus:ring-4 focus:ring-indigo-soft disabled:cursor-not-allowed disabled:bg-gray-50";
 
 export default function Contact() {
   const [status, setStatus] = useState("idle");
@@ -160,10 +160,10 @@ export default function Contact() {
   return (
     <main className="min-h-screen overflow-hidden bg-white text-gray-900">
       <Helmet>
-        <title>Contact Byte Cleaning Services | Cleaning Services Dubai</title>
+        <title>Contact Byt Cleaning Services | Cleaning Services Dubai</title>
         <meta
           name="description"
-          content="Contact Byte Cleaning Services to book professional cleaning services in Dubai. Request a free quote for deep cleaning, maid services, commercial cleaning, and more."
+          content="Contact Byt Cleaning Services to book professional cleaning services in Dubai. Request a free quote for deep cleaning, maid services, commercial cleaning, and more."
         />
       </Helmet>
 
@@ -178,14 +178,14 @@ export default function Contact() {
             className="grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-end"
           >
             <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-crystal-100 backdrop-blur">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-indigo-soft backdrop-blur">
                 <Sparkles className="h-4 w-4" aria-hidden="true" />
                 Fast, friendly booking support
               </span>
               <h1 className="mt-6 text-4xl font-display font-bold tracking-tight sm:text-5xl lg:text-7xl">
-                Contact Byte Cleaning Services
+                Contact Byt Cleaning Services
               </h1>
-              <h2 className="mt-5 text-xl font-semibold text-crystal-200 sm:text-2xl">
+              <h2 className="mt-5 text-xl font-semibold text-indigo/30 sm:text-2xl">
                 We're Here to Help
               </h2>
               <p className="mt-5 max-w-3xl text-base leading-8 text-gray-300 sm:text-lg">
@@ -202,13 +202,13 @@ export default function Contact() {
                 {
                   icon: Phone,
                   label: "Phone",
-                  value: "+971553730702",
+                  value: "+971 55 373 0702",
                   href: "tel:+971553730702",
                 },
                 {
                   icon: MessageCircle,
                   label: "WhatsApp",
-                  value: "+971553730702",
+                  value: "+971 55 373 0702",
                   href: "https://wa.me/971553730702",
                   external: true,
                 },
@@ -229,7 +229,7 @@ export default function Contact() {
                   className="rounded-2xl border border-white/10 bg-white/[0.07] p-4 backdrop-blur-sm sm:p-5"
                 >
                   <item.icon
-                    className="mb-4 h-6 w-6 text-crystal-300"
+                    className="mb-4 h-6 w-6 text-mint"
                     aria-hidden="true"
                   />
                   <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
@@ -240,7 +240,7 @@ export default function Contact() {
                       href={item.href}
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noreferrer" : undefined}
-                      className="mt-1 block break-words text-sm font-semibold text-white hover:text-crystal-200"
+                      className="mt-1 block break-words text-sm font-semibold text-white hover:text-indigo/30"
                     >
                       {item.value}
                     </a>
@@ -271,10 +271,10 @@ export default function Contact() {
                       title: "Phone",
                       content: (
                         <a
-                          href="tel:+971501234567"
+                          href="tel:+971553730702"
                           className="text-gray-300 transition hover:text-white"
                         >
-                          +971553730702
+                          +971 55 373 0702
                         </a>
                       ),
                     },
@@ -288,7 +288,7 @@ export default function Contact() {
                           rel="noreferrer"
                           className="text-gray-300 transition hover:text-white"
                         >
-                          +971553730702
+                          +971 55 373 0702
                         </a>
                       ),
                     },
@@ -318,7 +318,7 @@ export default function Contact() {
                     <div key={item.title} className="flex gap-4">
                       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10">
                         <item.icon
-                          className="h-5 w-5 text-crystal-300"
+                          className="h-5 w-5 text-mint"
                           aria-hidden="true"
                         />
                       </span>
@@ -347,7 +347,7 @@ export default function Contact() {
                       className="flex items-start gap-2 text-sm text-gray-700"
                     >
                       <CheckCircle
-                        className="mt-0.5 h-4 w-4 shrink-0 text-crystal-600"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-indigo-deep"
                         aria-hidden="true"
                       />
                       <span>{service}</span>
@@ -367,7 +367,7 @@ export default function Contact() {
             >
               <div className="mb-8 flex flex-col gap-3 border-b border-gray-100 pb-8 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                  <span className="text-sm font-bold uppercase tracking-[0.18em] text-crystal-600">
+                  <span className="text-sm font-bold uppercase tracking-[0.18em] text-indigo-deep">
                     Free quotation
                   </span>
                   <h2 className="mt-3 text-3xl font-display font-bold text-gray-900">
@@ -378,7 +378,7 @@ export default function Contact() {
                     include your details below.
                   </p>
                 </div>
-                <div className="inline-flex w-fit items-center gap-2 rounded-full bg-crystal-50 px-3 py-2 text-xs font-semibold text-crystal-700">
+                <div className="inline-flex w-fit items-center gap-2 rounded-full bg-indigo-soft px-3 py-2 text-xs font-semibold text-indigo-deep">
                   <Clock className="h-4 w-4" aria-hidden="true" />
                   Prompt response during business hours
                 </div>
@@ -418,7 +418,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       className={inputClass}
-                      placeholder="e.g., +971 50 123 4567"
+                      placeholder="e.g., +971 55 373 0702"
                     />
                   </Field>
                 </div>
@@ -535,7 +535,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === "loading" || status === "success"}
-                  className={`flex w-full items-center justify-center gap-2 rounded-xl px-5 py-4 text-base font-bold text-white shadow-lg transition focus:outline-none focus-visible:ring-4 disabled:cursor-not-allowed ${status === "success" ? "bg-emerald-600 focus-visible:ring-emerald-200" : "bg-crystal-600 hover:-translate-y-0.5 hover:bg-crystal-700 focus-visible:ring-crystal-200 disabled:hover:translate-y-0"}`}
+                  className={`flex w-full items-center justify-center gap-2 rounded-xl px-5 py-4 text-base font-bold text-white shadow-lg transition focus:outline-none focus-visible:ring-4 disabled:cursor-not-allowed ${status === "success" ? "bg-mint-deep focus-visible:ring-mint-soft" : "bg-indigo-deep hover:-translate-y-0.5 hover:bg-indigo-deep focus-visible:ring-indigo/30 disabled:hover:translate-y-0"}`}
                 >
                   {status === "loading" ? (
                     <>
@@ -562,7 +562,7 @@ export default function Contact() {
                   {status === "success" && (
                     <div
                       role="status"
-                      className="flex items-start gap-3 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800"
+                      className="flex items-start gap-3 rounded-xl border border-mint-soft bg-mint-soft p-4 text-sm text-ink"
                     >
                       <CheckCircle
                         className="mt-0.5 h-5 w-5 shrink-0"
@@ -612,7 +612,7 @@ export default function Contact() {
             className="grid gap-10 rounded-[2rem] border border-gray-200 bg-white p-7 shadow-sm sm:p-10 lg:grid-cols-[.75fr_1.25fr] lg:items-center lg:p-14"
           >
             <div>
-              <span className="text-sm font-bold uppercase tracking-[0.18em] text-crystal-600">
+              <span className="text-sm font-bold uppercase tracking-[0.18em] text-indigo-deep">
                 Areas we serve
               </span>
               <h2 className="mt-4 text-3xl font-display font-bold text-gray-900 sm:text-4xl">
@@ -631,7 +631,7 @@ export default function Contact() {
                   className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700"
                 >
                   <MapPin
-                    className="h-3.5 w-3.5 text-crystal-600"
+                    className="h-3.5 w-3.5 text-indigo-deep"
                     aria-hidden="true"
                   />
                   {area}
@@ -645,7 +645,7 @@ export default function Contact() {
       <section className="py-20 sm:py-24">
         <div className="container mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
           <motion.div {...reveal} className="mb-12 text-center">
-            <span className="text-sm font-bold uppercase tracking-[0.18em] text-crystal-600">
+            <span className="text-sm font-bold uppercase tracking-[0.18em] text-indigo-deep">
               FAQs
             </span>
             <h2 className="mt-4 text-3xl font-display font-bold text-gray-900 sm:text-5xl">
@@ -668,12 +668,12 @@ export default function Contact() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-5 p-5 text-left font-semibold text-gray-900 outline-none transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-crystal-500 sm:p-6"
+                    className="flex w-full items-center justify-between gap-5 p-5 text-left font-semibold text-gray-900 outline-none transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo sm:p-6"
                   >
                     <span>{faq.q}</span>
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-crystal-50">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-soft">
                       <ChevronDown
-                        className={`h-5 w-5 text-crystal-600 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                        className={`h-5 w-5 text-indigo-deep transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                         aria-hidden="true"
                       />
                     </span>
@@ -705,24 +705,24 @@ export default function Contact() {
         <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <motion.div
             {...reveal}
-            className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-br from-crystal-600 via-crystal-700 to-gray-950 px-6 py-14 text-center text-white shadow-2xl sm:px-12 sm:py-16"
+            className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-gray-950 px-6 py-14 text-center text-white shadow-2xl sm:px-12 sm:py-16"
           >
             <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-            <div className="absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-crystal-300/20 blur-3xl" />
+            <div className="absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-mint/20 blur-3xl" />
             <div className="relative mx-auto max-w-3xl">
               <h2 className="text-3xl font-display font-bold sm:text-5xl">
                 Ready to Book?
               </h2>
-              <p className="mt-5 text-lg leading-8 text-crystal-100">
+              <p className="mt-5 text-lg leading-8 text-indigo-soft">
                 Whether you need a one-time deep clean, recurring maid services,
-                or commercial cleaning for your workplace, Byte Cleaning Services
+                or commercial cleaning for your workplace, Byt Cleaning Services
                 is ready to help. Contact us today to request your personalized
                 quotation or schedule your next cleaning service.
               </p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Link
                   to="/quote"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-crystal-700 shadow-lg transition hover:-translate-y-0.5 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-indigo-deep shadow-lg transition hover:-translate-y-0.5 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   Get a Free Quote
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />

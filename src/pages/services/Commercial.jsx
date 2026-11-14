@@ -464,7 +464,7 @@ export default function Commercial() {
                 disabled={added}
                 className={`mt-7 flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold transition ${
                   added
-                    ? "cursor-default bg-emerald-500 text-white"
+                    ? "cursor-default bg-mint text-white"
                     : "bg-orange-500 text-white hover:bg-orange-600"
                 }`}
               >

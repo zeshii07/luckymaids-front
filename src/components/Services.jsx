@@ -8,14 +8,14 @@
 //     icon: Home,
 //     title: 'Residential Cleaning',
 //     desc: 'Regular weekly or bi-weekly cleaning to keep your home spotless and comfortable.',
-//     color: 'bg-blue-100 text-blue-600'
+//     color: 'bg-indigo-soft text-indigo-deep'
 //   },
 //   {
 //     id: 'deep',
 //     icon: Sparkles,
 //     title: 'Deep Cleaning',
 //     desc: 'A comprehensive top-to-bottom clean for those areas that need extra attention.',
-//     color: 'bg-crystal-100 text-crystal-600'
+//     color: 'bg-indigo-soft text-indigo-deep'
 //   },
 //   {
 //     id: 'move',
@@ -58,7 +58,7 @@
 //           transition={{ duration: 0.6 }}
 //           className="text-center mb-16"
 //         >
-//           <p className="text-crystal-500 font-semibold mb-2">WHAT WE OFFER</p>
+//           <p className="text-indigo font-semibold mb-2">WHAT WE OFFER</p>
 //           <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-800">Our Premium Services</h2>
 //         </motion.div>
 
@@ -78,7 +78,7 @@
 //               </div>
 //               <h3 className="text-2xl font-bold text-gray-800 mb-4">{service.title}</h3>
 //               <p className="text-gray-600 mb-6">{service.desc}</p>
-//               <Link to={`/services/${service.id}`} className="text-crystal-500 font-semibold flex items-center group-hover:translate-x-2 transition-transform">
+//               <Link to={`/services/${service.id}`} className="text-indigo font-semibold flex items-center group-hover:translate-x-2 transition-transform">
 //                 Learn More <ArrowRight className="ml-2 w-4 h-4" />
 //               </Link>
 //             </motion.div>
@@ -154,7 +154,7 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-crystal-500 font-semibold mb-2">WHAT WE OFFER</p>
+          <p className="text-indigo font-semibold mb-2">WHAT WE OFFER</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-800">Our Premium Services</h2>
         </motion.div>
 
@@ -180,7 +180,7 @@ export default function Services() {
 
               {/* Content */}
               <div className="relative z-10 p-8 h-full flex flex-col justify-end">
-                <div className="bg-crystal-500 w-14 h-14 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                <div className="bg-indigo w-14 h-14 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
                   <service.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>

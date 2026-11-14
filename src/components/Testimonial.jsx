@@ -1,7 +1,7 @@
 import { Star } from 'lucide-react';
 
 const testimonials = [
-  { name: 'Sarah Jenkins', role: 'New York, NY', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80', text: 'Byte Cleaning Services transformed my apartment! The attention to detail was incredible. Highly recommend their premium service!' },
+  { name: 'Sarah Jenkins', role: 'New York, NY', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80', text: 'Byt Cleaning Services transformed my apartment! The attention to detail was incredible. Highly recommend their premium service!' },
   { name: 'Michael David', role: 'Los Angeles, CA', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80', text: 'I booked the deep cleaning service before a family event. The team was punctual, professional, and left the house sparkling.' },
   { name: 'Emily Clark', role: 'Chicago, IL', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80', text: 'Using their weekly residential cleaning has changed my life. Coming home to a spotless house is the best feeling. 5 stars!' },
   { name: 'Robert Li', role: 'Houston, TX', img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80', text: 'We hired them for our office commercial cleaning. The difference is night and day. The workspace feels so much more welcoming.' },
@@ -12,7 +12,7 @@ export default function Testimonial() {
   return (
     <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6 mb-12 text-center">
-        <p className="text-crystal-500 font-semibold mb-2">CLIENT REVIEWS</p>
+        <p className="text-indigo font-semibold mb-2">CLIENT REVIEWS</p>
         <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-800">What Our Clients Say</h2>
       </div>
 

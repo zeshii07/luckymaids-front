@@ -30,7 +30,7 @@ export default function HowItWorks() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-crystal-500 font-semibold mb-2">SIMPLE PROCESS</p>
+          <p className="text-indigo font-semibold mb-2">SIMPLE PROCESS</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-800">How It Works</h2>
         </motion.div>
 
@@ -45,7 +45,7 @@ export default function HowItWorks() {
               className="text-center relative"
             >
               <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md border border-gray-100">
-                <step.icon className="w-10 h-10 text-crystal-500" />
+                <step.icon className="w-10 h-10 text-indigo" />
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-3">{step.title}</h3>
               <p className="text-gray-600 max-w-xs mx-auto">{step.desc}</p>

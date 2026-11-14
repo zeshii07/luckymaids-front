@@ -297,7 +297,7 @@ export default function MaidServices() {
         />
       </Helmet>
 
-      <section className="relative isolate min-h-[640px] overflow-hidden bg-cyan-50">
+      <section className="relative isolate min-h-[640px] overflow-hidden bg-indigo-soft">
         <img
           src={HERO_IMAGE}
           alt="Professional maid services in Dubai"
@@ -322,7 +322,7 @@ export default function MaidServices() {
               Back to Services
             </Link>
 
-            <span className="mb-4 block text-sm font-bold uppercase tracking-[0.24em] text-crystal-200">
+            <span className="mb-4 block text-sm font-bold uppercase tracking-[0.24em] text-indigo/30">
               Flexible household support
             </span>
 
@@ -343,7 +343,7 @@ export default function MaidServices() {
             <button
               type="button"
               onClick={scrollToPicker}
-              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-crystal-500 px-6 py-3.5 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-crystal-600"
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-indigo px-6 py-3.5 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-indigo-deep"
             >
               <CalendarCheck className="h-5 w-5" />
               Book a Maid
@@ -372,7 +372,7 @@ export default function MaidServices() {
                 key={item}
                 className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4"
               >
-                <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-crystal-500" />
+                <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-indigo" />
                 <span className="text-sm font-medium leading-6 text-gray-700">{item}</span>
               </div>
             ))}
@@ -393,9 +393,9 @@ export default function MaidServices() {
                     duration: prefersReducedMotion ? 0 : 0.4,
                     delay: prefersReducedMotion ? 0 : index * 0.06,
                   }}
-                  className="rounded-3xl border border-gray-100 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-crystal-200 hover:shadow-xl"
+                  className="rounded-3xl border border-gray-100 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-xl"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
                     <Icon className="h-7 w-7" />
                   </div>
                   <h3 className="mt-6 text-xl font-bold text-gray-900">{service.title}</h3>
@@ -452,7 +452,7 @@ export default function MaidServices() {
                 <ul className="mt-6 space-y-3">
                   {room.items.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm leading-6 text-gray-700">
-                      <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-crystal-500" />
+                      <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-indigo" />
                       {item}
                     </li>
                   ))}
@@ -544,7 +544,7 @@ export default function MaidServices() {
 
           <motion.aside {...animation}>
             <div className="sticky top-24 rounded-[2rem] border border-white/10 bg-white/10 p-6 text-white backdrop-blur-xl">
-              <Sparkles className="h-7 w-7 text-crystal-300" />
+              <Sparkles className="h-7 w-7 text-mint" />
               <h3 className="mt-5 text-2xl font-bold">Booking Summary</h3>
 
               <dl className="mt-6 space-y-3 text-sm">
@@ -561,7 +561,7 @@ export default function MaidServices() {
               <div className="mt-6 border-t border-white/10 pt-6">
                 <div className="flex items-end justify-between gap-4">
                   <span className="text-sm text-gray-300">Estimated total</span>
-                  <span className="text-3xl font-bold text-crystal-300">
+                  <span className="text-3xl font-bold text-mint">
                     {totalAmount} AED
                   </span>
                 </div>
@@ -573,8 +573,8 @@ export default function MaidServices() {
                 disabled={added}
                 className={`mt-7 flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold transition ${
                   added
-                    ? "cursor-default bg-emerald-500 text-white"
-                    : "bg-crystal-500 text-white hover:bg-crystal-600"
+                    ? "cursor-default bg-mint text-white"
+                    : "bg-indigo text-white hover:bg-indigo-deep"
                 }`}
               >
                 {added ? (
@@ -607,7 +607,7 @@ export default function MaidServices() {
                   key={step.title}
                   className="flex gap-4 rounded-2xl border border-gray-100 bg-white p-5"
                 >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-crystal-500 text-sm font-bold text-white">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo text-sm font-bold text-white">
                     {index + 1}
                   </span>
                   <div>
@@ -641,7 +641,7 @@ export default function MaidServices() {
               ))}
             </div>
 
-            <div className="mt-6 rounded-2xl border border-blue-100 bg-blue-50 p-5 text-sm leading-6 text-blue-800">
+            <div className="mt-6 rounded-2xl border border-indigo-soft bg-indigo-soft p-5 text-sm leading-6 text-ink">
               For intensive detail, book our{" "}
               <Link to="/deep-cleaning-services-dubai" className="font-bold underline">
                 Deep Cleaning
@@ -678,7 +678,7 @@ export default function MaidServices() {
                 key={area}
                 className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700"
               >
-                <MapPin className="h-3.5 w-3.5 text-crystal-500" />
+                <MapPin className="h-3.5 w-3.5 text-indigo" />
                 {area}
               </span>
             ))}
@@ -710,13 +710,13 @@ export default function MaidServices() {
                     id={buttonId}
                     type="button"
                     onClick={() => setOpenFaq(open ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-crystal-500"
+                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo"
                     aria-expanded={open}
                     aria-controls={panelId}
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
-                      className={`h-5 w-5 shrink-0 text-crystal-500 transition-transform ${
+                      className={`h-5 w-5 shrink-0 text-indigo transition-transform ${
                         open ? "rotate-180" : ""
                       }`}
                     />
@@ -760,13 +760,13 @@ export default function MaidServices() {
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-crystal-600 via-crystal-700 to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
             <Home className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
             <div className="relative mx-auto max-w-3xl">
               <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
                 Need Reliable Home-Cleaning Help in Dubai?
               </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-crystal-100 sm:text-lg">
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-indigo-soft sm:text-lg">
                 Book flexible hourly, weekly, or part-time maid services for
                 your apartment or villa. Spend less time cleaning and more time
                 on what matters.
@@ -774,7 +774,7 @@ export default function MaidServices() {
               <button
                 type="button"
                 onClick={scrollToPicker}
-                className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 font-bold text-crystal-700 shadow-lg transition hover:-translate-y-0.5 hover:bg-crystal-50"
+                className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 font-bold text-indigo-deep shadow-lg transition hover:-translate-y-0.5 hover:bg-indigo-soft"
               >
                 Book a Maid Service
               </button>
@@ -788,7 +788,7 @@ export default function MaidServices() {
 
 function SectionEyebrow({ children }) {
   return (
-    <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-crystal-600">
+    <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-indigo-deep">
       {children}
     </span>
   );
@@ -797,7 +797,7 @@ function SectionEyebrow({ children }) {
 function PropertyCard({ icon: Icon, title, paragraphs }) {
   return (
     <article className="rounded-3xl border border-gray-100 bg-gray-50 p-7">
-      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
         <Icon className="h-7 w-7" />
       </div>
       <h3 className="mt-6 text-2xl font-bold text-gray-900">{title}</h3>
@@ -814,7 +814,7 @@ function FeaturePanel({ icon: Icon, title, body, bullets = [], bulletIcon: Bulle
   return (
     <article className="rounded-3xl border border-gray-100 bg-gray-50 p-7">
       <div className="flex items-center gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-crystal-100 text-crystal-600">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
           <Icon className="h-6 w-6" />
         </div>
         <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
@@ -831,9 +831,9 @@ function FeaturePanel({ icon: Icon, title, body, bullets = [], bulletIcon: Bulle
           {bullets.map((item) => (
             <li key={item} className="flex items-start gap-3 text-sm text-gray-700">
               {BulletIcon ? (
-                <BulletIcon className="mt-0.5 h-4 w-4 shrink-0 text-crystal-500" />
+                <BulletIcon className="mt-0.5 h-4 w-4 shrink-0 text-indigo" />
               ) : (
-                <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-crystal-500" />
+                <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-indigo" />
               )}
               {item}
             </li>
@@ -892,7 +892,7 @@ function ChoiceButton({ selected, onClick, label }) {
       aria-pressed={selected}
       className={`rounded-xl border-2 p-3 text-sm font-bold transition ${
         selected
-          ? "border-crystal-500 bg-crystal-50 text-crystal-700"
+          ? "border-indigo bg-indigo-soft text-indigo-deep"
           : "border-gray-200 bg-white text-gray-500 hover:border-gray-300"
       }`}
     >

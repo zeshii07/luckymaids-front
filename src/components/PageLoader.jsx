@@ -22,12 +22,12 @@ export default function PageLoader({
           {!reducedMotion && (
             <>
               <motion.span
-                className="absolute inset-0 rounded-[2rem] border border-crystal-200"
+                className="absolute inset-0 rounded-[2rem] border border-indigo/30"
                 animate={{ scale: [0.85, 1.18, 0.85], opacity: [0.8, 0, 0.8] }}
                 transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.span
-                className="absolute inset-2 rounded-[1.6rem] border border-crystal-300/70"
+                className="absolute inset-2 rounded-[1.6rem] border border-mint/70"
                 animate={{ scale: [0.9, 1.12, 0.9], opacity: [0.7, 0.1, 0.7] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
               />
@@ -35,7 +35,7 @@ export default function PageLoader({
           )}
 
           <motion.div
-            className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-crystal-400 to-crystal-700 text-white shadow-xl shadow-crystal-500/25"
+            className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-indigo to-indigo-deep text-white shadow-xl shadow-indigo/25"
             animate={reducedMotion ? undefined : { y: [0, -5, 0], rotate: [0, 2, -2, 0] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
           >
@@ -53,7 +53,7 @@ export default function PageLoader({
           {!reducedMotion && (
             <>
               <motion.span
-                className="absolute -right-1 top-1 text-crystal-500"
+                className="absolute -right-1 top-1 text-indigo"
                 animate={{ scale: [0.6, 1.1, 0.6], opacity: [0.3, 1, 0.3], rotate: [0, 15, 0] }}
                 transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
               >
@@ -61,7 +61,7 @@ export default function PageLoader({
               </motion.span>
 
               <motion.span
-                className="absolute bottom-2 left-0 h-2.5 w-2.5 rounded-full bg-crystal-300"
+                className="absolute bottom-2 left-0 h-2.5 w-2.5 rounded-full bg-mint"
                 animate={{ y: [0, -8, 0], opacity: [0.35, 1, 0.35] }}
                 transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut", delay: 0.25 }}
               />
@@ -70,13 +70,13 @@ export default function PageLoader({
         </div>
 
         <p className="mt-6 font-display text-xl font-bold text-gray-900">
-          Byte Cleaning Services
+          Byt Cleaning Services
         </p>
         <p className="mt-2 text-sm font-medium text-gray-500">{message}</p>
 
         <div className="mt-5 h-1.5 w-44 overflow-hidden rounded-full bg-gray-100">
           <motion.div
-            className="h-full rounded-full bg-gradient-to-r from-crystal-400 via-crystal-500 to-crystal-700"
+            className="h-full rounded-full bg-gradient-to-r from-indigo via-indigo to-indigo-deep"
             animate={
               reducedMotion
                 ? { width: "65%" }

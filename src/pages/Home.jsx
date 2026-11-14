@@ -262,7 +262,7 @@ function SectionHeading({ eyebrow, title, text, align = "center" }) {
 
   return (
     <div className={centered ? "mx-auto max-w-3xl text-center" : "max-w-2xl"}>
-      <span className="inline-flex items-center gap-2 rounded-full border border-crystal-200 bg-crystal-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-crystal-700">
+      <span className="inline-flex items-center gap-2 rounded-full border border-indigo/30 bg-indigo-soft px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-indigo-deep">
         <Sparkles className="h-3.5 w-3.5" />
         {eyebrow}
       </span>
@@ -327,7 +327,7 @@ function ServiceCard({ service, index, reduceMotion }) {
                   key={feature}
                   className="flex items-start gap-2.5 text-xs leading-5 text-white/90"
                 >
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cyan-300/15 text-cyan-200">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint/15 text-mint">
                     <Check className="h-3.5 w-3.5" />
                   </span>
                   {feature}
@@ -339,7 +339,7 @@ function ServiceCard({ service, index, reduceMotion }) {
           <div className="mt-7 flex items-end justify-between gap-4">
             <Link
               to={service.link}
-              className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-slate-900 transition duration-300 hover:-translate-y-0.5 hover:bg-cyan-50"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-slate-900 transition duration-300 hover:-translate-y-0.5 hover:bg-indigo-soft"
             >
               Explore service
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -369,7 +369,7 @@ export default function Home() {
     <>
       <Helmet>
         <title>
-          Professional Cleaning & Maid Services in Dubai | Byte Cleaning Services
+          Professional Cleaning & Maid Services in Dubai | Byt Cleaning Services
         </title>
         <meta
           name="description"
@@ -381,8 +381,8 @@ export default function Home() {
         <Hero />
 
         <section className="relative py-24 sm:py-28">
-          <div className="pointer-events-none absolute left-0 top-20 h-72 w-72 rounded-full bg-crystal-200/30 blur-3xl" />
-          <div className="pointer-events-none absolute right-0 top-1/2 h-80 w-80 rounded-full bg-cyan-200/30 blur-3xl" />
+          <div className="pointer-events-none absolute left-0 top-20 h-72 w-72 rounded-full bg-indigo/30/30 blur-3xl" />
+          <div className="pointer-events-none absolute right-0 top-1/2 h-80 w-80 rounded-full bg-mint/30 blur-3xl" />
 
           <div className="container relative mx-auto max-w-7xl px-6">
             <motion.div {...reveal}>
@@ -413,9 +413,9 @@ export default function Home() {
           <div className="container relative mx-auto max-w-7xl px-6">
             <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <motion.div {...reveal}>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-cyan-200 backdrop-blur">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-mint backdrop-blur">
                   <Star className="h-3.5 w-3.5" />
-                  Why Byte Cleaning Services
+                  Why Byt Cleaning Services
                 </span>
                 <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
                   A smoother cleaning experience from first message to final
@@ -430,13 +430,13 @@ export default function Home() {
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Link
                     to="/quote"
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-cyan-50"
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-indigo-soft"
                   >
                     Get a free quote
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <a
-                    href="https://wa.me/971501234567"
+                    href="https://wa.me/971553730702"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 font-bold text-white backdrop-blur transition hover:bg-white/15"
@@ -462,7 +462,7 @@ export default function Home() {
                       whileHover={reduceMotion ? undefined : { y: -6 }}
                       className="rounded-[1.75rem] border border-white/10 bg-white/[0.07] p-6 backdrop-blur-md"
                     >
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-300/10 text-cyan-300">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-mint/10 text-mint">
                         <Icon className="h-6 w-6" />
                       </div>
                       <h3 className="mt-5 text-xl font-bold">{item.title}</h3>
@@ -488,7 +488,7 @@ export default function Home() {
             </motion.div>
 
             <div className="relative mt-16 grid gap-6 lg:grid-cols-4">
-              <div className="absolute left-[12.5%] right-[12.5%] top-8 hidden h-px bg-gradient-to-r from-transparent via-crystal-300 to-transparent lg:block" />
+              <div className="absolute left-[12.5%] right-[12.5%] top-8 hidden h-px bg-gradient-to-r from-transparent via-mint to-transparent lg:block" />
               {processSteps.map((step, index) => (
                 <motion.article
                   key={step.number}
@@ -498,7 +498,7 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: index * 0.1, ease }}
                   className="relative rounded-[1.75rem] border border-slate-200 bg-slate-50 p-7 text-center"
                 >
-                  <div className="relative z-10 mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-crystal-500 to-crystal-700 text-lg font-black text-white shadow-lg shadow-crystal-500/20">
+                  <div className="relative z-10 mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo to-indigo-deep text-lg font-black text-white shadow-lg shadow-indigo/20">
                     {step.number}
                   </div>
                   <h3 className="mt-6 text-xl font-bold text-slate-900">
@@ -519,7 +519,7 @@ export default function Home() {
               <div className="grid lg:grid-cols-[0.85fr_1.15fr]">
                 <motion.div
                   {...reveal}
-                  className="relative overflow-hidden bg-gradient-to-br from-crystal-600 to-cyan-600 p-8 text-white sm:p-12"
+                  className="relative overflow-hidden bg-gradient-to-br from-indigo-deep to-indigo-deep p-8 text-white sm:p-12"
                 >
                   <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full border-[40px] border-white/10" />
                   <div className="relative">
@@ -529,13 +529,13 @@ export default function Home() {
                     <h2 className="mt-7 text-3xl font-bold tracking-tight sm:text-4xl">
                       Serving homes and businesses across Dubai
                     </h2>
-                    <p className="mt-5 text-base leading-8 text-cyan-50">
+                    <p className="mt-5 text-base leading-8 text-indigo-soft">
                       Coverage and appointment availability can vary, so contact
                       us to confirm service in your community.
                     </p>
                     <Link
                       to="/quote"
-                      className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-bold text-crystal-700 transition hover:-translate-y-0.5 hover:bg-cyan-50"
+                      className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 font-bold text-indigo-deep transition hover:-translate-y-0.5 hover:bg-indigo-soft"
                     >
                       Check availability
                       <ArrowRight className="h-4 w-4" />
@@ -561,7 +561,7 @@ export default function Home() {
                         }}
                         className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700"
                       >
-                        <MapPin className="h-3.5 w-3.5 text-crystal-600" />
+                        <MapPin className="h-3.5 w-3.5 text-indigo-deep" />
                         {area}
                       </motion.span>
                     ))}
@@ -596,7 +596,7 @@ export default function Home() {
                     transition={{ duration: 0.4, delay: index * 0.05 }}
                     className={`overflow-hidden rounded-2xl border transition-colors ${
                       isOpen
-                        ? "border-crystal-200 bg-crystal-50/60"
+                        ? "border-indigo/30 bg-indigo-soft/60"
                         : "border-slate-200 bg-white"
                     }`}
                   >
@@ -612,7 +612,7 @@ export default function Home() {
                       <span
                         className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition ${
                           isOpen
-                            ? "bg-crystal-600 text-white"
+                            ? "bg-indigo-deep text-white"
                             : "bg-slate-100 text-slate-600"
                         }`}
                       >
@@ -660,13 +660,13 @@ export default function Home() {
               }
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.65, ease }}
-              className="relative overflow-hidden rounded-[2.5rem] bg-slate-950 px-7 py-14 text-center text-white shadow-2xl sm:px-12 sm:py-16"
+              className="relative overflow-hidden rounded-[2.5rem] bg-ink px-7 py-14 text-center text-white shadow-2xl sm:px-12 sm:py-16"
             >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,.34),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(34,211,238,.2),transparent_35%)]" />
-              <div className="absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-300 to-transparent" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(244,110,87,.28),transparent_42%),radial-gradient(circle_at_bottom_right,rgba(93,80,232,.22),transparent_40%)]" />
+              <div className="absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-coral to-transparent" />
 
               <div className="relative mx-auto max-w-3xl">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-cyan-300 backdrop-blur">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-coral/20 text-coral backdrop-blur">
                   <CheckCircle2 className="h-7 w-7" />
                 </div>
                 <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
@@ -680,14 +680,14 @@ export default function Home() {
                 <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
                   <Link
                     to="/quote"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-cyan-50"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-coral px-7 py-4 font-bold text-ink transition hover:-translate-y-0.5 hover:bg-coral-deep"
                   >
                     Get a free quote
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link
                     to="/booking"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-7 py-4 font-bold text-white backdrop-blur transition hover:bg-white/15"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-4 font-bold text-white backdrop-blur transition hover:bg-white/15"
                   >
                     <Clock3 className="h-4 w-4" />
                     Book a service

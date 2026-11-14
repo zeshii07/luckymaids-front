@@ -55,7 +55,7 @@ export default function ServiceDetail() {
         
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Link to="/" className="inline-flex items-center text-crystal-300 mb-4 hover:text-white transition">
+            <Link to="/" className="inline-flex items-center text-mint mb-4 hover:text-white transition">
               <ArrowLeft className="w-4 h-4 mr-2" /> Back to Home
             </Link>
             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-2">{service.title}</h1>
@@ -79,7 +79,7 @@ export default function ServiceDetail() {
           <div className="grid md:grid-cols-2 gap-6">
             {service.features.map((feature, index) => (
               <div key={index} className="flex items-start bg-gray-50 p-4 rounded-xl border border-gray-100">
-                <CheckCircle className="w-6 h-6 text-crystal-500 mr-3 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-6 h-6 text-indigo mr-3 flex-shrink-0 mt-1" />
                 <span className="text-gray-700">{feature}</span>
               </div>
             ))}
@@ -94,19 +94,19 @@ export default function ServiceDetail() {
           transition={{ duration: 0.6 }}
           className="space-y-8"
         >
-          <div className="bg-crystal-50 p-8 rounded-3xl border border-crystal-100">
+          <div className="bg-indigo-soft p-8 rounded-3xl border border-indigo-soft">
             <h3 className="text-2xl font-bold text-gray-800 mb-6">Why Choose Us?</h3>
             <div className="space-y-4">
               <div className="flex items-center">
-                <div className="bg-white p-2 rounded-lg shadow-sm mr-4"><Leaf className="w-5 h-5 text-crystal-500" /></div>
+                <div className="bg-white p-2 rounded-lg shadow-sm mr-4"><Leaf className="w-5 h-5 text-indigo" /></div>
                 <p className="text-gray-700">Eco-Friendly Products</p>
               </div>
               <div className="flex items-center">
-                <div className="bg-white p-2 rounded-lg shadow-sm mr-4"><ShieldCheck className="w-5 h-5 text-crystal-500" /></div>
+                <div className="bg-white p-2 rounded-lg shadow-sm mr-4"><ShieldCheck className="w-5 h-5 text-indigo" /></div>
                 <p className="text-gray-700">100% Satisfaction Guarantee</p>
               </div>
               <div className="flex items-center">
-                <div className="bg-white p-2 rounded-lg shadow-sm mr-4"><Calendar className="w-5 h-5 text-crystal-500" /></div>
+                <div className="bg-white p-2 rounded-lg shadow-sm mr-4"><Calendar className="w-5 h-5 text-indigo" /></div>
                 <p className="text-gray-700">Flexible Scheduling</p>
               </div>
             </div>
@@ -115,10 +115,10 @@ export default function ServiceDetail() {
           <div className="bg-gray-900 p-8 rounded-3xl text-center">
             <h3 className="text-2xl font-bold text-white mb-4">Ready to Book?</h3>
             <p className="text-gray-400 mb-6">Get a free estimate for {service.title} today.</p>
-            <Link to="/booking" className="block bg-crystal-500 text-white py-4 rounded-xl hover:bg-crystal-600 transition font-semibold">
+            <Link to="/booking" className="block bg-indigo text-white py-4 rounded-xl hover:bg-indigo-deep transition font-semibold">
               Book This Service
             </Link>
-            <Link to="/quote" className="block mt-4 text-crystal-400 hover:text-crystal-300 transition font-medium">
+            <Link to="/quote" className="block mt-4 text-indigo hover:text-mint transition font-medium">
               Get a Free Quote Instead →
             </Link>
           </div>

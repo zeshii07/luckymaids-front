@@ -65,7 +65,7 @@ function normalizePosts(posts) {
       category: post.category || "Cleaning Guides",
       excerpt:
         post.excerpt ||
-        "Practical cleaning advice, checklists, and helpful guidance from Byte Cleaning Services.",
+        "Practical cleaning advice, checklists, and helpful guidance from Byt Cleaning Services.",
       featuredImage: post.featuredImage || FALLBACK_IMAGE,
       featuredImageAlt:
         post.featuredImageAlt || `${post.title} cleaning guide`,
@@ -92,7 +92,7 @@ export default function BlogPage() {
   return (
     <>
       <Helmet>
-        <title>Cleaning Tips and Guides Dubai | Byte Cleaning Services</title>
+        <title>Cleaning Tips and Guides Dubai | Byt Cleaning Services</title>
         <meta
           name="description"
           content="Read practical cleaning tips, deep-cleaning guides, maid-service advice, checklists, and Dubai home-care articles."
@@ -116,9 +116,9 @@ export default function BlogPage() {
               transition={{ duration: reducedMotion ? 0 : 0.55 }}
               className="mx-auto max-w-4xl text-center"
             >
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-bold text-crystal-300 backdrop-blur">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-bold text-mint backdrop-blur">
                 <Sparkles className="h-4 w-4" />
-                Byte Cleaning Services Blog
+                Byt Cleaning Services Blog
               </span>
 
               <h1 className="mt-6 font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
@@ -175,20 +175,20 @@ export default function BlogPage() {
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-950/35 via-transparent to-transparent" />
-                    <span className="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-2 text-xs font-bold uppercase tracking-wider text-crystal-700 backdrop-blur">
+                    <span className="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-2 text-xs font-bold uppercase tracking-wider text-indigo-deep backdrop-blur">
                       Featured article
                     </span>
                   </Link>
 
                   <div className="flex flex-col justify-center p-7 sm:p-9 lg:p-12">
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-crystal-600">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-indigo-deep">
                       {featuredPost.category}
                     </p>
 
                     <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-gray-900 md:text-4xl">
                       <Link
                         to={getPostPath(featuredPost)}
-                        className="transition hover:text-crystal-600"
+                        className="transition hover:text-indigo-deep"
                       >
                         {featuredPost.title}
                       </Link>
@@ -202,7 +202,7 @@ export default function BlogPage() {
 
                     <Link
                       to={getPostPath(featuredPost)}
-                      className="mt-7 inline-flex items-center gap-2 self-start rounded-full bg-crystal-500 px-6 py-3 font-bold text-white transition hover:-translate-y-0.5 hover:bg-crystal-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-500 focus-visible:ring-offset-2"
+                      className="mt-7 inline-flex items-center gap-2 self-start rounded-full bg-indigo px-6 py-3 font-bold text-white transition hover:-translate-y-0.5 hover:bg-indigo-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo focus-visible:ring-offset-2"
                     >
                       Read featured article
                       <ArrowRight className="h-4 w-4" />
@@ -215,7 +215,7 @@ export default function BlogPage() {
             <section className="bg-white py-20">
               <div className="container mx-auto max-w-6xl px-5 sm:px-6">
                 <motion.div {...revealProps} className="text-center">
-                  <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-crystal-600">
+                  <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-indigo-deep">
                     Latest guidance
                   </span>
                   <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
@@ -240,7 +240,7 @@ export default function BlogPage() {
                   </div>
                 ) : (
                   <div className="mx-auto mt-12 max-w-2xl rounded-3xl border border-gray-100 bg-gray-50 p-8 text-center">
-                    <BookOpen className="mx-auto h-10 w-10 text-crystal-500" />
+                    <BookOpen className="mx-auto h-10 w-10 text-indigo" />
                     <h3 className="mt-5 text-xl font-bold text-gray-900">
                       More guides are coming soon
                     </h3>
@@ -259,14 +259,14 @@ export default function BlogPage() {
 
         <section className="bg-white px-5 py-10 sm:px-6">
           <div className="container mx-auto max-w-6xl">
-            <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-crystal-600 via-crystal-700 to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+            <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
               <Gem className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
 
               <div className="relative mx-auto max-w-3xl">
                 <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
                   Need Help Choosing a Cleaning Service?
                 </h2>
-                <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-crystal-100 sm:text-lg">
+                <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-indigo-soft sm:text-lg">
                   Tell us about your property and cleaning requirements, and
                   our team will help you select a suitable service.
                 </p>
@@ -274,7 +274,7 @@ export default function BlogPage() {
                 <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                   <Link
                     to="/quote"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-crystal-700 transition hover:-translate-y-0.5 hover:bg-crystal-50"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-indigo-deep transition hover:-translate-y-0.5 hover:bg-indigo-soft"
                   >
                     Request a Free Quote
                     <ArrowRight className="h-4 w-4" />
@@ -305,7 +305,7 @@ function BlogCard({ post, index, reducedMotion }) {
         duration: reducedMotion ? 0 : 0.4,
         delay: reducedMotion ? 0 : Math.min(index * 0.05, 0.2),
       }}
-      className="group flex h-full flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition hover:-translate-y-1 hover:border-crystal-200 hover:shadow-xl"
+      className="group flex h-full flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-xl"
     >
       <Link
         to={getPostPath(post)}
@@ -327,14 +327,14 @@ function BlogCard({ post, index, reducedMotion }) {
       </Link>
 
       <div className="flex flex-1 flex-col p-6">
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-crystal-600">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-deep">
           {post.category}
         </p>
 
         <h2 className="mt-3 text-xl font-bold leading-snug text-gray-900">
           <Link
             to={getPostPath(post)}
-            className="transition hover:text-crystal-600"
+            className="transition hover:text-indigo-deep"
           >
             {post.title}
           </Link>
@@ -348,7 +348,7 @@ function BlogCard({ post, index, reducedMotion }) {
 
         <Link
           to={getPostPath(post)}
-          className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-crystal-600 transition group-hover:text-crystal-700"
+          className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-indigo-deep transition group-hover:text-indigo-deep"
         >
           Read article
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -387,7 +387,7 @@ function EmptyBlogState() {
     <section className="bg-white px-5 py-24 sm:px-6">
       <div className="container mx-auto max-w-3xl">
         <div className="rounded-[2rem] border border-gray-100 bg-gray-50 p-8 text-center sm:p-12">
-          <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-crystal-100 text-crystal-600">
+          <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-indigo-soft text-indigo-deep">
             <ImageOff className="h-8 w-8" />
           </span>
 
@@ -401,7 +401,7 @@ function EmptyBlogState() {
 
           <Link
             to="/services"
-            className="mt-7 inline-flex items-center gap-2 rounded-full bg-crystal-500 px-6 py-3 font-bold text-white transition hover:bg-crystal-600"
+            className="mt-7 inline-flex items-center gap-2 rounded-full bg-indigo px-6 py-3 font-bold text-white transition hover:bg-indigo-deep"
           >
             Explore Cleaning Services
             <ArrowRight className="h-4 w-4" />

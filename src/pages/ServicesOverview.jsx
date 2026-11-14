@@ -47,7 +47,7 @@ const serviceData = {
     image:
       "https://images.unsplash.com/photo-1527515637462-cff94eecc1f1?auto=format&fit=crop&w=1800&q=82",
     icon: Home,
-    accent: "from-emerald-500 to-teal-700",
+    accent: "from-mint to-indigo-deep",
     features: [
       "Dusting all surfaces and fixtures",
       "Vacuuming carpets and rugs",
@@ -82,7 +82,7 @@ const serviceData = {
     image:
       "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=82",
     icon: Sparkles,
-    accent: "from-sky-500 to-blue-800",
+    accent: "from-indigo to-indigo-deep",
     features: [
       "Inside oven and refrigerator cleaning",
       "Baseboard scrubbing",
@@ -226,7 +226,7 @@ const serviceData = {
     image:
       "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=82",
     icon: SprayCan,
-    accent: "from-cyan-500 to-teal-800",
+    accent: "from-indigo to-indigo-deep",
     features: [
       "General housekeeping",
       "Dusting and floor cleaning",
@@ -361,10 +361,10 @@ export default function ServiceDetail() {
   return (
     <div className="min-h-screen overflow-hidden bg-white pb-24 pt-20">
       <Helmet>
-        <title>{service.title} Dubai | Byte Cleaning Services</title>
+        <title>{service.title} Dubai | Byt Cleaning Services</title>
         <meta
           name="description"
-          content={`${service.shortIntro} Explore what is included and request a booking or personalized quotation from Byte Cleaning Services.`}
+          content={`${service.shortIntro} Explore what is included and request a booking or personalized quotation from Byt Cleaning Services.`}
         />
       </Helmet>
 
@@ -398,13 +398,13 @@ export default function ServiceDetail() {
               <ServiceIcon className="h-7 w-7" />
             </div>
 
-            <span className="block text-sm font-bold uppercase tracking-[0.24em] text-crystal-300">
-              Byte Cleaning Services
+            <span className="block text-sm font-bold uppercase tracking-[0.24em] text-mint">
+              Byt Cleaning Services
             </span>
             <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
               {service.title}
             </h1>
-            <p className="mt-4 text-xl font-medium text-crystal-200">
+            <p className="mt-4 text-xl font-medium text-indigo/30">
               {service.subtitle}
             </p>
             <p className="mt-6 max-w-3xl text-base leading-7 text-gray-200 sm:text-lg">
@@ -414,7 +414,7 @@ export default function ServiceDetail() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 to="/booking"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-crystal-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-crystal-950/30 transition hover:-translate-y-0.5 hover:bg-crystal-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-indigo px-6 py-3.5 font-bold text-white shadow-lg shadow-ink/30 transition hover:-translate-y-0.5 hover:bg-indigo-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 Book This Service
                 <ArrowRight className="h-4 w-4" />
@@ -436,7 +436,7 @@ export default function ServiceDetail() {
             const Icon = point.icon;
             return (
               <article key={point.title} className="rounded-2xl bg-gray-50 p-5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-crystal-100 text-crystal-600">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-soft text-indigo-deep">
                   <Icon className="h-5 w-5" />
                 </div>
                 <h2 className="mt-4 font-bold text-gray-900">{point.title}</h2>
@@ -464,9 +464,9 @@ export default function ServiceDetail() {
               {service.features.map((feature) => (
                 <div
                   key={feature}
-                  className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4 transition hover:border-crystal-200 hover:bg-white hover:shadow-md"
+                  className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4 transition hover:border-indigo/30 hover:bg-white hover:shadow-md"
                 >
-                  <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-crystal-500" />
+                  <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-indigo" />
                   <span className="text-sm font-medium leading-6 text-gray-700">
                     {feature}
                   </span>
@@ -476,12 +476,12 @@ export default function ServiceDetail() {
           </motion.div>
 
           <motion.aside {...revealProps} className="space-y-5">
-            <div className="rounded-3xl border border-crystal-100 bg-crystal-50 p-6">
+            <div className="rounded-3xl border border-indigo-soft bg-indigo-soft p-6">
               <SectionEyebrow>Best suited for</SectionEyebrow>
               <div className="mt-4 space-y-3">
                 {service.idealFor.map((item) => (
                   <div key={item} className="flex items-start gap-3">
-                    <Star className="mt-0.5 h-4 w-4 shrink-0 fill-crystal-500 text-crystal-500" />
+                    <Star className="mt-0.5 h-4 w-4 shrink-0 fill-indigo text-indigo" />
                     <span className="text-sm font-medium leading-6 text-gray-700">
                       {item}
                     </span>
@@ -491,7 +491,7 @@ export default function ServiceDetail() {
             </div>
 
             <div className="rounded-3xl bg-gray-900 p-6 text-white shadow-xl">
-              <HeartHandshake className="h-8 w-8 text-crystal-300" />
+              <HeartHandshake className="h-8 w-8 text-mint" />
               <h3 className="mt-5 text-xl font-bold">Need a custom plan?</h3>
               <p className="mt-3 text-sm leading-6 text-gray-400">
                 Share your property type, location, preferred date, and any
@@ -499,7 +499,7 @@ export default function ServiceDetail() {
               </p>
               <Link
                 to="/contact"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-crystal-300 transition hover:text-white"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-mint transition hover:text-white"
               >
                 Contact our team
                 <ArrowRight className="h-4 w-4" />
@@ -529,7 +529,7 @@ export default function ServiceDetail() {
                 }}
                 className="relative rounded-3xl border border-gray-100 bg-white p-6 shadow-sm"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-crystal-500 font-bold text-white">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo font-bold text-white">
                   {index + 1}
                 </span>
                 <p className="mt-5 text-sm font-semibold leading-6 text-gray-800">
@@ -572,7 +572,7 @@ export default function ServiceDetail() {
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_1.15fr]">
             <motion.div {...revealProps} className="rounded-[2rem] bg-gray-900 p-8 text-white md:p-10">
-              <MapPin className="h-8 w-8 text-crystal-300" />
+              <MapPin className="h-8 w-8 text-mint" />
               <h2 className="mt-5 font-display text-3xl font-bold">
                 Serving Homes and Businesses Across Dubai
               </h2>
@@ -583,7 +583,7 @@ export default function ServiceDetail() {
               </p>
               <Link
                 to="/contact"
-                className="mt-7 inline-flex items-center gap-2 font-bold text-crystal-300 transition hover:text-white"
+                className="mt-7 inline-flex items-center gap-2 font-bold text-mint transition hover:text-white"
               >
                 Confirm service availability
                 <ArrowRight className="h-4 w-4" />
@@ -603,7 +603,7 @@ export default function ServiceDetail() {
                   ["Personalized quotations", "Complex requirements can be reviewed individually."],
                 ].map(([title, text]) => (
                   <article key={title} className="rounded-2xl bg-gray-50 p-5">
-                    <Gem className="h-5 w-5 text-crystal-500" />
+                    <Gem className="h-5 w-5 text-indigo" />
                     <h3 className="mt-4 font-bold text-gray-900">{title}</h3>
                     <p className="mt-2 text-sm leading-6 text-gray-600">{text}</p>
                   </article>
@@ -666,8 +666,8 @@ function ServiceCard({ service, active, index, reducedMotion }) {
       className={[
         "group overflow-hidden rounded-3xl border bg-white transition",
         active
-          ? "border-crystal-300 shadow-xl shadow-crystal-500/10"
-          : "border-gray-100 hover:-translate-y-1 hover:border-crystal-200 hover:shadow-xl",
+          ? "border-mint shadow-xl shadow-indigo/10"
+          : "border-gray-100 hover:-translate-y-1 hover:border-indigo/30 hover:shadow-xl",
       ].join(" ")}
     >
       <div className="relative h-52 overflow-hidden">
@@ -683,7 +683,7 @@ function ServiceCard({ service, active, index, reducedMotion }) {
           <Icon className="h-5 w-5" />
         </div>
         {active && (
-          <span className="absolute right-4 top-4 rounded-full bg-crystal-500 px-3 py-1 text-xs font-bold text-white">
+          <span className="absolute right-4 top-4 rounded-full bg-indigo px-3 py-1 text-xs font-bold text-white">
             Viewing now
           </span>
         )}
@@ -696,7 +696,7 @@ function ServiceCard({ service, active, index, reducedMotion }) {
         </p>
         <Link
           to={targetPath}
-          className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-crystal-600 transition group-hover:text-crystal-700"
+          className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-indigo-deep transition group-hover:text-indigo-deep"
           aria-current={active ? "page" : undefined}
         >
           View service details
@@ -709,7 +709,7 @@ function ServiceCard({ service, active, index, reducedMotion }) {
 
 function SectionEyebrow({ children }) {
   return (
-    <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-crystal-600">
+    <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-indigo-deep">
       {children}
     </span>
   );
@@ -719,12 +719,12 @@ function UnknownService({ services }) {
   return (
     <div className="min-h-screen bg-gray-50 px-5 pb-20 pt-36 sm:px-6">
       <Helmet>
-        <title>Cleaning Services Dubai | Byte Cleaning Services</title>
+        <title>Cleaning Services Dubai | Byt Cleaning Services</title>
         <meta name="description" content="Explore residential, deep, commercial, furniture, maid, move-in and move-out, and babysitting services across Dubai." />
       </Helmet>
 
       <div className="container mx-auto max-w-5xl text-center">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-crystal-100 text-crystal-600">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-indigo-soft text-indigo-deep">
           <Gem className="h-8 w-8" />
         </div>
         <h1 className="mt-6 font-display text-4xl font-bold text-gray-900">
@@ -737,7 +737,7 @@ function UnknownService({ services }) {
 
         <Link
           to="/request-a-quote"
-          className="mt-7 inline-flex items-center gap-2 rounded-full bg-crystal-500 px-6 py-3 font-bold text-white transition hover:bg-crystal-600"
+          className="mt-7 inline-flex items-center gap-2 rounded-full bg-indigo px-6 py-3 font-bold text-white transition hover:bg-indigo-deep"
         >
           <ArrowLeft className="h-4 w-4" />
           Request a Free Quote
@@ -750,9 +750,9 @@ function UnknownService({ services }) {
               <Link
                 key={service.slug}
                 to={canonicalServicePaths[service.slug]}
-                className="flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-5 text-left shadow-sm transition hover:border-crystal-200 hover:shadow-md"
+                className="flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-5 text-left shadow-sm transition hover:border-indigo/30 hover:shadow-md"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-crystal-100 text-crystal-600">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-soft text-indigo-deep">
                   <Icon className="h-5 w-5" />
                 </span>
                 <span>

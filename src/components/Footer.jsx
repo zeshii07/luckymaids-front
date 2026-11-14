@@ -37,8 +37,8 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden bg-gray-950 text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.10),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.08),transparent_30%)]" />
+    <footer className="relative overflow-hidden bg-ink text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(93,80,232,0.14),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(189,232,212,0.08),transparent_30%)]" />
       <Gem className="pointer-events-none absolute -bottom-24 -right-20 h-80 w-80 rotate-12 text-white/[0.025]" />
 
       <div className="relative">
@@ -46,7 +46,7 @@ export default function Footer() {
           <div className="container mx-auto px-5 py-10 sm:px-6">
             <div className="flex flex-col gap-6 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur sm:p-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-2xl">
-                <div className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-[0.22em] text-crystal-300">
+                <div className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-[0.22em] text-mint">
                   <Sparkles className="h-4 w-4" />
                   Professional cleaning across Dubai
                 </div>
@@ -62,13 +62,13 @@ export default function Footer() {
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
                   to="/request-a-quote"
-                  className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-6 py-3 font-bold text-white transition hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-400"
+                  className="inline-flex items-center justify-center rounded-full border border-indigo/60 bg-indigo/15 px-6 py-3 font-bold text-white transition hover:bg-indigo/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo"
                 >
                   Get a Free Quote
                 </Link>
                 <Link
                   to="/book-cleaning-service"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-crystal-500 px-6 py-3 font-bold text-white shadow-lg shadow-crystal-950/30 transition hover:-translate-y-0.5 hover:bg-crystal-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-400"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-coral px-6 py-3 font-bold text-ink shadow-lg shadow-coral/30 transition hover:-translate-y-0.5 hover:bg-coral-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral"
                 >
                   Book Now
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -83,17 +83,17 @@ export default function Footer() {
             <div>
               <Link
                 to="/"
-                className="inline-flex items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-400"
-                aria-label="Byte Cleaning Services home"
+                className="inline-flex items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo"
+                aria-label="Byt Cleaning Services home"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-crystal-400 to-crystal-600 text-white shadow-lg shadow-crystal-950/30">
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo to-indigo-deep text-white shadow-lg shadow-ink/40">
                   <Gem className="h-6 w-6" />
                 </span>
                 <span>
                   <span className="block font-display text-xl font-bold text-white">
-                    Byte Cleaning
+                    Byt Cleaning
                   </span>
-                  <span className="block text-xs font-bold uppercase tracking-[0.22em] text-crystal-400">
+                  <span className="block text-xs font-bold uppercase tracking-[0.22em] text-mint">
                     Services
                   </span>
                 </span>
@@ -108,11 +108,11 @@ export default function Footer() {
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-gray-300">
-                  <ShieldCheck className="h-4 w-4 text-crystal-400" />
+                  <ShieldCheck className="h-4 w-4 text-mint" />
                   Clear communication
                 </span>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-gray-300">
-                  <Clock3 className="h-4 w-4 text-crystal-400" />
+                  <Clock3 className="h-4 w-4 text-mint" />
                   Flexible scheduling
                 </span>
               </div>
@@ -126,7 +126,7 @@ export default function Footer() {
                       key={social.name}
                       href={social.href}
                       aria-label={social.name}
-                      className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-gray-300 transition hover:-translate-y-0.5 hover:border-crystal-400/40 hover:bg-crystal-500 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-400"
+                      className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-gray-300 transition hover:-translate-y-0.5 hover:border-indigo/40 hover:bg-indigo hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo"
                     >
                       <Icon className="h-5 w-5" />
                     </a>
@@ -156,7 +156,7 @@ export default function Footer() {
                   content={
                     <a
                       href="tel:0553730702"
-                      className="transition hover:text-crystal-300"
+                      className="transition hover:text-mint"
                     >
                       055 373 0702
                     </a>
@@ -171,7 +171,7 @@ export default function Footer() {
                       href="https://wa.me/971553730702"
                       target="_blank"
                       rel="noreferrer"
-                      className="transition hover:text-crystal-300"
+                      className="transition hover:text-mint"
                     >
                       Chat on WhatsApp
                     </a>
@@ -184,7 +184,7 @@ export default function Footer() {
                   content={
                     <a
                       href="mailto:bytalhryacleaning@gmail.com"
-                      className="break-all transition hover:text-crystal-300"
+                      className="break-all transition hover:text-mint"
                     >
                       bytalhryacleaning@gmail.com
                     </a>
@@ -204,25 +204,25 @@ export default function Footer() {
         <div className="border-t border-white/10">
           <div className="container mx-auto flex flex-col gap-4 px-5 py-6 text-sm text-gray-500 sm:px-6 md:flex-row md:items-center md:justify-between">
             <p>
-              © {year} Byte Cleaning Services. All rights reserved.
+              © {year} Byt Cleaning Services. All rights reserved.
             </p>
 
             <div className="flex flex-wrap gap-x-5 gap-y-2">
               <Link
                 to="/privacy"
-                className="transition hover:text-crystal-300"
+                className="transition hover:text-mint"
               >
                 Privacy Policy
               </Link>
               <Link
                 to="/terms"
-                className="transition hover:text-crystal-300"
+                className="transition hover:text-mint"
               >
                 Terms of Service
               </Link>
               <Link
                 to="/contact-us"
-                className="transition hover:text-crystal-300"
+                className="transition hover:text-mint"
               >
                 Support
               </Link>
@@ -245,9 +245,9 @@ function FooterColumn({ title, links }) {
           <li key={link.path}>
             <Link
               to={link.path}
-              className="group inline-flex items-center gap-2 text-sm text-gray-400 transition hover:text-crystal-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crystal-400"
+              className="group inline-flex items-center gap-2 text-sm text-gray-400 transition hover:text-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-gray-700 transition group-hover:bg-crystal-400" />
+              <span className="h-1.5 w-1.5 rounded-full bg-ink-soft transition group-hover:bg-mint" />
               {link.name}
             </Link>
           </li>
@@ -260,7 +260,7 @@ function FooterColumn({ title, links }) {
 function ContactItem({ icon: Icon, label, content }) {
   return (
     <li className="flex items-start gap-3">
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-crystal-400">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-mint">
         <Icon className="h-4.5 w-4.5" />
       </span>
       <div>

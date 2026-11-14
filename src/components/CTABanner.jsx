@@ -11,7 +11,7 @@ export default function CTABanner() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative bg-gradient-to-br from-crystal-600 to-crystal-800 rounded-[3rem] p-12 md:p-20 text-center overflow-hidden shadow-2xl"
+          className="relative bg-gradient-to-br from-indigo-deep to-ink-soft rounded-[3rem] p-12 md:p-20 text-center overflow-hidden shadow-2xl"
         >
           {/* Decorative floating diamond */}
           <motion.div 
@@ -32,12 +32,12 @@ export default function CTABanner() {
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4 relative z-10">
             Ready for a Sparkling Clean Home?
           </h2>
-          <p className="text-crystal-100 text-lg mb-8 max-w-2xl mx-auto relative z-10">
-            Book our premium cleaning services today and experience the Byte standard. Your dream home is just a click away.
+          <p className="text-indigo-soft text-lg mb-8 max-w-2xl mx-auto relative z-10">
+            Book our premium cleaning services today and experience the Byt standard. Your dream home is just a click away.
           </p>
           
           <div className="flex flex-col md:flex-row gap-4 justify-center relative z-10">
-            <Link to="/booking" className="bg-white text-crystal-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition shadow-lg">
+            <Link to="/booking" className="bg-white text-indigo-deep px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition shadow-lg">
               Book Now
             </Link>
             <Link to="/quote" className="border-2 border-white/50 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition">

@@ -161,7 +161,7 @@ function SectionHeading({ eyebrow, title, description, align = "center" }) {
   return (
     <div className={`max-w-3xl ${alignment}`}>
       {eyebrow && (
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-crystal-600">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-indigo-deep">
           {eyebrow}
         </p>
       )}
@@ -179,11 +179,11 @@ function SectionHeading({ eyebrow, title, description, align = "center" }) {
 
 function PackageCard({ pkg, type, tone, added, onAdd, reduceMotion }) {
   const isBlue = tone === "blue";
-  const accent = isBlue ? "text-blue-700" : "text-crystal-700";
-  const soft = isBlue ? "bg-blue-50" : "bg-crystal-50";
+  const accent = isBlue ? "text-indigo-deep" : "text-indigo-deep";
+  const soft = isBlue ? "bg-indigo-soft" : "bg-indigo-soft";
   const button = isBlue
-    ? "bg-blue-600 hover:bg-blue-700 focus-visible:ring-blue-500"
-    : "bg-crystal-600 hover:bg-crystal-700 focus-visible:ring-crystal-500";
+    ? "bg-indigo-deep hover:bg-indigo-deep focus-visible:ring-indigo"
+    : "bg-indigo-deep hover:bg-indigo-deep focus-visible:ring-indigo";
   const savings = pkg.original - pkg.price;
 
   return (
@@ -195,7 +195,7 @@ function PackageCard({ pkg, type, tone, added, onAdd, reduceMotion }) {
       transition={{ duration: 0.45 }}
       whileHover={reduceMotion ? undefined : { y: -6 }}
       className={`relative flex h-full flex-col overflow-hidden rounded-3xl border bg-white shadow-sm transition-shadow hover:shadow-xl ${
-        pkg.popular ? "border-crystal-300 ring-1 ring-crystal-200" : "border-slate-200"
+        pkg.popular ? "border-mint ring-1 ring-indigo/30" : "border-slate-200"
       }`}
     >
       {pkg.popular && (
@@ -228,14 +228,14 @@ function PackageCard({ pkg, type, tone, added, onAdd, reduceMotion }) {
           </span>
         </div>
 
-        <div className="mt-4 inline-flex w-fit items-center rounded-full bg-emerald-100 px-3 py-1.5 text-xs font-bold text-emerald-700">
+        <div className="mt-4 inline-flex w-fit items-center rounded-full bg-mint-soft px-3 py-1.5 text-xs font-bold text-mint-deep">
           <Tag className="mr-1.5 h-3.5 w-3.5" /> Save {savings} AED
         </div>
 
         <ul className="mt-6 space-y-2 text-sm text-slate-600">
-          <li className="flex items-center gap-2"><Check className="h-4 w-4 text-emerald-600" /> Detailed cleaning workflow</li>
-          <li className="flex items-center gap-2"><Check className="h-4 w-4 text-emerald-600" /> Equipment included</li>
-          <li className="flex items-center gap-2"><Check className="h-4 w-4 text-emerald-600" /> Booking confirmation required</li>
+          <li className="flex items-center gap-2"><Check className="h-4 w-4 text-mint-deep" /> Detailed cleaning workflow</li>
+          <li className="flex items-center gap-2"><Check className="h-4 w-4 text-mint-deep" /> Equipment included</li>
+          <li className="flex items-center gap-2"><Check className="h-4 w-4 text-mint-deep" /> Booking confirmation required</li>
         </ul>
       </div>
 
@@ -246,7 +246,7 @@ function PackageCard({ pkg, type, tone, added, onAdd, reduceMotion }) {
           disabled={added}
           aria-live="polite"
           className={`inline-flex w-full items-center justify-center rounded-2xl px-4 py-3.5 text-sm font-bold text-white shadow-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-default ${
-            added ? "bg-emerald-600" : button
+            added ? "bg-mint-deep" : button
           }`}
         >
           {added ? (
@@ -295,7 +295,7 @@ export default function DeepCleaning() {
   return (
     <main className="min-h-screen overflow-hidden bg-white pt-20 text-slate-900">
       <Helmet>
-        <title>Deep Cleaning Services Dubai | Byte Cleaning Services</title>
+        <title>Deep Cleaning Services Dubai | Byt Cleaning Services</title>
         <meta
           name="description"
           content="Book professional deep cleaning in Dubai for apartments, villas, offices, and commercial properties. View packages and choose a convenient service option."
@@ -303,7 +303,7 @@ export default function DeepCleaning() {
         <link rel="preconnect" href="https://images.unsplash.com" />
       </Helmet>
 
-      <section className="relative isolate min-h-[680px] overflow-hidden bg-cyan-50 sm:min-h-[720px] lg:min-h-[760px]">
+      <section className="relative isolate min-h-[680px] overflow-hidden bg-indigo-soft sm:min-h-[720px] lg:min-h-[760px]">
         <img
           src={HERO_IMAGE}
           alt="Professional cleaner preparing a bright modern room"
@@ -327,7 +327,7 @@ export default function DeepCleaning() {
             </Link>
 
             <div className="mb-5 flex flex-wrap gap-2">
-              <span className="rounded-full bg-crystal-500/90 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-white">
+              <span className="rounded-full bg-indigo/90 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-white">
                 Deep cleaning in Dubai
               </span>
               <span className="rounded-full border border-white/40 bg-black/10 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md">
@@ -348,12 +348,12 @@ export default function DeepCleaning() {
                 onClick={() => scrollToSection("villa-section")}
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 font-bold text-slate-900 shadow-xl transition hover:-translate-y-0.5 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
               >
-                <Home className="mr-2 h-5 w-5 text-crystal-600" /> Villa packages
+                <Home className="mr-2 h-5 w-5 text-indigo-deep" /> Villa packages
               </button>
               <button
                 type="button"
                 onClick={() => scrollToSection("apartment-section")}
-                className="inline-flex items-center justify-center rounded-full bg-crystal-600 px-6 py-3.5 font-bold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-crystal-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-crystal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                className="inline-flex items-center justify-center rounded-full bg-indigo-deep px-6 py-3.5 font-bold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-indigo-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
               >
                 <Building2 className="mr-2 h-5 w-5" /> Apartment packages
               </button>
@@ -362,7 +362,7 @@ export default function DeepCleaning() {
             <div className="mt-10 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4">
               {trustItems.map(({ icon: Icon, label }) => (
                 <div key={label} className="rounded-2xl border border-white/40 bg-black/10 p-3 text-sm font-semibold text-white shadow-sm backdrop-blur-md">
-                  <Icon className="mb-2 h-5 w-5 text-crystal-200" />
+                  <Icon className="mb-2 h-5 w-5 text-indigo/30" />
                   {label}
                 </div>
               ))}
@@ -403,8 +403,8 @@ export default function DeepCleaning() {
             className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
           >
             {recommendedFor.map((item) => (
-              <div key={item} className="group flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:border-crystal-200 hover:shadow-md">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-crystal-600" />
+              <div key={item} className="group flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-md">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-indigo-deep" />
                 <span className="text-sm font-semibold leading-6 text-slate-700">{item}</span>
               </div>
             ))}
@@ -431,8 +431,8 @@ export default function DeepCleaning() {
                 transition={{ duration: 0.45, delay: reduceMotion ? 0 : Math.min(index * 0.05, 0.2) }}
                 className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-crystal-50">
-                  <Icon className="h-7 w-7 text-crystal-700" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft">
+                  <Icon className="h-7 w-7 text-indigo-deep" />
                 </div>
                 <h3 className="mt-6 text-xl font-bold text-slate-900">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{desc}</p>
@@ -455,7 +455,7 @@ export default function DeepCleaning() {
               <button
                 type="button"
                 onClick={() => scrollToSection("villa-section")}
-                className="mt-8 inline-flex items-center font-bold text-crystal-700 transition hover:text-crystal-800"
+                className="mt-8 inline-flex items-center font-bold text-indigo-deep transition hover:text-ink-soft"
               >
                 Explore packages <ArrowRight className="ml-2 h-4 w-4" />
               </button>
@@ -524,13 +524,13 @@ export default function DeepCleaning() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-900/10" />
                 <div className="absolute inset-x-0 bottom-0 p-7 sm:p-9">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md">
-                    <Icon className="h-7 w-7 text-crystal-300" />
+                    <Icon className="h-7 w-7 text-mint" />
                   </div>
                   <h3 className="mt-6 text-3xl font-bold">{title}</h3>
                   <p className="mt-3 max-w-xl leading-7 text-slate-300">{desc}</p>
                   <ul className="mt-6 grid gap-2 text-sm font-semibold text-white sm:grid-cols-2">
                     {points.map((point) => (
-                      <li key={point} className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-crystal-300" /> {point}</li>
+                      <li key={point} className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-mint" /> {point}</li>
                     ))}
                   </ul>
                 </div>
@@ -550,7 +550,7 @@ export default function DeepCleaning() {
 
           <div className="mt-14">
             <div className="mb-7 flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-crystal-50"><Home className="h-5 w-5 text-crystal-700" /></div>
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-indigo-soft"><Home className="h-5 w-5 text-indigo-deep" /></div>
               <div><h3 className="text-2xl font-bold">Furnished villas</h3><p className="text-sm text-slate-500">For occupied or furnished properties</p></div>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -603,7 +603,7 @@ export default function DeepCleaning() {
                 transition={{ duration: 0.4, delay: reduceMotion ? 0 : Math.min(index * 0.04, 0.16) }}
                 className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"
               >
-                <Sparkles className="h-7 w-7 text-crystal-600" />
+                <Sparkles className="h-7 w-7 text-indigo-deep" />
                 <h3 className="mt-5 text-xl font-bold">{benefit.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{benefit.desc}</p>
               </motion.article>
@@ -629,10 +629,10 @@ export default function DeepCleaning() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-5 p-5 text-left font-bold text-slate-900 transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-crystal-500 sm:p-6"
+                    className="flex w-full items-center justify-between gap-5 p-5 text-left font-bold text-slate-900 transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo sm:p-6"
                   >
                     <span>{faq.q}</span>
-                    <ChevronDown className={`h-5 w-5 shrink-0 text-crystal-600 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`h-5 w-5 shrink-0 text-indigo-deep transition-transform ${isOpen ? "rotate-180" : ""}`} />
                   </button>
                   <motion.div
                     id={panelId}
@@ -659,10 +659,10 @@ export default function DeepCleaning() {
 
       <section className="px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-slate-950 px-6 py-14 text-center shadow-2xl sm:px-10 sm:py-20">
-          <div className="absolute -left-24 top-0 h-72 w-72 rounded-full bg-crystal-500/20 blur-3xl" />
-          <div className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
+          <div className="absolute -left-24 top-0 h-72 w-72 rounded-full bg-indigo/20 blur-3xl" />
+          <div className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-indigo/20 blur-3xl" />
           <div className="relative mx-auto max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-crystal-300">Ready to book?</p>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-mint">Ready to book?</p>
             <h2 className="mt-4 text-3xl font-display font-black text-white sm:text-5xl">Choose a package and start your booking.</h2>
             <p className="mt-5 text-base leading-7 text-slate-300 sm:text-lg">Select the closest property size. Your team can confirm the final details before the appointment.</p>
             <button

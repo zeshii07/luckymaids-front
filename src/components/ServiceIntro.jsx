@@ -32,8 +32,8 @@ export default function ServiceIntro({ title, description, cards }) {
               transition={{ delay: index * 0.1 }}
               className="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-lg transition"
             >
-              <div className="bg-crystal-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
-                <card.icon className="w-7 h-7 text-crystal-600" />
+              <div className="bg-indigo-soft w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                <card.icon className="w-7 h-7 text-indigo-deep" />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">{card.title}</h3>
               <p className="text-gray-600">{card.desc}</p>
