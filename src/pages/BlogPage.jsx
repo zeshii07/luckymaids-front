@@ -104,9 +104,9 @@ export default function BlogPage() {
       </Helmet>
 
       <main className="min-h-screen overflow-hidden bg-white pb-24 pt-20">
-        <section className="relative isolate overflow-hidden bg-gray-950">
+        <section className="relative isolate overflow-hidden bg-ink">
           <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1800&q=85" alt="Cleaning guides and home-care planning" className="absolute inset-0 h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-slate-950/45" />
+          <div className="absolute inset-0 bg-ink/45" />
           <BookOpen className="absolute -bottom-20 -right-10 h-72 w-72 rotate-12 text-white/[0.035]" />
 
           <div className="container relative mx-auto px-5 py-24 sm:px-6 md:py-32">
@@ -125,13 +125,13 @@ export default function BlogPage() {
                 Cleaning Tips, Checklists and Dubai Home-Care Guides
               </h1>
 
-              <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-gray-300 sm:text-lg">
+              <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-[var(--line)] sm:text-lg">
                 Practical advice for maintaining your home, preparing for
                 professional cleaning, and selecting the right cleaning
                 service.
               </p>
 
-              <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm text-gray-300">
+              <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm text-[var(--line)]">
                 {[
                   "Home-care guides",
                   "Cleaning checklists",
@@ -155,11 +155,11 @@ export default function BlogPage() {
               <div className="container mx-auto max-w-6xl">
                 <motion.article
                   {...revealProps}
-                  className="group grid overflow-hidden rounded-[2rem] border border-gray-100 bg-white shadow-2xl lg:grid-cols-[1.1fr_0.9fr]"
+                  className="group grid overflow-hidden rounded-[2rem] border border-[var(--line)] bg-white shadow-2xl lg:grid-cols-[1.1fr_0.9fr]"
                 >
                   <Link
                     to={getPostPath(featuredPost)}
-                    className="relative block min-h-[300px] overflow-hidden bg-gray-100 lg:min-h-[430px]"
+                    className="relative block min-h-[300px] overflow-hidden bg-[var(--line)] lg:min-h-[430px]"
                     aria-label={`Read ${featuredPost.title}`}
                   >
                     <img
@@ -174,7 +174,7 @@ export default function BlogPage() {
                         event.currentTarget.src = FALLBACK_IMAGE;
                       }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950/35 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent" />
                     <span className="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-2 text-xs font-bold uppercase tracking-wider text-indigo-deep backdrop-blur">
                       Featured article
                     </span>
@@ -185,7 +185,7 @@ export default function BlogPage() {
                       {featuredPost.category}
                     </p>
 
-                    <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-gray-900 md:text-4xl">
+                    <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-ink md:text-4xl">
                       <Link
                         to={getPostPath(featuredPost)}
                         className="transition hover:text-indigo-deep"
@@ -194,7 +194,7 @@ export default function BlogPage() {
                       </Link>
                     </h2>
 
-                    <p className="mt-5 text-base leading-7 text-gray-600">
+                    <p className="mt-5 text-base leading-7 text-ink-muted">
                       {featuredPost.excerpt}
                     </p>
 
@@ -218,10 +218,10 @@ export default function BlogPage() {
                   <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-indigo-deep">
                     Latest guidance
                   </span>
-                  <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+                  <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
                     More Cleaning Articles
                   </h2>
-                  <p className="mx-auto mt-4 max-w-2xl leading-7 text-gray-600">
+                  <p className="mx-auto mt-4 max-w-2xl leading-7 text-ink-muted">
                     Explore practical advice for homes, apartments, villas,
                     furniture, moving, and everyday cleaning routines.
                   </p>
@@ -229,22 +229,29 @@ export default function BlogPage() {
 
                 {remainingPosts.length > 0 ? (
                   <div className="mt-12 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
-                    {remainingPosts.map((post, index) => (
+                    {/* First remaining post: full-width horizontal feature for visual rhythm */}
+                    {remainingPosts[0] && (
+                      <div className="md:col-span-2 xl:col-span-3">
+                        <BlogCard post={remainingPosts[0]} index={0} reducedMotion={reducedMotion} variant="wide" />
+                      </div>
+                    )}
+                    {/* Remaining posts: denser editorial grid */}
+                    {remainingPosts.slice(1).map((post, index) => (
                       <BlogCard
                         key={post.slug}
                         post={post}
-                        index={index}
+                        index={index + 1}
                         reducedMotion={reducedMotion}
                       />
                     ))}
                   </div>
                 ) : (
-                  <div className="mx-auto mt-12 max-w-2xl rounded-3xl border border-gray-100 bg-gray-50 p-8 text-center">
+                  <div className="mx-auto mt-12 max-w-2xl rounded-3xl border border-[var(--line)] bg-paper p-8 text-center">
                     <BookOpen className="mx-auto h-10 w-10 text-indigo" />
-                    <h3 className="mt-5 text-xl font-bold text-gray-900">
+                    <h3 className="mt-5 text-xl font-bold text-ink">
                       More guides are coming soon
                     </h3>
-                    <p className="mt-3 leading-7 text-gray-600">
+                    <p className="mt-3 leading-7 text-ink-muted">
                       The featured article is currently the only published post.
                       Additional cleaning guides will appear here automatically.
                     </p>
@@ -259,7 +266,7 @@ export default function BlogPage() {
 
         <section className="bg-white px-5 py-10 sm:px-6">
           <div className="container mx-auto max-w-6xl">
-            <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+            <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-ink px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
               <Gem className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
 
               <div className="relative mx-auto max-w-3xl">
@@ -295,7 +302,8 @@ export default function BlogPage() {
   );
 }
 
-function BlogCard({ post, index, reducedMotion }) {
+function BlogCard({ post, index, reducedMotion, variant }) {
+  const wide = variant === "wide";
   return (
     <motion.article
       initial={reducedMotion ? false : { opacity: 0, y: 24 }}
@@ -305,11 +313,15 @@ function BlogCard({ post, index, reducedMotion }) {
         duration: reducedMotion ? 0 : 0.4,
         delay: reducedMotion ? 0 : Math.min(index * 0.05, 0.2),
       }}
-      className="group flex h-full flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-xl"
+      className={`group flex h-full overflow-hidden rounded-3xl border border-[var(--line)] bg-white shadow-sm transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-xl ${
+        wide ? "flex-col sm:flex-row" : "flex-col"
+      }`}
     >
       <Link
         to={getPostPath(post)}
-        className="relative block aspect-[16/10] overflow-hidden bg-gray-100"
+        className={`relative block overflow-hidden bg-[var(--line)] ${
+          wide ? "aspect-[16/10] sm:aspect-auto sm:w-1/2" : "aspect-[16/10]"
+        }`}
         aria-label={`Read ${post.title}`}
       >
         <img
@@ -326,12 +338,12 @@ function BlogCard({ post, index, reducedMotion }) {
         />
       </Link>
 
-      <div className="flex flex-1 flex-col p-6">
+      <div className={`flex flex-1 flex-col ${wide ? "p-7 sm:p-10 lg:p-12" : "p-6"}`}>
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-deep">
           {post.category}
         </p>
 
-        <h2 className="mt-3 text-xl font-bold leading-snug text-gray-900">
+        <h2 className={`mt-3 font-bold leading-snug text-ink ${wide ? "text-2xl sm:text-3xl" : "text-xl"}`}>
           <Link
             to={getPostPath(post)}
             className="transition hover:text-indigo-deep"
@@ -340,7 +352,7 @@ function BlogCard({ post, index, reducedMotion }) {
           </Link>
         </h2>
 
-        <p className="mt-4 flex-1 text-sm leading-6 text-gray-600">
+        <p className="mt-4 flex-1 text-sm leading-6 text-ink-muted">
           {post.excerpt}
         </p>
 
@@ -363,7 +375,7 @@ function PostMeta({ post, compact = false }) {
 
   return (
     <div
-      className={`flex flex-wrap items-center gap-x-4 gap-y-2 text-gray-500 ${
+      className={`flex flex-wrap items-center gap-x-4 gap-y-2 text-ink-muted ${
         compact ? "mt-5 text-xs" : "mt-6 text-sm"
       }`}
     >
@@ -386,15 +398,15 @@ function EmptyBlogState() {
   return (
     <section className="bg-white px-5 py-24 sm:px-6">
       <div className="container mx-auto max-w-3xl">
-        <div className="rounded-[2rem] border border-gray-100 bg-gray-50 p-8 text-center sm:p-12">
+        <div className="rounded-[2rem] border border-[var(--line)] bg-paper p-8 text-center sm:p-12">
           <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-indigo-soft text-indigo-deep">
             <ImageOff className="h-8 w-8" />
           </span>
 
-          <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">
+          <h2 className="mt-6 font-display text-3xl font-bold text-ink">
             No Published Articles Yet
           </h2>
-          <p className="mx-auto mt-4 max-w-xl leading-7 text-gray-600">
+          <p className="mx-auto mt-4 max-w-xl leading-7 text-ink-muted">
             Published blog posts will appear here automatically when they are
             available through the blog loader.
           </p>

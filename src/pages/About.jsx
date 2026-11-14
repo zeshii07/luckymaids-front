@@ -114,7 +114,7 @@ export default function About() {
   };
 
   return (
-    <main className="min-h-screen overflow-hidden bg-white text-gray-900">
+    <main className="min-h-screen overflow-hidden bg-white text-ink">
       <Helmet>
         <title>About Byt Cleaning Services | Trusted Cleaning Services Dubai</title>
         <meta
@@ -123,9 +123,9 @@ export default function About() {
         />
       </Helmet>
 
-      <section className="relative isolate overflow-hidden bg-gray-950 pt-28 text-white sm:pt-32">
+      <section className="relative isolate overflow-hidden bg-ink pt-28 text-white sm:pt-32">
         <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=85" alt="Byt Cleaning Services professional cleaning team" className="absolute inset-0 -z-20 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-slate-950/45" />
+        <div className="absolute inset-0 -z-10 bg-ink/45" />
 
         <div className="container mx-auto max-w-7xl px-5 pb-20 sm:px-6 lg:px-8 lg:pb-28">
           <motion.div
@@ -145,10 +145,10 @@ export default function About() {
               <h2 className="mt-5 max-w-3xl text-xl font-semibold text-indigo/30 sm:text-2xl">
                 Professional Cleaning & Maid Services You Can Trust in Dubai
               </h2>
-              <p className="mt-7 max-w-3xl text-base leading-8 text-gray-300 sm:text-lg">
+              <p className="mt-7 max-w-3xl text-base leading-8 text-[var(--line)] sm:text-lg">
                 At <strong className="text-white">Byt Cleaning Services</strong>, we believe a clean and well-maintained space contributes to greater comfort, productivity, and peace of mind. Our goal is to provide dependable residential and commercial cleaning services that help homeowners, tenants, landlords, and businesses maintain clean, organized, and welcoming environments.
               </p>
-              <p className="mt-4 max-w-3xl text-base leading-8 text-gray-300 sm:text-lg">
+              <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--line)] sm:text-lg">
                 From regular maid services to detailed deep cleaning, furniture cleaning, move-in and move-out cleaning, and commercial cleaning, we tailor our services to meet the unique requirements of every customer.
               </p>
             </div>
@@ -167,13 +167,13 @@ export default function About() {
 
       <section className="relative -mt-8 z-10">
         <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <motion.div {...reveal} className="rounded-[2rem] border border-gray-200/80 bg-white p-7 shadow-[0_24px_80px_-35px_rgba(15,23,42,0.35)] sm:p-10 lg:p-14">
+          <motion.div {...reveal} className="rounded-[2rem] border border-[var(--line)]/80 bg-white p-7 shadow-[0_24px_80px_-35px_rgba(15,23,42,0.35)] sm:p-10 lg:p-14">
             <div className="grid gap-10 lg:grid-cols-[.7fr_1.3fr] lg:items-start">
               <div>
                 <span className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-deep">Our story</span>
-                <h2 className="mt-4 text-3xl font-display font-bold tracking-tight text-gray-900 sm:text-4xl">Built around different spaces and different needs.</h2>
+                <h2 className="mt-4 text-3xl font-display font-bold tracking-tight text-ink sm:text-4xl">Built around different spaces and different needs.</h2>
               </div>
-              <div className="space-y-4 text-base leading-8 text-gray-600 sm:text-lg">
+              <div className="space-y-4 text-base leading-8 text-ink-muted sm:text-lg">
                 <p>Every property is different, and every customer has different expectations. Byt Cleaning Services was established with the vision of delivering reliable, flexible, and customer-focused cleaning services throughout Dubai.</p>
                 <p>By understanding each client's needs, we aim to recommend practical cleaning solutions that fit their property, schedule, and lifestyle.</p>
                 <p>Whether cleaning a studio apartment, a family villa, a corporate office, or a retail store, we approach every project with professionalism and attention to detail.</p>
@@ -204,16 +204,16 @@ export default function About() {
                 key={item.eyebrow}
                 {...reveal}
                 transition={{ ...reveal.transition, delay: reduceMotion ? 0 : index * 0.08 }}
-                className="group relative overflow-hidden rounded-[2rem] border border-gray-200 bg-gray-50 p-8 sm:p-10"
+                className="group relative overflow-hidden rounded-[2rem] border border-[var(--line)] bg-paper p-8 sm:p-10"
               >
                 <div className="absolute right-0 top-0 h-40 w-40 translate-x-1/3 -translate-y-1/3 rounded-full bg-indigo-soft blur-3xl transition-transform duration-500 group-hover:scale-125" />
                 <div className="relative">
-                  <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-gray-200">
+                  <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-[var(--line)]">
                     <item.icon className="h-7 w-7 text-indigo-deep" aria-hidden="true" />
                   </div>
                   <p className="text-sm font-bold uppercase tracking-[0.18em] text-indigo-deep">{item.eyebrow}</p>
-                  <h2 className="mt-3 text-2xl font-display font-bold text-gray-900 sm:text-3xl">{item.title}</h2>
-                  <p className="mt-5 leading-7 text-gray-600">{item.text}</p>
+                  <h2 className="mt-3 text-2xl font-display font-bold text-ink sm:text-3xl">{item.title}</h2>
+                  <p className="mt-5 leading-7 text-ink-muted">{item.text}</p>
                 </div>
               </motion.article>
             ))}
@@ -221,24 +221,29 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-gray-950 py-20 text-white sm:py-24">
+      <section className="bg-ink py-20 text-white sm:py-24">
         <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <motion.div {...reveal} className="mx-auto mb-12 max-w-3xl text-center">
             <span className="text-sm font-bold uppercase tracking-[0.2em] text-mint">What we do</span>
             <h2 className="mt-4 text-3xl font-display font-bold tracking-tight sm:text-5xl">Cleaning support for homes, businesses, and busy lives.</h2>
-            <p className="mt-5 text-lg text-gray-300">Byt Cleaning Services provides a wide range of services, including:</p>
+            <p className="mt-5 text-lg text-[var(--line)]">Byt Cleaning Services provides a wide range of services, including:</p>
           </motion.div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
             {whatWeDo.map((service, index) => (
               <motion.div key={service.name} {...reveal} transition={{ ...reveal.transition, delay: reduceMotion ? 0 : Math.min(index * 0.05, 0.25) }}>
                 <Link
                   to={service.link}
-                  className="group flex min-h-28 items-center justify-between rounded-2xl border border-white/10 bg-white/[0.06] p-6 transition duration-300 hover:-translate-y-1 hover:border-indigo/50 hover:bg-white/[0.1] focus:outline-none focus-visible:ring-2 focus-visible:ring-mint"
+                  className="group flex min-h-24 items-center justify-between bg-ink-soft/40 px-6 py-5 transition duration-300 hover:bg-ink-soft/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-mint"
                 >
-                  <span className="font-semibold text-white">{service.name}</span>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition group-hover:bg-indigo">
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                  <span className="flex items-center gap-3">
+                    <span className="section-numeral text-sm font-bold text-mint/70" aria-hidden="true">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="font-semibold text-white">{service.name}</span>
+                  </span>
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition group-hover:bg-coral">
+                    <ArrowRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                   </span>
                 </Link>
               </motion.div>
@@ -249,46 +254,63 @@ export default function About() {
 
       <section className="py-20 sm:py-24">
         <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <motion.div {...reveal} className="mx-auto mb-12 max-w-3xl text-center">
+          <motion.div {...reveal} className="mb-14 max-w-2xl">
             <span className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-deep">Why choose us</span>
-            <h2 className="mt-4 text-3xl font-display font-bold tracking-tight text-gray-900 sm:text-5xl">A straightforward experience from enquiry to completion.</h2>
-            <p className="mt-5 text-lg text-gray-600">We strive to make every booking straightforward, reliable, and tailored to the customer's requirements.</p>
+            <h2 className="mt-4 text-3xl font-display font-bold tracking-tight text-ink sm:text-4xl">A straightforward experience from enquiry to completion.</h2>
+            <p className="mt-5 text-lg text-ink-muted">We strive to make every booking straightforward, reliable, and tailored to the customer's requirements.</p>
           </motion.div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Typographic values list — numbered labels with dividers, not boxed cards */}
+          <ul className="grid divide-y divide-[var(--line)] border-y border-[var(--line)] sm:grid-cols-2 sm:divide-x sm:divide-y-0">
             {whyChooseUs.map((item, index) => (
-              <motion.article
+              <motion.li
                 key={item.title}
                 {...reveal}
-                transition={{ ...reveal.transition, delay: reduceMotion ? 0 : Math.min(index * 0.045, 0.25) }}
-                className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                transition={{ ...reveal.transition, delay: reduceMotion ? 0 : Math.min(index * 0.05, 0.25) }}
+                className="flex items-start gap-5 px-2 py-7 sm:px-6"
               >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-soft ring-1 ring-indigo-soft">
-                  <item.icon className="h-6 w-6 text-indigo-deep" aria-hidden="true" />
+                <span className="section-numeral shrink-0 text-2xl font-bold text-coral" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-soft text-indigo">
+                    <item.icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <h3 className="font-display text-lg font-bold leading-tight text-ink">{item.title}</h3>
                 </div>
-                <h3 className="font-semibold leading-6 text-gray-900">{item.title}</h3>
-              </motion.article>
+              </motion.li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20 sm:py-24">
+      <section className="bg-paper py-20 sm:py-24">
         <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <motion.div {...reveal} className="mx-auto mb-12 max-w-3xl text-center">
+          <motion.div {...reveal} className="mb-14 max-w-2xl">
             <span className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-deep">Our values</span>
-            <h2 className="mt-4 text-3xl font-display font-bold text-gray-900 sm:text-5xl">The principles behind every service.</h2>
+            <h2 className="mt-4 text-3xl font-display font-bold tracking-tight text-ink sm:text-4xl">The principles behind every service.</h2>
           </motion.div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Editorial values — large typographic labels with explanations, not cards */}
+          <div className="grid gap-px overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--line)] lg:grid-cols-2">
             {ourValues.map((value, index) => (
-              <motion.article key={value.title} {...reveal} transition={{ ...reveal.transition, delay: reduceMotion ? 0 : index * 0.06 }} className="rounded-3xl border border-gray-200 bg-white p-7 shadow-sm">
-                <div className="mb-6 flex h-13 w-13 items-center justify-center rounded-2xl bg-indigo-soft p-3">
-                  <value.icon className="h-7 w-7 text-indigo-deep" aria-hidden="true" />
+              <motion.div
+                key={value.title}
+                {...reveal}
+                transition={{ ...reveal.transition, delay: reduceMotion ? 0 : index * 0.06 }}
+                className="bg-white p-8 sm:p-10"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-mint-soft text-indigo-deep">
+                    <value.icon className="h-6 w-6" aria-hidden="true" />
+                  </span>
+                  <span className="section-numeral text-sm font-bold text-ink-muted" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")} / {String(ourValues.length).padStart(2, "0")}
+                  </span>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900">{value.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-gray-600">{value.desc}</p>
-              </motion.article>
+                <h3 className="mt-5 font-display text-2xl font-bold leading-tight text-ink">{value.title}</h3>
+                <p className="mt-3 text-base leading-relaxed text-ink-muted">{value.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -296,16 +318,16 @@ export default function About() {
 
       <section className="py-20 sm:py-24">
         <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <motion.div {...reveal} className="rounded-[2rem] border border-gray-200 bg-white p-7 shadow-sm sm:p-10 lg:p-14">
+          <motion.div {...reveal} className="rounded-[2rem] border border-[var(--line)] bg-white p-7 shadow-sm sm:p-10 lg:p-14">
             <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
               <div>
                 <span className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-deep">Areas we serve</span>
-                <h2 className="mt-4 text-3xl font-display font-bold text-gray-900 sm:text-4xl">Serving homes and businesses across Dubai.</h2>
-                <p className="mt-5 text-lg leading-8 text-gray-600">Byt Cleaning Services proudly serves homes and businesses across many communities in Dubai, including:</p>
+                <h2 className="mt-4 text-3xl font-display font-bold text-ink sm:text-4xl">Serving homes and businesses across Dubai.</h2>
+                <p className="mt-5 text-lg leading-8 text-ink-muted">Byt Cleaning Services proudly serves homes and businesses across many communities in Dubai, including:</p>
               </div>
               <div className="flex flex-wrap gap-2.5">
                 {areasServed.map((area) => (
-                  <span key={area} className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700">
+                  <span key={area} className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-paper px-4 py-2 text-sm font-medium text-ink-soft">
                     <MapPin className="h-3.5 w-3.5 text-indigo-deep" aria-hidden="true" />
                     {area}
                   </span>
@@ -316,11 +338,11 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20 sm:py-24">
+      <section className="bg-paper py-20 sm:py-24">
         <div className="container mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
           <motion.div {...reveal} className="mb-12 text-center">
             <span className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-deep">FAQs</span>
-            <h2 className="mt-4 text-3xl font-display font-bold text-gray-900 sm:text-5xl">Frequently Asked Questions</h2>
+            <h2 className="mt-4 text-3xl font-display font-bold text-ink sm:text-5xl">Frequently Asked Questions</h2>
           </motion.div>
 
           <div className="space-y-3">
@@ -330,14 +352,14 @@ export default function About() {
               const buttonId = `about-faq-button-${index}`;
 
               return (
-                <div key={faq.q} className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                <div key={faq.q} className="overflow-hidden rounded-2xl border border-[var(--line)] bg-white shadow-sm">
                   <button
                     id={buttonId}
                     type="button"
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-5 p-5 text-left font-semibold text-gray-900 outline-none transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo sm:p-6"
+                    className="flex w-full items-center justify-between gap-5 p-5 text-left font-semibold text-ink outline-none transition hover:bg-paper focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo sm:p-6"
                   >
                     <span>{faq.q}</span>
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-soft">
@@ -353,7 +375,7 @@ export default function About() {
                     transition={{ duration: reduceMotion ? 0 : 0.25, ease }}
                     className="overflow-hidden"
                   >
-                    <p className="px-5 pb-6 leading-7 text-gray-600 sm:px-6">{faq.a}</p>
+                    <p className="px-5 pb-6 leading-7 text-ink-muted sm:px-6">{faq.a}</p>
                   </motion.div>
                 </div>
               );
@@ -364,13 +386,13 @@ export default function About() {
 
       <section className="py-20 sm:py-24">
         <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <motion.div {...reveal} className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-gray-950 px-6 py-14 text-center text-white shadow-2xl sm:px-12 sm:py-16">
+          <motion.div {...reveal} className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-ink px-6 py-14 text-center text-white shadow-2xl sm:px-12 sm:py-16">
             <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
             <div className="absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-mint/20 blur-3xl" />
             <div className="relative mx-auto max-w-3xl">
               <h2 className="text-3xl font-display font-bold sm:text-5xl">Let's Keep Your Property Looking Its Best</h2>
               <p className="mt-5 text-lg leading-8 text-indigo-soft">Whether you need regular housekeeping, a detailed deep clean, or commercial cleaning for your business, Byt Cleaning Services is ready to help. Contact us today to discuss your requirements and request a personalized quotation.</p>
-              <Link to="/contact" className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-indigo-deep shadow-lg transition hover:-translate-y-0.5 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-indigo-deep">
+              <Link to="/contact" className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-indigo-deep shadow-lg transition hover:-translate-y-0.5 hover:bg-[var(--line)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-indigo-deep">
                 Contact Us Today
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>

@@ -51,7 +51,7 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.8 }}
         >
           <p className="text-indigo font-semibold mb-2">WHY CHOOSE US</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-800 mb-8">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-ink-soft mb-8">
             The Byt Standard of Clean
           </h2>
           
@@ -69,8 +69,8 @@ export default function WhyChooseUs() {
                   <feature.icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-gray-800 mb-2">{feature.title}</h4>
-                  <p className="text-gray-600">{feature.desc}</p>
+                  <h4 className="text-xl font-bold text-ink-soft mb-2">{feature.title}</h4>
+                  <p className="text-ink-muted">{feature.desc}</p>
                 </div>
               </motion.div>
             ))}

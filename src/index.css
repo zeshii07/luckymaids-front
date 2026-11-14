@@ -2,13 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   Design tokens — LUCKY CRYSTAL UI REDESIGN GUIDE §2 + §5
+   Brand colours, neutrals, motion timing, easing curves.
+   ============================================================ */
+:root {
+  /* Brand palette */
+  --ink: #172432;
+  --ink-soft: #2A3A4B;
+  --ink-muted: #65717D;
+  --violet: #5D50E8;
+  --violet-soft: #ECEAFE;
+  --violet-deep: #3F35C7;
+  --coral: #F46E57;
+  --coral-soft: #FDE4DD;
+  --coral-deep: #D8523C;
+  --mint: #BDE8D4;
+  --mint-soft: #E7F6EF;
+  --mint-deep: #8FD2B6;
+  /* Neutrals */
+  --paper: #F7F7F2;
+  --white: #FFFFFF;
+  --line: #DDE2E4;
+
+  /* Motion tokens (guide §5 Global motion tokens) */
+  --motion-fast: 140ms;
+  --motion-ui: 200ms;
+  --motion-reveal: 600ms;
+  --motion-slow: 850ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* Shape language */
+  --radius-control: 12px;
+  --radius-panel: 18px;
+  --radius-image: 24px;
+}
+
 body {
   --theme-primary: 93 80 232;
   --theme-secondary: 244 110 87;
   --theme-wash: 189 232 212;
   --theme-ink: 23 36 50;
   font-family: 'Inter', 'Manrope', sans-serif;
-  background-color: #F8F7F3;
+  background-color: var(--paper);
   color: rgb(var(--theme-ink));
 }
 
@@ -132,7 +169,7 @@ body.theme-move { --theme-primary: 109 40 217; --theme-secondary: 37 99 235; --t
 .site-shell a[class*="uppercase"], .site-shell span[class*="uppercase"] { font-family: 'DM Sans', sans-serif; }
 
 .site-shell main > section { position: relative; isolation: isolate; }
-.site-shell main > section:nth-of-type(3n + 2):not([class*="slate-950"]):not([class*="gray-950"]) { background-color: rgb(var(--theme-wash)); }
+.site-shell main > section:nth-of-type(3n + 2):not([class*="ink"]):not([class*="ink"]) { background-color: rgb(var(--theme-wash)); }
 .site-shell main > section:nth-of-type(3n + 2) h2,
 .site-shell main > section:nth-of-type(3n + 2) h3 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.035em; }
 .site-shell main > section:nth-of-type(3n) h2 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.04em; }
@@ -164,3 +201,57 @@ body.theme-move { --theme-primary: 109 40 217; --theme-secondary: 37 99 235; --t
   background: rgb(var(--theme-primary) / 0.42);
   border-radius: 10px;
 }
+
+/* ============================================================
+   Reduced-motion baseline (guide §5).
+   Safety net: collapses animations/transitions for users who
+   request reduced motion. JS hooks (motion/react) also respect
+   this via useReducedMotion.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   Utility helpers for guide patterns.
+   ============================================================ */
+/* Anchored sections clear the sticky header (guide §3.1). */
+[id] { scroll-margin-top: 6rem; }
+
+/* Eyebrow label — small uppercase context label (guide §2 Type scale). */
+.eyebrow {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.74rem;
+}
+
+/* Oversized section numeral (guide §2 signature element). */
+.section-numeral {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Thin divider rule used by FAQ accordion + service index (guide §3.2 §8). */
+.hairline { border-color: var(--line); }
+
+/* Focus-visible ring consistent across the site (guide §9 a11y). */
+.site-shell :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Pause a marquee on hover/focus (guide §3.2 Section 2). */
+.marquee-pause:hover .marquee-track,
+.marquee-pause:focus-within .marquee-track { animation-play-state: paused; }

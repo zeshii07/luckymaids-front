@@ -204,9 +204,9 @@ export default function AreasWeServe() {
         <link rel="canonical" href="https://lucky-crystal.infinityfree.me/areas-we-serve/" />
       </Helmet>
 
-      <section className="relative isolate overflow-hidden bg-gray-950">
+      <section className="relative isolate overflow-hidden bg-ink">
         <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1800&q=85" alt="Dubai skyline representing cleaning service coverage" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-slate-950/45" />
+        <div className="absolute inset-0 bg-ink/45" />
         <MapPin className="absolute -bottom-24 -right-12 h-80 w-80 rotate-12 text-white/[0.035]" />
 
         <div className="container relative mx-auto px-5 py-24 sm:px-6 md:py-32">
@@ -227,13 +227,13 @@ export default function AreasWeServe() {
             <p className="mt-5 text-xl font-semibold text-indigo/30">
               Professional Cleaning Services Near You
             </p>
-            <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-gray-300 sm:text-lg">
+            <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-[var(--line)] sm:text-lg">
               Byt Cleaning Services provides professional residential and
               commercial cleaning services across many of Dubai&apos;s popular
               residential communities, business districts, and commercial
               developments.
             </p>
-            <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-gray-400">
+            <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-ink-muted">
               Whether you need routine maid services, deep cleaning, office
               cleaning, furniture cleaning, or move-in and move-out cleaning,
               our team is committed to delivering flexible solutions that fit
@@ -260,18 +260,18 @@ export default function AreasWeServe() {
       </section>
 
       <section className="relative z-10 -mt-8 px-5 sm:px-6">
-        <div className="container mx-auto grid max-w-6xl gap-4 rounded-3xl border border-gray-100 bg-white p-4 shadow-xl md:grid-cols-3">
+        <div className="container mx-auto grid max-w-6xl gap-4 rounded-3xl border border-[var(--line)] bg-white p-4 shadow-xl md:grid-cols-3">
           {[
             [Home, "Homes of every size", "Studios, apartments, villas, townhouses, and holiday homes."],
             [Building2, "Business properties", "Offices, retail stores, hospitality, clinics, and commercial sites."],
             [Clock3, "Flexible appointments", "One-time and recurring schedules may be arranged."],
           ].map(([Icon, title, text]) => (
-            <article key={title} className="rounded-2xl bg-gray-50 p-5">
+            <article key={title} className="rounded-2xl bg-paper p-5">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-soft text-indigo-deep">
                 <Icon className="h-5 w-5" />
               </div>
-              <h2 className="mt-4 font-bold text-gray-900">{title}</h2>
-              <p className="mt-2 text-sm leading-6 text-gray-600">{text}</p>
+              <h2 className="mt-4 font-bold text-ink">{title}</h2>
+              <p className="mt-2 text-sm leading-6 text-ink-muted">{text}</p>
             </article>
           ))}
         </div>
@@ -302,14 +302,14 @@ export default function AreasWeServe() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...revealProps} className="text-center">
             <Eyebrow>Community coverage</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Dubai Communities We Serve
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-ink-muted">
               Browse some of our most frequently requested locations. Service
               remains subject to team availability and your selected date.
             </p>
@@ -324,17 +324,17 @@ export default function AreasWeServe() {
                   duration: reducedMotion ? 0 : 0.4,
                   delay: reducedMotion ? 0 : Math.min(index * 0.035, 0.2),
                 }}
-                className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-xl"
+                className="rounded-3xl border border-[var(--line)] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-xl"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
                   <MapPin className="h-6 w-6" />
                 </div>
-                <h3 className="mt-5 text-xl font-bold text-gray-900">{community.name}</h3>
-                <p className="mt-3 text-sm leading-6 text-gray-600">{community.description}</p>
+                <h3 className="mt-5 text-xl font-bold text-ink">{community.name}</h3>
+                <p className="mt-3 text-sm leading-6 text-ink-muted">{community.description}</p>
                 {community.services && (
                   <div className="mt-5 flex flex-wrap gap-2">
                     {community.services.map((service) => (
-                      <span key={service} className="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-semibold text-gray-600">
+                      <span key={service} className="rounded-full bg-[var(--line)] px-3 py-1.5 text-xs font-semibold text-ink-muted">
                         {service}
                       </span>
                     ))}
@@ -348,12 +348,12 @@ export default function AreasWeServe() {
 
       <section className="bg-white py-20">
         <div className="container mx-auto grid max-w-6xl gap-6 px-5 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <motion.div {...revealProps} className="rounded-[2rem] bg-gray-950 p-8 text-white">
+          <motion.div {...revealProps} className="rounded-[2rem] bg-ink p-8 text-white">
             <Search className="h-8 w-8 text-mint" />
             <h2 className="mt-5 font-display text-3xl font-bold">
               Don&apos;t See Your Area?
             </h2>
-            <p className="mt-5 leading-7 text-gray-400">
+            <p className="mt-5 leading-7 text-ink-muted">
               If your community is not listed above, contact our team. We
               regularly serve additional areas throughout Dubai and will be
               happy to confirm service availability for your location.
@@ -367,16 +367,16 @@ export default function AreasWeServe() {
             </Link>
           </motion.div>
 
-          <motion.div {...revealProps} className="rounded-[2rem] border border-gray-100 bg-gray-50 p-8">
+          <motion.div {...revealProps} className="rounded-[2rem] border border-[var(--line)] bg-paper p-8">
             <Eyebrow>Why customers choose us</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900">
+            <h2 className="font-display text-3xl font-bold text-ink">
               Flexible Cleaning Across Dubai
             </h2>
             <div className="mt-7 grid gap-4 sm:grid-cols-2">
               {customerReasons.map((reason) => (
                 <div key={reason} className="flex items-start gap-3 rounded-2xl bg-white p-4">
                   <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-indigo" />
-                  <span className="text-sm font-medium leading-6 text-gray-700">{reason}</span>
+                  <span className="text-sm font-medium leading-6 text-ink-soft">{reason}</span>
                 </div>
               ))}
             </div>
@@ -384,11 +384,11 @@ export default function AreasWeServe() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <div className="text-center">
             <Eyebrow>Popular bookings</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Frequently Requested Services
             </h2>
           </div>
@@ -396,7 +396,7 @@ export default function AreasWeServe() {
             {requestedServices.map((service) => (
               <span
                 key={service}
-                className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 text-sm font-semibold text-gray-700 shadow-sm"
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-white px-4 py-2.5 text-sm font-semibold text-ink-soft shadow-sm"
               >
                 <Sparkles className="h-4 w-4 text-indigo" />
                 {service}
@@ -410,7 +410,7 @@ export default function AreasWeServe() {
         <div className="container mx-auto max-w-3xl px-5 sm:px-6">
           <div className="text-center">
             <Eyebrow>Availability questions</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Frequently Asked Questions
             </h2>
           </div>
@@ -422,12 +422,12 @@ export default function AreasWeServe() {
               const buttonId = `areas-faq-button-${index}`;
 
               return (
-                <article key={faq.q} className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+                <article key={faq.q} className="overflow-hidden rounded-2xl border border-[var(--line)] bg-white">
                   <button
                     id={buttonId}
                     type="button"
                     onClick={() => setOpenFaq(open ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo"
+                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-ink transition hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo"
                     aria-expanded={open}
                     aria-controls={panelId}
                   >
@@ -447,7 +447,7 @@ export default function AreasWeServe() {
                         transition={{ duration: reducedMotion ? 0 : 0.2 }}
                         className="overflow-hidden"
                       >
-                        <p className="px-5 pb-5 text-sm leading-6 text-gray-600">{faq.a}</p>
+                        <p className="px-5 pb-5 text-sm leading-6 text-ink-muted">{faq.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -460,7 +460,7 @@ export default function AreasWeServe() {
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-ink px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
             <MapPin className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
             <div className="relative mx-auto max-w-3xl">
               <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
@@ -513,24 +513,24 @@ function ServiceAudience({
   services,
 }) {
   return (
-    <article className="rounded-[2rem] border border-gray-100 bg-gray-50 p-7 sm:p-8">
+    <article className="rounded-[2rem] border border-[var(--line)] bg-paper p-7 sm:p-8">
       <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
         <Icon className="h-7 w-7" />
       </div>
-      <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">{title}</h2>
-      <p className="mt-4 leading-7 text-gray-600">{description}</p>
+      <h2 className="mt-6 font-display text-3xl font-bold text-ink">{title}</h2>
+      <p className="mt-4 leading-7 text-ink-muted">{description}</p>
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {propertyTypes.map((item) => (
-          <div key={item} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
+          <div key={item} className="flex items-start gap-2 text-sm leading-6 text-ink-soft">
             <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-indigo" />
             {item}
           </div>
         ))}
       </div>
-      <h3 className="mt-8 text-lg font-bold text-gray-900">{secondaryTitle}</h3>
+      <h3 className="mt-8 text-lg font-bold text-ink">{secondaryTitle}</h3>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         {services.map((item) => (
-          <div key={item} className="rounded-xl bg-white p-3 text-sm font-medium leading-6 text-gray-700">
+          <div key={item} className="rounded-xl bg-white p-3 text-sm font-medium leading-6 text-ink-soft">
             {item}
           </div>
         ))}

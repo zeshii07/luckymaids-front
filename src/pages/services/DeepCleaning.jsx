@@ -165,11 +165,11 @@ function SectionHeading({ eyebrow, title, description, align = "center" }) {
           {eyebrow}
         </p>
       )}
-      <h2 className="text-3xl font-display font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+      <h2 className="text-3xl font-display font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
         {title}
       </h2>
       {description && (
-        <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
+        <p className="mt-5 text-base leading-7 text-ink-muted sm:text-lg">
           {description}
         </p>
       )}
@@ -195,11 +195,11 @@ function PackageCard({ pkg, type, tone, added, onAdd, reduceMotion }) {
       transition={{ duration: 0.45 }}
       whileHover={reduceMotion ? undefined : { y: -6 }}
       className={`relative flex h-full flex-col overflow-hidden rounded-3xl border bg-white shadow-sm transition-shadow hover:shadow-xl ${
-        pkg.popular ? "border-mint ring-1 ring-indigo/30" : "border-slate-200"
+        pkg.popular ? "border-mint ring-1 ring-indigo/30" : "border-[var(--line)]"
       }`}
     >
       {pkg.popular && (
-        <div className="absolute right-4 top-4 z-10 rounded-full bg-slate-900 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
+        <div className="absolute right-4 top-4 z-10 rounded-full bg-ink px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
           Popular
         </div>
       )}
@@ -213,17 +213,17 @@ function PackageCard({ pkg, type, tone, added, onAdd, reduceMotion }) {
           )}
         </div>
 
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-ink-muted">
           {type}
         </p>
-        <h3 className="mt-2 text-xl font-bold text-slate-900">{pkg.name}</h3>
+        <h3 className="mt-2 text-xl font-bold text-ink">{pkg.name}</h3>
 
         <div className="mt-6 flex flex-wrap items-end gap-x-3 gap-y-1">
           <span className={`text-4xl font-black tracking-tight ${accent}`}>
             {pkg.price}
           </span>
-          <span className="pb-1 text-sm font-bold text-slate-500">AED</span>
-          <span className="pb-1 text-sm text-slate-400 line-through">
+          <span className="pb-1 text-sm font-bold text-ink-muted">AED</span>
+          <span className="pb-1 text-sm text-ink-muted line-through">
             {pkg.original} AED
           </span>
         </div>
@@ -232,7 +232,7 @@ function PackageCard({ pkg, type, tone, added, onAdd, reduceMotion }) {
           <Tag className="mr-1.5 h-3.5 w-3.5" /> Save {savings} AED
         </div>
 
-        <ul className="mt-6 space-y-2 text-sm text-slate-600">
+        <ul className="mt-6 space-y-2 text-sm text-ink-muted">
           <li className="flex items-center gap-2"><Check className="h-4 w-4 text-mint-deep" /> Detailed cleaning workflow</li>
           <li className="flex items-center gap-2"><Check className="h-4 w-4 text-mint-deep" /> Equipment included</li>
           <li className="flex items-center gap-2"><Check className="h-4 w-4 text-mint-deep" /> Booking confirmation required</li>
@@ -293,7 +293,7 @@ export default function DeepCleaning() {
   };
 
   return (
-    <main className="min-h-screen overflow-hidden bg-white pt-20 text-slate-900">
+    <main className="min-h-screen overflow-hidden bg-white pt-20 text-ink">
       <Helmet>
         <title>Deep Cleaning Services Dubai | Byt Cleaning Services</title>
         <meta
@@ -310,7 +310,7 @@ export default function DeepCleaning() {
           className="absolute inset-0 h-full w-full object-cover object-center"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-900/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/20 to-transparent" />
 
         <div className="relative mx-auto flex min-h-[680px] max-w-7xl items-center px-5 py-20 sm:min-h-[720px] sm:px-8 lg:min-h-[760px] lg:px-10">
           <motion.div
@@ -346,14 +346,14 @@ export default function DeepCleaning() {
               <button
                 type="button"
                 onClick={() => scrollToSection("villa-section")}
-                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 font-bold text-slate-900 shadow-xl transition hover:-translate-y-0.5 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 font-bold text-ink shadow-xl transition hover:-translate-y-0.5 hover:bg-[var(--line)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
               >
                 <Home className="mr-2 h-5 w-5 text-indigo-deep" /> Villa packages
               </button>
               <button
                 type="button"
                 onClick={() => scrollToSection("apartment-section")}
-                className="inline-flex items-center justify-center rounded-full bg-indigo-deep px-6 py-3.5 font-bold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-indigo-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                className="inline-flex items-center justify-center rounded-full bg-indigo-deep px-6 py-3.5 font-bold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-indigo-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
               >
                 <Building2 className="mr-2 h-5 w-5" /> Apartment packages
               </button>
@@ -372,15 +372,15 @@ export default function DeepCleaning() {
       </section>
 
       <section className="relative z-10 -mt-8 px-5 sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-6xl gap-4 rounded-3xl border border-slate-200 bg-white p-5 shadow-xl sm:grid-cols-3 sm:p-6">
+        <div className="mx-auto grid max-w-6xl gap-4 rounded-3xl border border-[var(--line)] bg-white p-5 shadow-xl sm:grid-cols-3 sm:p-6">
           {[
             ["From 250 AED", "Apartment packages"],
             ["Clear options", "Furnished and unfurnished"],
             ["Flexible booking", "Subject to availability"],
           ].map(([value, label]) => (
-            <div key={label} className="rounded-2xl bg-slate-50 p-5 text-center">
-              <p className="text-xl font-black text-slate-900">{value}</p>
-              <p className="mt-1 text-sm text-slate-500">{label}</p>
+            <div key={label} className="rounded-2xl bg-paper p-5 text-center">
+              <p className="text-xl font-black text-ink">{value}</p>
+              <p className="mt-1 text-sm text-ink-muted">{label}</p>
             </div>
           ))}
         </div>
@@ -403,16 +403,16 @@ export default function DeepCleaning() {
             className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
           >
             {recommendedFor.map((item) => (
-              <div key={item} className="group flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-md">
+              <div key={item} className="group flex items-start gap-3 rounded-2xl border border-[var(--line)] bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-md">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-indigo-deep" />
-                <span className="text-sm font-semibold leading-6 text-slate-700">{item}</span>
+                <span className="text-sm font-semibold leading-6 text-ink-soft">{item}</span>
               </div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      <section className="bg-slate-50 py-24 sm:py-28">
+      <section className="bg-paper py-24 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <SectionHeading
             eyebrow="Why choose us"
@@ -420,25 +420,30 @@ export default function DeepCleaning() {
             description="The page now communicates the service in shorter, easier-to-scan sections without losing the useful details customers need."
           />
 
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-3">
             {whyChooseFeatures.map(({ icon: Icon, title, desc }, index) => (
-              <motion.article
+              <motion.li
                 key={title}
                 variants={sectionReveal}
                 initial={reduceMotion ? false : "hidden"}
                 whileInView={reduceMotion ? undefined : "visible"}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.45, delay: reduceMotion ? 0 : Math.min(index * 0.05, 0.2) }}
-                className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="flex items-start gap-4 bg-white p-6"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft">
-                  <Icon className="h-7 w-7 text-indigo-deep" />
+                <span className="section-numeral shrink-0 text-xl font-bold text-coral" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-soft">
+                    <Icon className="h-5 w-5 text-indigo-deep" />
+                  </div>
+                  <h3 className="font-display text-lg font-bold leading-tight text-ink">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">{desc}</p>
                 </div>
-                <h3 className="mt-6 text-xl font-bold text-slate-900">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{desc}</p>
-              </motion.article>
+              </motion.li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -470,14 +475,14 @@ export default function DeepCleaning() {
                   whileInView={reduceMotion ? undefined : "visible"}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.4 }}
-                  className="grid grid-cols-[auto_1fr] gap-4 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:gap-6 sm:p-7"
+                  className="grid grid-cols-[auto_1fr] gap-4 rounded-3xl border border-[var(--line)] bg-white p-5 shadow-sm sm:gap-6 sm:p-7"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-sm font-black text-white">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-ink text-sm font-black text-white">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900">{step.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">{step.desc}</p>
+                    <h3 className="text-lg font-bold text-ink">{step.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-ink-muted">{step.desc}</p>
                   </div>
                 </motion.li>
               ))}
@@ -486,7 +491,7 @@ export default function DeepCleaning() {
         </div>
       </section>
 
-      <section className="bg-slate-950 py-24 text-white sm:py-28">
+      <section className="bg-ink py-24 text-white sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <SectionHeading
             eyebrow="Residential and commercial"
@@ -521,13 +526,13 @@ export default function DeepCleaning() {
                 className="group relative min-h-[460px] overflow-hidden rounded-[2rem] border border-white/10"
               >
                 <img src={image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-900/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/10" />
                 <div className="absolute inset-x-0 bottom-0 p-7 sm:p-9">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md">
                     <Icon className="h-7 w-7 text-mint" />
                   </div>
                   <h3 className="mt-6 text-3xl font-bold">{title}</h3>
-                  <p className="mt-3 max-w-xl leading-7 text-slate-300">{desc}</p>
+                  <p className="mt-3 max-w-xl leading-7 text-[var(--line)]">{desc}</p>
                   <ul className="mt-6 grid gap-2 text-sm font-semibold text-white sm:grid-cols-2">
                     {points.map((point) => (
                       <li key={point} className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-mint" /> {point}</li>
@@ -551,7 +556,7 @@ export default function DeepCleaning() {
           <div className="mt-14">
             <div className="mb-7 flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-indigo-soft"><Home className="h-5 w-5 text-indigo-deep" /></div>
-              <div><h3 className="text-2xl font-bold">Furnished villas</h3><p className="text-sm text-slate-500">For occupied or furnished properties</p></div>
+              <div><h3 className="text-2xl font-bold">Furnished villas</h3><p className="text-sm text-ink-muted">For occupied or furnished properties</p></div>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
               {villaFurnished.map((pkg) => (
@@ -562,8 +567,8 @@ export default function DeepCleaning() {
 
           <div className="mt-16">
             <div className="mb-7 flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-100"><Home className="h-5 w-5 text-slate-600" /></div>
-              <div><h3 className="text-2xl font-bold">Unfurnished villas</h3><p className="text-sm text-slate-500">For vacant, move-in, or move-out properties</p></div>
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--line)]"><Home className="h-5 w-5 text-ink-muted" /></div>
+              <div><h3 className="text-2xl font-bold">Unfurnished villas</h3><p className="text-sm text-ink-muted">For vacant, move-in, or move-out properties</p></div>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
               {villaUnfurnished.map((pkg) => (
@@ -574,7 +579,7 @@ export default function DeepCleaning() {
         </div>
       </section>
 
-      <section id="apartment-section" className="scroll-mt-24 bg-slate-50 py-24 sm:py-28">
+      <section id="apartment-section" className="scroll-mt-24 bg-paper py-24 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <SectionHeading
             eyebrow="Apartment pricing"
@@ -601,18 +606,18 @@ export default function DeepCleaning() {
                 whileInView={reduceMotion ? undefined : "visible"}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: reduceMotion ? 0 : Math.min(index * 0.04, 0.16) }}
-                className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"
+                className="rounded-3xl border border-[var(--line)] bg-white p-7 shadow-sm"
               >
                 <Sparkles className="h-7 w-7 text-indigo-deep" />
                 <h3 className="mt-5 text-xl font-bold">{benefit.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{benefit.desc}</p>
+                <p className="mt-3 text-sm leading-6 text-ink-muted">{benefit.desc}</p>
               </motion.article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-50 py-24 sm:py-28">
+      <section className="bg-paper py-24 sm:py-28">
         <div className="mx-auto max-w-4xl px-5 sm:px-8">
           <SectionHeading eyebrow="Questions" title="Frequently asked questions" />
           <div className="mt-12 space-y-3">
@@ -622,14 +627,14 @@ export default function DeepCleaning() {
               const buttonId = `faq-button-${index}`;
 
               return (
-                <div key={faq.q} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                <div key={faq.q} className="overflow-hidden rounded-2xl border border-[var(--line)] bg-white shadow-sm">
                   <button
                     id={buttonId}
                     type="button"
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-5 p-5 text-left font-bold text-slate-900 transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo sm:p-6"
+                    className="flex w-full items-center justify-between gap-5 p-5 text-left font-bold text-ink transition hover:bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo sm:p-6"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown className={`h-5 w-5 shrink-0 text-indigo-deep transition-transform ${isOpen ? "rotate-180" : ""}`} />
@@ -643,7 +648,7 @@ export default function DeepCleaning() {
                     transition={{ duration: reduceMotion ? 0 : 0.25 }}
                     className="overflow-hidden"
                   >
-                    <p className="px-5 pb-6 leading-7 text-slate-600 sm:px-6">{faq.a}</p>
+                    <p className="px-5 pb-6 leading-7 text-ink-muted sm:px-6">{faq.a}</p>
                   </motion.div>
                 </div>
               );
@@ -658,17 +663,17 @@ export default function DeepCleaning() {
       ]} />
 
       <section className="px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-slate-950 px-6 py-14 text-center shadow-2xl sm:px-10 sm:py-20">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-ink px-6 py-14 text-center shadow-2xl sm:px-10 sm:py-20">
           <div className="absolute -left-24 top-0 h-72 w-72 rounded-full bg-indigo/20 blur-3xl" />
           <div className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-indigo/20 blur-3xl" />
           <div className="relative mx-auto max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-mint">Ready to book?</p>
             <h2 className="mt-4 text-3xl font-display font-black text-white sm:text-5xl">Choose a package and start your booking.</h2>
-            <p className="mt-5 text-base leading-7 text-slate-300 sm:text-lg">Select the closest property size. Your team can confirm the final details before the appointment.</p>
+            <p className="mt-5 text-base leading-7 text-[var(--line)] sm:text-lg">Select the closest property size. Your team can confirm the final details before the appointment.</p>
             <button
               type="button"
               onClick={() => scrollToSection("villa-section")}
-              className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-4 font-bold text-slate-900 transition hover:-translate-y-0.5 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-4 font-bold text-ink transition hover:-translate-y-0.5 hover:bg-[var(--line)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
             >
               View packages <ArrowRight className="ml-2 h-5 w-5" />
             </button>

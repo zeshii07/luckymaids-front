@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
 import RelatedServices from "../../components/RelatedServices";
+import { ProcessTimeline } from "../../components/primitives";
 
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1800&q=85";
@@ -189,7 +190,7 @@ export default function Babysitting() {
 
       <section className="relative isolate min-h-[650px] overflow-hidden bg-indigo-50">
         <img src={HERO_IMAGE} alt="Professional babysitting services in Dubai" className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" decoding="async" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-900/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/20 to-transparent" />
         <div className="container relative mx-auto flex min-h-[650px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">
           <motion.div initial={prefersReducedMotion ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: prefersReducedMotion ? 0 : 0.55 }} className="max-w-4xl">
             <Link to="/services" className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/40 bg-black/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur transition hover:bg-black/20">
@@ -209,21 +210,21 @@ export default function Babysitting() {
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...animation} className="mx-auto max-w-4xl text-center">
             <SectionEyebrow>Support when families need it</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">Dependable Childcare Support for Dubai Families</h2>
-            <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg">Modern family schedules can be demanding. Professional babysitting provides flexible support without requiring every family to commit immediately to a full-time childcare arrangement. Our babysitting service may be suitable when you need:</p>
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">Dependable Childcare Support for Dubai Families</h2>
+            <p className="mt-5 text-base leading-7 text-ink-muted sm:text-lg">Modern family schedules can be demanding. Professional babysitting provides flexible support without requiring every family to commit immediately to a full-time childcare arrangement. Our babysitting service may be suitable when you need:</p>
           </motion.div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {useCases.map((item) => <div key={item} className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4"><CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-indigo-500" /><span className="text-sm font-medium leading-6 text-gray-700">{item}</span></div>)}
+            {useCases.map((item) => <div key={item} className="flex items-start gap-3 rounded-2xl border border-[var(--line)] bg-paper p-4"><CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-indigo-500" /><span className="text-sm font-medium leading-6 text-ink-soft">{item}</span></div>)}
           </div>
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {careOptions.map((option, index) => {
               const Icon = option.icon;
-              return <motion.article key={option.title} {...animation} transition={{ duration: prefersReducedMotion ? 0 : 0.4, delay: prefersReducedMotion ? 0 : index * 0.05 }} className="rounded-3xl border border-gray-100 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl"><div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600"><Icon className="h-7 w-7" /></div><h3 className="mt-6 text-xl font-bold text-gray-900">{option.title}</h3><p className="mt-3 text-sm leading-6 text-gray-600">{option.desc}</p></motion.article>;
+              return <motion.article key={option.title} {...animation} transition={{ duration: prefersReducedMotion ? 0 : 0.4, delay: prefersReducedMotion ? 0 : index * 0.05 }} className="rounded-3xl border border-[var(--line)] bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl"><div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600"><Icon className="h-7 w-7" /></div><h3 className="mt-6 text-xl font-bold text-ink">{option.title}</h3><p className="mt-3 text-sm leading-6 text-ink-muted">{option.desc}</p></motion.article>;
             })}
           </div>
         </div>
@@ -233,17 +234,17 @@ export default function Babysitting() {
         <div className="container mx-auto grid max-w-6xl gap-6 px-5 sm:px-6 md:grid-cols-3">
           {specialistOptions.map((option) => {
             const Icon = option.icon;
-            return <article key={option.title} className="rounded-3xl border border-gray-100 bg-gray-50 p-7"><div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600"><Icon className="h-7 w-7" /></div><h3 className="mt-6 text-2xl font-bold text-gray-900">{option.title}</h3><p className="mt-4 text-sm leading-7 text-gray-600">{option.desc}</p></article>;
+            return <article key={option.title} className="rounded-3xl border border-[var(--line)] bg-paper p-7"><div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600"><Icon className="h-7 w-7" /></div><h3 className="mt-6 text-2xl font-bold text-ink">{option.title}</h3><p className="mt-4 text-sm leading-7 text-ink-muted">{option.desc}</p></article>;
           })}
         </div>
       </section>
 
-      <section id="booking-picker" className="scroll-mt-24 bg-gray-950 py-20">
+      <section id="booking-picker" className="scroll-mt-24 bg-ink py-20">
         <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-[1.35fr_0.65fr]">
           <motion.div {...animation} className="rounded-[2rem] bg-white p-6 sm:p-8">
             <SectionEyebrow>Build your booking</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900">Book Your Babysitter</h2>
-            <p className="mt-4 text-gray-600">Select the number of hours and babysitters required. Minimum booking is 2 hours.</p>
+            <h2 className="font-display text-3xl font-bold text-ink">Book Your Babysitter</h2>
+            <p className="mt-4 text-ink-muted">Select the number of hours and babysitters required. Minimum booking is 2 hours.</p>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               <CounterControl label="Hours" help="Minimum 2, maximum 8" value={`${hours} Hours`} onDecrease={() => setHours((v) => Math.max(2, v - 1))} onIncrease={() => setHours((v) => Math.min(8, v + 1))} decreaseDisabled={hours === 2} increaseDisabled={hours === 8} />
               <CounterControl label="Babysitters" help="Maximum 5" value={`${crew} Sitter${crew > 1 ? "s" : ""}`} onDecrease={() => setCrew((v) => Math.max(1, v - 1))} onIncrease={() => setCrew((v) => Math.min(5, v + 1))} decreaseDisabled={crew === 1} increaseDisabled={crew === 5} />
@@ -256,7 +257,7 @@ export default function Babysitting() {
               <Baby className="h-7 w-7 text-indigo-300" />
               <h3 className="mt-5 text-2xl font-bold">Booking Summary</h3>
               <dl className="mt-6 space-y-3 text-sm"><SummaryRow label="Rate" value={`${ratePerHour} AED/hour`} /><SummaryRow label="Hours" value={`${hours}`} /><SummaryRow label="Babysitters" value={`${crew}`} /><SummaryRow label="Calculation" value={`${hours} × ${crew} × ${ratePerHour}`} /></dl>
-              <div className="mt-6 border-t border-white/10 pt-6"><div className="flex items-end justify-between gap-4"><span className="text-sm text-gray-300">Estimated total</span><span className="text-3xl font-bold text-indigo-300">{totalAmount} AED</span></div></div>
+              <div className="mt-6 border-t border-white/10 pt-6"><div className="flex items-end justify-between gap-4"><span className="text-sm text-[var(--line)]">Estimated total</span><span className="text-3xl font-bold text-indigo-300">{totalAmount} AED</span></div></div>
               <button type="button" onClick={handleAddToCart} disabled={added} className={`mt-7 flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold transition ${added ? "cursor-default bg-mint" : "bg-indigo-500 hover:bg-indigo-600"}`}>
                 {added ? <><CheckCircle className="h-5 w-5" /> Added to Cart</> : <><ShoppingCart className="h-5 w-5" /> Add to Cart</>}
               </button>
@@ -265,11 +266,13 @@ export default function Babysitting() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
-          <motion.div {...animation} className="text-center"><SectionEyebrow>Six clear stages</SectionEyebrow><h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">Our Babysitting Booking Process</h2></motion.div>
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {bookingProcess.map((step, index) => <article key={step.title} className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-500 font-bold text-white">{index + 1}</span><h3 className="mt-5 text-lg font-bold text-gray-900">{step.title}</h3><p className="mt-3 text-sm leading-6 text-gray-600">{step.desc}</p></article>)}
+          <motion.div {...animation} className="text-center"><SectionEyebrow>Six clear stages</SectionEyebrow><h2 className="font-display text-3xl font-bold text-ink md:text-4xl">Our Babysitting Booking Process</h2></motion.div>
+          <div className="mt-12">
+            <ProcessTimeline
+              steps={bookingProcess.map((step) => ({ title: step.title, detail: step.desc }))}
+            />
           </div>
         </div>
       </section>
@@ -281,31 +284,40 @@ export default function Babysitting() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
-          <motion.div {...animation} className="text-center"><SectionEyebrow>Why families choose us</SectionEyebrow><h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">Why Choose Our Babysitting Services?</h2></motion.div>
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {whyChooseUs.map((point) => { const Icon = point.icon; return <article key={point.title} className="rounded-3xl border border-gray-100 bg-white p-7 shadow-sm"><div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600"><Icon className="h-7 w-7" /></div><h3 className="mt-6 text-xl font-bold text-gray-900">{point.title}</h3><p className="mt-3 text-sm leading-6 text-gray-600">{point.desc}</p></article>; })}
-          </div>
+          <motion.div {...animation} className="text-center"><SectionEyebrow>Why families choose us</SectionEyebrow><h2 className="font-display text-3xl font-bold text-ink md:text-4xl">Why Choose Our Babysitting Services?</h2></motion.div>
+          <ul className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-3">
+            {whyChooseUs.map((point, index) => { const Icon = point.icon; return (
+              <li key={point.title} className="flex items-start gap-4 bg-white p-6">
+                <span className="section-numeral shrink-0 text-xl font-bold text-coral" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-soft text-indigo"><Icon className="h-5 w-5" /></div>
+                  <h3 className="font-display text-lg font-bold leading-tight text-ink">{point.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">{point.desc}</p>
+                </div>
+              </li>
+            ); })}
+          </ul>
         </div>
       </section>
 
       <section className="bg-white py-20">
         <div className="container mx-auto max-w-5xl px-5 text-center sm:px-6">
-          <motion.div {...animation}><SectionEyebrow>Service coverage</SectionEyebrow><h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">Babysitters Near You in Dubai</h2><p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-gray-600 sm:text-lg">Subject to caregiver availability, we serve families in communities including:</p></motion.div>
-          <div className="mt-9 flex flex-wrap justify-center gap-2.5">{areasServed.map((area) => <span key={area} className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700"><MapPin className="h-3.5 w-3.5 text-indigo-500" />{area}</span>)}</div>
+          <motion.div {...animation}><SectionEyebrow>Service coverage</SectionEyebrow><h2 className="font-display text-3xl font-bold text-ink md:text-4xl">Babysitters Near You in Dubai</h2><p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-ink-muted sm:text-lg">Subject to caregiver availability, we serve families in communities including:</p></motion.div>
+          <div className="mt-9 flex flex-wrap justify-center gap-2.5">{areasServed.map((area) => <span key={area} className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-paper px-4 py-2 text-sm font-medium text-ink-soft"><MapPin className="h-3.5 w-3.5 text-indigo-500" />{area}</span>)}</div>
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-3xl px-5 sm:px-6">
-          <motion.div {...animation} className="text-center"><SectionEyebrow>Helpful answers</SectionEyebrow><h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">Babysitting Services Dubai FAQs</h2></motion.div>
+          <motion.div {...animation} className="text-center"><SectionEyebrow>Helpful answers</SectionEyebrow><h2 className="font-display text-3xl font-bold text-ink md:text-4xl">Babysitting Services Dubai FAQs</h2></motion.div>
           <div className="mt-10 space-y-3">
             {faqs.map((faq, index) => {
               const open = openFaq === index;
               const panelId = `babysitting-faq-panel-${index}`;
               const buttonId = `babysitting-faq-button-${index}`;
-              return <article key={faq.q} className="overflow-hidden rounded-2xl border border-gray-200 bg-white"><button id={buttonId} type="button" onClick={() => setOpenFaq(open ? null : index)} className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-500" aria-expanded={open} aria-controls={panelId}><span>{faq.q}</span><ChevronDown className={`h-5 w-5 shrink-0 text-indigo-500 transition-transform ${open ? "rotate-180" : ""}`} /></button><AnimatePresence initial={false}>{open && <motion.div id={panelId} role="region" aria-labelledby={buttonId} initial={prefersReducedMotion ? { opacity: 1 } : { height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={prefersReducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }} transition={{ duration: prefersReducedMotion ? 0 : 0.2 }} className="overflow-hidden"><p className="px-5 pb-5 text-sm leading-6 text-gray-600">{faq.a}</p></motion.div>}</AnimatePresence></article>;
+              return <article key={faq.q} className="overflow-hidden rounded-2xl border border-[var(--line)] bg-white"><button id={buttonId} type="button" onClick={() => setOpenFaq(open ? null : index)} className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-ink transition hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-500" aria-expanded={open} aria-controls={panelId}><span>{faq.q}</span><ChevronDown className={`h-5 w-5 shrink-0 text-indigo-500 transition-transform ${open ? "rotate-180" : ""}`} /></button><AnimatePresence initial={false}>{open && <motion.div id={panelId} role="region" aria-labelledby={buttonId} initial={prefersReducedMotion ? { opacity: 1 } : { height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={prefersReducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }} transition={{ duration: prefersReducedMotion ? 0 : 0.2 }} className="overflow-hidden"><p className="px-5 pb-5 text-sm leading-6 text-ink-muted">{faq.a}</p></motion.div>}</AnimatePresence></article>;
             })}
           </div>
         </div>
@@ -318,7 +330,7 @@ export default function Babysitting() {
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-600 via-indigo-700 to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-600 via-indigo-700 to-ink px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
             <Sparkles className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
             <div className="relative mx-auto max-w-3xl"><h2 className="font-display text-3xl font-bold text-white md:text-4xl">Need a Dependable Babysitter in Dubai?</h2><p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-indigo-100 sm:text-lg">Tell us your schedule, location, and children’s ages, and our team will help you arrange suitable childcare support.</p><button type="button" onClick={scrollToPicker} className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 font-bold text-indigo-700 shadow-lg transition hover:-translate-y-0.5 hover:bg-indigo-50">Book a Babysitter</button></div>
           </div>
@@ -333,13 +345,13 @@ function SectionEyebrow({ children }) {
 }
 
 function CounterControl({ label, help, value, onDecrease, onIncrease, decreaseDisabled, increaseDisabled }) {
-  return <div><div className="mb-2"><p className="text-sm font-bold text-gray-800">{label}</p><p className="text-xs text-gray-500">{help}</p></div><div className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 p-3"><button type="button" onClick={onDecrease} disabled={decreaseDisabled} className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40" aria-label={`Decrease ${label.toLowerCase()}`}><Minus className="h-4 w-4" /></button><span className="font-bold text-gray-900">{value}</span><button type="button" onClick={onIncrease} disabled={increaseDisabled} className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40" aria-label={`Increase ${label.toLowerCase()}`}><Plus className="h-4 w-4" /></button></div></div>;
+  return <div><div className="mb-2"><p className="text-sm font-bold text-ink-soft">{label}</p><p className="text-xs text-ink-muted">{help}</p></div><div className="flex items-center justify-between rounded-2xl border border-[var(--line)] bg-paper p-3"><button type="button" onClick={onDecrease} disabled={decreaseDisabled} className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-ink-soft shadow-sm transition hover:bg-[var(--line)] disabled:cursor-not-allowed disabled:opacity-40" aria-label={`Decrease ${label.toLowerCase()}`}><Minus className="h-4 w-4" /></button><span className="font-bold text-ink">{value}</span><button type="button" onClick={onIncrease} disabled={increaseDisabled} className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-ink-soft shadow-sm transition hover:bg-[var(--line)] disabled:cursor-not-allowed disabled:opacity-40" aria-label={`Increase ${label.toLowerCase()}`}><Plus className="h-4 w-4" /></button></div></div>;
 }
 
 function SummaryRow({ label, value }) {
-  return <div className="flex items-center justify-between gap-4"><dt className="text-gray-300">{label}</dt><dd className="text-right font-semibold text-white">{value}</dd></div>;
+  return <div className="flex items-center justify-between gap-4"><dt className="text-[var(--line)]">{label}</dt><dd className="text-right font-semibold text-white">{value}</dd></div>;
 }
 
 function DutyPanel({ title, items, included = false }) {
-  return <article><SectionEyebrow>{included ? "Agreed child-related care" : "Separate or excluded work"}</SectionEyebrow><h2 className="font-display text-3xl font-bold text-gray-900">{title}</h2><div className="mt-7 grid gap-3 sm:grid-cols-2">{items.map((item) => <div key={item} className={`flex items-start gap-3 rounded-xl border p-3 ${included ? "border-mint-soft bg-mint-soft" : "border-red-100 bg-red-50"}`}>{included ? <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-mint-deep" /> : <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}<span className="text-xs font-semibold leading-5 text-gray-700">{item}</span></div>)}</div></article>;
+  return <article><SectionEyebrow>{included ? "Agreed child-related care" : "Separate or excluded work"}</SectionEyebrow><h2 className="font-display text-3xl font-bold text-ink">{title}</h2><div className="mt-7 grid gap-3 sm:grid-cols-2">{items.map((item) => <div key={item} className={`flex items-start gap-3 rounded-xl border p-3 ${included ? "border-mint-soft bg-mint-soft" : "border-red-100 bg-red-50"}`}>{included ? <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-mint-deep" /> : <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}<span className="text-xs font-semibold leading-5 text-ink-soft">{item}</span></div>)}</div></article>;
 }

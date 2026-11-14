@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
 import RelatedServices from "../../components/RelatedServices";
+import { ProcessTimeline } from "../../components/primitives";
 
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1800&q=85";
@@ -370,7 +371,7 @@ export default function Furniture() {
           fetchPriority="high"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-900/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/20 to-transparent" />
 
         <div className="container relative mx-auto flex min-h-[640px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">
           <motion.div
@@ -426,10 +427,10 @@ export default function Furniture() {
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...animation} className="mx-auto max-w-4xl text-center">
             <SectionEyebrow>Fabric-safe solutions</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Complete Furniture Cleaning Solutions in Dubai
             </h2>
-            <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg">
+            <p className="mt-5 text-base leading-7 text-ink-muted sm:text-lg">
               Furniture cleaning is not a one-method service. Different
               fabrics, materials, fillings, colors, and construction methods
               respond differently to moisture, heat, chemicals, and
@@ -450,10 +451,10 @@ export default function Furniture() {
           <motion.div {...animation} className="mt-16">
             <div className="text-center">
               <SectionEyebrow>Why it matters</SectionEyebrow>
-              <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+              <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
                 Why Professional Furniture Cleaning Is Important
               </h2>
-              <p className="mx-auto mt-5 max-w-4xl text-base leading-7 text-gray-600 sm:text-lg">
+              <p className="mx-auto mt-5 max-w-4xl text-base leading-7 text-ink-muted sm:text-lg">
                 Furniture may appear clean from a distance while still holding
                 dust, hair, crumbs, skin particles, residue, and odors inside
                 the fabric. Professional cleaning is especially useful in
@@ -470,7 +471,7 @@ export default function Furniture() {
                   className="flex items-start gap-3 rounded-2xl border border-pink-100 bg-pink-50/70 p-4"
                 >
                   <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-pink-500" />
-                  <span className="text-sm font-medium leading-6 text-gray-700">{item}</span>
+                  <span className="text-sm font-medium leading-6 text-ink-soft">{item}</span>
                 </div>
               ))}
             </div>
@@ -487,7 +488,7 @@ export default function Furniture() {
         category="Sofa"
         addedId={addedId}
         onAdd={handleAddPackage}
-        background="bg-gray-50"
+        background="bg-paper"
         columns="lg:grid-cols-3"
       />
 
@@ -513,7 +514,7 @@ export default function Furniture() {
         category="Carpet"
         addedId={addedId}
         onAdd={handleAddPackage}
-        background="bg-gray-50"
+        background="bg-paper"
         columns="lg:grid-cols-4"
       />
 
@@ -521,41 +522,24 @@ export default function Furniture() {
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...animation} className="text-center">
             <SectionEyebrow>Seven careful stages</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Our Furniture Cleaning Process
             </h2>
           </motion.div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {processSteps.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <motion.article
-                  key={step.title}
-                  {...animation}
-                  transition={{
-                    duration: prefersReducedMotion ? 0 : 0.4,
-                    delay: prefersReducedMotion ? 0 : Math.min(index * 0.04, 0.2),
-                  }}
-                  className="group rounded-3xl border border-gray-100 bg-gray-50 p-6 transition hover:-translate-y-1 hover:border-pink-200 hover:bg-white hover:shadow-xl"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-pink-100 text-pink-600 transition group-hover:bg-pink-500 group-hover:text-white">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-5 text-lg font-bold text-gray-900">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-gray-600">{step.desc}</p>
-                </motion.article>
-              );
-            })}
+          <div className="mt-12">
+            <ProcessTimeline
+              steps={processSteps.map((step) => ({ title: step.title, detail: step.desc, icon: step.icon }))}
+            />
           </div>
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto grid max-w-6xl gap-10 px-5 sm:px-6 lg:grid-cols-2">
           <motion.div {...animation}>
             <SectionEyebrow>Why choose us</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900">
+            <h2 className="font-display text-3xl font-bold text-ink">
               Why Choose Our Furniture Cleaning Company?
             </h2>
 
@@ -565,14 +549,14 @@ export default function Furniture() {
                 return (
                   <article
                     key={point.title}
-                    className="flex gap-4 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm"
+                    className="flex gap-4 rounded-2xl border border-[var(--line)] bg-white p-5 shadow-sm"
                   >
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-pink-100 text-pink-600">
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900">{point.title}</h3>
-                      <p className="mt-1 text-sm leading-6 text-gray-600">{point.desc}</p>
+                      <h3 className="font-bold text-ink">{point.title}</h3>
+                      <p className="mt-1 text-sm leading-6 text-ink-muted">{point.desc}</p>
                     </div>
                   </article>
                 );
@@ -582,10 +566,10 @@ export default function Furniture() {
 
           <motion.div {...animation}>
             <SectionEyebrow>Clear expectations</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900">
+            <h2 className="font-display text-3xl font-bold text-ink">
               What Professional Cleaning May Not Fix
             </h2>
-            <p className="mt-5 leading-7 text-gray-600">
+            <p className="mt-5 leading-7 text-ink-muted">
               Cleaning improves cleanliness and appearance, but it cannot repair
               structural or material damage. Customers should inform the
               technician of known damage before cleaning.
@@ -598,7 +582,7 @@ export default function Furniture() {
                   className="flex items-center gap-2 rounded-xl border border-red-100 bg-white p-3"
                 >
                   <XCircle className="h-4 w-4 shrink-0 text-red-500" />
-                  <span className="text-xs font-semibold text-gray-700">{item}</span>
+                  <span className="text-xs font-semibold text-ink-soft">{item}</span>
                 </div>
               ))}
             </div>
@@ -610,7 +594,7 @@ export default function Furniture() {
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...animation} className="text-center">
             <SectionEyebrow>Furniture we handle</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Specialist Cleaning for Residential and Commercial Furniture
             </h2>
           </motion.div>
@@ -623,14 +607,14 @@ export default function Furniture() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-5xl px-5 text-center sm:px-6">
           <motion.div {...animation}>
             <SectionEyebrow>Mobile teams across Dubai</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Areas We Serve Across Dubai
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-gray-600 sm:text-lg">
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-ink-muted sm:text-lg">
               We serve customers across many Dubai communities. Service
               availability depends on the booking date, property access, item
               quantity, and required equipment.
@@ -641,7 +625,7 @@ export default function Furniture() {
             {areasServed.map((area) => (
               <span
                 key={area}
-                className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700"
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-medium text-ink-soft"
               >
                 <MapPin className="h-3.5 w-3.5 text-pink-500" />
                 {area}
@@ -655,7 +639,7 @@ export default function Furniture() {
         <div className="container mx-auto max-w-3xl px-5 sm:px-6">
           <motion.div {...animation} className="text-center">
             <SectionEyebrow>Helpful answers</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -669,13 +653,13 @@ export default function Furniture() {
               return (
                 <article
                   key={faq.q}
-                  className="overflow-hidden rounded-2xl border border-gray-200 bg-white"
+                  className="overflow-hidden rounded-2xl border border-[var(--line)] bg-white"
                 >
                   <button
                     id={buttonId}
                     type="button"
                     onClick={() => setOpenFaq(open ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-pink-500"
+                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-ink transition hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-pink-500"
                     aria-expanded={open}
                     aria-controls={panelId}
                   >
@@ -707,7 +691,7 @@ export default function Furniture() {
                         transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
                         className="overflow-hidden"
                       >
-                        <p className="px-5 pb-5 text-sm leading-6 text-gray-600">{faq.a}</p>
+                        <p className="px-5 pb-5 text-sm leading-6 text-ink-muted">{faq.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -725,7 +709,7 @@ export default function Furniture() {
 
       <section className="bg-white px-5 py-8 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-pink-600 via-pink-700 to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-pink-600 via-pink-700 to-ink px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
             <Sofa className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
             <div className="relative mx-auto max-w-3xl">
               <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
@@ -757,7 +741,7 @@ function HeroButton({ icon: Icon, children, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white px-5 py-3 font-bold text-gray-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-pink-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+      className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white px-5 py-3 font-bold text-ink shadow-lg transition hover:-translate-y-0.5 hover:bg-pink-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
     >
       <Icon className="h-5 w-5 text-pink-500" />
       {children}
@@ -775,13 +759,13 @@ function SectionEyebrow({ children }) {
 
 function InfoPanel({ title, items }) {
   return (
-    <div className="rounded-3xl border border-gray-100 bg-gray-50 p-6 sm:p-8">
-      <h3 className="text-xl font-bold text-gray-900">{title}</h3>
+    <div className="rounded-3xl border border-[var(--line)] bg-paper p-6 sm:p-8">
+      <h3 className="text-xl font-bold text-ink">{title}</h3>
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
           <div key={item} className="flex items-start gap-3">
             <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-pink-500" />
-            <span className="text-sm leading-5 text-gray-700">{item}</span>
+            <span className="text-sm leading-5 text-ink-soft">{item}</span>
           </div>
         ))}
       </div>
@@ -791,13 +775,13 @@ function InfoPanel({ title, items }) {
 
 function TagCloud({ title, items }) {
   return (
-    <article className="rounded-3xl border border-gray-100 bg-gray-50 p-6">
-      <h3 className="text-lg font-bold text-gray-900">{title}</h3>
+    <article className="rounded-3xl border border-[var(--line)] bg-paper p-6">
+      <h3 className="text-lg font-bold text-ink">{title}</h3>
       <div className="mt-5 flex flex-wrap gap-2">
         {items.map((item) => (
           <span
             key={item}
-            className="rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-700"
+            className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-medium text-ink-soft"
           >
             {item}
           </span>
@@ -826,10 +810,10 @@ function PricingSection({
           <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-pink-100 text-pink-600">
             <Icon className="h-7 w-7" />
           </span>
-          <h2 className="mt-5 font-display text-3xl font-bold text-gray-900 md:text-4xl">
+          <h2 className="mt-5 font-display text-3xl font-bold text-ink md:text-4xl">
             {title}
           </h2>
-          <p className="mt-4 leading-7 text-gray-600">{description}</p>
+          <p className="mt-4 leading-7 text-ink-muted">{description}</p>
         </div>
 
         <div className={`mt-10 grid gap-5 sm:grid-cols-2 ${columns}`}>
@@ -858,22 +842,22 @@ function PackageCard({ pkg, category, added, onAdd, popular }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.35 }}
-      className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-pink-200 hover:shadow-xl"
+      className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--line)] bg-white shadow-sm transition hover:-translate-y-1 hover:border-pink-200 hover:shadow-xl"
     >
       {popular && (
-        <span className="absolute right-4 top-4 rounded-full bg-gray-900 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+        <span className="absolute right-4 top-4 rounded-full bg-ink px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
           Popular
         </span>
       )}
 
       <div className="flex-1 bg-gradient-to-br from-pink-50 to-white p-6">
         <p className="text-sm font-bold uppercase tracking-wider text-pink-600">{category}</p>
-        <h3 className="mt-2 pr-16 text-lg font-bold text-gray-900">{pkg.name}</h3>
+        <h3 className="mt-2 pr-16 text-lg font-bold text-ink">{pkg.name}</h3>
 
         <div className="mt-5 flex items-end gap-2">
-          <span className="text-3xl font-bold text-gray-900">{pkg.price}</span>
-          <span className="pb-1 font-semibold text-gray-500">AED</span>
-          <span className="pb-1 text-sm text-gray-400 line-through">
+          <span className="text-3xl font-bold text-ink">{pkg.price}</span>
+          <span className="pb-1 font-semibold text-ink-muted">AED</span>
+          <span className="pb-1 text-sm text-ink-muted line-through">
             {pkg.original} AED
           </span>
         </div>
@@ -883,7 +867,7 @@ function PackageCard({ pkg, category, added, onAdd, popular }) {
           Save {saving} AED
         </span>
 
-        <div className="mt-6 space-y-2 text-sm text-gray-600">
+        <div className="mt-6 space-y-2 text-sm text-ink-muted">
           <p className="flex items-center gap-2">
             <CheckCircle className="h-4 w-4 text-pink-500" />
             On-site professional service
@@ -895,7 +879,7 @@ function PackageCard({ pkg, category, added, onAdd, popular }) {
         </div>
       </div>
 
-      <div className="border-t border-gray-100 p-4">
+      <div className="border-t border-[var(--line)] p-4">
         <button
           type="button"
           onClick={() => onAdd(pkg, category)}

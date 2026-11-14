@@ -13,7 +13,7 @@ export default function Testimonial() {
     <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6 mb-12 text-center">
         <p className="text-indigo font-semibold mb-2">CLIENT REVIEWS</p>
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-800">What Our Clients Say</h2>
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-ink-soft">What Our Clients Say</h2>
       </div>
 
       {/* Scrolling Marquee Container */}
@@ -26,18 +26,18 @@ export default function Testimonial() {
         <div className="flex gap-8 animate-marquee hover:[animation-play-state:paused] w-max">
           {/* Render testimonials twice for a seamless infinite loop */}
           {[...testimonials, ...testimonials].map((t, index) => (
-            <div key={index} className="w-[400px] bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-sm flex-shrink-0">
+            <div key={index} className="w-[400px] bg-paper p-8 rounded-3xl border border-[var(--line)] shadow-sm flex-shrink-0">
               <div className="flex items-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-gray-700 mb-6 italic">"{t.text}"</p>
+              <p className="text-ink-soft mb-6 italic">"{t.text}"</p>
               <div className="flex items-center space-x-4">
                 <img src={t.img} alt={t.name} className="w-12 h-12 rounded-full object-cover" />
                 <div>
-                  <p className="font-bold text-gray-800">{t.name}</p>
-                  <p className="text-sm text-gray-500">{t.role}</p>
+                  <p className="font-bold text-ink-soft">{t.name}</p>
+                  <p className="text-sm text-ink-muted">{t.role}</p>
                 </div>
               </div>
             </div>

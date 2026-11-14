@@ -291,7 +291,7 @@ export default function Residential() {
           fetchPriority="high"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-900/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/20 to-transparent" />
 
         <div className="container relative mx-auto flex min-h-[650px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">
           <motion.div
@@ -344,18 +344,23 @@ export default function Residential() {
       </section>
 
       <section className="relative z-10 -mt-7 px-5 sm:px-6">
-        <div className="container mx-auto grid max-w-6xl gap-4 rounded-3xl border border-gray-100 bg-white p-4 shadow-xl sm:grid-cols-2 lg:grid-cols-4">
-          {whyChooseUs.slice(0, 4).map((item) => {
-            const Icon = item.icon;
-            return (
-              <article key={item.title} className="rounded-2xl bg-gray-50 p-5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-soft text-indigo-deep">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <h2 className="mt-4 font-bold text-gray-900">{item.title}</h2>
-              </article>
-            );
-          })}
+        <div className="container mx-auto max-w-6xl rounded-3xl border border-[var(--line)] bg-white p-5 shadow-xl">
+          <div className="grid divide-y divide-[var(--line)] sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
+            {whyChooseUs.slice(0, 4).map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <article key={item.title} className="flex items-center gap-3 px-4 py-4 sm:py-3">
+                  <span className="section-numeral shrink-0 text-sm font-bold text-coral" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-soft text-indigo">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h2 className="font-bold text-ink">{item.title}</h2>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -363,10 +368,10 @@ export default function Residential() {
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...revealProps} className="mx-auto max-w-4xl text-center">
             <Eyebrow>Homes of every size</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Residential Cleaning Designed Around Your Property
             </h2>
-            <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg">
+            <p className="mt-5 text-base leading-7 text-ink-muted sm:text-lg">
               Whether you live in a compact studio apartment, spacious
               penthouse, townhouse, holiday home, or family villa, the service
               can be adjusted according to your schedule, lifestyle, property
@@ -387,14 +392,14 @@ export default function Residential() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <div className="text-center">
             <Eyebrow>Flexible service options</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Complete Residential Cleaning Solutions
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-ink-muted">
               Every home has different needs depending on layout, occupancy,
               pets, flooring, furniture, and everyday use.
             </p>
@@ -406,7 +411,7 @@ export default function Residential() {
                 <Link
                   key={solution.name}
                   to={solution.link}
-                  className="group flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-5 text-sm font-semibold text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo/30 hover:shadow-md"
+                  className="group flex items-center justify-between rounded-2xl border border-[var(--line)] bg-white p-5 text-sm font-semibold text-ink-soft shadow-sm transition hover:-translate-y-0.5 hover:border-indigo/30 hover:shadow-md"
                 >
                   {solution.name}
                   <ArrowRight className="h-4 w-4 text-indigo transition-transform group-hover:translate-x-1" />
@@ -414,10 +419,10 @@ export default function Residential() {
               ) : (
                 <div
                   key={solution.name}
-                  className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-white p-5"
+                  className="flex items-start gap-3 rounded-2xl border border-[var(--line)] bg-white p-5"
                 >
                   <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-indigo" />
-                  <span className="text-sm font-semibold leading-6 text-gray-700">
+                  <span className="text-sm font-semibold leading-6 text-ink-soft">
                     {solution.name}
                   </span>
                 </div>
@@ -445,7 +450,7 @@ export default function Residential() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto grid max-w-6xl gap-6 px-5 sm:px-6 lg:grid-cols-2">
           <SimpleChecklistCard
             title="House Cleaning Services"
@@ -474,10 +479,10 @@ export default function Residential() {
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <div className="text-center">
             <Eyebrow>Detailed room care</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Detailed Room-by-Room Cleaning
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-ink-muted">
               Every room has unique cleaning requirements. We tailor the
               checklist so each area receives appropriate attention.
             </p>
@@ -489,7 +494,7 @@ export default function Residential() {
               return (
                 <article
                   key={room.title}
-                  className="grid gap-8 rounded-[2rem] border border-gray-100 bg-gray-50 p-7 lg:grid-cols-[1.05fr_0.95fr]"
+                  className="grid gap-8 rounded-[2rem] border border-[var(--line)] bg-paper p-7 lg:grid-cols-[1.05fr_0.95fr]"
                 >
                   <div>
                     <div className="flex items-center gap-4">
@@ -497,13 +502,13 @@ export default function Residential() {
                         <Icon className="h-7 w-7" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-900">{room.title}</h3>
+                        <h3 className="text-2xl font-bold text-ink">{room.title}</h3>
                         <p className="mt-1 text-sm font-semibold text-indigo-deep">
                           {room.subtitle}
                         </p>
                       </div>
                     </div>
-                    <p className="mt-6 leading-7 text-gray-600">{room.desc}</p>
+                    <p className="mt-6 leading-7 text-ink-muted">{room.desc}</p>
                     <div className="mt-6 rounded-2xl bg-indigo-soft p-4 text-sm leading-6 text-ink">
                       {room.note}{" "}
                       {room.linkText && room.linkPath && (
@@ -516,12 +521,12 @@ export default function Residential() {
                   </div>
 
                   <div className="rounded-2xl bg-white p-6 shadow-sm">
-                    <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">
+                    <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-ink-muted">
                       Tasks may include
                     </h4>
                     <div className="mt-5 grid gap-3 sm:grid-cols-2">
                       {room.tasks.map((task) => (
-                        <div key={task} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
+                        <div key={task} className="flex items-start gap-2 text-sm leading-6 text-ink-soft">
                           <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-indigo" />
                           {task}
                         </div>
@@ -540,7 +545,7 @@ export default function Residential() {
         title="Household Tasks & Floor Care"
         description="Beyond room cleaning, appointments may include selected household chores, floor care, and detailed dusting."
         items={householdTasks}
-        background="bg-gray-50"
+        background="bg-paper"
       />
 
       <CardGridSection
@@ -552,14 +557,14 @@ export default function Residential() {
         columns="lg:grid-cols-4"
       />
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-5xl px-5 sm:px-6">
           <div className="text-center">
             <Eyebrow>Typical coverage</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Residential Cleaning Checklist
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-ink-muted">
               Every booking is customized, but a standard checklist may include
               these common household tasks.
             </p>
@@ -567,11 +572,11 @@ export default function Residential() {
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {Object.entries(finalChecklist).map(([room, tasks]) => (
-              <article key={room} className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900">{room}</h3>
+              <article key={room} className="rounded-3xl border border-[var(--line)] bg-white p-6 shadow-sm">
+                <h3 className="font-bold text-ink">{room}</h3>
                 <div className="mt-5 space-y-3">
                   {tasks.map((task) => (
-                    <div key={task} className="flex items-start gap-2 text-sm text-gray-600">
+                    <div key={task} className="flex items-start gap-2 text-sm text-ink-muted">
                       <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-mint" />
                       {task}
                     </div>
@@ -593,7 +598,7 @@ export default function Residential() {
         linked
       />
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto grid max-w-6xl gap-6 px-5 sm:px-6 lg:grid-cols-2">
           <DeepCleanPanel
             icon={ChefHat}
@@ -624,14 +629,14 @@ export default function Residential() {
         title="Tailored to Your Lifestyle"
         description="Cleaning plans can reflect your family, schedule, pets, and preferences."
         items={demographicCleaning}
-        background="bg-gray-50"
+        background="bg-paper"
       />
 
       <section className="bg-white py-20">
         <div className="container mx-auto max-w-5xl px-5 sm:px-6">
           <div className="text-center">
             <Eyebrow>Five organized stages</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Our Residential Cleaning Process
             </h2>
           </div>
@@ -640,14 +645,14 @@ export default function Residential() {
             {processSteps.map((step, index) => (
               <article
                 key={step.title}
-                className="grid gap-4 rounded-3xl border border-gray-100 bg-gray-50 p-6 sm:grid-cols-[auto_1fr]"
+                className="grid gap-4 rounded-3xl border border-[var(--line)] bg-paper p-6 sm:grid-cols-[auto_1fr]"
               >
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo font-bold text-white">
                   {index + 1}
                 </span>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-gray-600">{step.desc}</p>
+                  <h3 className="text-lg font-bold text-ink">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-ink-muted">{step.desc}</p>
                 </div>
               </article>
             ))}
@@ -655,7 +660,7 @@ export default function Residential() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-2">
           <InfoGrid
             icon={ListChecks}
@@ -676,18 +681,18 @@ export default function Residential() {
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <div className="text-center">
             <Eyebrow>Residential coverage</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Residential Cleaning Across Dubai
             </h2>
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {communityCategories.map((category) => (
-              <article key={category.title} className="rounded-3xl border border-gray-100 bg-gray-50 p-6">
-                <h3 className="text-xl font-bold text-gray-900">{category.title}</h3>
+              <article key={category.title} className="rounded-3xl border border-[var(--line)] bg-paper p-6">
+                <h3 className="text-xl font-bold text-ink">{category.title}</h3>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {category.areas.map((area) => (
-                    <span key={area} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-gray-600">
+                    <span key={area} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-ink-muted">
                       <MapPin className="h-3 w-3 text-indigo" />
                       {area}
                     </span>
@@ -699,7 +704,7 @@ export default function Residential() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-2">
           <InfoGrid
             icon={Sparkles}
@@ -733,11 +738,11 @@ export default function Residential() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-3xl px-5 sm:px-6">
           <div className="text-center">
             <Eyebrow>Helpful answers</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Residential Cleaning FAQs
             </h2>
           </div>
@@ -751,13 +756,13 @@ export default function Residential() {
               return (
                 <article
                   key={faq.q}
-                  className="overflow-hidden rounded-2xl border border-gray-200 bg-white"
+                  className="overflow-hidden rounded-2xl border border-[var(--line)] bg-white"
                 >
                   <button
                     id={buttonId}
                     type="button"
                     onClick={() => setOpenFaq(open ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo"
+                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-ink transition hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo"
                     aria-expanded={open}
                     aria-controls={panelId}
                   >
@@ -781,7 +786,7 @@ export default function Residential() {
                         transition={{ duration: reducedMotion ? 0 : 0.2 }}
                         className="overflow-hidden"
                       >
-                        <p className="px-5 pb-5 text-sm leading-6 text-gray-600">{faq.a}</p>
+                        <p className="px-5 pb-5 text-sm leading-6 text-ink-muted">{faq.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -799,7 +804,7 @@ export default function Residential() {
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-ink px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
             <Home className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
             <div className="relative mx-auto max-w-3xl">
               <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
@@ -852,16 +857,16 @@ function Eyebrow({ children }) {
 
 function PropertyPanel({ icon: Icon, title, description, tags = [], tasks }) {
   return (
-    <article className="rounded-[2rem] border border-gray-100 bg-gray-50 p-7">
+    <article className="rounded-[2rem] border border-[var(--line)] bg-paper p-7">
       <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
         <Icon className="h-7 w-7" />
       </div>
-      <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">{title}</h2>
-      <p className="mt-4 leading-7 text-gray-600">{description}</p>
+      <h2 className="mt-6 font-display text-3xl font-bold text-ink">{title}</h2>
+      <p className="mt-4 leading-7 text-ink-muted">{description}</p>
       {tags.length > 0 && (
         <div className="mt-5 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <span key={tag} className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-gray-600">
+            <span key={tag} className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-ink-muted">
               {tag}
             </span>
           ))}
@@ -869,7 +874,7 @@ function PropertyPanel({ icon: Icon, title, description, tags = [], tasks }) {
       )}
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {tasks.map((task) => (
-          <div key={task} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
+          <div key={task} className="flex items-start gap-2 text-sm leading-6 text-ink-soft">
             <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-indigo" />
             {task}
           </div>
@@ -881,12 +886,12 @@ function PropertyPanel({ icon: Icon, title, description, tags = [], tasks }) {
 
 function SimpleChecklistCard({ title, description, items }) {
   return (
-    <article className="rounded-[2rem] border border-gray-100 bg-white p-7 shadow-sm">
-      <h2 className="font-display text-3xl font-bold text-gray-900">{title}</h2>
-      <p className="mt-4 leading-7 text-gray-600">{description}</p>
+    <article className="rounded-[2rem] border border-[var(--line)] bg-white p-7 shadow-sm">
+      <h2 className="font-display text-3xl font-bold text-ink">{title}</h2>
+      <p className="mt-4 leading-7 text-ink-muted">{description}</p>
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
-          <div key={item} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
+          <div key={item} className="flex items-start gap-2 text-sm leading-6 text-ink-soft">
             <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-indigo" />
             {item}
           </div>
@@ -910,24 +915,24 @@ function CardGridSection({
       <div className="container mx-auto max-w-6xl px-5 sm:px-6">
         <div className="text-center">
           <Eyebrow>{eyebrow}</Eyebrow>
-          <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">{title}</h2>
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">{description}</p>
+          <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">{title}</h2>
+          <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-ink-muted">{description}</p>
         </div>
 
         <div className={`mt-12 grid gap-6 sm:grid-cols-2 ${columns}`}>
           {items.map((item) => {
             const Icon = item.icon;
             return (
-              <article key={item.title} className="flex flex-col rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
+              <article key={item.title} className="flex flex-col rounded-3xl border border-[var(--line)] bg-white p-6 shadow-sm">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
                   <Icon className="h-6 w-6" />
                 </div>
-                <h3 className="mt-5 text-xl font-bold text-gray-900">{item.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-6 text-gray-600">{item.desc}</p>
+                <h3 className="mt-5 text-xl font-bold text-ink">{item.title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-6 text-ink-muted">{item.desc}</p>
                 {item.tasks && (
-                  <div className="mt-5 space-y-2 border-t border-gray-100 pt-5">
+                  <div className="mt-5 space-y-2 border-t border-[var(--line)] pt-5">
                     {item.tasks.map((task) => (
-                      <div key={task} className="flex items-start gap-2 text-xs leading-5 text-gray-600">
+                      <div key={task} className="flex items-start gap-2 text-xs leading-5 text-ink-muted">
                         <CheckCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-indigo" />
                         {task}
                       </div>
@@ -954,36 +959,36 @@ function CardGridSection({
 
 function DeepCleanPanel({ icon: Icon, title, description, items, note }) {
   return (
-    <article className="rounded-[2rem] border border-gray-100 bg-white p-7 shadow-sm">
+    <article className="rounded-[2rem] border border-[var(--line)] bg-white p-7 shadow-sm">
       <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
         <Icon className="h-7 w-7" />
       </div>
-      <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">{title}</h2>
-      <p className="mt-4 leading-7 text-gray-600">{description}</p>
+      <h2 className="mt-6 font-display text-3xl font-bold text-ink">{title}</h2>
+      <p className="mt-4 leading-7 text-ink-muted">{description}</p>
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
-          <div key={item} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
+          <div key={item} className="flex items-start gap-2 text-sm leading-6 text-ink-soft">
             <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-indigo" />
             {item}
           </div>
         ))}
       </div>
-      {note && <p className="mt-5 text-xs leading-5 text-gray-500">{note}</p>}
+      {note && <p className="mt-5 text-xs leading-5 text-ink-muted">{note}</p>}
     </article>
   );
 }
 
 function InfoGrid({ icon: Icon, title, intro, items }) {
   return (
-    <article className="rounded-[2rem] border border-gray-100 bg-white p-7 shadow-sm">
+    <article className="rounded-[2rem] border border-[var(--line)] bg-white p-7 shadow-sm">
       <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
         <Icon className="h-7 w-7" />
       </div>
-      <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">{title}</h2>
-      <p className="mt-4 leading-7 text-gray-600">{intro}</p>
+      <h2 className="mt-6 font-display text-3xl font-bold text-ink">{title}</h2>
+      <p className="mt-4 leading-7 text-ink-muted">{intro}</p>
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
-          <div key={item} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
+          <div key={item} className="flex items-start gap-2 text-sm leading-6 text-ink-soft">
             <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-indigo" />
             {item}
           </div>

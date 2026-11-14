@@ -12,17 +12,17 @@ const services = [
 
 export default function ServiceMarquee() {
   return (
-    <section className="py-16 bg-gray-50 overflow-hidden border-t border-gray-100">
+    <section className="py-16 bg-paper overflow-hidden border-t border-[var(--line)]">
       <div className="container mx-auto px-6 mb-8 text-center">
         <p className="text-indigo font-semibold mb-2">EXPLORE MORE</p>
-        <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-800">Our Premium Services</h2>
+        <h2 className="text-3xl md:text-4xl font-display font-bold text-ink-soft">Our Premium Services</h2>
       </div>
 
       {/* Scrolling Marquee Container */}
       <div className="relative w-full">
         {/* Edge gradients for a smooth fade effect */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-paper to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-paper to-transparent z-10 pointer-events-none"></div>
 
         {/* The scrolling track */}
         <div className="flex gap-6 animate-marquee hover:[animation-play-state:paused] w-max">

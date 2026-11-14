@@ -21,7 +21,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-paper">
       <div className="container mx-auto px-6">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
@@ -31,7 +31,7 @@ export default function HowItWorks() {
           className="text-center mb-16"
         >
           <p className="text-indigo font-semibold mb-2">SIMPLE PROCESS</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-800">How It Works</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-ink-soft">How It Works</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-12 relative">
@@ -44,15 +44,15 @@ export default function HowItWorks() {
               transition={{ duration: 0.5, delay: index * 0.2 }}
               className="text-center relative"
             >
-              <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md border border-gray-100">
+              <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md border border-[var(--line)]">
                 <step.icon className="w-10 h-10 text-indigo" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-3">{step.title}</h3>
-              <p className="text-gray-600 max-w-xs mx-auto">{step.desc}</p>
+              <h3 className="text-2xl font-bold text-ink-soft mb-3">{step.title}</h3>
+              <p className="text-ink-muted max-w-xs mx-auto">{step.desc}</p>
               
               {/* Dotted line between steps */}
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-10 left-[60%] w-full border-t-2 border-dashed border-gray-200"></div>
+                <div className="hidden md:block absolute top-10 left-[60%] w-full border-t-2 border-dashed border-[var(--line)]"></div>
               )}
             </motion.div>
           ))}

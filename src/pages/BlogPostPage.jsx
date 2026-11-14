@@ -240,9 +240,9 @@ export default function BlogPostPage() {
 
       <main className="min-h-screen overflow-hidden bg-white pb-24 pt-20">
         <article>
-          <header className="relative isolate overflow-hidden bg-gray-950">
+          <header className="relative isolate overflow-hidden bg-ink">
             <img src={post.featuredImage} alt="" className="absolute inset-0 h-full w-full object-cover" aria-hidden="true" />
-            <div className="absolute inset-0 bg-slate-950/50" />
+            <div className="absolute inset-0 bg-ink/50" />
             <BookOpen className="absolute -bottom-20 -right-12 h-72 w-72 rotate-12 text-white/[0.035]" />
 
             <div className="container relative mx-auto px-5 py-20 sm:px-6 md:py-28">
@@ -254,7 +254,7 @@ export default function BlogPostPage() {
               >
                 <nav
                   aria-label="Breadcrumb"
-                  className="flex flex-wrap items-center gap-2 text-sm text-gray-400"
+                  className="flex flex-wrap items-center gap-2 text-sm text-ink-muted"
                 >
                   <Link
                     to="/"
@@ -272,7 +272,7 @@ export default function BlogPostPage() {
                   </Link>
                   <span aria-hidden="true">/</span>
                   <span
-                    className="max-w-full truncate text-gray-300"
+                    className="max-w-full truncate text-[var(--line)]"
                     aria-current="page"
                   >
                     {post.title}
@@ -287,11 +287,11 @@ export default function BlogPostPage() {
                   {post.title}
                 </h1>
 
-                <p className="mt-6 max-w-3xl text-base leading-7 text-gray-300 sm:text-lg">
+                <p className="mt-6 max-w-3xl text-base leading-7 text-[var(--line)] sm:text-lg">
                   {post.excerpt}
                 </p>
 
-                <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-gray-400">
+                <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-ink-muted">
                   <span className="inline-flex items-center gap-2">
                     <UserRound className="h-4 w-4" />
                     {post.author}
@@ -319,7 +319,7 @@ export default function BlogPostPage() {
                 initial={reducedMotion ? false : { opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: reducedMotion ? 0 : 0.5 }}
-                className="overflow-hidden rounded-[2rem] border border-gray-100 bg-gray-100 shadow-2xl"
+                className="overflow-hidden rounded-[2rem] border border-[var(--line)] bg-[var(--line)] shadow-2xl"
               >
                 <img
                   src={post.featuredImage}
@@ -341,10 +341,10 @@ export default function BlogPostPage() {
             <div className="container mx-auto grid max-w-6xl gap-10 px-5 sm:px-6 lg:grid-cols-[minmax(0,1fr)_280px]">
               <div
                 className={[
-                  "prose prose-lg max-w-none prose-headings:font-display prose-headings:font-bold prose-headings:text-gray-900",
-                  "prose-p:leading-8 prose-p:text-gray-700 prose-a:font-semibold prose-a:text-indigo-deep prose-a:no-underline hover:prose-a:underline",
-                  "prose-strong:text-gray-900 prose-li:text-gray-700 prose-blockquote:border-indigo prose-blockquote:bg-indigo-soft prose-blockquote:px-5 prose-blockquote:py-2 prose-blockquote:text-gray-700",
-                  "prose-img:rounded-2xl prose-hr:border-gray-200 prose-table:overflow-hidden prose-th:bg-gray-100 prose-th:p-3 prose-td:p-3",
+                  "prose prose-lg max-w-none prose-headings:font-display prose-headings:font-bold prose-headings:text-ink",
+                  "prose-p:leading-8 prose-p:text-ink-soft prose-a:font-semibold prose-a:text-indigo-deep prose-a:no-underline hover:prose-a:underline",
+                  "prose-strong:text-ink prose-li:text-ink-soft prose-blockquote:border-indigo prose-blockquote:bg-indigo-soft prose-blockquote:px-5 prose-blockquote:py-2 prose-blockquote:text-ink-soft",
+                  "prose-img:rounded-2xl prose-hr:border-[var(--line)] prose-table:overflow-hidden prose-th:bg-[var(--line)] prose-th:p-3 prose-td:p-3",
                 ].join(" ")}
               >
                 <ReactMarkdown
@@ -408,9 +408,9 @@ export default function BlogPostPage() {
               </div>
 
               <aside className="space-y-5 lg:sticky lg:top-28 lg:self-start">
-                <div className="rounded-3xl border border-gray-100 bg-gray-50 p-6">
+                <div className="rounded-3xl border border-[var(--line)] bg-paper p-6">
                   <Gem className="h-7 w-7 text-indigo" />
-                  <h2 className="mt-5 text-xl font-bold text-gray-900">
+                  <h2 className="mt-5 text-xl font-bold text-ink">
                     Article Summary
                   </h2>
                   <dl className="mt-5 space-y-4 text-sm">
@@ -423,14 +423,14 @@ export default function BlogPostPage() {
                   </dl>
                 </div>
 
-                <div className="rounded-3xl bg-gray-950 p-6 text-white shadow-xl">
+                <div className="rounded-3xl bg-ink p-6 text-white shadow-xl">
                   <Sparkles className="h-7 w-7 text-mint" />
 
                   <h2 className="mt-5 text-xl font-bold">
                     Need Professional Cleaning?
                   </h2>
 
-                  <p className="mt-3 text-sm leading-6 text-gray-400">
+                  <p className="mt-3 text-sm leading-6 text-ink-muted">
                     Explore the service related to this guide, request a
                     personalized quotation, or return to the Byt Cleaning Services homepage.
                   </p>
@@ -454,7 +454,7 @@ export default function BlogPostPage() {
 
                     <Link
                       to="/"
-                      className="inline-flex items-center gap-2 px-1 py-2 text-sm font-semibold text-gray-400 transition hover:text-white"
+                      className="inline-flex items-center gap-2 px-1 py-2 text-sm font-semibold text-ink-muted transition hover:text-white"
                     >
                       <Home className="h-4 w-4" />
                       Return to Home
@@ -467,7 +467,7 @@ export default function BlogPostPage() {
         </article>
 
         {relatedPosts.length > 0 && (
-          <section className="bg-gray-50 py-20">
+          <section className="bg-paper py-20">
             <div className="container mx-auto max-w-6xl px-5 sm:px-6">
               <motion.div
                 initial={reducedMotion ? false : { opacity: 0, y: 24 }}
@@ -479,7 +479,7 @@ export default function BlogPostPage() {
                 <span className="mb-3 block text-xs font-bold uppercase tracking-[0.22em] text-indigo-deep">
                   Continue reading
                 </span>
-                <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+                <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
                   Related Articles
                 </h2>
               </motion.div>
@@ -500,7 +500,7 @@ export default function BlogPostPage() {
 
         <section className="bg-white px-5 py-10 sm:px-6">
           <div className="container mx-auto max-w-6xl">
-            <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+            <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-ink px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
               <BookOpen className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
 
               <div className="relative mx-auto max-w-3xl">
@@ -555,11 +555,11 @@ export default function BlogPostPage() {
 
 function MetaRow({ label, value }) {
   return (
-    <div className="border-b border-gray-200 pb-3 last:border-0 last:pb-0">
-      <dt className="text-xs font-bold uppercase tracking-wider text-gray-500">
+    <div className="border-b border-[var(--line)] pb-3 last:border-0 last:pb-0">
+      <dt className="text-xs font-bold uppercase tracking-wider text-ink-muted">
         {label}
       </dt>
-      <dd className="mt-1 font-semibold text-gray-900">{value}</dd>
+      <dd className="mt-1 font-semibold text-ink">{value}</dd>
     </div>
   );
 }
@@ -576,11 +576,11 @@ function RelatedPostCard({ post, index, reducedMotion }) {
         duration: reducedMotion ? 0 : 0.4,
         delay: reducedMotion ? 0 : Math.min(index * 0.06, 0.18),
       }}
-      className="group overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-xl"
+      className="group overflow-hidden rounded-3xl border border-[var(--line)] bg-white shadow-sm transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-xl"
     >
       <Link
         to={`/blog/${post.slug}`}
-        className="block aspect-[16/10] overflow-hidden bg-gray-100"
+        className="block aspect-[16/10] overflow-hidden bg-[var(--line)]"
         aria-label={`Read ${post.title}`}
       >
         <img
@@ -602,7 +602,7 @@ function RelatedPostCard({ post, index, reducedMotion }) {
           {post.category || "Cleaning Guides"}
         </p>
 
-        <h3 className="mt-3 text-xl font-bold leading-snug text-gray-900">
+        <h3 className="mt-3 text-xl font-bold leading-snug text-ink">
           <Link
             to={`/blog/${post.slug}`}
             className="transition hover:text-indigo-deep"
@@ -611,7 +611,7 @@ function RelatedPostCard({ post, index, reducedMotion }) {
           </Link>
         </h3>
 
-        <p className="mt-4 text-sm leading-6 text-gray-600">
+        <p className="mt-4 text-sm leading-6 text-ink-muted">
           {post.excerpt ||
             "Read more practical cleaning advice from Byt Cleaning Services."}
         </p>
@@ -639,17 +639,17 @@ function ArticleNotFound() {
         />
       </Helmet>
 
-      <main className="min-h-screen bg-gray-50 px-5 pb-24 pt-36 sm:px-6">
+      <main className="min-h-screen bg-paper px-5 pb-24 pt-36 sm:px-6">
         <div className="container mx-auto max-w-3xl">
-          <div className="rounded-[2rem] border border-gray-100 bg-white p-8 text-center shadow-sm sm:p-12">
+          <div className="rounded-[2rem] border border-[var(--line)] bg-white p-8 text-center shadow-sm sm:p-12">
             <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-indigo-soft text-indigo-deep">
               <BookOpen className="h-8 w-8" />
             </span>
 
-            <h1 className="mt-6 font-display text-4xl font-bold text-gray-900">
+            <h1 className="mt-6 font-display text-4xl font-bold text-ink">
               Article Not Found
             </h1>
-            <p className="mx-auto mt-4 max-w-xl leading-7 text-gray-600">
+            <p className="mx-auto mt-4 max-w-xl leading-7 text-ink-muted">
               This article is unavailable, unpublished, or may have been
               removed.
             </p>
@@ -665,14 +665,14 @@ function ArticleNotFound() {
 
               <Link
                 to="/cleaning-services-dubai"
-                className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-6 py-3 font-bold text-gray-700 transition hover:border-indigo/30 hover:text-indigo-deep"
+                className="inline-flex items-center justify-center rounded-full border border-[var(--line)] bg-white px-6 py-3 font-bold text-ink-soft transition hover:border-indigo/30 hover:text-indigo-deep"
               >
                 Explore Services
               </Link>
 
               <Link
                 to="/"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-6 py-3 font-bold text-gray-700 transition hover:border-indigo/30 hover:text-indigo-deep"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--line)] bg-white px-6 py-3 font-bold text-ink-soft transition hover:border-indigo/30 hover:text-indigo-deep"
               >
                 <Home className="h-4 w-4" />
                 Home

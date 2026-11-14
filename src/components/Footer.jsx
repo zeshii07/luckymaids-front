@@ -53,7 +53,7 @@ export default function Footer() {
                 <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">
                   Ready for a cleaner, more comfortable space?
                 </h2>
-                <p className="mt-3 max-w-xl text-sm leading-6 text-gray-400 sm:text-base">
+                <p className="mt-3 max-w-xl text-sm leading-6 text-ink-muted sm:text-base">
                   Book a service online or request a personalized quotation for
                   your home, office, furniture, or move.
                 </p>
@@ -99,7 +99,7 @@ export default function Footer() {
                 </span>
               </Link>
 
-              <p className="mt-6 max-w-md text-sm leading-7 text-gray-400">
+              <p className="mt-6 max-w-md text-sm leading-7 text-ink-muted">
                 Providing professional, flexible, and customer-focused cleaning
                 services for homes and businesses across Dubai. From routine
                 housekeeping to detailed deep cleaning, we help make everyday
@@ -107,11 +107,11 @@ export default function Footer() {
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-gray-300">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-[var(--line)]">
                   <ShieldCheck className="h-4 w-4 text-mint" />
                   Clear communication
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-gray-300">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-[var(--line)]">
                   <Clock3 className="h-4 w-4 text-mint" />
                   Flexible scheduling
                 </span>
@@ -126,7 +126,7 @@ export default function Footer() {
                       key={social.name}
                       href={social.href}
                       aria-label={social.name}
-                      className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-gray-300 transition hover:-translate-y-0.5 hover:border-indigo/40 hover:bg-indigo hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo"
+                      className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-[var(--line)] transition hover:-translate-y-0.5 hover:border-indigo/40 hover:bg-indigo hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo"
                     >
                       <Icon className="h-5 w-5" />
                     </a>
@@ -202,7 +202,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10">
-          <div className="container mx-auto flex flex-col gap-4 px-5 py-6 text-sm text-gray-500 sm:px-6 md:flex-row md:items-center md:justify-between">
+          <div className="container mx-auto flex flex-col gap-4 px-5 py-6 text-sm text-ink-muted sm:px-6 md:flex-row md:items-center md:justify-between">
             <p>
               © {year} Byt Cleaning Services. All rights reserved.
             </p>
@@ -245,7 +245,7 @@ function FooterColumn({ title, links }) {
           <li key={link.path}>
             <Link
               to={link.path}
-              className="group inline-flex items-center gap-2 text-sm text-gray-400 transition hover:text-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo"
+              className="group inline-flex items-center gap-2 text-sm text-ink-muted transition hover:text-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-ink-soft transition group-hover:bg-mint" />
               {link.name}
@@ -264,10 +264,10 @@ function ContactItem({ icon: Icon, label, content }) {
         <Icon className="h-4.5 w-4.5" />
       </span>
       <div>
-        <p className="text-xs font-bold uppercase tracking-wider text-gray-500">
+        <p className="text-xs font-bold uppercase tracking-wider text-ink-muted">
           {label}
         </p>
-        <div className="mt-1 text-sm leading-6 text-gray-300">{content}</div>
+        <div className="mt-1 text-sm leading-6 text-[var(--line)]">{content}</div>
       </div>
     </li>
   );

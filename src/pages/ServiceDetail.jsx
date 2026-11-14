@@ -51,7 +51,7 @@ export default function ServiceDetail() {
       {/* Hero Section */}
       <div className="relative h-[400px] w-full overflow-hidden">
         <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/50 to-transparent"></div>
         
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
@@ -59,7 +59,7 @@ export default function ServiceDetail() {
               <ArrowLeft className="w-4 h-4 mr-2" /> Back to Home
             </Link>
             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-2">{service.title}</h1>
-            <p className="text-xl text-gray-200">{service.subtitle}</p>
+            <p className="text-xl text-[var(--line)]">{service.subtitle}</p>
           </motion.div>
         </div>
       </div>
@@ -75,12 +75,12 @@ export default function ServiceDetail() {
           transition={{ duration: 0.6 }}
           className="md:col-span-2"
         >
-          <h2 className="text-3xl font-display font-bold text-gray-800 mb-8">What's Included</h2>
+          <h2 className="text-3xl font-display font-bold text-ink-soft mb-8">What's Included</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {service.features.map((feature, index) => (
-              <div key={index} className="flex items-start bg-gray-50 p-4 rounded-xl border border-gray-100">
+              <div key={index} className="flex items-start bg-paper p-4 rounded-xl border border-[var(--line)]">
                 <CheckCircle className="w-6 h-6 text-indigo mr-3 flex-shrink-0 mt-1" />
-                <span className="text-gray-700">{feature}</span>
+                <span className="text-ink-soft">{feature}</span>
               </div>
             ))}
           </div>
@@ -95,26 +95,26 @@ export default function ServiceDetail() {
           className="space-y-8"
         >
           <div className="bg-indigo-soft p-8 rounded-3xl border border-indigo-soft">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Why Choose Us?</h3>
+            <h3 className="text-2xl font-bold text-ink-soft mb-6">Why Choose Us?</h3>
             <div className="space-y-4">
               <div className="flex items-center">
                 <div className="bg-white p-2 rounded-lg shadow-sm mr-4"><Leaf className="w-5 h-5 text-indigo" /></div>
-                <p className="text-gray-700">Eco-Friendly Products</p>
+                <p className="text-ink-soft">Eco-Friendly Products</p>
               </div>
               <div className="flex items-center">
                 <div className="bg-white p-2 rounded-lg shadow-sm mr-4"><ShieldCheck className="w-5 h-5 text-indigo" /></div>
-                <p className="text-gray-700">100% Satisfaction Guarantee</p>
+                <p className="text-ink-soft">100% Satisfaction Guarantee</p>
               </div>
               <div className="flex items-center">
                 <div className="bg-white p-2 rounded-lg shadow-sm mr-4"><Calendar className="w-5 h-5 text-indigo" /></div>
-                <p className="text-gray-700">Flexible Scheduling</p>
+                <p className="text-ink-soft">Flexible Scheduling</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-900 p-8 rounded-3xl text-center">
+          <div className="bg-ink p-8 rounded-3xl text-center">
             <h3 className="text-2xl font-bold text-white mb-4">Ready to Book?</h3>
-            <p className="text-gray-400 mb-6">Get a free estimate for {service.title} today.</p>
+            <p className="text-ink-muted mb-6">Get a free estimate for {service.title} today.</p>
             <Link to="/booking" className="block bg-indigo text-white py-4 rounded-xl hover:bg-indigo-deep transition font-semibold">
               Book This Service
             </Link>

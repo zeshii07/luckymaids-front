@@ -305,7 +305,7 @@ export default function MaidServices() {
           fetchPriority="high"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-900/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/20 to-transparent" />
 
         <div className="container relative mx-auto flex min-h-[640px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">
           <motion.div
@@ -356,10 +356,10 @@ export default function MaidServices() {
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...animation} className="mx-auto max-w-4xl text-center">
             <SectionEyebrow>Built around your routine</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Flexible Maid and Housekeeping Services
             </h2>
-            <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg">
+            <p className="mt-5 text-base leading-7 text-ink-muted sm:text-lg">
               Every household has a different schedule, layout, and cleaning
               routine. Rather than providing an identical service to every
               customer, we allow you to customize the service according to:
@@ -370,17 +370,17 @@ export default function MaidServices() {
             {customizationOptions.map((item) => (
               <div
                 key={item}
-                className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4"
+                className="flex items-start gap-3 rounded-2xl border border-[var(--line)] bg-paper p-4"
               >
                 <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-indigo" />
-                <span className="text-sm font-medium leading-6 text-gray-700">{item}</span>
+                <span className="text-sm font-medium leading-6 text-ink-soft">{item}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <div className="grid gap-6 md:grid-cols-3">
             {serviceTypes.map((service, index) => {
@@ -393,13 +393,13 @@ export default function MaidServices() {
                     duration: prefersReducedMotion ? 0 : 0.4,
                     delay: prefersReducedMotion ? 0 : index * 0.06,
                   }}
-                  className="rounded-3xl border border-gray-100 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-xl"
+                  className="rounded-3xl border border-[var(--line)] bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-xl"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
                     <Icon className="h-7 w-7" />
                   </div>
-                  <h3 className="mt-6 text-xl font-bold text-gray-900">{service.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-gray-600">{service.desc}</p>
+                  <h3 className="mt-6 text-xl font-bold text-ink">{service.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-ink-muted">{service.desc}</p>
                 </motion.article>
               );
             })}
@@ -428,14 +428,14 @@ export default function MaidServices() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...animation} className="text-center">
             <SectionEyebrow>Room-by-room coverage</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               What Is Included in Maid Services?
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-gray-600 sm:text-lg">
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-ink-muted sm:text-lg">
               The following tasks may be completed during a standard
               maid-service appointment, depending on the booked time and
               customer priorities.
@@ -446,12 +446,12 @@ export default function MaidServices() {
             {roomChecklists.map((room) => (
               <article
                 key={room.title}
-                className="rounded-3xl border border-gray-100 bg-white p-7 shadow-sm"
+                className="rounded-3xl border border-[var(--line)] bg-white p-7 shadow-sm"
               >
-                <h3 className="text-xl font-bold text-gray-900">{room.title}</h3>
+                <h3 className="text-xl font-bold text-ink">{room.title}</h3>
                 <ul className="mt-6 space-y-3">
                   {room.items.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm leading-6 text-gray-700">
+                    <li key={item} className="flex items-start gap-3 text-sm leading-6 text-ink-soft">
                       <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-indigo" />
                       {item}
                     </li>
@@ -491,14 +491,14 @@ export default function MaidServices() {
         </div>
       </section>
 
-      <section id="booking-picker" className="scroll-mt-24 bg-gray-950 py-20">
+      <section id="booking-picker" className="scroll-mt-24 bg-ink py-20">
         <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-[1.35fr_0.65fr]">
           <motion.div {...animation} className="rounded-[2rem] bg-white p-6 sm:p-8">
             <SectionEyebrow>Build your booking</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900">
+            <h2 className="font-display text-3xl font-bold text-ink">
               Book Your Maid Service
             </h2>
-            <p className="mt-4 text-gray-600">
+            <p className="mt-4 text-ink-muted">
               Select the number of hours and cleaners required. Minimum booking is 2 hours.
             </p>
 
@@ -524,7 +524,7 @@ export default function MaidServices() {
             </div>
 
             <fieldset className="mt-7">
-              <legend className="text-sm font-bold text-gray-800">
+              <legend className="text-sm font-bold text-ink-soft">
                 Bring Cleaning Materials? (+20 AED)
               </legend>
               <div className="mt-3 grid grid-cols-2 gap-3">
@@ -560,7 +560,7 @@ export default function MaidServices() {
 
               <div className="mt-6 border-t border-white/10 pt-6">
                 <div className="flex items-end justify-between gap-4">
-                  <span className="text-sm text-gray-300">Estimated total</span>
+                  <span className="text-sm text-[var(--line)]">Estimated total</span>
                   <span className="text-3xl font-bold text-mint">
                     {totalAmount} AED
                   </span>
@@ -594,25 +594,25 @@ export default function MaidServices() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto grid max-w-6xl gap-10 px-5 sm:px-6 lg:grid-cols-2">
           <div>
             <SectionEyebrow>Six clear stages</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900">
+            <h2 className="font-display text-3xl font-bold text-ink">
               Our Booking Process
             </h2>
             <div className="mt-8 space-y-4">
               {processSteps.map((step, index) => (
                 <article
                   key={step.title}
-                  className="flex gap-4 rounded-2xl border border-gray-100 bg-white p-5"
+                  className="flex gap-4 rounded-2xl border border-[var(--line)] bg-white p-5"
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo text-sm font-bold text-white">
                     {index + 1}
                   </span>
                   <div>
-                    <h3 className="font-bold text-gray-900">{step.title}</h3>
-                    <p className="mt-1 text-sm leading-6 text-gray-600">{step.desc}</p>
+                    <h3 className="font-bold text-ink">{step.title}</h3>
+                    <p className="mt-1 text-sm leading-6 text-ink-muted">{step.desc}</p>
                   </div>
                 </article>
               ))}
@@ -621,10 +621,10 @@ export default function MaidServices() {
 
           <div>
             <SectionEyebrow>Clear service boundaries</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900">
+            <h2 className="font-display text-3xl font-bold text-ink">
               Important Service Limitations
             </h2>
-            <p className="mt-5 leading-7 text-gray-600">
+            <p className="mt-5 leading-7 text-ink-muted">
               Unless specifically agreed and legally available, routine maid
               service may not include:
             </p>
@@ -636,7 +636,7 @@ export default function MaidServices() {
                   className="flex items-center gap-3 rounded-xl border border-red-100 bg-white p-3"
                 >
                   <XCircle className="h-4 w-4 shrink-0 text-red-500" />
-                  <span className="text-xs font-semibold leading-5 text-gray-700">{item}</span>
+                  <span className="text-xs font-semibold leading-5 text-ink-soft">{item}</span>
                 </div>
               ))}
             </div>
@@ -664,10 +664,10 @@ export default function MaidServices() {
         <div className="container mx-auto max-w-5xl px-5 text-center sm:px-6">
           <motion.div {...animation}>
             <SectionEyebrow>Service coverage</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Maid Services Near You in Dubai
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-gray-600 sm:text-lg">
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-ink-muted sm:text-lg">
               Subject to booking availability, we serve customers in communities including:
             </p>
           </motion.div>
@@ -676,7 +676,7 @@ export default function MaidServices() {
             {areasServed.map((area) => (
               <span
                 key={area}
-                className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700"
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-paper px-4 py-2 text-sm font-medium text-ink-soft"
               >
                 <MapPin className="h-3.5 w-3.5 text-indigo" />
                 {area}
@@ -686,11 +686,11 @@ export default function MaidServices() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-3xl px-5 sm:px-6">
           <motion.div {...animation} className="text-center">
             <SectionEyebrow>Helpful answers</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Maid Services Dubai FAQs
             </h2>
           </motion.div>
@@ -704,13 +704,13 @@ export default function MaidServices() {
               return (
                 <article
                   key={faq.q}
-                  className="overflow-hidden rounded-2xl border border-gray-200 bg-white"
+                  className="overflow-hidden rounded-2xl border border-[var(--line)] bg-white"
                 >
                   <button
                     id={buttonId}
                     type="button"
                     onClick={() => setOpenFaq(open ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo"
+                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-ink transition hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo"
                     aria-expanded={open}
                     aria-controls={panelId}
                   >
@@ -742,7 +742,7 @@ export default function MaidServices() {
                         transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
                         className="overflow-hidden"
                       >
-                        <p className="px-5 pb-5 text-sm leading-6 text-gray-600">{faq.a}</p>
+                        <p className="px-5 pb-5 text-sm leading-6 text-ink-muted">{faq.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -760,7 +760,7 @@ export default function MaidServices() {
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-ink px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
             <Home className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
             <div className="relative mx-auto max-w-3xl">
               <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
@@ -796,13 +796,13 @@ function SectionEyebrow({ children }) {
 
 function PropertyCard({ icon: Icon, title, paragraphs }) {
   return (
-    <article className="rounded-3xl border border-gray-100 bg-gray-50 p-7">
+    <article className="rounded-3xl border border-[var(--line)] bg-paper p-7">
       <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
         <Icon className="h-7 w-7" />
       </div>
-      <h3 className="mt-6 text-2xl font-bold text-gray-900">{title}</h3>
+      <h3 className="mt-6 text-2xl font-bold text-ink">{title}</h3>
       {paragraphs.map((paragraph) => (
-        <p key={paragraph} className="mt-4 leading-7 text-gray-600">
+        <p key={paragraph} className="mt-4 leading-7 text-ink-muted">
           {paragraph}
         </p>
       ))}
@@ -812,16 +812,16 @@ function PropertyCard({ icon: Icon, title, paragraphs }) {
 
 function FeaturePanel({ icon: Icon, title, body, bullets = [], bulletIcon: BulletIcon }) {
   return (
-    <article className="rounded-3xl border border-gray-100 bg-gray-50 p-7">
+    <article className="rounded-3xl border border-[var(--line)] bg-paper p-7">
       <div className="flex items-center gap-4">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
           <Icon className="h-6 w-6" />
         </div>
-        <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
+        <h3 className="text-2xl font-bold text-ink">{title}</h3>
       </div>
 
       {body.map((paragraph) => (
-        <p key={paragraph} className="mt-4 leading-7 text-gray-600">
+        <p key={paragraph} className="mt-4 leading-7 text-ink-muted">
           {paragraph}
         </p>
       ))}
@@ -829,7 +829,7 @@ function FeaturePanel({ icon: Icon, title, body, bullets = [], bulletIcon: Bulle
       {bullets.length > 0 && (
         <ul className="mt-5 space-y-3">
           {bullets.map((item) => (
-            <li key={item} className="flex items-start gap-3 text-sm text-gray-700">
+            <li key={item} className="flex items-start gap-3 text-sm text-ink-soft">
               {BulletIcon ? (
                 <BulletIcon className="mt-0.5 h-4 w-4 shrink-0 text-indigo" />
               ) : (
@@ -856,25 +856,25 @@ function CounterControl({
   return (
     <div>
       <div className="mb-2">
-        <p className="text-sm font-bold text-gray-800">{label}</p>
-        <p className="text-xs text-gray-500">{help}</p>
+        <p className="text-sm font-bold text-ink-soft">{label}</p>
+        <p className="text-xs text-ink-muted">{help}</p>
       </div>
-      <div className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 p-3">
+      <div className="flex items-center justify-between rounded-2xl border border-[var(--line)] bg-paper p-3">
         <button
           type="button"
           onClick={onDecrease}
           disabled={decreaseDisabled}
-          className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40"
+          className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-ink-soft shadow-sm transition hover:bg-[var(--line)] disabled:cursor-not-allowed disabled:opacity-40"
           aria-label={`Decrease ${label.toLowerCase()}`}
         >
           <Minus className="h-4 w-4" />
         </button>
-        <span className="font-bold text-gray-900">{value}</span>
+        <span className="font-bold text-ink">{value}</span>
         <button
           type="button"
           onClick={onIncrease}
           disabled={increaseDisabled}
-          className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40"
+          className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-ink-soft shadow-sm transition hover:bg-[var(--line)] disabled:cursor-not-allowed disabled:opacity-40"
           aria-label={`Increase ${label.toLowerCase()}`}
         >
           <Plus className="h-4 w-4" />
@@ -893,7 +893,7 @@ function ChoiceButton({ selected, onClick, label }) {
       className={`rounded-xl border-2 p-3 text-sm font-bold transition ${
         selected
           ? "border-indigo bg-indigo-soft text-indigo-deep"
-          : "border-gray-200 bg-white text-gray-500 hover:border-gray-300"
+          : "border-[var(--line)] bg-white text-ink-muted hover:border-[var(--line)]"
       }`}
     >
       {label}
@@ -904,7 +904,7 @@ function ChoiceButton({ selected, onClick, label }) {
 function SummaryRow({ label, value }) {
   return (
     <div className="flex items-center justify-between gap-4">
-      <dt className="text-gray-300">{label}</dt>
+      <dt className="text-[var(--line)]">{label}</dt>
       <dd className="font-semibold text-white">{value}</dd>
     </div>
   );

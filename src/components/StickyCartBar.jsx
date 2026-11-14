@@ -15,7 +15,7 @@ export default function StickyCartBar() {
           exit={{ y: 100, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 200, damping: 20 }}
           // Changed to a subtle upward shadow, reduced padding (p-3), and removed blur for better mobile performance
-          className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] p-3 sm:p-4"
+          className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[var(--line)] shadow-[0_-4px_20px_rgba(0,0,0,0.1)] p-3 sm:p-4"
         >
           <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
             
@@ -29,7 +29,7 @@ export default function StickyCartBar() {
               </div>
               <div className="text-left">
                 {/* Hidden the "Total" text on mobile to save space */}
-                <p className="hidden sm:block text-sm text-gray-500 leading-none mb-1">Total Amount</p>
+                <p className="hidden sm:block text-sm text-ink-muted leading-none mb-1">Total Amount</p>
                 <p className="text-lg sm:text-2xl font-bold text-indigo-deep leading-none">{cartTotal} AED</p>
               </div>
             </div>

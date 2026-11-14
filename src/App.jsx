@@ -35,6 +35,7 @@ const AreasWeServe = lazy(() => import("./pages/AreasWeServe"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
 const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Lazy-loaded service pages
 const Residential = lazy(
@@ -380,12 +381,7 @@ export default function App() {
 
                   <Route
                     path="*"
-                    element={
-                      <Navigate
-                        to="/"
-                        replace
-                      />
-                    }
+                    element={<NotFound />}
                   />
                 </Routes>
               </Suspense>

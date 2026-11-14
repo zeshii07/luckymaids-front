@@ -90,7 +90,7 @@ const initialFormData = {
 
 const ease = [0.22, 1, 0.36, 1];
 const inputClass =
-  "w-full rounded-xl border border-gray-200 bg-white px-4 py-3.5 text-gray-900 outline-none transition placeholder:text-gray-400 hover:border-gray-300 focus:border-indigo focus:ring-4 focus:ring-indigo-soft disabled:cursor-not-allowed disabled:bg-gray-50";
+  "w-full rounded-xl border border-[var(--line)] bg-white px-4 py-3.5 text-ink outline-none transition placeholder:text-ink-muted hover:border-[var(--line)] focus:border-indigo focus:ring-4 focus:ring-indigo-soft disabled:cursor-not-allowed disabled:bg-paper";
 
 export default function Contact() {
   const [status, setStatus] = useState("idle");
@@ -158,7 +158,7 @@ export default function Contact() {
   };
 
   return (
-    <main className="min-h-screen overflow-hidden bg-white text-gray-900">
+    <main className="min-h-screen overflow-hidden bg-white text-ink">
       <Helmet>
         <title>Contact Byt Cleaning Services | Cleaning Services Dubai</title>
         <meta
@@ -167,9 +167,9 @@ export default function Contact() {
         />
       </Helmet>
 
-      <section className="relative isolate overflow-hidden bg-gray-950 pt-28 text-white sm:pt-32">
+      <section className="relative isolate overflow-hidden bg-ink pt-28 text-white sm:pt-32">
         <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1800&q=85" alt="Friendly customer support team ready to help" className="absolute inset-0 -z-20 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-slate-950/45" />
+        <div className="absolute inset-0 -z-10 bg-ink/45" />
         <div className="container mx-auto max-w-7xl px-5 pb-20 sm:px-6 lg:px-8 lg:pb-28">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
@@ -188,7 +188,7 @@ export default function Contact() {
               <h2 className="mt-5 text-xl font-semibold text-indigo/30 sm:text-2xl">
                 We're Here to Help
               </h2>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-gray-300 sm:text-lg">
+              <p className="mt-5 max-w-3xl text-base leading-8 text-white/70 sm:text-lg">
                 Whether you have a question about our services, would like to
                 request a quotation, or are ready to schedule a cleaning
                 appointment, our team is here to assist. We aim to respond
@@ -232,7 +232,7 @@ export default function Contact() {
                     className="mb-4 h-6 w-6 text-mint"
                     aria-hidden="true"
                   />
-                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
                     {item.label}
                   </p>
                   {item.href ? (
@@ -260,7 +260,7 @@ export default function Contact() {
         <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <div className="grid gap-7 lg:grid-cols-[.72fr_1.28fr] lg:items-start">
             <motion.aside {...reveal} className="space-y-6 lg:sticky lg:top-28">
-              <div className="rounded-[2rem] bg-gray-950 p-7 text-white shadow-xl sm:p-8">
+              <div className="rounded-[2rem] bg-ink p-7 text-white shadow-xl sm:p-8">
                 <h2 className="text-2xl font-display font-bold">
                   Get in Touch
                 </h2>
@@ -272,7 +272,7 @@ export default function Contact() {
                       content: (
                         <a
                           href="tel:+971553730702"
-                          className="text-gray-300 transition hover:text-white"
+                          className="text-white/70 transition hover:text-white"
                         >
                           +971 55 373 0702
                         </a>
@@ -286,7 +286,7 @@ export default function Contact() {
                           href="https://wa.me/971553730702"
                           target="_blank"
                           rel="noreferrer"
-                          className="text-gray-300 transition hover:text-white"
+                          className="text-white/70 transition hover:text-white"
                         >
                           +971 55 373 0702
                         </a>
@@ -298,7 +298,7 @@ export default function Contact() {
                       content: (
                         <a
                           href="mailto:bytalhryacleaning@gmail.com"
-                          className="break-all text-gray-300 transition hover:text-white"
+                          className="break-all text-white/70 transition hover:text-white"
                         >
                           bytalhryacleaning@gmail.com
                         </a>
@@ -309,8 +309,8 @@ export default function Contact() {
                       title: "Business Hours",
                       content: (
                         <>
-                          <p className="text-gray-300">Monday – Sunday</p>
-                          <p className="text-gray-300">8:00 AM – 8:00 PM</p>
+                          <p className="text-white/70">Monday – Sunday</p>
+                          <p className="text-white/70">8:00 AM – 8:00 PM</p>
                         </>
                       ),
                     },
@@ -333,18 +333,18 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="rounded-[2rem] border border-gray-200 bg-white p-7 shadow-sm sm:p-8">
-                <h2 className="text-xl font-bold text-gray-900">
+              <div className="rounded-[2rem] border border-[var(--line)] bg-white p-7 shadow-sm sm:p-8">
+                <h2 className="text-xl font-bold text-ink">
                   Our Cleaning Services
                 </h2>
-                <p className="mt-2 text-sm text-gray-600">
+                <p className="mt-2 text-sm text-ink-muted">
                   We can assist with:
                 </p>
                 <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                   {servicesList.map((service) => (
                     <div
                       key={service}
-                      className="flex items-start gap-2 text-sm text-gray-700"
+                      className="flex items-start gap-2 text-sm text-ink-soft"
                     >
                       <CheckCircle
                         className="mt-0.5 h-4 w-4 shrink-0 text-indigo-deep"
@@ -363,17 +363,17 @@ export default function Contact() {
                 ...reveal.transition,
                 delay: reduceMotion ? 0 : 0.08,
               }}
-              className="rounded-[2rem] border border-gray-200 bg-white p-6 shadow-[0_24px_80px_-35px_rgba(15,23,42,0.35)] sm:p-9 lg:p-11"
+              className="rounded-[2rem] border border-[var(--line)] bg-white p-6 shadow-[0_24px_80px_-35px_rgba(15,23,42,0.35)] sm:p-9 lg:p-11"
             >
-              <div className="mb-8 flex flex-col gap-3 border-b border-gray-100 pb-8 sm:flex-row sm:items-end sm:justify-between">
+              <div className="mb-8 flex flex-col gap-3 border-b border-[var(--line)] pb-8 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <span className="text-sm font-bold uppercase tracking-[0.18em] text-indigo-deep">
                     Free quotation
                   </span>
-                  <h2 className="mt-3 text-3xl font-display font-bold text-gray-900">
+                  <h2 className="mt-3 text-3xl font-display font-bold text-ink">
                     Request a Free Quote
                   </h2>
-                  <p className="mt-3 max-w-2xl text-gray-600">
+                  <p className="mt-3 max-w-2xl text-ink-muted">
                     To help us recommend the most suitable service, please
                     include your details below.
                   </p>
@@ -605,20 +605,20 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20 sm:py-24">
+      <section className="bg-paper py-20 sm:py-24">
         <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <motion.div
             {...reveal}
-            className="grid gap-10 rounded-[2rem] border border-gray-200 bg-white p-7 shadow-sm sm:p-10 lg:grid-cols-[.75fr_1.25fr] lg:items-center lg:p-14"
+            className="grid gap-10 rounded-[2rem] border border-[var(--line)] bg-white p-7 shadow-sm sm:p-10 lg:grid-cols-[.75fr_1.25fr] lg:items-center lg:p-14"
           >
             <div>
               <span className="text-sm font-bold uppercase tracking-[0.18em] text-indigo-deep">
                 Areas we serve
               </span>
-              <h2 className="mt-4 text-3xl font-display font-bold text-gray-900 sm:text-4xl">
+              <h2 className="mt-4 text-3xl font-display font-bold text-ink sm:text-4xl">
                 Cleaning services across Dubai.
               </h2>
-              <p className="mt-5 text-lg leading-8 text-gray-600">
+              <p className="mt-5 text-lg leading-8 text-ink-muted">
                 We proudly provide services across many areas of Dubai. Contact
                 us if your area is not listed, and we'll be happy to confirm
                 availability.
@@ -628,7 +628,7 @@ export default function Contact() {
               {areasServed.map((area) => (
                 <span
                   key={area}
-                  className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700"
+                  className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-paper px-4 py-2 text-sm font-medium text-ink-soft"
                 >
                   <MapPin
                     className="h-3.5 w-3.5 text-indigo-deep"
@@ -648,7 +648,7 @@ export default function Contact() {
             <span className="text-sm font-bold uppercase tracking-[0.18em] text-indigo-deep">
               FAQs
             </span>
-            <h2 className="mt-4 text-3xl font-display font-bold text-gray-900 sm:text-5xl">
+            <h2 className="mt-4 text-3xl font-display font-bold text-ink sm:text-5xl">
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -660,7 +660,7 @@ export default function Contact() {
               return (
                 <div
                   key={faq.q}
-                  className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm"
+                  className="overflow-hidden rounded-2xl border border-[var(--line)] bg-white shadow-sm"
                 >
                   <button
                     id={buttonId}
@@ -668,7 +668,7 @@ export default function Contact() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-5 p-5 text-left font-semibold text-gray-900 outline-none transition hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo sm:p-6"
+                    className="flex w-full items-center justify-between gap-5 p-5 text-left font-semibold text-ink outline-none transition hover:bg-paper focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo sm:p-6"
                   >
                     <span>{faq.q}</span>
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-soft">
@@ -690,7 +690,7 @@ export default function Contact() {
                     transition={{ duration: reduceMotion ? 0 : 0.25, ease }}
                     className="overflow-hidden"
                   >
-                    <p className="px-5 pb-6 leading-7 text-gray-600 sm:px-6">
+                    <p className="px-5 pb-6 leading-7 text-ink-muted sm:px-6">
                       {faq.a}
                     </p>
                   </motion.div>
@@ -705,7 +705,7 @@ export default function Contact() {
         <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <motion.div
             {...reveal}
-            className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-gray-950 px-6 py-14 text-center text-white shadow-2xl sm:px-12 sm:py-16"
+            className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-ink px-6 py-14 text-center text-white shadow-2xl sm:px-12 sm:py-16"
           >
             <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
             <div className="absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-mint/20 blur-3xl" />
@@ -722,7 +722,7 @@ export default function Contact() {
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Link
                   to="/quote"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-indigo-deep shadow-lg transition hover:-translate-y-0.5 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-indigo-deep shadow-lg transition hover:-translate-y-0.5 hover:bg-indigo-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   Get a Free Quote
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -747,7 +747,7 @@ function Field({ label, htmlFor, required = false, children }) {
     <div>
       <label
         htmlFor={htmlFor}
-        className="mb-2 block text-sm font-semibold text-gray-700"
+        className="mb-2 block text-sm font-semibold text-ink-soft"
       >
         {label}
         {required && (

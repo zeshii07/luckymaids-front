@@ -29,42 +29,42 @@ export default function Confirmation() {
           <CheckCircle className="w-14 h-14 text-green-500" />
         </motion.div>
 
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-4xl md:text-5xl font-display font-bold text-gray-800 mb-4">
+        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-4xl md:text-5xl font-display font-bold text-ink-soft mb-4">
           Booking Confirmed!
         </motion.h1>
         
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-lg text-gray-600 mb-12">
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-lg text-ink-muted mb-12">
           Thank you, {customer?.name || 'Valued Customer'}! We have received your booking. Our team will arrive at the scheduled time. A confirmation email is on its way.
         </motion.p>
 
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 text-left mb-12">
-          <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">Booking Summary</h3>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="bg-white p-8 rounded-3xl shadow-lg border border-[var(--line)] text-left mb-12">
+          <h3 className="text-xl font-bold text-ink-soft mb-6 text-center">Booking Summary</h3>
           
           {/* Schedule & Location Details */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 pb-8 border-b border-gray-100">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 pb-8 border-b border-[var(--line)]">
             <div className="flex items-center">
               <div className="bg-indigo-soft p-3 rounded-xl mr-4"><Calendar className="w-6 h-6 text-indigo" /></div>
-              <div><p className="text-sm text-gray-500">Date</p><p className="font-bold text-gray-800">{customer?.date || 'N/A'}</p></div>
+              <div><p className="text-sm text-ink-muted">Date</p><p className="font-bold text-ink-soft">{customer?.date || 'N/A'}</p></div>
             </div>
             <div className="flex items-center">
               <div className="bg-indigo-soft p-3 rounded-xl mr-4"><Clock className="w-6 h-6 text-indigo" /></div>
-              <div><p className="text-sm text-gray-500">Time</p><p className="font-bold text-gray-800">{customer?.time || 'N/A'}</p></div>
+              <div><p className="text-sm text-ink-muted">Time</p><p className="font-bold text-ink-soft">{customer?.time || 'N/A'}</p></div>
             </div>
             <div className="flex items-center sm:col-span-2">
               <div className="bg-indigo-soft p-3 rounded-xl mr-4"><MapPin className="w-6 h-6 text-indigo" /></div>
-              <div><p className="text-sm text-gray-500">Location</p><p className="font-bold text-gray-800">{customer?.address || 'N/A'}</p></div>
+              <div><p className="text-sm text-ink-muted">Location</p><p className="font-bold text-ink-soft">{customer?.address || 'N/A'}</p></div>
             </div>
           </div>
 
           {/* Services Booked */}
           <div className="space-y-4">
             {items?.map((item, index) => (
-              <div key={index} className="flex justify-between items-center bg-gray-50 p-4 rounded-xl">
+              <div key={index} className="flex justify-between items-center bg-paper p-4 rounded-xl">
                 <div className="flex items-center">
                   <div className="bg-white p-2 rounded-lg shadow-sm mr-4"><Home className="w-5 h-5 text-indigo" /></div>
                   <div>
-                    <p className="font-bold text-gray-800">{item.service}</p>
-                    <p className="text-sm text-gray-500">{item.hours}h × {item.crew} crew</p>
+                    <p className="font-bold text-ink-soft">{item.service}</p>
+                    <p className="text-sm text-ink-muted">{item.hours}h × {item.crew} crew</p>
                   </div>
                 </div>
                 <p className="font-bold text-indigo-deep">{item.totalAmount} AED</p>
@@ -72,15 +72,15 @@ export default function Confirmation() {
             ))}
           </div>
 
-          <div className="flex justify-between mt-8 pt-6 border-t-2 border-dashed border-gray-100">
-            <span className="text-xl font-bold text-gray-800">Total Paid</span>
+          <div className="flex justify-between mt-8 pt-6 border-t-2 border-dashed border-[var(--line)]">
+            <span className="text-xl font-bold text-ink-soft">Total Paid</span>
             <span className="text-2xl font-bold text-green-500">{totalAmount} AED</span>
           </div>
         </motion.div>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/" className="bg-indigo text-white px-8 py-4 rounded-full hover:bg-indigo-deep transition font-semibold">Back to Home</Link>
-          <Link to="/services" className="bg-white text-gray-800 border border-gray-200 px-8 py-4 rounded-full hover:bg-gray-50 transition font-semibold">Book Another Service</Link>
+          <Link to="/services" className="bg-white text-ink-soft border border-[var(--line)] px-8 py-4 rounded-full hover:bg-paper transition font-semibold">Book Another Service</Link>
         </motion.div>
       </div>
     </div>

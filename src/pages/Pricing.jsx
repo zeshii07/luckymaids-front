@@ -18,6 +18,7 @@ import {
   Sparkles,
   SprayCan,
 } from "lucide-react";
+import { PricingCompare } from "../components/primitives";
 
 const priceFactors = [
   "Property type",
@@ -187,9 +188,9 @@ export default function Pricing() {
         <link rel="canonical" href="https://lucky-crystal.infinityfree.me/pricing/" />
       </Helmet>
 
-      <section className="relative isolate overflow-hidden bg-gray-950">
+      <section className="relative isolate overflow-hidden bg-ink">
         <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1800&q=85" alt="Clear cleaning service pricing and quotation planning" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-slate-950/45" />
+        <div className="absolute inset-0 bg-ink/45" />
         <Calculator className="absolute -bottom-20 -right-16 h-80 w-80 rotate-12 text-white/[0.035]" />
 
         <div className="container relative mx-auto px-5 py-24 sm:px-6 md:py-32">
@@ -210,13 +211,13 @@ export default function Pricing() {
             <p className="mt-5 text-xl font-semibold text-indigo/30">
               Transparent Pricing for Every Property
             </p>
-            <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-gray-300 sm:text-lg">
+            <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-[var(--line)] sm:text-lg">
               Every home and business is different. Rather than offering one
               fixed price for every customer, Byt Cleaning Services provides
               quotations based on the property&apos;s size, cleaning
               requirements, service type, and preferred schedule.
             </p>
-            <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-gray-400">
+            <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-ink-muted">
               This approach helps ensure you receive a cleaning plan that
               matches your needs without paying for unnecessary services.
             </p>
@@ -241,20 +242,24 @@ export default function Pricing() {
       </section>
 
       <section className="relative z-10 -mt-8 px-5 sm:px-6">
-        <div className="container mx-auto grid max-w-6xl gap-4 rounded-3xl border border-gray-100 bg-white p-4 shadow-xl md:grid-cols-3">
-          {[
-            [ShieldCheck, "No unclear starting prices", "Your quote explains the agreed scope before booking."],
-            [Clock3, "Time and team considered", "Hours and cleaner requirements are included in the estimate."],
-            [Camera, "Photos can improve accuracy", "Property photos may help with the initial assessment."],
-          ].map(([Icon, title, text]) => (
-            <article key={title} className="rounded-2xl bg-gray-50 p-5">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-soft text-indigo-deep">
-                <Icon className="h-5 w-5" />
-              </div>
-              <h2 className="mt-4 font-bold text-gray-900">{title}</h2>
-              <p className="mt-2 text-sm leading-6 text-gray-600">{text}</p>
-            </article>
-          ))}
+        <div className="container mx-auto max-w-6xl rounded-3xl border border-[var(--line)] bg-white p-5 shadow-xl">
+          <div className="grid divide-y divide-[var(--line)] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+            {[
+              [ShieldCheck, "No unclear starting prices", "Your quote explains the agreed scope before booking."],
+              [Clock3, "Time and team considered", "Hours and cleaner requirements are included in the estimate."],
+              [Camera, "Photos can improve accuracy", "Property photos may help with the initial assessment."],
+            ].map(([Icon, title, text]) => (
+              <article key={title} className="flex items-start gap-3 px-4 py-4 sm:py-3">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-soft text-indigo">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div>
+                  <h2 className="font-bold text-ink">{title}</h2>
+                  <p className="mt-1 text-sm leading-6 text-ink-muted">{text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -262,65 +267,37 @@ export default function Pricing() {
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...revealProps} className="mx-auto max-w-4xl text-center">
             <Eyebrow>Quotation factors</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               How Cleaning Prices Are Calculated
             </h2>
-            <p className="mt-5 text-lg leading-7 text-gray-600">
+            <p className="mt-5 text-lg leading-7 text-ink-muted">
               Several factors influence the cost of a cleaning service. The more
               information you provide, the more accurate your quotation will be.
             </p>
           </motion.div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Editorial factor list with thin dividers — not a card grid */}
+          <ul className="mx-auto mt-10 grid max-w-3xl gap-px overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2">
             {priceFactors.map((item) => (
-              <div key={item} className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4">
-                <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-indigo" />
-                <span className="text-sm font-medium leading-6 text-gray-700">{item}</span>
-              </div>
+              <li key={item} className="flex items-center gap-3 bg-white px-5 py-4">
+                <CheckCircle className="h-5 w-5 shrink-0 text-indigo" aria-hidden="true" />
+                <span className="text-sm font-medium leading-6 text-ink">{item}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...revealProps} className="text-center">
             <Eyebrow>Pricing by service</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               What Affects Each Service Quote?
             </h2>
           </motion.div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {pricingSections.map((section, index) => {
-              const Icon = section.icon;
-              return (
-                <motion.article
-                  key={section.title}
-                  {...revealProps}
-                  transition={{
-                    duration: reducedMotion ? 0 : 0.4,
-                    delay: reducedMotion ? 0 : Math.min(index * 0.05, 0.2),
-                  }}
-                  className="rounded-3xl border border-gray-100 bg-white p-7 shadow-sm"
-                >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
-                    <Icon className="h-7 w-7" />
-                  </div>
-                  <h3 className="mt-6 text-2xl font-bold text-gray-900">{section.title}</h3>
-                  <p className="mt-3 leading-7 text-gray-600">{section.description}</p>
-                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                    {section.items.map((item) => (
-                      <div key={item} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
-                        <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-indigo" />
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </motion.article>
-              );
-            })}
-          </div>
+          <PricingCompare sections={pricingSections} className="mt-12" />
         </div>
       </section>
 
@@ -341,14 +318,14 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section className="bg-gray-950 py-20 text-white">
+      <section className="bg-ink py-20 text-white">
         <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-[1fr_0.8fr]">
           <div>
             <Eyebrow light>Honest quotation approach</Eyebrow>
             <h2 className="font-display text-3xl font-bold md:text-4xl">
               Why We Don&apos;t Publish One Fixed Price
             </h2>
-            <p className="mt-5 max-w-3xl text-base leading-7 text-gray-300 sm:text-lg">
+            <p className="mt-5 max-w-3xl text-base leading-7 text-[var(--line)] sm:text-lg">
               Many cleaning companies advertise low starting prices that do not
               reflect the final cost. We prefer to provide quotations based on
               the actual property and cleaning requirements so customers know
@@ -358,7 +335,7 @@ export default function Pricing() {
           <div className="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur">
             <Sparkles className="h-8 w-8 text-mint" />
             <h3 className="mt-5 text-xl font-bold">A more useful quotation</h3>
-            <p className="mt-3 text-sm leading-6 text-gray-400">
+            <p className="mt-3 text-sm leading-6 text-ink-muted">
               Your estimate can reflect property size, condition, working time,
               materials, equipment, access, and any specialist requirements.
             </p>
@@ -370,7 +347,7 @@ export default function Pricing() {
         <div className="container mx-auto max-w-3xl px-5 sm:px-6">
           <div className="text-center">
             <Eyebrow>Pricing questions</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Frequently Asked Questions
             </h2>
           </div>
@@ -382,12 +359,12 @@ export default function Pricing() {
               const buttonId = `pricing-faq-button-${index}`;
 
               return (
-                <article key={faq.q} className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+                <article key={faq.q} className="overflow-hidden rounded-2xl border border-[var(--line)] bg-white">
                   <button
                     id={buttonId}
                     type="button"
                     onClick={() => setOpenFaq(open ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo"
+                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-ink transition hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo"
                     aria-expanded={open}
                     aria-controls={panelId}
                   >
@@ -407,7 +384,7 @@ export default function Pricing() {
                         transition={{ duration: reducedMotion ? 0 : 0.2 }}
                         className="overflow-hidden"
                       >
-                        <p className="px-5 pb-5 text-sm leading-6 text-gray-600">{faq.a}</p>
+                        <p className="px-5 pb-5 text-sm leading-6 text-ink-muted">{faq.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -420,7 +397,7 @@ export default function Pricing() {
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-ink px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
             <Calculator className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
             <div className="relative mx-auto max-w-3xl">
               <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
@@ -467,15 +444,15 @@ function Eyebrow({ children, light = false }) {
 
 function InfoPanel({ title, description, items, icon: Icon }) {
   return (
-    <article className="rounded-[2rem] border border-gray-100 bg-gray-50 p-7 sm:p-8">
+    <article className="rounded-[2rem] border border-[var(--line)] bg-paper p-7 sm:p-8">
       <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-soft text-indigo-deep">
         <Icon className="h-7 w-7" />
       </div>
-      <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">{title}</h2>
-      <p className="mt-3 leading-7 text-gray-600">{description}</p>
+      <h2 className="mt-6 font-display text-3xl font-bold text-ink">{title}</h2>
+      <p className="mt-3 leading-7 text-ink-muted">{description}</p>
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
-          <div key={item} className="flex items-start gap-3 text-sm leading-6 text-gray-700">
+          <div key={item} className="flex items-start gap-3 text-sm leading-6 text-ink-soft">
             <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-indigo" />
             {item}
           </div>

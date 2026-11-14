@@ -23,6 +23,7 @@ import {
   Truck,
   UserRoundCheck,
 } from "lucide-react";
+import { ServiceIndex, PrimaryButton, Eyebrow } from "../components/primitives";
 
 const canonicalServicePaths = {
   residential: "/residential-cleaning-services-dubai",
@@ -330,7 +331,7 @@ const trustPoints = [
 ];
 
 function resolveServiceId(id) {
-  if (!id) return "residential";
+  if (!id) return null;
   return routeAliases[id] || id;
 }
 
@@ -368,7 +369,7 @@ export default function ServiceDetail() {
         />
       </Helmet>
 
-      <section className="relative isolate min-h-[610px] overflow-hidden bg-gray-950">
+      <section className="relative isolate min-h-[610px] overflow-hidden bg-ink">
         <img
           src={service.image}
           alt={service.title}
@@ -376,7 +377,7 @@ export default function ServiceDetail() {
           fetchPriority="high"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-slate-950/45" />
+        <div className="absolute inset-0 bg-ink/45" />
         <div className={`absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t ${service.accent} opacity-30`} />
 
         <div className="container relative mx-auto flex min-h-[610px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">
@@ -407,7 +408,7 @@ export default function ServiceDetail() {
             <p className="mt-4 text-xl font-medium text-indigo/30">
               {service.subtitle}
             </p>
-            <p className="mt-6 max-w-3xl text-base leading-7 text-gray-200 sm:text-lg">
+            <p className="mt-6 max-w-3xl text-base leading-7 text-[var(--line)] sm:text-lg">
               {service.description}
             </p>
 
@@ -431,16 +432,16 @@ export default function ServiceDetail() {
       </section>
 
       <section className="relative z-10 -mt-7 px-5 sm:px-6">
-        <div className="container mx-auto grid max-w-6xl gap-4 rounded-3xl border border-gray-100 bg-white p-4 shadow-xl sm:grid-cols-2 lg:grid-cols-4">
+        <div className="container mx-auto grid max-w-6xl gap-4 rounded-3xl border border-[var(--line)] bg-white p-4 shadow-xl sm:grid-cols-2 lg:grid-cols-4">
           {trustPoints.map((point) => {
             const Icon = point.icon;
             return (
-              <article key={point.title} className="rounded-2xl bg-gray-50 p-5">
+              <article key={point.title} className="rounded-2xl bg-paper p-5">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-soft text-indigo-deep">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h2 className="mt-4 font-bold text-gray-900">{point.title}</h2>
-                <p className="mt-2 text-sm leading-6 text-gray-600">{point.text}</p>
+                <h2 className="mt-4 font-bold text-ink">{point.title}</h2>
+                <p className="mt-2 text-sm leading-6 text-ink-muted">{point.text}</p>
               </article>
             );
           })}
@@ -451,10 +452,10 @@ export default function ServiceDetail() {
         <div className="container mx-auto grid max-w-6xl gap-10 px-5 sm:px-6 lg:grid-cols-[1.45fr_0.75fr]">
           <motion.div {...revealProps}>
             <SectionEyebrow>Service overview</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               What&apos;s Included
             </h2>
-            <p className="mt-4 max-w-3xl leading-7 text-gray-600">
+            <p className="mt-4 max-w-3xl leading-7 text-ink-muted">
               The exact scope can be adjusted according to property condition,
               available time, access, and any special requests discussed before
               the appointment.
@@ -464,10 +465,10 @@ export default function ServiceDetail() {
               {service.features.map((feature) => (
                 <div
                   key={feature}
-                  className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4 transition hover:border-indigo/30 hover:bg-white hover:shadow-md"
+                  className="flex items-start gap-3 rounded-2xl border border-[var(--line)] bg-paper p-4 transition hover:border-indigo/30 hover:bg-white hover:shadow-md"
                 >
                   <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-indigo" />
-                  <span className="text-sm font-medium leading-6 text-gray-700">
+                  <span className="text-sm font-medium leading-6 text-ink-soft">
                     {feature}
                   </span>
                 </div>
@@ -482,7 +483,7 @@ export default function ServiceDetail() {
                 {service.idealFor.map((item) => (
                   <div key={item} className="flex items-start gap-3">
                     <Star className="mt-0.5 h-4 w-4 shrink-0 fill-indigo text-indigo" />
-                    <span className="text-sm font-medium leading-6 text-gray-700">
+                    <span className="text-sm font-medium leading-6 text-ink-soft">
                       {item}
                     </span>
                   </div>
@@ -490,10 +491,10 @@ export default function ServiceDetail() {
               </div>
             </div>
 
-            <div className="rounded-3xl bg-gray-900 p-6 text-white shadow-xl">
+            <div className="rounded-3xl bg-ink p-6 text-white shadow-xl">
               <HeartHandshake className="h-8 w-8 text-mint" />
               <h3 className="mt-5 text-xl font-bold">Need a custom plan?</h3>
-              <p className="mt-3 text-sm leading-6 text-gray-400">
+              <p className="mt-3 text-sm leading-6 text-ink-muted">
                 Share your property type, location, preferred date, and any
                 special requirements. Our team can recommend a suitable option.
               </p>
@@ -509,11 +510,11 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...revealProps} className="text-center">
             <SectionEyebrow>Simple booking journey</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               How This Service Works
             </h2>
           </motion.div>
@@ -527,12 +528,12 @@ export default function ServiceDetail() {
                   duration: prefersReducedMotion ? 0 : 0.4,
                   delay: prefersReducedMotion ? 0 : index * 0.05,
                 }}
-                className="relative rounded-3xl border border-gray-100 bg-white p-6 shadow-sm"
+                className="relative rounded-3xl border border-[var(--line)] bg-white p-6 shadow-sm"
               >
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo font-bold text-white">
                   {index + 1}
                 </span>
-                <p className="mt-5 text-sm font-semibold leading-6 text-gray-800">
+                <p className="mt-5 text-sm font-semibold leading-6 text-ink-soft">
                   {step}
                 </p>
               </motion.article>
@@ -545,10 +546,10 @@ export default function ServiceDetail() {
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...revealProps} className="text-center">
             <SectionEyebrow>Explore everything we offer</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               All Cleaning and Support Services
             </h2>
-            <p className="mx-auto mt-4 max-w-3xl leading-7 text-gray-600">
+            <p className="mx-auto mt-4 max-w-3xl leading-7 text-ink-muted">
               Compare our services below and open any option to review its
               included tasks, ideal use cases, and booking information.
             </p>
@@ -568,15 +569,15 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_1.15fr]">
-            <motion.div {...revealProps} className="rounded-[2rem] bg-gray-900 p-8 text-white md:p-10">
+            <motion.div {...revealProps} className="rounded-[2rem] bg-ink p-8 text-white md:p-10">
               <MapPin className="h-8 w-8 text-mint" />
               <h2 className="mt-5 font-display text-3xl font-bold">
                 Serving Homes and Businesses Across Dubai
               </h2>
-              <p className="mt-5 leading-7 text-gray-400">
+              <p className="mt-5 leading-7 text-ink-muted">
                 Service availability depends on your location, required service,
                 property size, booking date, and team schedule. Share your area
                 when requesting a quotation or booking.
@@ -590,9 +591,9 @@ export default function ServiceDetail() {
               </Link>
             </motion.div>
 
-            <motion.div {...revealProps} className="rounded-[2rem] border border-gray-100 bg-white p-8 md:p-10">
+            <motion.div {...revealProps} className="rounded-[2rem] border border-[var(--line)] bg-white p-8 md:p-10">
               <SectionEyebrow>Why customers choose us</SectionEyebrow>
-              <h2 className="font-display text-3xl font-bold text-gray-900">
+              <h2 className="font-display text-3xl font-bold text-ink">
                 Flexible Service Without Unnecessary Complexity
               </h2>
               <div className="mt-7 grid gap-4 sm:grid-cols-2">
@@ -602,10 +603,10 @@ export default function ServiceDetail() {
                   ["One-time or recurring", "Select the schedule that fits your needs."],
                   ["Personalized quotations", "Complex requirements can be reviewed individually."],
                 ].map(([title, text]) => (
-                  <article key={title} className="rounded-2xl bg-gray-50 p-5">
+                  <article key={title} className="rounded-2xl bg-paper p-5">
                     <Gem className="h-5 w-5 text-indigo" />
-                    <h3 className="mt-4 font-bold text-gray-900">{title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-gray-600">{text}</p>
+                    <h3 className="mt-4 font-bold text-ink">{title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-ink-muted">{text}</p>
                   </article>
                 ))}
               </div>
@@ -630,7 +631,7 @@ export default function ServiceDetail() {
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Link
                   to="/booking"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-gray-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-gray-50"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-bold text-ink shadow-lg transition hover:-translate-y-0.5 hover:bg-paper"
                 >
                   Book This Service
                   <ArrowRight className="h-4 w-4" />
@@ -667,7 +668,7 @@ function ServiceCard({ service, active, index, reducedMotion }) {
         "group overflow-hidden rounded-3xl border bg-white transition",
         active
           ? "border-mint shadow-xl shadow-indigo/10"
-          : "border-gray-100 hover:-translate-y-1 hover:border-indigo/30 hover:shadow-xl",
+          : "border-[var(--line)] hover:-translate-y-1 hover:border-indigo/30 hover:shadow-xl",
       ].join(" ")}
     >
       <div className="relative h-52 overflow-hidden">
@@ -678,7 +679,7 @@ function ServiceCard({ service, active, index, reducedMotion }) {
           decoding="async"
           className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-gray-950/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
         <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 text-white backdrop-blur">
           <Icon className="h-5 w-5" />
         </div>
@@ -690,8 +691,8 @@ function ServiceCard({ service, active, index, reducedMotion }) {
       </div>
 
       <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900">{service.title}</h3>
-        <p className="mt-3 text-sm leading-6 text-gray-600">
+        <h3 className="text-xl font-bold text-ink">{service.title}</h3>
+        <p className="mt-3 text-sm leading-6 text-ink-muted">
           {service.shortIntro}
         </p>
         <Link
@@ -716,58 +717,72 @@ function SectionEyebrow({ children }) {
 }
 
 function UnknownService({ services }) {
+  // Numbered editorial service directory (guide §3.3) — NOT a card grid.
+  const directoryServices = services.map((s, i) => ({
+    number: String(i + 1).padStart(2, "0"),
+    title: s.title,
+    benefit: s.shortIntro || s.subtitle || s.description,
+    href: canonicalServicePaths[s.slug],
+    image: s.image,
+    imageAlt: s.title,
+  }));
+
   return (
-    <div className="min-h-screen bg-gray-50 px-5 pb-20 pt-36 sm:px-6">
+    <div className="min-h-screen bg-paper pb-20 pt-28 text-ink sm:pt-32">
       <Helmet>
         <title>Cleaning Services Dubai | Byt Cleaning Services</title>
         <meta name="description" content="Explore residential, deep, commercial, furniture, maid, move-in and move-out, and babysitting services across Dubai." />
       </Helmet>
 
-      <div className="container mx-auto max-w-5xl text-center">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-indigo-soft text-indigo-deep">
-          <Gem className="h-8 w-8" />
+      <section className="container mx-auto max-w-[1320px] px-6 sm:px-8">
+        <div className="max-w-3xl">
+          <p className="eyebrow text-coral">Services directory</p>
+          <h1 className="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            Professional cleaning &amp; household services in Dubai.
+          </h1>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg">
+            One team, a full range of services. Browse the directory below to
+            find the option that fits your home, business, property, or family —
+            each links to its own detail page with scope, process, and pricing.
+          </p>
+          <div className="mt-8">
+            <PrimaryButton to="/request-a-quote" variant="coral" withArrow>
+              Request a free quote
+            </PrimaryButton>
+          </div>
         </div>
-        <h1 className="mt-6 font-display text-4xl font-bold text-gray-900">
-          Professional Cleaning Services in Dubai
-        </h1>
-        <p className="mx-auto mt-4 max-w-2xl leading-7 text-gray-600">
-          Choose the cleaning or household support service that fits your home,
-          business, property, or family.
-        </p>
+      </section>
 
-        <Link
-          to="/request-a-quote"
-          className="mt-7 inline-flex items-center gap-2 rounded-full bg-indigo px-6 py-3 font-bold text-white transition hover:bg-indigo-deep"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Request a Free Quote
-        </Link>
+      {/* Numbered editorial service directory — hover reveals image stage */}
+      <section className="container mx-auto max-w-[1320px] px-6 pt-16 sm:px-8 sm:pt-20">
+        <ServiceIndex services={directoryServices} />
+      </section>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => {
-            const Icon = service.icon;
-            return (
-              <Link
-                key={service.slug}
-                to={canonicalServicePaths[service.slug]}
-                className="flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-5 text-left shadow-sm transition hover:border-indigo/30 hover:shadow-md"
-              >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-soft text-indigo-deep">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <span>
-                  <span className="block font-bold text-gray-900">
-                    {service.title}
-                  </span>
-                  <span className="mt-1 block text-xs text-gray-500">
-                    View service
-                  </span>
-                </span>
-              </Link>
-            );
-          })}
+      {/* "Help me choose" decision strip (guide §3.3) */}
+      <section className="mt-20 bg-mint-soft py-16 sm:py-20">
+        <div className="container mx-auto max-w-[1320px] px-6 sm:px-8">
+          <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center lg:justify-between">
+            <div className="max-w-xl">
+              <p className="eyebrow text-indigo">Not sure which to pick?</p>
+              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+                Tell us your space — we recommend the right service.
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-ink-muted">
+                Send your property type, location, and what you need, and our
+                team will suggest a suitable scope and schedule.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <PrimaryButton to="/request-a-quote" variant="violet" withArrow>
+                Get a recommendation
+              </PrimaryButton>
+              <PrimaryButton to="/contact-us" variant="outline">
+                Talk to our team
+              </PrimaryButton>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

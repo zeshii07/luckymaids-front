@@ -66,7 +66,7 @@ export default function BabysittingMaid() {
           alt="Bright family childcare and household support"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/50 via-slate-900/15 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/50 via-ink/15 to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 pt-28">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -124,10 +124,10 @@ export default function BabysittingMaid() {
           viewport={{ once: true }}
           className="md:col-span-2"
         >
-          <h2 className="text-3xl font-display font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl font-display font-bold text-ink-soft mb-6">
             Reliable Childcare & Household Help
           </h2>
-          <p className="text-gray-600 mb-8 leading-relaxed">
+          <p className="text-ink-muted mb-8 leading-relaxed">
             Finding someone you trust to care for your children and home in
             Dubai is hard. Our vetted professionals provide peace of mind with
             reliable, loving care. Whether you need a full-time maid in Arabian
@@ -149,7 +149,7 @@ export default function BabysittingMaid() {
                 className="flex items-start bg-indigo-50 p-4 rounded-xl"
               >
                 <CheckCircle className="w-6 h-6 text-indigo-500 mr-3 flex-shrink-0 mt-1" />
-                <span className="text-gray-700">{f}</span>
+                <span className="text-ink-soft">{f}</span>
               </div>
             ))}
           </div>
@@ -163,27 +163,27 @@ export default function BabysittingMaid() {
           className="space-y-8 scroll-mt-24"
         >
           <div className="bg-indigo-50 p-8 rounded-3xl border border-indigo-100 sticky top-24">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">
+            <h3 className="text-2xl font-bold text-ink-soft mb-6">
               Select Your Helper
             </h3>
 
             <div className="mb-6">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-ink-soft mb-2">
                 Hours (Min 2, Max 8)
               </label>
-              <div className="flex items-center justify-between bg-white p-3 rounded-xl border border-gray-200">
+              <div className="flex items-center justify-between bg-white p-3 rounded-xl border border-[var(--line)]">
                 <button
                   onClick={() => setHours(Math.max(2, hours - 1))}
-                  className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
+                  className="p-2 rounded-lg bg-[var(--line)] hover:bg-[var(--line)] transition"
                 >
                   <Minus className="w-4 h-4" />
                 </button>
-                <span className="text-xl font-bold text-gray-800">
+                <span className="text-xl font-bold text-ink-soft">
                   {hours} Hours
                 </span>
                 <button
                   onClick={() => setHours(Math.min(8, hours + 1))}
-                  className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
+                  className="p-2 rounded-lg bg-[var(--line)] hover:bg-[var(--line)] transition"
                 >
                   <Plus className="w-4 h-4" />
                 </button>
@@ -191,29 +191,29 @@ export default function BabysittingMaid() {
             </div>
 
             <div className="mb-6">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-ink-soft mb-2">
                 Helpers (Min 1, Max 10)
               </label>
-              <div className="flex items-center justify-between bg-white p-3 rounded-xl border border-gray-200">
+              <div className="flex items-center justify-between bg-white p-3 rounded-xl border border-[var(--line)]">
                 <button
                   onClick={() => setCrew(Math.max(1, crew - 1))}
-                  className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
+                  className="p-2 rounded-lg bg-[var(--line)] hover:bg-[var(--line)] transition"
                 >
                   <Minus className="w-4 h-4" />
                 </button>
-                <span className="text-xl font-bold text-gray-800">
+                <span className="text-xl font-bold text-ink-soft">
                   {crew} Helper{crew > 1 ? "s" : ""}
                 </span>
                 <button
                   onClick={() => setCrew(Math.min(10, crew + 1))}
-                  className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
+                  className="p-2 rounded-lg bg-[var(--line)] hover:bg-[var(--line)] transition"
                 >
                   <Plus className="w-4 h-4" />
                 </button>
               </div>
             </div>
 
-            <div className="bg-white p-4 rounded-xl mb-6 text-sm text-gray-600 space-y-1">
+            <div className="bg-white p-4 rounded-xl mb-6 text-sm text-ink-muted space-y-1">
               <p>
                 Rate:{" "}
                 <span className="font-bold text-indigo-600">
@@ -223,7 +223,7 @@ export default function BabysittingMaid() {
               <p>
                 Calculation: {hours}h × {crew} crew × {ratePerHour} AED
               </p>
-              <p className="text-lg font-bold text-gray-800 mt-2 pt-2 border-t border-gray-100">
+              <p className="text-lg font-bold text-ink-soft mt-2 pt-2 border-t border-[var(--line)]">
                 Total: {totalAmount} AED
               </p>
             </div>

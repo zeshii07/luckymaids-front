@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
 import RelatedServices from "../../components/RelatedServices";
+import { ProcessTimeline } from "../../components/primitives";
 
 // --- Pricing Data ---
 const villaFurnished = [
@@ -194,7 +195,7 @@ export default function MoveInOut() {
           fetchPriority="high"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-900/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/20 to-transparent" />
 
         <div className="container relative mx-auto flex min-h-[650px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">
           <motion.div
@@ -242,21 +243,28 @@ export default function MoveInOut() {
       </section>
 
       <section className="relative z-10 -mt-7 px-5 sm:px-6">
-        <div className="container mx-auto grid max-w-6xl gap-4 rounded-3xl border border-gray-100 bg-white p-4 shadow-xl sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            [ClipboardList, "Detailed checklist", "Room-by-room cleaning based on the selected package."],
-            [Settings, "Equipment available", "Tools and materials can be included according to your booking."],
-            [Clock, "Flexible scheduling", "Morning, afternoon, weekday, and weekend slots may be available."],
-            [FileCheck, "Clear expectations", "Scope and exclusions are explained before your appointment."],
-          ].map(([Icon, title, text]) => (
-            <article key={title} className="rounded-2xl bg-gray-50 p-5">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-100 text-purple-600">
-                <Icon className="h-5 w-5" />
-              </div>
-              <h2 className="mt-4 font-bold text-gray-900">{title}</h2>
-              <p className="mt-2 text-sm leading-6 text-gray-600">{text}</p>
-            </article>
-          ))}
+        <div className="container mx-auto max-w-6xl rounded-3xl border border-[var(--line)] bg-white p-5 shadow-xl">
+          <div className="grid divide-y divide-[var(--line)] sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
+            {[
+              [ClipboardList, "Detailed checklist", "Room-by-room cleaning based on the selected package."],
+              [Settings, "Equipment available", "Tools and materials can be included according to your booking."],
+              [Clock, "Flexible scheduling", "Morning, afternoon, weekday, and weekend slots may be available."],
+              [FileCheck, "Clear expectations", "Scope and exclusions are explained before your appointment."],
+            ].map(([Icon, title, text], index) => (
+              <article key={title} className="flex items-start gap-3 px-4 py-4 sm:py-3">
+                <span className="section-numeral shrink-0 text-sm font-bold text-coral" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-purple-600">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h2 className="font-bold text-ink">{title}</h2>
+                  <p className="mt-1 text-xs leading-5 text-ink-muted">{text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -264,10 +272,10 @@ export default function MoveInOut() {
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...animation} className="mx-auto max-w-4xl text-center">
             <SectionEyebrow>Complete property reset</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Complete Move-In and Move-Out Cleaning Solutions in Dubai
             </h2>
-            <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg">
+            <p className="mt-5 text-base leading-7 text-ink-muted sm:text-lg">
               Move-in and move-out cleaning is more detailed than routine home
               cleaning. Moving cleaning usually takes place when a property is
               empty or nearly empty, allowing our cleaners to reach spaces that
@@ -278,16 +286,16 @@ export default function MoveInOut() {
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {solutionsIncluded.map((item) => (
-              <div key={item} className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4">
+              <div key={item} className="flex items-start gap-3 rounded-2xl border border-[var(--line)] bg-paper p-4">
                 <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-purple-500" />
-                <span className="text-sm font-medium leading-6 text-gray-700">{item}</span>
+                <span className="text-sm font-medium leading-6 text-ink-soft">{item}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-2">
           <ContentPanel
             icon={Home}
@@ -317,10 +325,10 @@ export default function MoveInOut() {
         <div className="container mx-auto max-w-6xl px-5 text-center sm:px-6">
           <motion.div {...animation}>
             <SectionEyebrow>Property turnover support</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               End-of-Tenancy Cleaning Services in Dubai
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-gray-600 sm:text-lg">
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-ink-muted sm:text-lg">
               End-of-tenancy cleaning refers to the detailed cleaning of a
               rented property before the tenant completes the handover process.
               The service is suitable for:
@@ -329,7 +337,7 @@ export default function MoveInOut() {
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {endOfTenancySuitable.map((item) => (
-              <div key={item} className="rounded-2xl border border-purple-100 bg-purple-50 p-5 text-sm font-semibold text-gray-700">
+              <div key={item} className="rounded-2xl border border-purple-100 bg-purple-50 p-5 text-sm font-semibold text-ink-soft">
                 {item}
               </div>
             ))}
@@ -337,14 +345,14 @@ export default function MoveInOut() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...animation} className="text-center">
             <SectionEyebrow>Room-by-room scope</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               What Is Included in Move-In and Move-Out Cleaning?
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl leading-7 text-gray-600">
+            <p className="mx-auto mt-5 max-w-3xl leading-7 text-ink-muted">
               Final inclusions may differ according to the selected package,
               property condition, accessibility, and customer requirements.
             </p>
@@ -352,11 +360,11 @@ export default function MoveInOut() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {checklistRooms.map((room) => (
-              <article key={room.title} className="rounded-3xl border border-gray-100 bg-white p-7 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900">{room.title}</h3>
+              <article key={room.title} className="rounded-3xl border border-[var(--line)] bg-white p-7 shadow-sm">
+                <h3 className="text-xl font-bold text-ink">{room.title}</h3>
                 <ul className="mt-6 space-y-3">
                   {room.items.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm leading-6 text-gray-700">
+                    <li key={item} className="flex items-start gap-3 text-sm leading-6 text-ink-soft">
                       <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-purple-500" />
                       {item}
                     </li>
@@ -396,7 +404,7 @@ export default function MoveInOut() {
         id="apartment-section"
         title="Apartment Move-Out Packages"
         description="Detailed moving cleaning for studios and apartments before occupancy or property handover."
-        background="bg-gray-50"
+        background="bg-paper"
       >
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {apartments.map((pkg, index) => (
@@ -416,48 +424,47 @@ export default function MoveInOut() {
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...animation} className="text-center">
             <SectionEyebrow>Five practical stages</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Our Move-In and Move-Out Cleaning Process
             </h2>
           </motion.div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {processSteps.map((step, index) => (
-              <article key={step.title} className="rounded-3xl border border-gray-100 bg-gray-50 p-6">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-500 font-bold text-white">
-                  {index + 1}
-                </span>
-                <h3 className="mt-5 text-lg font-bold text-gray-900">{step.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-gray-600">{step.desc}</p>
-              </article>
-            ))}
+          <div className="mt-12">
+            <ProcessTimeline
+              steps={processSteps.map((step) => ({ title: step.title, detail: step.desc }))}
+            />
           </div>
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...animation} className="text-center">
             <SectionEyebrow>Why choose us</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Why Choose Our Moving Cleaning Company in Dubai?
             </h2>
           </motion.div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {whyChooseUs.map((point) => {
+          <ul className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-3">
+            {whyChooseUs.map((point, index) => {
               const Icon = point.icon;
               return (
-                <article key={point.title} className="rounded-3xl border border-gray-100 bg-white p-7 shadow-sm">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-100 text-purple-600">
-                    <Icon className="h-7 w-7" />
+                <li key={point.title} className="flex items-start gap-4 bg-white p-6">
+                  <span className="section-numeral shrink-0 text-xl font-bold text-coral" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-soft text-indigo">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-display text-lg font-bold leading-tight text-ink">{point.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-muted">{point.desc}</p>
                   </div>
-                  <h3 className="mt-6 text-xl font-bold text-gray-900">{point.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-gray-600">{point.desc}</p>
-                </article>
+                </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -465,17 +472,17 @@ export default function MoveInOut() {
         <div className="container mx-auto max-w-5xl px-5 text-center sm:px-6">
           <motion.div {...animation}>
             <SectionEyebrow>Dubai-wide coverage</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Areas We Serve Across Dubai
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl leading-7 text-gray-600">
+            <p className="mx-auto mt-5 max-w-3xl leading-7 text-ink-muted">
               Our moving-cleaning teams serve customers in many Dubai communities, including:
             </p>
           </motion.div>
 
           <div className="mt-9 flex flex-wrap justify-center gap-2.5">
             {areasServed.map((area) => (
-              <span key={area} className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700">
+              <span key={area} className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-paper px-4 py-2 text-sm font-medium text-ink-soft">
                 <MapPin className="h-3.5 w-3.5 text-purple-500" />
                 {area}
               </span>
@@ -484,11 +491,11 @@ export default function MoveInOut() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-3xl px-5 sm:px-6">
           <motion.div {...animation} className="text-center">
             <SectionEyebrow>Helpful answers</SectionEyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Move-In and Move-Out Cleaning FAQs
             </h2>
           </motion.div>
@@ -500,12 +507,12 @@ export default function MoveInOut() {
               const buttonId = `move-faq-button-${index}`;
 
               return (
-                <article key={faq.q} className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+                <article key={faq.q} className="overflow-hidden rounded-2xl border border-[var(--line)] bg-white">
                   <button
                     id={buttonId}
                     type="button"
                     onClick={() => setOpenFaq(open ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-purple-500"
+                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-ink transition hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-purple-500"
                     aria-expanded={open}
                     aria-controls={panelId}
                   >
@@ -525,7 +532,7 @@ export default function MoveInOut() {
                         transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
                         className="overflow-hidden"
                       >
-                        <p className="px-5 pb-5 text-sm leading-6 text-gray-600">{faq.a}</p>
+                        <p className="px-5 pb-5 text-sm leading-6 text-ink-muted">{faq.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -543,7 +550,7 @@ export default function MoveInOut() {
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-purple-600 via-purple-700 to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-purple-600 via-purple-700 to-ink px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
             <Truck className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
             <div className="relative mx-auto max-w-3xl">
               <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
@@ -582,7 +589,7 @@ function HeroButton({ icon: Icon, children, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 font-bold text-gray-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-purple-50"
+      className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 font-bold text-ink shadow-lg transition hover:-translate-y-0.5 hover:bg-purple-50"
     >
       <Icon className="h-5 w-5 text-purple-500" />
       {children}
@@ -592,18 +599,18 @@ function HeroButton({ icon: Icon, children, onClick }) {
 
 function ContentPanel({ icon: Icon, title, paragraphs, subtitle, items }) {
   return (
-    <article className="rounded-[2rem] border border-gray-100 bg-white p-7 shadow-sm">
+    <article className="rounded-[2rem] border border-[var(--line)] bg-white p-7 shadow-sm">
       <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-100 text-purple-600">
         <Icon className="h-7 w-7" />
       </div>
-      <h2 className="mt-6 font-display text-3xl font-bold text-gray-900">{title}</h2>
+      <h2 className="mt-6 font-display text-3xl font-bold text-ink">{title}</h2>
       {paragraphs.map((paragraph) => (
-        <p key={paragraph} className="mt-4 leading-7 text-gray-600">{paragraph}</p>
+        <p key={paragraph} className="mt-4 leading-7 text-ink-muted">{paragraph}</p>
       ))}
-      <h3 className="mt-7 text-lg font-bold text-gray-900">{subtitle}</h3>
+      <h3 className="mt-7 text-lg font-bold text-ink">{subtitle}</h3>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
-          <div key={item} className="flex items-start gap-2 text-sm leading-6 text-gray-700">
+          <div key={item} className="flex items-start gap-2 text-sm leading-6 text-ink-soft">
             <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-purple-500" />
             {item}
           </div>
@@ -619,8 +626,8 @@ function PricingSection({ id, title, description, background, children }) {
       <div className="container mx-auto max-w-6xl px-5 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <SectionEyebrow>Transparent package pricing</SectionEyebrow>
-          <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">{title}</h2>
-          <p className="mt-4 leading-7 text-gray-600">{description}</p>
+          <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">{title}</h2>
+          <p className="mt-4 leading-7 text-ink-muted">{description}</p>
         </div>
         <div className="mt-12">{children}</div>
       </div>
@@ -631,7 +638,7 @@ function PricingSection({ id, title, description, background, children }) {
 function PackageGroup({ title, icon: Icon, packages, type, addedId, onAdd }) {
   return (
     <div className="mb-14 last:mb-0">
-      <h3 className="mb-6 flex items-center gap-3 text-2xl font-bold text-gray-900">
+      <h3 className="mb-6 flex items-center gap-3 text-2xl font-bold text-ink">
         <Icon className="h-6 w-6 text-purple-500" />
         {title}
       </h3>
@@ -660,31 +667,31 @@ function PackageCard({ pkg, type, added, onAdd, popular }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.35 }}
-      className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-purple-200 hover:shadow-xl"
+      className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--line)] bg-white shadow-sm transition hover:-translate-y-1 hover:border-purple-200 hover:shadow-xl"
     >
       {popular && (
-        <span className="absolute right-4 top-4 rounded-full bg-gray-900 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+        <span className="absolute right-4 top-4 rounded-full bg-ink px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
           Popular
         </span>
       )}
       <div className="flex-1 bg-gradient-to-br from-purple-50 to-white p-6">
         <p className="text-xs font-bold uppercase tracking-wider text-purple-600">{type}</p>
-        <h3 className="mt-2 pr-16 text-lg font-bold text-gray-900">{pkg.name}</h3>
+        <h3 className="mt-2 pr-16 text-lg font-bold text-ink">{pkg.name}</h3>
         <div className="mt-5 flex items-end gap-2">
-          <span className="text-3xl font-bold text-gray-900">{pkg.price}</span>
-          <span className="pb-1 font-semibold text-gray-500">AED</span>
-          <span className="pb-1 text-sm text-gray-400 line-through">{pkg.original} AED</span>
+          <span className="text-3xl font-bold text-ink">{pkg.price}</span>
+          <span className="pb-1 font-semibold text-ink-muted">AED</span>
+          <span className="pb-1 text-sm text-ink-muted line-through">{pkg.original} AED</span>
         </div>
         <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-mint-soft px-3 py-1 text-xs font-bold text-mint-deep">
           <Tag className="h-3.5 w-3.5" />
           Save {saving} AED
         </span>
-        <div className="mt-6 space-y-2 text-sm text-gray-600">
+        <div className="mt-6 space-y-2 text-sm text-ink-muted">
           <p className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-purple-500" /> Room-by-room checklist</p>
           <p className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-purple-500" /> Suitable for moving and handover</p>
         </div>
       </div>
-      <div className="border-t border-gray-100 p-4">
+      <div className="border-t border-[var(--line)] p-4">
         <button
           type="button"
           onClick={() => onAdd(pkg, type)}

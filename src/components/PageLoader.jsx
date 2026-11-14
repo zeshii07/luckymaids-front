@@ -69,12 +69,12 @@ export default function PageLoader({
           )}
         </div>
 
-        <p className="mt-6 font-display text-xl font-bold text-gray-900">
+        <p className="mt-6 font-display text-xl font-bold text-ink">
           Byt Cleaning Services
         </p>
-        <p className="mt-2 text-sm font-medium text-gray-500">{message}</p>
+        <p className="mt-2 text-sm font-medium text-ink-muted">{message}</p>
 
-        <div className="mt-5 h-1.5 w-44 overflow-hidden rounded-full bg-gray-100">
+        <div className="mt-5 h-1.5 w-44 overflow-hidden rounded-full bg-[var(--line)]">
           <motion.div
             className="h-full rounded-full bg-gradient-to-r from-indigo via-indigo to-indigo-deep"
             animate={

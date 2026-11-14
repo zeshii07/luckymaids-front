@@ -37,7 +37,7 @@ export default function CTABanner() {
           </p>
           
           <div className="flex flex-col md:flex-row gap-4 justify-center relative z-10">
-            <Link to="/booking" className="bg-white text-indigo-deep px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition shadow-lg">
+            <Link to="/booking" className="bg-white text-indigo-deep px-8 py-4 rounded-full font-semibold hover:bg-[var(--line)] transition shadow-lg">
               Book Now
             </Link>
             <Link to="/quote" className="border-2 border-white/50 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition">

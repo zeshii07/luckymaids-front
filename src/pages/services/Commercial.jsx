@@ -197,7 +197,7 @@ export default function Commercial() {
           fetchPriority="high"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-900/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/20 to-transparent" />
 
         <div className="container relative mx-auto flex min-h-[650px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">
           <motion.div
@@ -243,21 +243,28 @@ export default function Commercial() {
       </section>
 
       <section className="relative z-10 -mt-7 px-5 sm:px-6">
-        <div className="container mx-auto grid max-w-6xl gap-4 rounded-3xl border border-gray-100 bg-white p-4 shadow-xl sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            [Building, "Office and business cleaning", "Plans for workplaces, retail, hospitality, and commercial facilities."],
-            [Clock, "Flexible schedules", "Daily, weekly, evening, and weekend appointments may be available."],
-            [Users, "Scalable team sizes", "Cleaner numbers can be adjusted to suit the site and time available."],
-            [Sparkles, "Custom checklists", "Cleaning priorities can be adapted as your business changes."],
-          ].map(([Icon, title, text]) => (
-            <article key={title} className="rounded-2xl bg-gray-50 p-5">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-100 text-orange-600">
-                <Icon className="h-5 w-5" />
-              </div>
-              <h2 className="mt-4 font-bold text-gray-900">{title}</h2>
-              <p className="mt-2 text-sm leading-6 text-gray-600">{text}</p>
-            </article>
-          ))}
+        <div className="container mx-auto max-w-6xl rounded-3xl border border-[var(--line)] bg-white p-5 shadow-xl">
+          <div className="grid divide-y divide-[var(--line)] sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
+            {[
+              [Building, "Office and business cleaning", "Plans for workplaces, retail, hospitality, and commercial facilities."],
+              [Clock, "Flexible schedules", "Daily, weekly, evening, and weekend appointments may be available."],
+              [Users, "Scalable team sizes", "Cleaner numbers can be adjusted to suit the site and time available."],
+              [Sparkles, "Custom checklists", "Cleaning priorities can be adapted as your business changes."],
+            ].map(([Icon, title, text], index) => (
+              <article key={title} className="flex items-start gap-3 px-4 py-4 sm:py-3">
+                <span className="section-numeral shrink-0 text-sm font-bold text-coral" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-100 text-orange-600">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h2 className="font-bold text-ink">{title}</h2>
+                  <p className="mt-1 text-xs leading-5 text-ink-muted">{text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -265,10 +272,10 @@ export default function Commercial() {
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...animation} className="mx-auto max-w-4xl text-center">
             <Eyebrow>Business types supported</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Commercial Cleaning for Different Industries
             </h2>
-            <p className="mt-5 text-base leading-7 text-gray-600 sm:text-lg">
+            <p className="mt-5 text-base leading-7 text-ink-muted sm:text-lg">
               Dubai&apos;s fast-paced business environment creates constant
               foot traffic, meetings, deliveries, and shared workspace use.
               Structured cleaning helps maintain a professional and organized
@@ -289,14 +296,14 @@ export default function Commercial() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-6xl px-5 sm:px-6">
           <motion.div {...animation} className="text-center">
             <Eyebrow>Flexible service plans</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Complete Commercial Cleaning Solutions
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-ink-muted">
               Different industries require different schedules, procedures, and
               priorities. We customize plans instead of relying on one standard
               checklist.
@@ -305,25 +312,25 @@ export default function Commercial() {
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {solutions.map((solution) => (
-              <div key={solution} className="flex items-start gap-3 rounded-2xl border border-gray-100 bg-white p-4">
+              <div key={solution} className="flex items-start gap-3 rounded-2xl border border-[var(--line)] bg-white p-4">
                 <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-orange-500" />
-                <span className="text-sm font-medium leading-6 text-gray-700">{solution}</span>
+                <span className="text-sm font-medium leading-6 text-ink-soft">{solution}</span>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 grid gap-8 rounded-[2rem] border border-gray-100 bg-white p-7 lg:grid-cols-2 lg:p-9">
+          <div className="mt-12 grid gap-8 rounded-[2rem] border border-[var(--line)] bg-white p-7 lg:grid-cols-2 lg:p-9">
             <div>
-              <h3 className="font-display text-3xl font-bold text-gray-900">
+              <h3 className="font-display text-3xl font-bold text-ink">
                 Why Professional Commercial Cleaning Matters
               </h3>
-              <p className="mt-5 leading-7 text-gray-600">
+              <p className="mt-5 leading-7 text-ink-muted">
                 A commercial property is often the first physical interaction
                 customers have with a business. Clean surroundings contribute
                 to a more professional appearance and support a pleasant
                 experience for employees and visitors.
               </p>
-              <p className="mt-4 leading-7 text-gray-600">
+              <p className="mt-4 leading-7 text-ink-muted">
                 The cleaning schedule should reflect occupancy levels, business
                 activity, and operational requirements.
               </p>
@@ -333,7 +340,7 @@ export default function Commercial() {
               {businessBenefits.map((benefit) => (
                 <div key={benefit} className="flex items-start gap-3 rounded-xl bg-orange-50 p-4">
                   <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-orange-500" />
-                  <span className="text-sm font-semibold leading-6 text-gray-700">{benefit}</span>
+                  <span className="text-sm font-semibold leading-6 text-ink-soft">{benefit}</span>
                 </div>
               ))}
             </div>
@@ -354,7 +361,7 @@ export default function Commercial() {
         title="Customer-Facing & Hospitality Cleaning"
         description="Businesses that welcome customers benefit from consistent cleaning because visitors immediately notice the condition of the premises."
         items={customerFacing}
-        background="bg-gray-50"
+        background="bg-paper"
       />
 
       <FacilitySection
@@ -365,24 +372,24 @@ export default function Commercial() {
         background="bg-white"
       />
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto max-w-5xl px-5 sm:px-6">
           <motion.div {...animation} className="text-center">
             <Eyebrow>Structured service delivery</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Our Commercial Cleaning Process
             </h2>
           </motion.div>
 
           <div className="mt-12 space-y-4">
             {processSteps.map((step, index) => (
-              <article key={step.title} className="grid gap-4 rounded-3xl border border-gray-100 bg-white p-6 sm:grid-cols-[auto_1fr]">
+              <article key={step.title} className="grid gap-4 rounded-3xl border border-[var(--line)] bg-white p-6 sm:grid-cols-[auto_1fr]">
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 font-bold text-white">
                   {index + 1}
                 </span>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-gray-600">{step.desc}</p>
+                  <h3 className="text-lg font-bold text-ink">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-ink-muted">{step.desc}</p>
                 </div>
               </article>
             ))}
@@ -390,14 +397,14 @@ export default function Commercial() {
         </div>
       </section>
 
-      <section id="booking-picker" className="scroll-mt-24 bg-gray-950 py-20">
+      <section id="booking-picker" className="scroll-mt-24 bg-ink py-20">
         <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-[1.35fr_0.65fr]">
           <motion.div {...animation} className="rounded-[2rem] bg-white p-6 sm:p-8">
             <Eyebrow>Build your estimate</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900">
+            <h2 className="font-display text-3xl font-bold text-ink">
               Build Your Commercial Cleaning Plan
             </h2>
-            <p className="mt-4 leading-7 text-gray-600">
+            <p className="mt-4 leading-7 text-ink-muted">
               Select the number of hours and cleaners required. Minimum booking
               is 2 hours. Choose whether cleaning materials should be included.
             </p>
@@ -424,7 +431,7 @@ export default function Commercial() {
             </div>
 
             <fieldset className="mt-7">
-              <legend className="text-sm font-bold text-gray-800">
+              <legend className="text-sm font-bold text-ink-soft">
                 Bring Cleaning Materials? (+20 AED)
               </legend>
               <div className="mt-3 grid grid-cols-2 gap-3">
@@ -453,7 +460,7 @@ export default function Commercial() {
 
               <div className="mt-6 border-t border-white/10 pt-6">
                 <div className="flex items-end justify-between gap-4">
-                  <span className="text-sm text-gray-300">Estimated total</span>
+                  <span className="text-sm text-[var(--line)]">Estimated total</span>
                   <span className="text-3xl font-bold text-orange-300">{totalAmount} AED</span>
                 </div>
               </div>
@@ -489,10 +496,10 @@ export default function Commercial() {
         <div className="container mx-auto max-w-5xl px-5 text-center sm:px-6">
           <motion.div {...animation}>
             <Eyebrow>Commercial coverage</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Commercial Cleaning Across Dubai
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-ink-muted">
               We serve major business districts, retail centres, industrial
               zones, and mixed-use communities across Dubai.
             </p>
@@ -500,7 +507,7 @@ export default function Commercial() {
 
           <div className="mt-9 flex flex-wrap justify-center gap-2.5">
             {dubaiAreas.map((area) => (
-              <span key={area} className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700">
+              <span key={area} className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-paper px-4 py-2 text-sm font-medium text-ink-soft">
                 <MapPin className="h-3.5 w-3.5 text-orange-500" />
                 {area}
               </span>
@@ -509,7 +516,7 @@ export default function Commercial() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-paper py-20">
         <div className="container mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-2">
           <InfoList
             title="Commercial Cleaning Pricing Guide"
@@ -532,7 +539,7 @@ export default function Commercial() {
         <div className="container mx-auto max-w-3xl px-5 sm:px-6">
           <div className="text-center">
             <Eyebrow>Helpful answers</Eyebrow>
-            <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">
+            <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
               Commercial Cleaning FAQs
             </h2>
           </div>
@@ -544,12 +551,12 @@ export default function Commercial() {
               const buttonId = `commercial-faq-button-${index}`;
 
               return (
-                <article key={faq.q} className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+                <article key={faq.q} className="overflow-hidden rounded-2xl border border-[var(--line)] bg-white">
                   <button
                     id={buttonId}
                     type="button"
                     onClick={() => setOpenFaq(open ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-gray-900 transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange-500"
+                    className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-ink transition hover:bg-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange-500"
                     aria-expanded={open}
                     aria-controls={panelId}
                   >
@@ -569,7 +576,7 @@ export default function Commercial() {
                         transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
                         className="overflow-hidden"
                       >
-                        <p className="px-5 pb-5 text-sm leading-6 text-gray-600">{faq.a}</p>
+                        <p className="px-5 pb-5 text-sm leading-6 text-ink-muted">{faq.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -587,7 +594,7 @@ export default function Commercial() {
 
       <section className="bg-white px-5 py-10 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-orange-600 via-orange-700 to-gray-950 px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-orange-600 via-orange-700 to-ink px-6 py-12 text-center shadow-2xl sm:px-10 md:py-16">
             <Building className="absolute -bottom-16 -right-10 h-64 w-64 rotate-12 text-white/[0.05]" />
             <div className="relative mx-auto max-w-3xl">
               <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
@@ -629,20 +636,20 @@ function FacilitySection({ eyebrow, title, description, items, background }) {
       <div className="container mx-auto max-w-6xl px-5 sm:px-6">
         <div className="text-center">
           <Eyebrow>{eyebrow}</Eyebrow>
-          <h2 className="font-display text-3xl font-bold text-gray-900 md:text-4xl">{title}</h2>
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-gray-600">{description}</p>
+          <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">{title}</h2>
+          <p className="mx-auto mt-5 max-w-3xl text-lg leading-7 text-ink-muted">{description}</p>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => {
             const Icon = item.icon;
             return (
-              <article key={item.title} className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
+              <article key={item.title} className="rounded-3xl border border-[var(--line)] bg-white p-6 shadow-sm">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-600">
                   <Icon className="h-6 w-6" />
                 </div>
-                <h3 className="mt-5 text-lg font-bold text-gray-900">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-gray-600">{item.desc}</p>
+                <h3 className="mt-5 text-lg font-bold text-ink">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-ink-muted">{item.desc}</p>
               </article>
             );
           })}
@@ -664,25 +671,25 @@ function CounterControl({
   return (
     <div>
       <div className="mb-2">
-        <p className="text-sm font-bold text-gray-800">{label}</p>
-        <p className="text-xs text-gray-500">{help}</p>
+        <p className="text-sm font-bold text-ink-soft">{label}</p>
+        <p className="text-xs text-ink-muted">{help}</p>
       </div>
-      <div className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 p-3">
+      <div className="flex items-center justify-between rounded-2xl border border-[var(--line)] bg-paper p-3">
         <button
           type="button"
           onClick={onDecrease}
           disabled={decreaseDisabled}
-          className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40"
+          className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-ink-soft shadow-sm transition hover:bg-[var(--line)] disabled:cursor-not-allowed disabled:opacity-40"
           aria-label={`Decrease ${label.toLowerCase()}`}
         >
           <Minus className="h-4 w-4" />
         </button>
-        <span className="font-bold text-gray-900">{value}</span>
+        <span className="font-bold text-ink">{value}</span>
         <button
           type="button"
           onClick={onIncrease}
           disabled={increaseDisabled}
-          className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40"
+          className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-ink-soft shadow-sm transition hover:bg-[var(--line)] disabled:cursor-not-allowed disabled:opacity-40"
           aria-label={`Increase ${label.toLowerCase()}`}
         >
           <Plus className="h-4 w-4" />
@@ -701,7 +708,7 @@ function ChoiceButton({ selected, onClick, children }) {
       className={`rounded-xl border-2 p-3 text-sm font-bold transition ${
         selected
           ? "border-orange-500 bg-orange-50 text-orange-700"
-          : "border-gray-200 bg-white text-gray-500 hover:border-gray-300"
+          : "border-[var(--line)] bg-white text-ink-muted hover:border-[var(--line)]"
       }`}
     >
       {children}
@@ -712,7 +719,7 @@ function ChoiceButton({ selected, onClick, children }) {
 function SummaryRow({ label, value }) {
   return (
     <div className="flex items-center justify-between gap-4">
-      <dt className="text-gray-300">{label}</dt>
+      <dt className="text-[var(--line)]">{label}</dt>
       <dd className="text-right font-semibold text-white">{value}</dd>
     </div>
   );
@@ -727,13 +734,13 @@ function InfoList({
   secondItems = [],
 }) {
   return (
-    <article className="rounded-[2rem] border border-gray-100 bg-white p-7 shadow-sm">
-      <h2 className="font-display text-3xl font-bold text-gray-900">{title}</h2>
-      <p className="mt-4 leading-7 text-gray-600">{intro}</p>
-      <h3 className="mt-7 text-lg font-bold text-gray-900">{subtitle}</h3>
+    <article className="rounded-[2rem] border border-[var(--line)] bg-white p-7 shadow-sm">
+      <h2 className="font-display text-3xl font-bold text-ink">{title}</h2>
+      <p className="mt-4 leading-7 text-ink-muted">{intro}</p>
+      <h3 className="mt-7 text-lg font-bold text-ink">{subtitle}</h3>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
-          <div key={item} className="flex items-start gap-3 text-sm leading-6 text-gray-700">
+          <div key={item} className="flex items-start gap-3 text-sm leading-6 text-ink-soft">
             <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-orange-500" />
             {item}
           </div>
@@ -742,10 +749,10 @@ function InfoList({
 
       {secondSubtitle && (
         <>
-          <h3 className="mt-8 text-lg font-bold text-gray-900">{secondSubtitle}</h3>
+          <h3 className="mt-8 text-lg font-bold text-ink">{secondSubtitle}</h3>
           <div className="mt-4 space-y-3">
             {secondItems.map((item) => (
-              <div key={item} className="flex items-start gap-3 text-sm leading-6 text-gray-700">
+              <div key={item} className="flex items-start gap-3 text-sm leading-6 text-ink-soft">
                 <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-orange-500" />
                 {item}
               </div>

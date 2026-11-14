@@ -59,7 +59,7 @@
 //           className="text-center mb-16"
 //         >
 //           <p className="text-indigo font-semibold mb-2">WHAT WE OFFER</p>
-//           <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-800">Our Premium Services</h2>
+//           <h2 className="text-4xl md:text-5xl font-display font-bold text-ink-soft">Our Premium Services</h2>
 //         </motion.div>
 
 //         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -71,13 +71,13 @@
 //               viewport={{ once: true }}
 //               transition={{ duration: 0.5, delay: index * 0.1 }}
 //               whileHover={{ y: -10 }}
-//               className="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-2xl hover:bg-white transition-all duration-300 group cursor-pointer"
+//               className="bg-paper p-8 rounded-3xl border border-[var(--line)] hover:shadow-2xl hover:bg-white transition-all duration-300 group cursor-pointer"
 //             >
 //               <div className={`${service.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
 //                 <service.icon className="w-8 h-8" />
 //               </div>
-//               <h3 className="text-2xl font-bold text-gray-800 mb-4">{service.title}</h3>
-//               <p className="text-gray-600 mb-6">{service.desc}</p>
+//               <h3 className="text-2xl font-bold text-ink-soft mb-4">{service.title}</h3>
+//               <p className="text-ink-muted mb-6">{service.desc}</p>
 //               <Link to={`/services/${service.id}`} className="text-indigo font-semibold flex items-center group-hover:translate-x-2 transition-transform">
 //                 Learn More <ArrowRight className="ml-2 w-4 h-4" />
 //               </Link>
@@ -155,7 +155,7 @@ export default function Services() {
           className="text-center mb-16"
         >
           <p className="text-indigo font-semibold mb-2">WHAT WE OFFER</p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-800">Our Premium Services</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-ink-soft">Our Premium Services</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -184,7 +184,7 @@ export default function Services() {
                   <service.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
-                <p className="text-gray-200 mb-4 opacity-90">{service.desc}</p>
+                <p className="text-[var(--line)] mb-4 opacity-90">{service.desc}</p>
                 <Link to={service.path} className="text-white font-semibold flex items-center group-hover:translate-x-2 transition-transform">
                   Learn More <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
