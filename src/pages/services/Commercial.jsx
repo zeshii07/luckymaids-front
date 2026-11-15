@@ -198,6 +198,7 @@ export default function Commercial() {
           decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/20 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/70 to-transparent sm:hidden" aria-hidden="true" />
 
         <div className="container relative mx-auto flex min-h-[650px] items-end px-5 pb-14 pt-28 sm:px-6 md:items-center md:pb-20">
           <motion.div
@@ -242,7 +243,7 @@ export default function Commercial() {
         </div>
       </section>
 
-      <section className="relative z-10 -mt-7 px-5 sm:px-6">
+      <section className="relative z-10 mt-3 px-5 sm:px-6">
         <div className="container mx-auto max-w-6xl rounded-3xl border border-[var(--line)] bg-white p-5 shadow-xl">
           <div className="grid divide-y divide-[var(--line)] sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
             {[

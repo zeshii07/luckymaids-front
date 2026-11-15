@@ -241,7 +241,7 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section className="relative z-10 -mt-8 px-5 sm:px-6">
+      <section className="relative z-10 mt-4 px-5 sm:px-6">
         <div className="container mx-auto max-w-6xl rounded-3xl border border-[var(--line)] bg-white p-5 shadow-xl">
           <div className="grid divide-y divide-[var(--line)] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             {[

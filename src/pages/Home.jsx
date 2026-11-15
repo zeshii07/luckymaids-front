@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
 import {
   Baby,
   Building2,
@@ -246,10 +247,10 @@ export default function Home() {
         <Hero />
 
         {/* Section 2 — Trust strip: horizontal proof rail (NOT cards) */}
-        <SectionContainer tone="white" numeral={2}>
+        <SectionContainer tone="violet-soft" numeral={2}>
           <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center lg:justify-between">
             <div>
-              <Eyebrow>Why Byt Cleaning Services</Eyebrow>
+              <Eyebrow tone="coral">Why Byt Cleaning Services</Eyebrow>
               <p className="mt-3 max-w-xl font-display text-2xl font-bold tracking-tight sm:text-3xl">
                 Trusted cleaning across Dubai, delivered with care and clear communication.
               </p>
@@ -259,7 +260,7 @@ export default function Home() {
             </PrimaryButton>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 gap-8 border-t border-[var(--line)] pt-10 sm:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 gap-8 border-t border-violet/20 pt-10 sm:grid-cols-4">
             {trustProof.map((item) => (
               <MetricCallout
                 key={item.label}
@@ -272,7 +273,7 @@ export default function Home() {
         </SectionContainer>
 
         {/* Section 3 — Services preview: numbered editorial directory (NOT a card grid) */}
-        <SectionContainer tone="paper" numeral={3}>
+        <SectionContainer tone="white" numeral={3}>
           <div className="mb-12 max-w-2xl">
             <Eyebrow>Our services</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
@@ -320,16 +321,22 @@ export default function Home() {
             feature={
               <>
                 <Eyebrow tone="indigo">What is included</Eyebrow>
-                <ul className="mt-4 space-y-3">
-                  {["Trained, reliable cleaning team", "Clear before-and-after scope", "Flexible scheduling options", "Friendly support from first message"].map((f) => (
-                    <li key={f} className="flex items-start gap-3 text-sm text-ink">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint text-ink">
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {["Trained, reliable cleaning team", "Clear before-and-after scope", "Flexible scheduling options", "Friendly support from first message"].map((f, i) => (
+                    <motion.span
+                      key={f}
+                      initial={false}
+                      whileHover={{ y: -2 }}
+                      className="inline-flex items-center gap-2 rounded-full border border-mint/60 bg-mint-soft/80 px-3.5 py-2 text-sm font-semibold text-ink shadow-sm"
+                      style={{ animationDelay: `${i * 60}ms` }}
+                    >
+                      <span className="grid h-5 w-5 place-items-center rounded-full bg-mint-deep text-ink">
                         <Check className="h-3.5 w-3.5" />
                       </span>
                       {f}
-                    </li>
+                    </motion.span>
                   ))}
-                </ul>
+                </div>
               </>
             }
             quote={
@@ -345,7 +352,7 @@ export default function Home() {
         </SectionContainer>
 
         {/* Section 5 — Process: timeline with line draw */}
-        <SectionContainer tone="paper" numeral={5}>
+        <SectionContainer tone="mint" numeral={5}>
           <div className="mb-12 max-w-2xl">
             <Eyebrow>How it works</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
@@ -367,7 +374,7 @@ export default function Home() {
         </SectionContainer>
 
         {/* Section 7 — Areas served: marquee rail (real, scannable list) */}
-        <SectionContainer tone="white" numeral={7}>
+        <SectionContainer tone="coral-soft" numeral={7}>
           <div className="mb-10 max-w-2xl">
             <Eyebrow tone="indigo">Areas we serve</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">

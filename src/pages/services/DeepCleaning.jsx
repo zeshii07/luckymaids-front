@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
@@ -177,6 +177,166 @@ function SectionHeading({ eyebrow, title, description, align = "center" }) {
   );
 }
 
+// Interactive tabbed package picker — segmented tabs with an animated active
+// indicator and redesigned package tiles that use the brand palette instead of
+// uniform white cards.
+function PackageTabs({ tabs, addedId, onAdd, reduceMotion }) {
+  const [activeId, setActiveId] = useState(tabs[0]?.id);
+  const active = tabs.find((t) => t.id === activeId) || tabs[0];
+
+  return (
+    <div className="mt-12">
+      {/* Segmented tab bar */}
+      <div className="flex flex-wrap justify-center gap-2 rounded-full bg-ink/5 p-1.5 sm:inline-flex sm:gap-1">
+        {tabs.map((tab) => {
+          const Icon = tab.icon;
+          const isActive = tab.id === activeId;
+          return (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => setActiveId(tab.id)}
+              className={`relative inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold transition-colors ${
+                isActive ? "text-ink" : "text-ink-muted hover:text-ink"
+              }`}
+            >
+              {isActive && (
+                <motion.span
+                  layoutId="pkg-tab-pill"
+                  initial={false}
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  className="absolute inset-0 -z-10 rounded-full bg-white shadow-md ring-1 ring-[var(--line)]"
+                />
+              )}
+              <Icon className="h-4 w-4" />
+              {tab.label}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Active tab description */}
+      <div className="mt-6 flex items-center justify-center gap-2 text-sm text-ink-muted">
+        <BadgeCheck className="h-4 w-4 text-mint-deep" />
+        {active.type === "Apartment"
+          ? "Studios and apartments — annual deep cleans, move-in or move-out."
+          : active.type === "Unfurnished"
+          ? "Vacant, move-in, or move-out villas — slightly lower scope, lower price."
+          : "Occupied or furnished villas — full top-to-bottom detailing."}
+      </div>
+
+      {/* Package grid (animated swap) */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={active.id}
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={reduceMotion ? false : { opacity: 0, y: -16 }}
+          transition={{ duration: 0.3 }}
+          className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+        >
+          {active.data.map((pkg, index) => (
+            <PackageTile
+              key={pkg.id}
+              pkg={pkg}
+              type={active.type}
+              accentIndex={index}
+              added={addedId === pkg.id}
+              onAdd={onAdd}
+              reduceMotion={reduceMotion}
+            />
+          ))}
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
+
+// Redesigned package tile — palette-driven, with a color bar, savings chip, and
+// an add-to-cart button that flips to a confirmation state.
+function PackageTile({ pkg, type, accentIndex, added, onAdd, reduceMotion }) {
+  const palette = [
+    { bar: "bg-coral", soft: "bg-coral-soft", text: "text-coral-deep", glow: "shadow-coral/30" },
+    { bar: "bg-violet", soft: "bg-violet-soft", text: "text-violet-deep", glow: "shadow-violet/30" },
+    { bar: "bg-mint-deep", soft: "bg-mint-soft", text: "text-emerald-700", glow: "shadow-emerald-500/30" },
+  ];
+  const c = palette[accentIndex % palette.length];
+  const savings = pkg.original - pkg.price;
+
+  return (
+    <motion.article
+      initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: reduceMotion ? 0 : Math.min(accentIndex * 0.05, 0.2) }}
+      whileHover={reduceMotion ? undefined : { y: -6 }}
+      className={`relative flex h-full flex-col overflow-hidden rounded-3xl border bg-white shadow-sm transition-shadow hover:shadow-xl ${
+        pkg.popular ? "border-coral ring-2 ring-coral/30" : "border-[var(--line)]"
+      }`}
+    >
+      {/* Top color bar */}
+      <div className={`h-1.5 w-full ${c.bar}`} />
+
+      {pkg.popular && (
+        <div className="absolute right-3 top-3 z-10 rounded-full bg-ink px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+          Popular
+        </div>
+      )}
+
+      <div className={`flex flex-1 flex-col p-6 ${c.soft}`}>
+        <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-sm">
+          {type === "Apartment" ? (
+            <Building2 className={`h-6 w-6 ${c.text}`} />
+          ) : (
+            <Home className={`h-6 w-6 ${c.text}`} />
+          )}
+        </div>
+
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-ink-muted">
+          {type}
+        </p>
+        <h3 className="mt-2 text-lg font-bold text-ink">{pkg.name}</h3>
+
+        <div className="mt-5 flex flex-wrap items-end gap-x-2 gap-y-1">
+          <span className={`text-4xl font-black tracking-tight ${c.text}`}>
+            {pkg.price}
+          </span>
+          <span className="pb-1 text-sm font-bold text-ink-muted">AED</span>
+          <span className="pb-1 text-sm text-ink-muted line-through">
+            {pkg.original} AED
+          </span>
+        </div>
+
+        <div className="mt-3 inline-flex w-fit items-center rounded-full bg-white/70 px-3 py-1.5 text-xs font-bold text-emerald-700">
+          <Tag className="mr-1.5 h-3.5 w-3.5" /> Save {savings} AED
+        </div>
+
+        <div className="mt-6 flex-1" />
+
+        <motion.button
+          type="button"
+          onClick={() => onAdd(pkg, type)}
+          whileTap={{ scale: 0.95 }}
+          className={`mt-2 inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-bold transition-colors ${
+            added
+              ? "bg-mint-deep text-ink"
+              : `bg-ink text-white hover:${c.bar} hover:text-ink`
+          }`}
+        >
+          {added ? (
+            <>
+              <CheckCircle2 className="h-4 w-4" /> Added to cart
+            </>
+          ) : (
+            <>
+              <ShoppingCart className="h-4 w-4" /> Add to cart
+            </>
+          )}
+        </motion.button>
+      </div>
+    </motion.article>
+  );
+}
+
 function PackageCard({ pkg, type, tone, added, onAdd, reduceMotion }) {
   const isBlue = tone === "blue";
   const accent = isBlue ? "text-indigo-deep" : "text-indigo-deep";
@@ -303,16 +463,18 @@ export default function DeepCleaning() {
         <link rel="preconnect" href="https://images.unsplash.com" />
       </Helmet>
 
-      <section className="relative isolate min-h-[680px] overflow-hidden bg-indigo-soft sm:min-h-[720px] lg:min-h-[760px]">
+      <section className="relative isolate flex min-h-svh items-center overflow-hidden bg-indigo-soft sm:min-h-[720px] lg:min-h-[760px]">
         <img
           src={HERO_IMAGE}
           alt="Professional cleaner preparing a bright modern room"
           className="absolute inset-0 h-full w-full object-cover object-center"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/65 via-ink/30 to-ink/10 sm:from-ink/55 sm:via-ink/20 sm:to-transparent" />
+        {/* Mobile bottom scrim so the trust items stay legible over busy photo */}
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/70 to-transparent sm:hidden" aria-hidden="true" />
 
-        <div className="relative mx-auto flex min-h-[680px] max-w-7xl items-center px-5 py-20 sm:min-h-[720px] sm:px-8 lg:min-h-[760px] lg:px-10">
+        <div className="relative mx-auto flex w-full max-w-7xl items-center px-5 pt-24 pb-12 sm:min-h-[720px] sm:px-8 sm:py-20 lg:min-h-[760px] lg:px-10">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
             animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -321,28 +483,28 @@ export default function DeepCleaning() {
           >
             <Link
               to="/services"
-              className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/40 bg-black/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md transition hover:bg-black/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/40 bg-black/20 px-3.5 py-1.5 text-xs font-semibold text-white backdrop-blur-md transition hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:mb-7 sm:px-4 sm:py-2 sm:text-sm"
             >
               <ArrowLeft className="h-4 w-4" /> Back to services
             </Link>
 
-            <div className="mb-5 flex flex-wrap gap-2">
-              <span className="rounded-full bg-indigo/90 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-white">
+            <div className="mb-4 flex flex-wrap gap-2 sm:mb-5">
+              <span className="rounded-full bg-coral px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-ink sm:bg-indigo/90 sm:text-white">
                 Deep cleaning in Dubai
               </span>
-              <span className="rounded-full border border-white/40 bg-black/10 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md">
+              <span className="rounded-full border border-white/40 bg-black/20 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md">
                 Homes · Villas · Offices
               </span>
             </div>
 
-            <h1 className="max-w-4xl text-4xl font-display font-black leading-[1.05] tracking-tight text-white drop-shadow-sm sm:text-5xl lg:text-7xl">
+            <h1 className="max-w-4xl text-[1.9rem] font-display font-black leading-[1.08] tracking-tight text-white drop-shadow-sm sm:text-5xl lg:text-7xl lg:leading-[1.05]">
               A deeper clean for spaces that deserve extra attention.
             </h1>
-            <p className="mt-6 max-w-3xl text-base leading-7 text-white drop-shadow-sm sm:text-lg lg:text-xl lg:leading-8">
+            <p className="mt-4 max-w-3xl text-sm leading-6 text-white/90 drop-shadow-sm sm:mt-6 sm:text-lg lg:text-xl lg:leading-8">
               Detailed cleaning for apartments, villas, and workplaces, with flexible packages and a systematic top-to-bottom approach.
             </p>
 
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:mt-9 sm:flex-row">
               <button
                 type="button"
                 onClick={() => scrollToSection("villa-section")}
@@ -353,16 +515,16 @@ export default function DeepCleaning() {
               <button
                 type="button"
                 onClick={() => scrollToSection("apartment-section")}
-                className="inline-flex items-center justify-center rounded-full bg-indigo-deep px-6 py-3.5 font-bold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-indigo-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+                className="inline-flex items-center justify-center rounded-full bg-coral px-6 py-3.5 font-bold text-ink shadow-xl transition hover:-translate-y-0.5 hover:bg-coral-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
               >
                 <Building2 className="mr-2 h-5 w-5" /> Apartment packages
               </button>
             </div>
 
-            <div className="mt-10 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4">
+            <div className="mt-7 grid max-w-4xl grid-cols-2 gap-2.5 sm:mt-10 sm:grid-cols-4 sm:gap-3">
               {trustItems.map(({ icon: Icon, label }) => (
-                <div key={label} className="rounded-2xl border border-white/40 bg-black/10 p-3 text-sm font-semibold text-white shadow-sm backdrop-blur-md">
-                  <Icon className="mb-2 h-5 w-5 text-indigo/30" />
+                <div key={label} className="rounded-2xl border border-white/30 bg-black/20 p-2.5 text-xs font-semibold text-white shadow-sm backdrop-blur-md sm:p-3 sm:text-sm">
+                  <Icon className="mb-1.5 h-4 w-4 text-coral sm:mb-2 sm:h-5 sm:w-5" />
                   {label}
                 </div>
               ))}
@@ -371,7 +533,7 @@ export default function DeepCleaning() {
         </div>
       </section>
 
-      <section className="relative z-10 -mt-8 px-5 sm:px-8 lg:px-10">
+      <section className="relative z-10 mt-4 px-5 sm:px-8 lg:px-10">
         <div className="mx-auto grid max-w-6xl gap-4 rounded-3xl border border-[var(--line)] bg-white p-5 shadow-xl sm:grid-cols-3 sm:p-6">
           {[
             ["From 250 AED", "Apartment packages"],
@@ -545,52 +707,24 @@ export default function DeepCleaning() {
         </div>
       </section>
 
-      <section id="villa-section" className="scroll-mt-24 bg-white py-24 sm:py-28">
+      <section id="villa-section" className="scroll-mt-24 bg-gradient-to-b from-white via-mint-soft/40 to-white py-24 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <SectionHeading
-            eyebrow="Villa pricing"
-            title="Choose a villa deep-cleaning package"
-            description="Prices are shown in AED. Confirm the final scope, access details, property condition, and availability before the appointment."
+            eyebrow="Pricing"
+            title="Pick your deep-cleaning package"
+            description="Switch between furnished villas, unfurnished villas, and apartments. Prices are in AED. Confirm the final scope, access details, property condition, and availability before the appointment."
           />
 
-          <div className="mt-14">
-            <div className="mb-7 flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-indigo-soft"><Home className="h-5 w-5 text-indigo-deep" /></div>
-              <div><h3 className="text-2xl font-bold">Furnished villas</h3><p className="text-sm text-ink-muted">For occupied or furnished properties</p></div>
-            </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-              {villaFurnished.map((pkg) => (
-                <PackageCard key={pkg.id} pkg={pkg} type="Furnished" tone="crystal" added={addedId === pkg.id} onAdd={handleAddPackage} reduceMotion={reduceMotion} />
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-16">
-            <div className="mb-7 flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--line)]"><Home className="h-5 w-5 text-ink-muted" /></div>
-              <div><h3 className="text-2xl font-bold">Unfurnished villas</h3><p className="text-sm text-ink-muted">For vacant, move-in, or move-out properties</p></div>
-            </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-              {villaUnfurnished.map((pkg) => (
-                <PackageCard key={pkg.id} pkg={pkg} type="Unfurnished" tone="crystal" added={addedId === pkg.id} onAdd={handleAddPackage} reduceMotion={reduceMotion} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="apartment-section" className="scroll-mt-24 bg-paper py-24 sm:py-28">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-          <SectionHeading
-            eyebrow="Apartment pricing"
-            title="Apartment and studio packages"
-            description="A straightforward starting point for annual deep cleans, move-in preparation, or move-out cleaning."
+          <PackageTabs
+            tabs={[
+              { id: "furnished", label: "Villa · Furnished", icon: Home, data: villaFurnished, type: "Furnished" },
+              { id: "unfurnished", label: "Villa · Unfurnished", icon: Home, data: villaUnfurnished, type: "Unfurnished" },
+              { id: "apartment", label: "Apartments", icon: Building2, data: apartments, type: "Apartment" },
+            ]}
+            addedId={addedId}
+            onAdd={handleAddPackage}
+            reduceMotion={reduceMotion}
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {apartments.map((pkg) => (
-              <PackageCard key={pkg.id} pkg={pkg} type="Apartment" tone="blue" added={addedId === pkg.id} onAdd={handleAddPackage} reduceMotion={reduceMotion} />
-            ))}
-          </div>
         </div>
       </section>
 

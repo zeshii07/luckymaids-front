@@ -431,7 +431,7 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      <section className="relative z-10 -mt-7 px-5 sm:px-6">
+      <section className="relative z-10 mt-3 px-5 sm:px-6">
         <div className="container mx-auto grid max-w-6xl gap-4 rounded-3xl border border-[var(--line)] bg-white p-4 shadow-xl sm:grid-cols-2 lg:grid-cols-4">
           {trustPoints.map((point) => {
             const Icon = point.icon;

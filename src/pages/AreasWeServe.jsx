@@ -259,7 +259,7 @@ export default function AreasWeServe() {
         </div>
       </section>
 
-      <section className="relative z-10 -mt-8 px-4 sm:px-6">
+      <section className="relative z-10 mt-4 px-4 sm:px-6">
         <div className="container mx-auto grid max-w-6xl gap-4 rounded-3xl border border-[var(--line)] bg-white p-4 shadow-xl md:grid-cols-3">
           {[
             [Home, "Homes of every size", "Studios, apartments, villas, townhouses, and holiday homes."],

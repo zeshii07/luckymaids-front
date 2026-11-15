@@ -313,7 +313,7 @@ export default function BlogPostPage() {
             </div>
           </header>
 
-          <div className="relative z-10 -mt-10 px-5 sm:px-6">
+          <div className="relative z-10 mt-4 px-5 sm:px-6">
             <div className="container mx-auto max-w-6xl">
               <motion.figure
                 initial={reducedMotion ? false : { opacity: 0, y: 24 }}

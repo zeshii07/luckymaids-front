@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import {
   BrowserRouter,
   Navigate,
@@ -16,53 +16,37 @@ import FloatingContact from "./components/FloatingContact";
 import ScrollToTop from "./components/ScrollToTop";
 import StickyCartBar from "./components/StickyCartBar";
 import ServiceMarquee from "./components/ServiceMarquee";
-import PageLoader from "./components/PageLoader";
-import RouteLoader from "./components/RouteLoader";
 import RouteSeo from "./components/RouteSeo";
 import LazyErrorBoundary from "./components/LazyErrorBoundary";
 
-// Lazy-loaded primary pages
-const Home = lazy(() => import("./pages/Home"));
-const About = lazy(() => import("./pages/About"));
-const Contact = lazy(() => import("./pages/Contact"));
-const Booking = lazy(() => import("./pages/Booking"));
-const Quote = lazy(() => import("./pages/Quote"));
-const Checkout = lazy(() => import("./pages/Checkout"));
-const Confirmation = lazy(() => import("./pages/Confirmation"));
-const ServicesOverview = lazy(
-  () => import("./pages/ServicesOverview"),
-);
-const AreasWeServe = lazy(() => import("./pages/AreasWeServe"));
-const Pricing = lazy(() => import("./pages/Pricing"));
-const BlogPage = lazy(() => import("./pages/BlogPage"));
-const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+// EAGER static imports (no code-splitting). On hosts that gate requests with a
+// JS challenge (e.g. InfinityFree's AES anti-bot), dynamic imports for lazy
+// chunks return the challenge HTML instead of JS → "Failed to fetch
+// dynamically imported module" → blank page. Static imports bundle every page
+// into the main chunk, so navigation never triggers a new asset request.
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Booking from "./pages/Booking";
+import Quote from "./pages/Quote";
+import Checkout from "./pages/Checkout";
+import Confirmation from "./pages/Confirmation";
+import ServicesOverview from "./pages/ServicesOverview";
+import AreasWeServe from "./pages/AreasWeServe";
+import Pricing from "./pages/Pricing";
+import BlogPage from "./pages/BlogPage";
+import BlogPostPage from "./pages/BlogPostPage";
+import NotFound from "./pages/NotFound";
 
-// Lazy-loaded service pages
-const Residential = lazy(
-  () => import("./pages/services/Residential"),
-);
-const DeepCleaning = lazy(
-  () => import("./pages/services/DeepCleaning"),
-);
-const MoveInOut = lazy(
-  () => import("./pages/services/MoveInOut"),
-);
-const Commercial = lazy(
-  () => import("./pages/services/Commercial"),
-);
-const Furniture = lazy(
-  () => import("./pages/services/Furniture"),
-);
-const BabysittingMaid = lazy(
-  () => import("./pages/services/BabysittingMaid"),
-);
-const Babysitting = lazy(
-  () => import("./pages/services/Babysitting"),
-);
-const MaidServices = lazy(
-  () => import("./pages/services/MaidServices"),
-);
+// EAGER service pages
+import Residential from "./pages/services/Residential";
+import DeepCleaning from "./pages/services/DeepCleaning";
+import MoveInOut from "./pages/services/MoveInOut";
+import Commercial from "./pages/services/Commercial";
+import Furniture from "./pages/services/Furniture";
+import BabysittingMaid from "./pages/services/BabysittingMaid";
+import Babysitting from "./pages/services/Babysitting";
+import MaidServices from "./pages/services/MaidServices";
 
 function RouteVisualTheme() {
   const { pathname } = useLocation();
@@ -93,8 +77,6 @@ export default function App() {
           <ScrollToTop />
           <RouteSeo />
 
-          <RouteLoader minimumDuration={350} />
-
           <div className="site-shell flex min-h-screen flex-col font-sans antialiased">
             <Navbar />
             
@@ -107,12 +89,7 @@ export default function App() {
             </a>
             <main id="main-content" className="flex-grow pb-24">
               <LazyErrorBoundary>
-                <Suspense
-                  fallback={
-                    <PageLoader message="Loading page content" />
-                  }
-                >
-                  <Routes>
+                <Routes>
                   {/* ======================================================
                       PRIMARY PUBLIC PAGES
                   ====================================================== */}
@@ -386,7 +363,6 @@ export default function App() {
                     element={<NotFound />}
                   />
                 </Routes>
-                </Suspense>
               </LazyErrorBoundary>
             </main>
 

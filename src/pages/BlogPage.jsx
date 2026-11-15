@@ -151,7 +151,7 @@ export default function BlogPage() {
 
         {featuredPost ? (
           <>
-            <section className="relative z-10 -mt-10 px-5 sm:px-6">
+            <section className="relative z-10 mt-4 px-5 sm:px-6">
               <div className="container mx-auto max-w-6xl">
                 <motion.article
                   {...revealProps}

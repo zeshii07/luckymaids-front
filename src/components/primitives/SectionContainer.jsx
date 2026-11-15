@@ -18,8 +18,12 @@ export default function SectionContainer({
     paper: "bg-paper text-ink",
     white: "bg-white text-ink",
     mint: "bg-mint-soft text-ink",
+    "mint-deep": "bg-mint-deep text-ink",
     ink: "bg-ink text-white",
     violet: "bg-indigo text-white",
+    "violet-soft": "bg-violet-soft text-ink",
+    "coral-soft": "bg-coral-soft text-ink",
+    indigo: "bg-indigo-soft text-ink",
   };
   const padY =
     "py-14 sm:py-24 lg:py-28";

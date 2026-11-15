@@ -40,7 +40,9 @@ export default class LazyErrorBoundary extends Component {
     return { hasError: true };
   }
 
-  componentDidCatch(error) {
+  componentDidCatch(error, errorInfo) {
+    // eslint-disable-next-line no-console
+    console.error("[LazyErrorBoundary] render error:", error, errorInfo);
     if (isChunkLoadError(error)) {
       try {
         const count = Number(sessionStorage.getItem(RELOAD_KEY) || "0");

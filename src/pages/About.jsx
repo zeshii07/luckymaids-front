@@ -165,7 +165,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="relative -mt-8 z-10">
+      <section className="relative mt-4 z-10">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div {...reveal} className="rounded-[2rem] border border-[var(--line)]/80 bg-white p-7 shadow-[0_24px_80px_-35px_rgba(15,23,42,0.35)] sm:p-10 lg:p-14">
             <div className="grid gap-10 lg:grid-cols-[.7fr_1.3fr] lg:items-start">

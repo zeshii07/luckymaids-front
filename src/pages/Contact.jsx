@@ -256,7 +256,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="relative z-10 -mt-8 pb-20 sm:pb-24">
+      <section className="relative z-10 mt-4 pb-20 sm:pb-24">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-7 lg:grid-cols-[.72fr_1.28fr] lg:items-start">
             <motion.aside {...reveal} className="space-y-6 lg:sticky lg:top-28">
