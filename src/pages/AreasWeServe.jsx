@@ -194,7 +194,7 @@ export default function AreasWeServe() {
   };
 
   return (
-    <main className="min-h-screen overflow-hidden bg-white pb-24 pt-20">
+    <main className="min-h-screen overflow-hidden bg-white pb-20 pt-16 sm:pt-20">
       <Helmet>
         <title>Cleaning Services Across Dubai | Areas We Serve | Byt Cleaning Services</title>
         <meta
@@ -206,10 +206,10 @@ export default function AreasWeServe() {
 
       <section className="relative isolate overflow-hidden bg-ink">
         <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1800&q=85" alt="Dubai skyline representing cleaning service coverage" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-ink/45" />
+        <div className="absolute inset-0 bg-ink/60" />
         <MapPin className="absolute -bottom-24 -right-12 h-80 w-80 rotate-12 text-white/[0.035]" />
 
-        <div className="container relative mx-auto px-5 py-24 sm:px-6 md:py-32">
+        <div className="container relative mx-auto px-4 py-20 sm:px-6 md:py-32">
           <motion.div
             initial={reducedMotion ? false : { opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -221,10 +221,10 @@ export default function AreasWeServe() {
               Mobile cleaning teams across Dubai
             </span>
 
-            <h1 className="mt-6 font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
+            <h1 className="mt-6 font-display text-3xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
               Cleaning Services Across Dubai
             </h1>
-            <p className="mt-5 text-xl font-semibold text-indigo/30">
+            <p className="mt-4 text-lg font-semibold text-mint sm:text-xl">
               Professional Cleaning Services Near You
             </p>
             <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-[var(--line)] sm:text-lg">
@@ -259,7 +259,7 @@ export default function AreasWeServe() {
         </div>
       </section>
 
-      <section className="relative z-10 -mt-8 px-5 sm:px-6">
+      <section className="relative z-10 -mt-8 px-4 sm:px-6">
         <div className="container mx-auto grid max-w-6xl gap-4 rounded-3xl border border-[var(--line)] bg-white p-4 shadow-xl md:grid-cols-3">
           {[
             [Home, "Homes of every size", "Studios, apartments, villas, townhouses, and holiday homes."],
@@ -277,8 +277,8 @@ export default function AreasWeServe() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="container mx-auto grid max-w-6xl gap-6 px-5 sm:px-6 lg:grid-cols-2">
+      <section className="bg-white py-14 sm:py-20">
+        <div className="container mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 lg:grid-cols-2">
           <ServiceAudience
             icon={Home}
             title="Residential Areas We Serve"
@@ -302,8 +302,8 @@ export default function AreasWeServe() {
         </div>
       </section>
 
-      <section className="bg-paper py-20">
-        <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+      <section className="bg-paper py-14 sm:py-20">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6">
           <motion.div {...revealProps} className="text-center">
             <Eyebrow>Community coverage</Eyebrow>
             <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
@@ -346,8 +346,8 @@ export default function AreasWeServe() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="container mx-auto grid max-w-6xl gap-6 px-5 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
+      <section className="bg-white py-14 sm:py-20">
+        <div className="container mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
           <motion.div {...revealProps} className="rounded-[2rem] bg-ink p-8 text-white">
             <Search className="h-8 w-8 text-mint" />
             <h2 className="mt-5 font-display text-3xl font-bold">
@@ -384,8 +384,8 @@ export default function AreasWeServe() {
         </div>
       </section>
 
-      <section className="bg-paper py-20">
-        <div className="container mx-auto max-w-6xl px-5 sm:px-6">
+      <section className="bg-paper py-14 sm:py-20">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6">
           <div className="text-center">
             <Eyebrow>Popular bookings</Eyebrow>
             <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">
@@ -406,8 +406,8 @@ export default function AreasWeServe() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="container mx-auto max-w-3xl px-5 sm:px-6">
+      <section className="bg-white py-14 sm:py-20">
+        <div className="container mx-auto max-w-3xl px-4 sm:px-6">
           <div className="text-center">
             <Eyebrow>Availability questions</Eyebrow>
             <h2 className="font-display text-3xl font-bold text-ink md:text-4xl">

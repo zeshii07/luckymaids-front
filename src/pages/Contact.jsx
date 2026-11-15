@@ -182,10 +182,10 @@ export default function Contact() {
                 <Sparkles className="h-4 w-4" aria-hidden="true" />
                 Fast, friendly booking support
               </span>
-              <h1 className="mt-6 text-4xl font-display font-bold tracking-tight sm:text-5xl lg:text-7xl">
+              <h1 className="mt-6 text-3xl font-display font-bold tracking-tight sm:text-5xl lg:text-7xl">
                 Contact Byt Cleaning Services
               </h1>
-              <h2 className="mt-5 text-xl font-semibold text-indigo/30 sm:text-2xl">
+              <h2 className="mt-4 text-lg font-semibold text-mint sm:text-2xl">
                 We're Here to Help
               </h2>
               <p className="mt-5 max-w-3xl text-base leading-8 text-white/70 sm:text-lg">
@@ -232,7 +232,7 @@ export default function Contact() {
                     className="mb-4 h-6 w-6 text-mint"
                     aria-hidden="true"
                   />
-                  <p className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-mint">
                     {item.label}
                   </p>
                   {item.href ? (
@@ -240,7 +240,7 @@ export default function Contact() {
                       href={item.href}
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noreferrer" : undefined}
-                      className="mt-1 block break-words text-sm font-semibold text-white hover:text-indigo/30"
+                      className="mt-1 block break-words text-sm font-semibold text-white hover:text-mint"
                     >
                       {item.value}
                     </a>
@@ -257,7 +257,7 @@ export default function Contact() {
       </section>
 
       <section className="relative z-10 -mt-8 pb-20 sm:pb-24">
-        <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-7 lg:grid-cols-[.72fr_1.28fr] lg:items-start">
             <motion.aside {...reveal} className="space-y-6 lg:sticky lg:top-28">
               <div className="rounded-[2rem] bg-ink p-7 text-white shadow-xl sm:p-8">
@@ -605,8 +605,8 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="bg-paper py-20 sm:py-24">
-        <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+      <section className="bg-paper py-14 sm:py-24">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             {...reveal}
             className="grid gap-10 rounded-[2rem] border border-[var(--line)] bg-white p-7 shadow-sm sm:p-10 lg:grid-cols-[.75fr_1.25fr] lg:items-center lg:p-14"
@@ -642,8 +642,8 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-24">
-        <div className="container mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
+      <section className="py-14 sm:py-24">
+        <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <motion.div {...reveal} className="mb-12 text-center">
             <span className="text-sm font-bold uppercase tracking-[0.18em] text-indigo-deep">
               FAQs
@@ -702,7 +702,7 @@ export default function Contact() {
       </section>
 
       <section className="pb-20 sm:pb-24">
-        <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             {...reveal}
             className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-ink px-6 py-14 text-center text-white shadow-2xl sm:px-12 sm:py-16"

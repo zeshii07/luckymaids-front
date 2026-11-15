@@ -22,13 +22,13 @@ export default function SectionContainer({
     violet: "bg-indigo text-white",
   };
   const padY =
-    "py-16 sm:py-24 lg:py-28";
+    "py-14 sm:py-24 lg:py-28";
   return (
     <Tag
       id={id}
       className={`relative ${padY} ${tones[tone] || tones.paper} ${className}`}
     >
-      <div className="container mx-auto max-w-[1320px] px-6 sm:px-8">
+      <div className="container mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8">
         {numeral != null && (
           <span
             aria-hidden="true"

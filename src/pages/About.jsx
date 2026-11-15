@@ -18,13 +18,13 @@ import {
 } from "lucide-react";
 
 const whatWeDo = [
-  { name: "Residential Cleaning", link: "/services/residential" },
-  { name: "Deep Cleaning", link: "/services/deep-cleaning" },
-  { name: "Maid Services", link: "/services/maid-services" },
-  { name: "Furniture Cleaning", link: "/services/furniture" },
-  { name: "Commercial Cleaning", link: "/services/commercial" },
-  { name: "Move-In & Move-Out Cleaning", link: "/services/move-in-out" },
-  { name: "Babysitting Services", link: "/services/babysitting" },
+  { name: "Residential Cleaning", link: "/residential-cleaning-services-dubai" },
+  { name: "Deep Cleaning", link: "/deep-cleaning-services-dubai" },
+  { name: "Maid Services", link: "/maid-services-dubai" },
+  { name: "Furniture Cleaning", link: "/furniture-cleaning-dubai" },
+  { name: "Commercial Cleaning", link: "/commercial-cleaning-services-dubai" },
+  { name: "Move-In & Move-Out Cleaning", link: "/move-in-move-out-cleaning-dubai" },
+  { name: "Babysitting Services", link: "/babysitting-services-dubai" },
 ];
 
 const whyChooseUs = [
@@ -125,39 +125,39 @@ export default function About() {
 
       <section className="relative isolate overflow-hidden bg-ink pt-28 text-white sm:pt-32">
         <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=85" alt="Byt Cleaning Services professional cleaning team" className="absolute inset-0 -z-20 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-ink/45" />
+        <div className="absolute inset-0 -z-10 bg-ink/55" />
 
-        <div className="container mx-auto max-w-7xl px-5 pb-20 sm:px-6 lg:px-8 lg:pb-28">
+        <div className="container mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-28">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease }}
-            className="grid items-end gap-12 lg:grid-cols-[1.25fr_.75fr]"
+            className="grid items-end gap-8 sm:gap-10 lg:grid-cols-[1.25fr_.75fr]"
           >
             <div className="max-w-4xl">
-              <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-indigo-soft backdrop-blur">
+              <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-2 text-xs font-semibold text-mint backdrop-blur sm:text-sm sm:px-4">
                 <Sparkles className="h-4 w-4" aria-hidden="true" />
                 Professional cleaning across Dubai
               </span>
-              <h1 className="text-4xl font-display font-bold tracking-tight sm:text-5xl lg:text-7xl">
+              <h1 className="text-3xl font-display font-bold leading-tight tracking-tight sm:text-5xl lg:text-7xl">
                 About Byt Cleaning Services
               </h1>
-              <h2 className="mt-5 max-w-3xl text-xl font-semibold text-indigo/30 sm:text-2xl">
+              <h2 className="mt-4 max-w-3xl text-lg font-semibold text-mint sm:text-2xl">
                 Professional Cleaning & Maid Services You Can Trust in Dubai
               </h2>
-              <p className="mt-7 max-w-3xl text-base leading-8 text-[var(--line)] sm:text-lg">
+              <p className="mt-5 max-w-3xl text-sm leading-7 text-[var(--line)] sm:text-lg sm:leading-8">
                 At <strong className="text-white">Byt Cleaning Services</strong>, we believe a clean and well-maintained space contributes to greater comfort, productivity, and peace of mind. Our goal is to provide dependable residential and commercial cleaning services that help homeowners, tenants, landlords, and businesses maintain clean, organized, and welcoming environments.
               </p>
-              <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--line)] sm:text-lg">
+              <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--line)] sm:text-lg sm:leading-8">
                 From regular maid services to detailed deep cleaning, furniture cleaning, move-in and move-out cleaning, and commercial cleaning, we tailor our services to meet the unique requirements of every customer.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
               {whyChooseUs.slice(0, 4).map((item) => (
-                <div key={item.title} className="rounded-2xl border border-white/10 bg-white/[0.07] p-4 backdrop-blur-sm sm:p-5">
-                  <item.icon className="mb-4 h-6 w-6 text-mint" aria-hidden="true" />
-                  <p className="text-sm font-semibold leading-5 text-white">{item.title}</p>
+                <div key={item.title} className="rounded-2xl border border-white/10 bg-white/[0.07] p-3 backdrop-blur-sm sm:p-5">
+                  <item.icon className="mb-3 h-5 w-5 text-mint sm:mb-4 sm:h-6 sm:w-6" aria-hidden="true" />
+                  <p className="text-xs font-semibold leading-5 text-white sm:text-sm">{item.title}</p>
                 </div>
               ))}
             </div>
@@ -166,7 +166,7 @@ export default function About() {
       </section>
 
       <section className="relative -mt-8 z-10">
-        <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div {...reveal} className="rounded-[2rem] border border-[var(--line)]/80 bg-white p-7 shadow-[0_24px_80px_-35px_rgba(15,23,42,0.35)] sm:p-10 lg:p-14">
             <div className="grid gap-10 lg:grid-cols-[.7fr_1.3fr] lg:items-start">
               <div>
@@ -183,8 +183,8 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-24">
-        <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-2">
             {[
               {
@@ -222,7 +222,7 @@ export default function About() {
       </section>
 
       <section className="bg-ink py-20 text-white sm:py-24">
-        <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div {...reveal} className="mx-auto mb-12 max-w-3xl text-center">
             <span className="text-sm font-bold uppercase tracking-[0.2em] text-mint">What we do</span>
             <h2 className="mt-4 text-3xl font-display font-bold tracking-tight sm:text-5xl">Cleaning support for homes, businesses, and busy lives.</h2>
@@ -252,8 +252,8 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-24">
-        <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div {...reveal} className="mb-14 max-w-2xl">
             <span className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-deep">Why choose us</span>
             <h2 className="mt-4 text-3xl font-display font-bold tracking-tight text-ink sm:text-4xl">A straightforward experience from enquiry to completion.</h2>
@@ -284,8 +284,8 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-paper py-20 sm:py-24">
-        <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+      <section className="bg-paper py-16 sm:py-24">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div {...reveal} className="mb-14 max-w-2xl">
             <span className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-deep">Our values</span>
             <h2 className="mt-4 text-3xl font-display font-bold tracking-tight text-ink sm:text-4xl">The principles behind every service.</h2>
@@ -316,8 +316,8 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-24">
-        <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div {...reveal} className="rounded-[2rem] border border-[var(--line)] bg-white p-7 shadow-sm sm:p-10 lg:p-14">
             <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
               <div>
@@ -338,8 +338,8 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-paper py-20 sm:py-24">
-        <div className="container mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
+      <section className="bg-paper py-16 sm:py-24">
+        <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <motion.div {...reveal} className="mb-12 text-center">
             <span className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-deep">FAQs</span>
             <h2 className="mt-4 text-3xl font-display font-bold text-ink sm:text-5xl">Frequently Asked Questions</h2>
@@ -384,8 +384,8 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-24">
-        <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div {...reveal} className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-br from-indigo-deep via-indigo-deep to-ink px-6 py-14 text-center text-white shadow-2xl sm:px-12 sm:py-16">
             <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
             <div className="absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-mint/20 blur-3xl" />
