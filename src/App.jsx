@@ -19,6 +19,7 @@ import ServiceMarquee from "./components/ServiceMarquee";
 import PageLoader from "./components/PageLoader";
 import RouteLoader from "./components/RouteLoader";
 import RouteSeo from "./components/RouteSeo";
+import LazyErrorBoundary from "./components/LazyErrorBoundary";
 
 // Lazy-loaded primary pages
 const Home = lazy(() => import("./pages/Home"));
@@ -105,12 +106,13 @@ export default function App() {
               Skip to content
             </a>
             <main id="main-content" className="flex-grow pb-24">
-              <Suspense
-                fallback={
-                  <PageLoader message="Loading page content" />
-                }
-              >
-                <Routes>
+              <LazyErrorBoundary>
+                <Suspense
+                  fallback={
+                    <PageLoader message="Loading page content" />
+                  }
+                >
+                  <Routes>
                   {/* ======================================================
                       PRIMARY PUBLIC PAGES
                   ====================================================== */}
@@ -384,7 +386,8 @@ export default function App() {
                     element={<NotFound />}
                   />
                 </Routes>
-              </Suspense>
+                </Suspense>
+              </LazyErrorBoundary>
             </main>
 
             <ServiceMarquee />

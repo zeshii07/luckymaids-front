@@ -1,33 +1,24 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
-        display: ['Playfair Display', 'serif'],
-      },
-      colors: {
-        crystal: {
-          50: '#f0fdfa',
-          100: '#ccfbf1',
-          200: '#99f6e4',
-          300: '#5eead4',
-          400: '#2dd4bf',
-          500: '#14b8a6',
-          600: '#0d9488',
-          700: '#0f766e',
-          800: '#115e59',
-          900: '#134e4a',
-        }
-      }
-    },
+// NOTE: this file previously held a Tailwind config by mistake (left over from
+// upstream). Vite still built via plugin-react auto-detection, but there was no
+// real Vite config — which meant no control over the preview/dev server's SPA
+// fallback (deep-link refreshes 404'd → blank page) and no chunk-loading safety.
+// The real Tailwind config lives in tailwind.config.js.
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    // SPA fallback so deep links like /about-us resolve to index.html in dev.
+    historyApiFallback: true,
   },
-  plugins: [],
-}
+  preview: {
+    // Same fallback for `vite preview` (deep-link refreshes won't 404).
+    historyApiFallback: true,
+  },
+  build: {
+    // Smaller, cache-friendly chunks so a single stale chunk doesn't blank
+    // the whole app after a redeploy.
+    chunkSizeWarningLimit: 900,
+  },
+});
