@@ -39,8 +39,8 @@ const services = [
     eyebrow: "Most requested",
     title: "Deep Cleaning",
     image:
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Professional cleaner working in a bright modern home",
+      "https://images.unsplash.com/photo-1582719478250-c28cae313db6?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Cleaner deep-cleaning a bright kitchen surface",
     description:
       "A detailed top-to-bottom service for homes and workplaces that need more than routine upkeep.",
     link: "/deep-cleaning-services-dubai",
@@ -56,8 +56,8 @@ const services = [
     eyebrow: "Flexible schedules",
     title: "Maid Services",
     image:
-      "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Cleaning tools prepared for professional housekeeping",
+      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Professional housekeeper preparing cleaning supplies",
     description:
       "Reliable household support for busy professionals, families and anyone who values a consistently tidy home.",
     link: "/maid-services-dubai",
@@ -73,8 +73,8 @@ const services = [
     eyebrow: "Made for your home",
     title: "Residential Cleaning",
     image:
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Clean contemporary residential interior",
+      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Spotless contemporary living room after residential cleaning",
     description:
       "Custom cleaning plans for apartments, villas, townhouses, studios and holiday homes across Dubai.",
     link: "/residential-cleaning-services-dubai",
@@ -90,8 +90,8 @@ const services = [
     eyebrow: "Business-ready spaces",
     title: "Commercial Cleaning",
     image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Bright modern commercial office interior",
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Modern open-plan office ready for commercial cleaning",
     description:
       "Professional cleaning support that helps offices, stores and customer-facing spaces stay welcoming.",
     link: "/commercial-cleaning-services-dubai",
@@ -107,8 +107,8 @@ const services = [
     eyebrow: "Refresh your interiors",
     title: "Furniture Cleaning",
     image:
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Modern sofa in a clean living room",
+      "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Upholstered sofa being professionally cleaned",
     description:
       "Specialized care for frequently used soft furnishings in residential and commercial properties.",
     link: "/furniture-cleaning-dubai",
@@ -124,8 +124,8 @@ const services = [
     eyebrow: "Smooth transitions",
     title: "Move-In & Move-Out",
     image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Freshly prepared empty apartment interior",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Empty apartment prepared for move-in cleaning",
     description:
       "Prepare a property for occupancy or handover with focused cleaning across the rooms that matter most.",
     link: "/move-in-move-out-cleaning-dubai",

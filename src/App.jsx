@@ -18,6 +18,7 @@ import StickyCartBar from "./components/StickyCartBar";
 import ServiceMarquee from "./components/ServiceMarquee";
 import RouteSeo from "./components/RouteSeo";
 import LazyErrorBoundary from "./components/LazyErrorBoundary";
+import AppLoader from "./components/AppLoader";
 
 // EAGER static imports (no code-splitting). On hosts that gate requests with a
 // JS challenge (e.g. InfinityFree's AES anti-bot), dynamic imports for lazy
@@ -76,6 +77,11 @@ export default function App() {
           <RouteVisualTheme />
           <ScrollToTop />
           <RouteSeo />
+
+          {/* First-mount loading animation. Shows on every full reload / first
+              visit, then fades out once React mounts the first route. Kept
+              OUTSIDE the Routes so it never interferes with SPA navigation. */}
+          <AppLoader />
 
           <div className="site-shell flex min-h-screen flex-col font-sans antialiased">
             <Navbar />

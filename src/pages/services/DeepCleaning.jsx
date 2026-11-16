@@ -25,7 +25,7 @@ import { useCart } from "../../context/CartContext";
 import RelatedServices from "../../components/RelatedServices";
 
 const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=1800&q=85";
+  "https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=1800&q=85";
 const RESIDENTIAL_IMAGE =
   "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80";
 const COMMERCIAL_IMAGE =
@@ -466,9 +466,17 @@ export default function DeepCleaning() {
       <section className="relative isolate flex min-h-svh items-center overflow-hidden bg-indigo-soft sm:min-h-[720px] lg:min-h-[760px]">
         <img
           src={HERO_IMAGE}
-          alt="Professional cleaner preparing a bright modern room"
+          alt="Professional deep-cleaning team restoring a bright Dubai home to a spotless finish"
           className="absolute inset-0 h-full w-full object-cover object-center"
           fetchPriority="high"
+          onError={(e) => {
+            // Graceful fallback: if the primary Unsplash image fails (rare
+            // network/host blocks), swap to a reliable alternate so the hero
+            // never renders with a broken/empty background.
+            const fallback =
+              "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=85";
+            if (e.currentTarget.src !== fallback) e.currentTarget.src = fallback;
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/65 via-ink/30 to-ink/10 sm:from-ink/55 sm:via-ink/20 sm:to-transparent" />
         {/* Mobile bottom scrim so the trust items stay legible over busy photo */}
