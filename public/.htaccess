@@ -1,6 +1,35 @@
+# ============================================================================
+# Byt Cleaning Services — Apache config (InfinityFree / cPanel hosting)
+# ============================================================================
+
+# --- SPA fallback: send all unknown routes to index.html (React Router) ---
 RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
+
+# --- Correct MIME types so browsers don't mis-parse static assets ---
+# site.webmanifest must be served as application/manifest+json, otherwise the
+# browser console shows "Manifest: Line: 1, column: 1, Syntax error."
+AddType application/manifest+json .webmanifest
+AddType application/json .json
+
+# --- Cache static assets aggressively (file names are hashed by Vite) ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType application/manifest+json "access plus 1 hour"
+</IfModule>
+
+# --- Security headers ---
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

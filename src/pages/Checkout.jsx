@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Lock, ArrowLeft, Trash2, MapPin, Calendar, Clock, User, Phone, Mail, Banknote, X, Loader2, ShieldCheck, ShoppingBag, AlertCircle } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import MapPicker from '../components/MapPicker';
 
 const API_URL = 'https://lucky-backend-woad.vercel.app/api/booking';
 const inputClass = 'w-full rounded-xl border border-[var(--line)] bg-white px-4 py-3.5 text-ink outline-none transition placeholder:text-ink-muted focus:border-indigo focus:ring-4 focus:ring-indigo-soft';
@@ -56,7 +57,24 @@ export default function Checkout() {
               <label className="text-sm font-semibold text-ink-soft">Phone Number *<div className="relative mt-2"><Phone className="absolute left-3.5 top-4 h-5 w-5 text-ink-muted" /><input className={`${inputClass} pl-11`} autoComplete="tel" inputMode="tel" type="tel" name="phone" value={bookingDetails.phone} onChange={handleChange} required placeholder="+971 55 373 0702" /></div></label>
               <label className="text-sm font-semibold text-ink-soft md:col-span-2">Email Address *<div className="relative mt-2"><Mail className="absolute left-3.5 top-4 h-5 w-5 text-ink-muted" /><input className={`${inputClass} pl-11`} autoComplete="email" type="email" name="email" value={bookingDetails.email} onChange={handleChange} required placeholder="john@example.com" /></div></label>
               <label className="text-sm font-semibold text-ink-soft md:col-span-2">Full Address *<textarea className={`${inputClass} mt-2 min-h-24 resize-y`} autoComplete="street-address" name="address" value={bookingDetails.address} onChange={handleChange} required placeholder="Building, apartment, street and area" /></label>
-              <label className="text-sm font-semibold text-ink-soft md:col-span-2">Google Maps Location Link <span className="font-normal text-ink-muted">(optional)</span><input className={`${inputClass} mt-2`} type="url" name="mapLink" value={bookingDetails.mapLink} onChange={handleChange} placeholder="https://maps.app.goo.gl/..." /></label>
+              <div className="md:col-span-2">
+                <label className="text-sm font-semibold text-ink-soft">
+                  Pick your exact location on the map{' '}
+                  <span className="font-normal text-ink-muted">
+                    (so the cleaning team finds you easily)
+                  </span>
+                </label>
+                <MapPicker
+                  value={bookingDetails.mapLink}
+                  onChange={(googleMapsUrl) =>
+                    setBookingDetails((current) => ({
+                      ...current,
+                      mapLink: googleMapsUrl,
+                    }))
+                  }
+                  addressHint={bookingDetails.address}
+                />
+              </div>
             </div></motion.section>
 
             <motion.section {...reveal} className="rounded-3xl border border-[var(--line)] bg-white p-5 shadow-sm sm:p-8"><div className="mb-6 flex items-center gap-3"><span className="grid h-11 w-11 place-items-center rounded-2xl bg-indigo-soft text-indigo-deep"><Calendar className="h-5 w-5" /></span><div><p className="text-sm font-semibold uppercase tracking-widest text-indigo-deep">Schedule</p><h2 className="text-2xl font-bold text-ink">Choose your preferred time</h2></div></div><div className="grid gap-5 md:grid-cols-2"><label className="text-sm font-semibold text-ink-soft">Preferred Date *<input className={`${inputClass} mt-2`} min={minimumDate} type="date" name="date" value={bookingDetails.date} onChange={handleChange} required /></label><label className="text-sm font-semibold text-ink-soft">Preferred Time *<input className={`${inputClass} mt-2`} type="time" name="time" value={bookingDetails.time} onChange={handleChange} required /></label></div></motion.section>
