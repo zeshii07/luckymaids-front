@@ -39,7 +39,7 @@ const services = [
     eyebrow: "Most requested",
     title: "Deep Cleaning",
     image:
-      "https://images.unsplash.com/photo-1582719478250-c28cae313db6?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=1400&q=85",
     imageAlt: "Cleaner deep-cleaning a bright kitchen surface",
     description:
       "A detailed top-to-bottom service for homes and workplaces that need more than routine upkeep.",

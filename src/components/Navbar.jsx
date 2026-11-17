@@ -16,6 +16,7 @@ import {
   X,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/byt-logo.jpeg";
 
 const services = [
   { name: "Residential Cleaning", description: "Reliable home cleaning for apartments and villas.", path: "/residential-cleaning-services-dubai", icon: Home },
@@ -151,8 +152,15 @@ export default function Navbar() {
       >
         <div className="container mx-auto flex items-center justify-between px-4 sm:px-6">
           <Link to="/" className="group flex min-w-0 items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo focus-visible:ring-offset-2" aria-label="Byt Cleaning Services home">
-            <span className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-indigo to-indigo-deep text-white shadow-lg shadow-indigo/20 transition-transform duration-300 group-hover:-translate-y-0.5">
-              <Gem className="h-6 w-6" aria-hidden="true" />
+            <span className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-indigo to-indigo-deep shadow-lg shadow-indigo/20 transition-transform duration-300 group-hover:-translate-y-0.5">
+              <img
+                src={logo}
+                alt="Byt Cleaning Services logo"
+                className="h-full w-full object-cover"
+                width="44"
+                height="44"
+                loading="eager"
+              />
             </span>
             <span className="min-w-0 leading-tight">
               <span className="block whitespace-nowrap font-display text-lg font-bold text-ink sm:text-xl">Byt Cleaning</span>
@@ -273,7 +281,7 @@ export default function Navbar() {
             >
               <div className="flex items-center justify-between border-b border-[var(--line)] px-5 py-4">
                 <Link to="/" onClick={closeMobileMenu} className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo text-white"><Gem className="h-5 w-5" /></span>
+                  <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-indigo shadow-md shadow-indigo/20"><img src={logo} alt="" className="h-full w-full object-cover" width="40" height="40" /></span>
                   <span><span className="block font-display font-bold text-ink">Byt Cleaning</span><span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-indigo">Services</span></span>
                 </Link>
                 <button type="button" onClick={closeMobileMenu} className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--line)] text-ink-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo" aria-label="Close navigation menu"><X className="h-5 w-5" /></button>

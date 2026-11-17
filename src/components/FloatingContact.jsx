@@ -27,8 +27,11 @@ const STORAGE_KEY = "byt_floating_pos_v1";
 const BTN_OFFSET = 24; // px from viewport edge
 const BTN_SIZE = 60; // main button diameter
 
-const phoneNumber = "0553730702";
-const whatsappNumber = "0553730702";
+// UAE numbers in full international format (no leading 0, +971 prefix).
+//  - tel: links use +971553730702
+//  - wa.me links use 971553730702 (wa.me requires digits only, no "+")
+const phoneNumber = "+971553730702";
+const whatsappNumber = "971553730702";
 const email = "bytalhryacleaning@gmail.com";
 
 function loadStoredPos() {
@@ -116,7 +119,11 @@ export default function FloatingContact() {
     if (!st.dragging) return;
     const dx = e.clientX - st.startX;
     const dy = e.clientY - st.startY;
-    if (!st.moved && Math.hypot(dx, dy) > 6) st.moved = true;
+    // Higher threshold so an ordinary mouse click (which can jitter a few px
+    // between pointerdown and pointerup on large/desktop screens) is NOT
+    // misclassified as a drag — the previous 6px threshold swallowed real
+    // clicks on desktop, making the button feel unresponsive.
+    if (!st.moved && Math.hypot(dx, dy) > 10) st.moved = true;
     if (!st.moved) return;
     const nx = Math.min(
       Math.max(BTN_OFFSET, st.originX + dx),
@@ -156,7 +163,7 @@ export default function FloatingContact() {
 
   const actions = [
     {
-      href: `tel:+${phoneNumber}`,
+      href: `tel:${phoneNumber}`,
       title: "Call us",
       label: "Call",
       icon: Phone,
@@ -237,7 +244,7 @@ export default function FloatingContact() {
         transition={{ type: "spring", stiffness: 260, damping: 18, delay: 0.2 }}
         whileHover={{ scale: 1.06 }}
         whileTap={{ scale: 0.94 }}
-        className="relative grid h-[60px] w-[60px] cursor-grab touch-none place-items-center rounded-full bg-gradient-to-br from-violet to-indigo-deep text-white shadow-2xl shadow-violet/40 ring-1 ring-white/30 active:cursor-grabbing"
+        className="relative grid h-[60px] w-[60px] cursor-grab touch-none place-items-center rounded-full bg-coral text-white shadow-2xl shadow-coral/50 ring-4 ring-white active:cursor-grabbing"
       >
         {/* Pulsing rings when closed */}
         {!open && !reduceMotion && (

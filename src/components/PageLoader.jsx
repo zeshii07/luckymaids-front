@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { Gem, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import logo from "../assets/byt-logo.jpeg";
 
 export default function PageLoader({
   message = "Preparing your page",
@@ -35,11 +36,17 @@ export default function PageLoader({
           )}
 
           <motion.div
-            className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-indigo to-indigo-deep text-white shadow-xl shadow-indigo/25"
+            className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-indigo to-indigo-deep shadow-xl shadow-indigo/25 ring-2 ring-white/40"
             animate={reducedMotion ? undefined : { y: [0, -5, 0], rotate: [0, 2, -2, 0] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
           >
-            <Gem className="h-8 w-8" aria-hidden="true" />
+            <img
+              src={logo}
+              alt="Byt Cleaning Services logo"
+              className="h-full w-full object-cover"
+              width="64"
+              height="64"
+            />
 
             {!reducedMotion && (
               <motion.span

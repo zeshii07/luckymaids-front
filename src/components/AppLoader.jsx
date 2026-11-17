@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Gem, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import logo from "../assets/byt-logo.jpeg";
 
 /**
  * AppLoader — full-screen initial loading animation shown on first app mount.
@@ -111,7 +112,7 @@ export default function AppLoader({ minVisibleMs = 600 }) {
               )}
 
               <motion.div
-                className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-violet to-indigo-deep text-white shadow-xl shadow-violet/30"
+                className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-violet to-indigo-deep shadow-xl shadow-violet/30 ring-2 ring-white/40"
                 animate={
                   reduceMotion
                     ? undefined
@@ -119,7 +120,13 @@ export default function AppLoader({ minVisibleMs = 600 }) {
                 }
                 transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
               >
-                <Gem className="h-8 w-8" aria-hidden="true" />
+                <img
+                  src={logo}
+                  alt="Byt Cleaning Services logo"
+                  className="h-full w-full object-cover"
+                  width="64"
+                  height="64"
+                />
 
                 {!reduceMotion && (
                   <motion.span
